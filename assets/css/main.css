@@ -1017,82 +1017,20 @@ h3 {
   box-shadow: 0 18px 50px rgba(7, 25, 38, 0.14);
 }
 
-.location-map-preview::before,
-.location-map-preview::after {
+.location-map-preview img {
   position: absolute;
-  content: "";
   inset: 0;
-}
-
-.location-map-preview::before {
-  background:
-    linear-gradient(115deg, transparent 0 18%, rgba(7, 25, 38, 0.12) 18% 18.5%, transparent 18.5% 100%),
-    linear-gradient(35deg, transparent 0 34%, rgba(7, 25, 38, 0.1) 34% 34.5%, transparent 34.5% 100%),
-    linear-gradient(150deg, transparent 0 58%, rgba(7, 25, 38, 0.1) 58% 58.5%, transparent 58.5% 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .location-map-preview::after {
-  background: radial-gradient(circle at 58% 46%, rgba(255, 255, 255, 0.8), transparent 0.6%, transparent 100%);
-  opacity: 0.9;
-}
-
-.map-grid-line {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(7, 25, 38, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(7, 25, 38, 0.08) 1px, transparent 1px);
-  background-size: 72px 72px;
-}
-
-.map-grid-line-2 {
-  transform: rotate(-7deg) scale(1.08);
-  opacity: 0.45;
-}
-
-.map-route-line {
-  position: absolute;
-  left: 12%;
-  right: 18%;
-  top: 57%;
-  height: 7px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #ff6b2b, #e5b96f);
-  transform: rotate(-11deg);
-  box-shadow: 0 8px 18px rgba(255, 107, 43, 0.28);
-}
-
-.map-water {
-  position: absolute;
-  right: -10%;
-  bottom: -26%;
-  width: 62%;
-  height: 72%;
-  border-radius: 48% 52% 0 0;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.16), transparent 40%),
-    #5eb5c4;
-}
-
-.map-pin {
-  position: absolute;
-  left: 56%;
-  top: 42%;
-  width: 34px;
-  height: 34px;
-  border: 7px solid var(--white);
-  border-radius: 50% 50% 50% 0;
-  background: var(--crab);
-  transform: rotate(-45deg);
-  box-shadow: 0 10px 24px rgba(6, 24, 39, 0.3);
-}
-
-.map-pin::after {
-  position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  background: var(--white);
+  background: linear-gradient(180deg, transparent 50%, rgba(5, 13, 20, 0.12));
   content: "";
+  pointer-events: none;
 }
 
 .map-card {

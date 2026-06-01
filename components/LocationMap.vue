@@ -9,11 +9,13 @@
       </div>
 
       <a class="location-map-preview" :href="business.twoGisHref" target="_blank" rel="noopener" aria-label="Открыть точку сбора Антур в 2GIS">
-        <span class="map-grid-line map-grid-line-1" aria-hidden="true"></span>
-        <span class="map-grid-line map-grid-line-2" aria-hidden="true"></span>
-        <span class="map-route-line" aria-hidden="true"></span>
-        <span class="map-water" aria-hidden="true"></span>
-        <span class="map-pin" aria-hidden="true"></span>
+        <img
+          :src="business.mapPreviewSrc"
+          width="880"
+          height="440"
+          loading="lazy"
+          alt="Карта Петропавловска-Камчатского с точкой сбора Антур"
+        >
         <span class="map-card">
           <span>2GIS</span>
           <strong>Точка сбора Антур</strong>

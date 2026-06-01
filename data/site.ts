@@ -5,6 +5,8 @@ export const business = {
   phone: '+7 (914) 025-39-72',
   phoneHref: 'tel:+79140253972',
   twoGisHref: 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561',
+  mapPreviewSrc:
+    'https://static.maps.2gis.com/1.0?s=880x440&c=53.04,158.65&z=10&pt=53.04,158.65~c:oe~s:l',
   messengerText: 'Здравствуйте! Хочу уточнить морскую прогулку на Камчатке.',
   maxHref: 'https://max.ru/',
   maxLinkNote:
