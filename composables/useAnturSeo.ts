@@ -13,7 +13,7 @@ export function useAnturSeo(input: SeoInput) {
   const assetPath = useAssetPath()
   const path = input.path || '/'
   const url = new URL(assetPath(path), siteUrl).toString()
-  const image = new URL(assetPath(input.image || '/images/og-image.jpg'), siteUrl).toString()
+  const image = new URL(assetPath(input.image || '/images/og-social-preview.png'), siteUrl).toString()
 
   useSeoMeta({
     title: input.title,

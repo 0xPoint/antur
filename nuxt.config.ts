@@ -44,10 +44,11 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/', ...routeOffers.map((offer) => `/routes/${offer.slug}`)]
+      routes: ['/', '/gallery', '/robots.txt', ...routeOffers.map((offer) => `/routes/${offer.slug}`)]
     }
   },
   sitemap: {
-    sources: ['/api/__sitemap__/urls']
+    sources: ['/api/__sitemap__/urls'],
+    excludeAppSources: true
   }
 })

@@ -8,33 +8,22 @@
         <a class="card-link dark-link" :href="business.twoGisHref" target="_blank" rel="noopener">Открыть в 2GIS</a>
       </div>
 
-      <div class="location-map-frame">
-        <iframe
-          title="Карта 2GIS с точкой сбора Антур"
-          :src="twoGisWidgetSrc"
-          width="100%"
-          height="440"
-          loading="lazy"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade"
-        />
-      </div>
+      <a class="location-map-preview" :href="business.twoGisHref" target="_blank" rel="noopener" aria-label="Открыть точку сбора Антур в 2GIS">
+        <span class="map-grid-line map-grid-line-1" aria-hidden="true"></span>
+        <span class="map-grid-line map-grid-line-2" aria-hidden="true"></span>
+        <span class="map-route-line" aria-hidden="true"></span>
+        <span class="map-water" aria-hidden="true"></span>
+        <span class="map-pin" aria-hidden="true"></span>
+        <span class="map-card">
+          <span>2GIS</span>
+          <strong>Точка сбора Антур</strong>
+          <small>Петропавловск-Камчатский</small>
+        </span>
+      </a>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
 import { business } from '~/data/site'
-
-const twoGisWidgetSrc = `https://widgets.2gis.com/widget?type=firmsonmap&options=${encodeURIComponent(JSON.stringify({
-  pos: {
-    lat: 53.0249,
-    lon: 158.6483,
-    zoom: 16
-  },
-  opt: {
-    city: 'p_kamchatskiy'
-  },
-  org: '70000001114347561'
-}))}`
 </script>

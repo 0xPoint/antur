@@ -9,6 +9,11 @@
       <p class="eyebrow">Петропавловск-Камчатский</p>
       <h1 id="hero-title">Морские прогулки и глубоководная рыбалка на Камчатке</h1>
       <p class="hero-lead">Выходы в Тихий океан на катере: рыбалка, крабовое сафари, Бухта Русская, остров Старичков и спокойный морской день с экипажем, который знает акваторию.</p>
+      <div class="hero-cta">
+        <ContactButton class="hero-contact" label="Забронировать выход" context="Бронирование из первого экрана" />
+        <NuxtLink class="btn btn-hero-secondary" to="/#routes">Смотреть маршруты</NuxtLink>
+        <span class="hero-cta-note">Ответим по датам, погоде и формату поездки</span>
+      </div>
     </div>
   </section>
 </template>

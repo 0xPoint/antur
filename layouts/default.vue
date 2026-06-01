@@ -17,7 +17,7 @@
         <NuxtLink to="/#booking">Бронь</NuxtLink>
       </nav>
 
-      <ContactButton class="header-contact" label="Связаться" variant="ghost" context="Вопрос с сайта" />
+      <ContactButton class="header-contact" label="Забронировать" context="Вопрос с сайта" />
     </header>
 
     <main id="main">
