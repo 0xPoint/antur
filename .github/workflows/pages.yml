@@ -39,7 +39,7 @@ jobs:
       - name: Generate static site
         run: pnpm generate
         env:
-          NUXT_PUBLIC_SITE_URL: https://0xpoint.github.io/antur
+          NUXT_PUBLIC_SITE_URL: https://0xpoint.github.io
           NUXT_APP_BASE_URL: /antur/
 
       - name: Configure Pages

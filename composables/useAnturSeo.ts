@@ -10,9 +10,10 @@ interface SeoInput {
 export function useAnturSeo(input: SeoInput) {
   const config = useRuntimeConfig()
   const siteUrl = config.public.siteUrl as string
+  const assetPath = useAssetPath()
   const path = input.path || '/'
-  const url = new URL(path, siteUrl).toString()
-  const image = new URL(input.image || '/images/og-image.jpg', siteUrl).toString()
+  const url = new URL(assetPath(path), siteUrl).toString()
+  const image = new URL(assetPath(input.image || '/images/og-image.jpg'), siteUrl).toString()
 
   useSeoMeta({
     title: input.title,
@@ -34,6 +35,7 @@ export function useAnturSeo(input: SeoInput) {
 export function useBusinessSchema() {
   const config = useRuntimeConfig()
   const siteUrl = config.public.siteUrl as string
+  const assetPath = useAssetPath()
 
   useHead({
     script: [
@@ -45,7 +47,7 @@ export function useBusinessSchema() {
           name: business.brand,
           legalName: business.legalName,
           telephone: '+79140253972',
-          url: siteUrl,
+          url: new URL(assetPath('/'), siteUrl).toString(),
           areaServed: ['Камчатка', 'Петропавловск-Камчатский', 'Авачинская бухта'],
           address: {
             '@type': 'PostalAddress',

@@ -1,8 +1,8 @@
 <template>
   <section class="hero" aria-labelledby="hero-title">
     <picture class="hero-media">
-      <source srcset="/images/hero-orca-breach-mobile.jpg" media="(max-width: 680px)">
-      <img src="/images/hero-orca-breach.jpg" width="1920" height="1276" alt="Касатки выпрыгивают из воды">
+      <source :srcset="assetPath('/images/hero-orca-breach-mobile.jpg')" media="(max-width: 680px)">
+      <img :src="assetPath('/images/hero-orca-breach.jpg')" width="1920" height="1276" alt="Касатки выпрыгивают из воды">
     </picture>
     <div class="hero-overlay" />
     <div class="container hero-content">
@@ -12,3 +12,7 @@
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const assetPath = useAssetPath()
+</script>

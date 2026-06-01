@@ -16,11 +16,11 @@
 
           <div class="contact-options" aria-label="Быстрые варианты связи">
             <a class="contact-option" :href="business.maxHref" target="_blank" rel="noopener">
-              <img src="/images/max-logo.svg" width="28" height="28" alt="" aria-hidden="true">
+              <img :src="assetPath('/images/max-logo.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>MAX</span>
             </a>
             <a class="contact-option" :href="business.whatsappHref" target="_blank" rel="noopener">
-              <img src="/images/whatsapp-glyph.svg" width="28" height="28" alt="" aria-hidden="true">
+              <img :src="assetPath('/images/whatsapp-glyph.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>WhatsApp</span>
             </a>
             <a class="contact-option" :href="business.phoneHref">
@@ -58,6 +58,7 @@
 <script setup lang="ts">
 import { business } from '~/data/site'
 
+const assetPath = useAssetPath()
 const props = withDefaults(defineProps<{
   label?: string
   variant?: 'primary' | 'ghost' | 'dark'

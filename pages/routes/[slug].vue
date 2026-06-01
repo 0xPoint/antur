@@ -1,7 +1,7 @@
 <template>
   <article v-if="offer">
     <section class="route-hero">
-      <img :src="heroImage" width="1600" height="900" :alt="heroImageAlt">
+      <img :src="assetPath(heroImage)" width="1600" height="900" :alt="heroImageAlt">
       <div class="route-hero-overlay" />
       <div class="container route-hero-content">
         <p class="eyebrow">{{ offer.kicker }}</p>
@@ -66,6 +66,7 @@ if (!offer) {
 
 const heroImage = offer.pageImage || offer.image
 const heroImageAlt = offer.pageImageAlt || offer.imageAlt
+const assetPath = useAssetPath()
 
 useAnturSeo({
   title: `${offer.title} на Камчатке | Антур`,

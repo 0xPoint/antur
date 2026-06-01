@@ -4,7 +4,7 @@
 
     <header class="site-header" aria-label="Основная навигация">
       <NuxtLink class="brand" to="/" aria-label="Антур, на главную">
-        <img class="brand-logo" src="/images/antur-logo-mark.png" width="82" height="62" alt="" aria-hidden="true">
+        <img class="brand-logo" :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
         <span>
           <strong class="brand-word">{{ business.brand }}</strong>
           <small>sea tours kamchatka</small>
@@ -30,7 +30,7 @@
       <div class="container footer-grid">
         <div>
           <NuxtLink class="footer-brand" to="/">
-            <img src="/images/antur-logo-mark.png" width="82" height="62" alt="" aria-hidden="true">
+            <img :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
             <span>{{ business.brand }}</span>
           </NuxtLink>
           <p>{{ business.legalName }}</p>
@@ -39,10 +39,10 @@
           <div class="footer-contact-row">
             <a class="footer-phone" :href="business.phoneHref">{{ business.phone }}</a>
             <a class="messenger-icon" :href="business.whatsappHref" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
-              <img src="/images/whatsapp-glyph.svg" width="24" height="24" alt="" aria-hidden="true">
+              <img :src="assetPath('/images/whatsapp-glyph.svg')" width="24" height="24" alt="" aria-hidden="true">
             </a>
             <a class="messenger-icon messenger-icon-max" :href="business.maxHref" target="_blank" rel="noopener" aria-label="Написать в MAX">
-              <img src="/images/max-logo.svg" width="24" height="24" alt="" aria-hidden="true">
+              <img :src="assetPath('/images/max-logo.svg')" width="24" height="24" alt="" aria-hidden="true">
             </a>
           </div>
         </address>
@@ -57,4 +57,6 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
+
+const assetPath = useAssetPath()
 </script>
