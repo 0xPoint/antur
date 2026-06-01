@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://antur-kamchatka.ru/sitemap.xml
