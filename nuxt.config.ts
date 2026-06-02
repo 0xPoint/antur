@@ -26,7 +26,8 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: withAppBase('/favicon.ico') },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: withAppBase('/favicon-32x32.png') },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: withAppBase('/apple-touch-icon.png') }
+        { rel: 'apple-touch-icon', sizes: '180x180', href: withAppBase('/apple-touch-icon.png') },
+        { rel: 'alternate', type: 'text/plain', title: 'LLMs.txt', href: withAppBase('/llms.txt') }
       ]
     }
   },

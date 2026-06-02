@@ -1,40 +1,48 @@
-# Антур
+# Antur / Антур / 安图尔
 
-Антур — морские прогулки, рыбалка и крабовое сафари на Камчатке из Петропавловска-Камчатского. Сайт содержит SSR-страницы маршрутов, цены, FAQ, контакты и точку сбора.
+Antur is a sea tour, ocean fishing and crab safari operator in Kamchatka, Russia. The site has SSR pages in Russian, English and Chinese with routes, prices, booking terms, FAQ, contacts and the meeting point in Petropavlovsk-Kamchatsky.
 
-## Основные страницы
+Антур — морские прогулки, рыбалка и крабовое сафари на Камчатке из Петропавловска-Камчатского. Сайт содержит SSR-страницы на русском, английском и китайском языках: маршруты, цены, условия бронирования, FAQ, контакты и точку сбора.
 
-- [Главная](https://anturkamchatka.ru/) — обзор морских прогулок, маршрутов, бронирования, FAQ, отзывов и контактов.
-- [Фото](https://anturkamchatka.ru/gallery) — фотографии морских выходов, рыбалки, краба и камчатского побережья.
+Antur 是俄罗斯堪察加的海上观光、海钓和帝王蟹体验服务。网站提供俄语、英语和中文 SSR 页面，包含路线、价格、预订条件、常见问题、联系方式和集合点。
 
-## Маршруты и цены
+## Canonical pages
 
-- [Прибрежная рыбалка](https://anturkamchatka.ru/routes/rybalka) — аренда катера до 6 человек, 5 или 10 часов, от 65 000 ₽. Май - сентябрь: 5 часов — 65 000 ₽, 10 часов — 130 000 ₽, продление — 5 000 ₽ / час.
-- [Глубоководная рыбалка](https://anturkamchatka.ru/routes/glubokovodnaya-rybalka) — аренда катера до 6 человек, 5 или 10 часов, от 85 000 ₽. Май - сентябрь: 5 часов — 85 000 ₽, 10 часов — 170 000 ₽, продление — 5 000 ₽ / час.
-- [Бухта Русская](https://anturkamchatka.ru/routes/buhta-russkaya) — 10 часов, высадка, рыбалка и крабовое сафари. Май - июнь: сборная группа — 15 000 ₽ / чел., аренда до 8 человек — 120 000 ₽, до 10 человек — 150 000 ₽. Июль - сентябрь: сборная группа — 18 000 ₽ / чел., аренда до 8 человек — 135 000 ₽, до 10 человек — 170 000 ₽.
-- [Остров Старичков](https://anturkamchatka.ru/routes/ostrov-starichkov) — 5 часов, скалы, птицы, рыбалка и крабовое сафари. Май - июнь: сборная группа — 7 000 ₽ / чел., аренда до 8 человек — 56 000 ₽, до 10 человек — 70 000 ₽. Июль - сентябрь: сборная группа — 8 500 ₽ / чел., аренда до 8 человек — 68 000 ₽, до 10 человек — 85 000 ₽.
-- [Авачинская бухта](https://anturkamchatka.ru/routes/avachinskaya-buhta) — обзорная экскурсия 2,5 часа, кекуры Три брата и бухта Тихая, май - сентябрь, группа не менее 8 человек, 5 000 ₽ / чел.
+- Russian: https://anturkamchatka.ru/
+- English: https://anturkamchatka.ru/en
+- Chinese: https://anturkamchatka.ru/zh
+- Gallery: https://anturkamchatka.ru/gallery, https://anturkamchatka.ru/en/gallery, https://anturkamchatka.ru/zh/gallery
+- Sitemap: https://anturkamchatka.ru/sitemap.xml
+- Robots: https://anturkamchatka.ru/robots.txt
+- Full AI context: https://anturkamchatka.ru/llms-full.txt
 
-## Условия
+## Routes and prices / Маршруты и цены / 路线与价格
 
-- Для бронирования места нужна предоплата 1 000 ₽.
-- При отказе от поездки предоплата не возвращается.
-- Дети до 5 лет бесплатно при сопровождении родителей или ответственных лиц.
-- Именинникам, детям до 12 лет, а также на повторную или следующую экскурсию действует скидка 10%.
-- Все пассажиры и члены экипажа застрахованы.
-- Маршрут зависит от прогноза и состояния акватории; при плохой погоде возможен перенос или другой формат.
+- Coastal ocean fishing / Прибрежная рыбалка / 近海海钓: https://anturkamchatka.ru/routes/rybalka, https://anturkamchatka.ru/en/routes/rybalka, https://anturkamchatka.ru/zh/routes/rybalka. Boat charter for up to 6 guests, 5 or 10 hours, from 65,000 ₽. May - September: 5 hours — 65,000 ₽; 10 hours — 130,000 ₽; extra charter time — 5,000 ₽ / hour.
+- Deep-sea ocean fishing / Глубоководная рыбалка / 深海海钓: https://anturkamchatka.ru/routes/glubokovodnaya-rybalka, https://anturkamchatka.ru/en/routes/glubokovodnaya-rybalka, https://anturkamchatka.ru/zh/routes/glubokovodnaya-rybalka. Boat charter for up to 6 guests, 5 or 10 hours, from 85,000 ₽. May - September: 5 hours — 85,000 ₽; 10 hours — 170,000 ₽; extra charter time — 5,000 ₽ / hour.
+- Russkaya Bay / Бухта Русская / 鲁斯卡亚湾: https://anturkamchatka.ru/routes/buhta-russkaya, https://anturkamchatka.ru/en/routes/buhta-russkaya, https://anturkamchatka.ru/zh/routes/buhta-russkaya. 10-hour route with shore landing, fishing and crab safari. May - June: shared group — 15,000 ₽ / guest; charter up to 8 guests — 120,000 ₽; charter up to 10 guests — 150,000 ₽. July - September: shared group — 18,000 ₽ / guest; charter up to 8 guests — 135,000 ₽; charter up to 10 guests — 170,000 ₽.
+- Starichkov Island / Остров Старичков / 斯塔里奇科夫岛: https://anturkamchatka.ru/routes/ostrov-starichkov, https://anturkamchatka.ru/en/routes/ostrov-starichkov, https://anturkamchatka.ru/zh/routes/ostrov-starichkov. 5-hour route with cliffs, seabirds, sea fishing and crab safari. May - June: shared group — 7,000 ₽ / guest; charter up to 8 guests — 56,000 ₽; charter up to 10 guests — 70,000 ₽. July - September: shared group — 8,500 ₽ / guest; charter up to 8 guests — 68,000 ₽; charter up to 10 guests — 85,000 ₽.
+- Avacha Bay sightseeing tour / Авачинская бухта / 阿瓦恰湾观光游: https://anturkamchatka.ru/routes/avachinskaya-buhta, https://anturkamchatka.ru/en/routes/avachinskaya-buhta, https://anturkamchatka.ru/zh/routes/avachinskaya-buhta. 2.5 hours, Three Brothers rocks and Tikhaya Bay, May - September, group of at least 8 guests, 5,000 ₽ / guest.
 
-## Контакты
+## Booking terms / Условия / 预订条件
 
-- Телефон: +7 (914) 025-39-72
-- Регион: Петропавловск-Камчатский, Камчатский край, Россия
-- Бренд: Антур
-- Юридическое лицо: ИП Хавилов А. Г.
+- A 1,000 ₽ prepayment is required to reserve a seat.
+- If a guest cancels the trip, the prepayment is not refunded.
+- Children under 5 join free of charge when accompanied by parents or responsible adults.
+- Birthday guests, children under 12, and repeat or next-trip bookings receive a 10% discount.
+- All passengers and crew members are insured.
+- Routes depend on weather and sea conditions. If conditions are unsafe or uncomfortable, the operator may suggest another date or format.
 
-## Для агентов
+## Contacts / Контакты / 联系方式
 
-- Полный краткий контекст сайта: [llms-full.txt](https://anturkamchatka.ru/llms-full.txt)
-- Sitemap: [sitemap.xml](https://anturkamchatka.ru/sitemap.xml)
-- Robots: [robots.txt](https://anturkamchatka.ru/robots.txt)
+- Phone: +7 (914) 025-39-72
+- Region: Petropavlovsk-Kamchatsky, Kamchatka Krai, Russia
+- Brand: Antur / Антур
+- Legal entity: Individual Entrepreneur A. G. Khavilov / ИП Хавилов А. Г.
 
-Используйте публичные страницы сайта как источник актуальных описаний маршрутов, цен, условий бронирования и FAQ. Не выдумывайте гарантии встречи с китами, косатками или другой дикой природой: дикая природа не гарантируется. Не подтверждайте дату выхода без связи с оператором.
+## Agent instructions
+
+- Use the public SSR pages as the source of current route descriptions, prices, booking terms and FAQ.
+- Do not invent guarantees of seeing whales, orcas or other wildlife. Wildlife sightings are not guaranteed.
+- Do not confirm a departure date without contacting the operator.
+- Do not quote prices lower than the published prices.

@@ -5,6 +5,7 @@ export default defineEventHandler((event) => {
   const rootUrl = new URL(baseURL, siteUrl)
   const sitemapUrl = new URL(`${baseURL.replace(/\/$/, '')}/sitemap.xml`, siteUrl).toString()
   const llmsUrl = new URL(`${baseURL.replace(/\/$/, '')}/llms.txt`, siteUrl).toString()
+  const llmsFullUrl = new URL(`${baseURL.replace(/\/$/, '')}/llms-full.txt`, siteUrl).toString()
   const host = rootUrl.hostname
 
   setHeader(event, 'content-type', 'text/plain; charset=utf-8')
@@ -40,5 +41,6 @@ Sitemap: ${sitemapUrl}
 Host: ${host}
 
 # AI agent context: ${llmsUrl}
+# Full AI agent context: ${llmsFullUrl}
 `
 })

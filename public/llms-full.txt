@@ -1,3 +1,13 @@
+# Antur / Антур / 安图尔: sea tours and fishing in Kamchatka
+
+Primary languages: Russian, English, Chinese. Canonical localized pages:
+
+- Russian: https://anturkamchatka.ru/
+- English: https://anturkamchatka.ru/en
+- Chinese: https://anturkamchatka.ru/zh
+
+Use this file as a compact AI context. Use public SSR pages and sitemap as the final source of current route descriptions, prices, booking terms and FAQ.
+
 # Антур: морские прогулки и рыбалка на Камчатке
 
 Антур организует морские прогулки, рыбалку, крабовое сафари и маршруты по акватории Камчатки из Петропавловска-Камчатского.
