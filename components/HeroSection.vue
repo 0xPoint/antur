@@ -21,18 +21,18 @@
         loading="eager"
         fetchpriority="high"
         decoding="async"
-        alt="Касатки выпрыгивают из воды"
+        :alt="text.hero.imageAlt"
       >
     </picture>
     <div class="hero-overlay" />
     <div class="container hero-content">
-      <p class="eyebrow">Петропавловск-Камчатский</p>
-      <h1 id="hero-title">Морские прогулки и глубоководная рыбалка на Камчатке</h1>
-      <p class="hero-lead">Выходы в Тихий океан на катере: рыбалка, крабовое сафари, Бухта Русская, остров Старичков и спокойный морской день с экипажем, который знает акваторию.</p>
+      <p class="eyebrow">{{ text.hero.location }}</p>
+      <h1 id="hero-title">{{ text.hero.title }}</h1>
+      <p class="hero-lead">{{ text.hero.lead }}</p>
       <div class="hero-cta">
-        <ContactButton class="hero-contact" label="Забронировать выход" context="Бронирование из первого экрана" />
-        <NuxtLink class="btn btn-hero-secondary" to="/#routes">Смотреть маршруты</NuxtLink>
-        <span class="hero-cta-note">Ответим по датам, погоде и формату поездки</span>
+        <ContactButton class="hero-contact" :label="text.contact.bookTrip" :context="text.hero.context" />
+        <NuxtLink class="btn btn-hero-secondary" :to="localePath('/#routes')">{{ text.hero.routes }}</NuxtLink>
+        <span class="hero-cta-note">{{ text.hero.note }}</span>
       </div>
     </div>
   </section>
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 const { assetPath, webpSrcset } = useImageSources()
+const { localePath, text } = useLocaleContent()
 
 useHead({
   link: [

@@ -7,14 +7,14 @@
     <Teleport to="body">
       <div v-if="isOpen" class="contact-modal" role="dialog" aria-modal="true" :aria-labelledby="modalTitleId">
         <div class="contact-dialog">
-          <button class="contact-close" type="button" aria-label="Закрыть окно связи" @click="closeModal">×</button>
+          <button class="contact-close" type="button" :aria-label="text.contact.close" @click="closeModal">×</button>
           <div>
-            <p class="eyebrow">Связь</p>
-            <h2 :id="modalTitleId">Как удобнее связаться?</h2>
-            <p class="contact-lead">Напишите в мессенджер или позвоните. Подскажем свободные даты, маршрут и условия выхода.</p>
+            <p class="eyebrow">{{ text.contact.eyebrow }}</p>
+            <h2 :id="modalTitleId">{{ text.contact.title }}</h2>
+            <p class="contact-lead">{{ text.contact.lead }}</p>
           </div>
 
-          <div class="contact-options" aria-label="Быстрые варианты связи">
+          <div class="contact-options" :aria-label="text.contact.options">
             <a class="contact-option" :href="business.maxHref" target="_blank" rel="noopener">
               <img :src="assetPath('/images/max-logo.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>MAX</span>
@@ -25,7 +25,7 @@
             </a>
             <a class="contact-option" :href="business.phoneHref">
               <span class="phone-icon" aria-hidden="true">☎</span>
-              <span>Позвонить</span>
+              <span>{{ text.contact.call }}</span>
             </a>
           </div>
         </div>
@@ -38,12 +38,13 @@
 import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
+const { text } = useLocaleContent()
 const props = withDefaults(defineProps<{
   label?: string
   variant?: 'primary' | 'ghost' | 'dark'
   context?: string
 }>(), {
-  label: 'Связаться',
+  label: undefined,
   variant: 'primary',
   context: 'Морская прогулка'
 })
@@ -56,6 +57,7 @@ const buttonClass = computed(() => ({
   'btn-ghost': props.variant === 'ghost',
   'btn-dark': props.variant === 'dark'
 }))
+const label = computed(() => props.label || text.value.contact.cta)
 
 const openModal = () => {
   isOpen.value = true

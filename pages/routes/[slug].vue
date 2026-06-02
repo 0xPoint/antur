@@ -17,7 +17,7 @@
         <h1>{{ offer.title }}</h1>
         <p>{{ offer.description }}</p>
         <div class="hero-actions">
-          <ContactButton label="Уточнить дату" :context="offer.title" />
+          <ContactButton :label="text.route.date" :context="offer.title" />
         </div>
       </div>
     </section>
@@ -25,15 +25,15 @@
     <section class="section">
       <div class="container route-detail-grid">
         <div>
-          <p class="eyebrow">Программа</p>
-          <h2>Что входит</h2>
+          <p class="eyebrow">{{ text.route.program }}</p>
+          <h2>{{ text.route.includes }}</h2>
           <div class="route-facts">
             <div>
-              <span>Длительность</span>
+              <span>{{ text.route.duration }}</span>
               <strong>{{ offer.duration }}</strong>
             </div>
             <div v-if="offer.price">
-              <span>Стоимость</span>
+              <span>{{ text.route.price }}</span>
               <strong>{{ offer.price }}</strong>
             </div>
           </div>
@@ -49,8 +49,8 @@
           </ul>
 
           <div v-if="offer.priceOptions?.length" class="price-options">
-            <p class="eyebrow">Актуальный прайс</p>
-            <h2>Цены по сезону и формату</h2>
+            <p class="eyebrow">{{ text.route.currentPrice }}</p>
+            <h2>{{ text.route.seasonalPrice }}</h2>
             <div class="price-table">
               <div v-for="option in offer.priceOptions" :key="`${option.season}-${option.format}`" class="price-row">
                 <span>{{ option.season }}</span>
@@ -70,18 +70,21 @@
 </template>
 
 <script setup lang="ts">
-import { bookingTerms, business } from '~/data/site'
-import { routeOffers } from '~/data/routes'
+definePageMeta({
+  alias: ['/en/routes/:slug', '/zh/routes/:slug']
+})
 
 const route = useRoute()
-const offer = routeOffers.find((item) => item.slug === route.params.slug)
+const { text, businessText, routeOffers, bookingTerms } = useLocaleContent()
+const offer = computed(() => routeOffers.value.find((item) => item.slug === route.params.slug))
 
-if (!offer) {
-  throw createError({ statusCode: 404, statusMessage: 'Маршрут не найден' })
+if (!offer.value) {
+  throw createError({ statusCode: 404, statusMessage: text.value.route.missing })
 }
+const initialOffer = offer.value
 
-const heroImage = offer.pageImage || offer.image
-const heroImageAlt = offer.pageImageAlt || offer.imageAlt
+const heroImage = computed(() => offer.value?.pageImage || offer.value?.image || '')
+const heroImageAlt = computed(() => offer.value?.pageImageAlt || offer.value?.imageAlt || '')
 const highlightIconPaths = {
   users: [
     'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z',
@@ -130,23 +133,27 @@ const getHighlightIconPaths = (highlight: string) => {
     return highlightIconPaths.users
   }
 
-  if (normalized.includes('снасти') || normalized.includes('рыбал')) {
+  if (normalized.includes('guest') || normalized.includes('group') || normalized.includes('人') || normalized.includes('成团')) {
+    return highlightIconPaths.users
+  }
+
+  if (normalized.includes('снасти') || normalized.includes('рыбал') || normalized.includes('fishing') || normalized.includes('tackle') || normalized.includes('钓') || normalized.includes('钓具')) {
     return highlightIconPaths.fishing
   }
 
-  if (normalized.includes('краб')) {
+  if (normalized.includes('краб') || normalized.includes('crab') || normalized.includes('蟹')) {
     return highlightIconPaths.crab
   }
 
-  if (normalized.includes('час')) {
+  if (normalized.includes('час') || normalized.includes('hour') || normalized.includes('小时')) {
     return highlightIconPaths.clock
   }
 
-  if (normalized.includes('май') || normalized.includes('сентябрь')) {
+  if (normalized.includes('май') || normalized.includes('сентябрь') || normalized.includes('may') || normalized.includes('september') || normalized.includes('月')) {
     return highlightIconPaths.calendar
   }
 
-  if (normalized.includes('бухт') || normalized.includes('остров') || normalized.includes('берег') || normalized.includes('кекур') || normalized.includes('маршрут')) {
+  if (normalized.includes('бухт') || normalized.includes('остров') || normalized.includes('берег') || normalized.includes('кекур') || normalized.includes('маршрут') || normalized.includes('bay') || normalized.includes('island') || normalized.includes('shore') || normalized.includes('route') || normalized.includes('湾') || normalized.includes('岛') || normalized.includes('岸') || normalized.includes('路线')) {
     return highlightIconPaths.compass
   }
 
@@ -154,10 +161,10 @@ const getHighlightIconPaths = (highlight: string) => {
 }
 
 useAnturSeo({
-  title: `${offer.title} на Камчатке | Антур`,
-  description: offer.description,
-  path: `/routes/${offer.slug}`,
-  image: heroImage
+  title: `${initialOffer.title} ${text.value.route.seoSuffix}`,
+  description: initialOffer.description,
+  path: `/routes/${initialOffer.slug}`,
+  image: heroImage.value
 })
 useBusinessSchema()
 
@@ -168,15 +175,15 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'TouristTrip',
-        name: offer.title,
-        description: offer.description,
-        touristType: ['рыбалка', 'морская прогулка', 'Камчатка'],
+        name: initialOffer.title,
+        description: initialOffer.description,
+        touristType: text.value.route.touristTypes,
         provider: {
           '@type': 'TravelAgency',
-          name: business.brand,
+          name: businessText.value.brand,
           telephone: '+79140253972'
         },
-        itinerary: offer.highlights
+        itinerary: initialOffer.highlights
       })
     }
   ]

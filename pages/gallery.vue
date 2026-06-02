@@ -1,9 +1,9 @@
 <template>
   <section class="section page-top gallery" aria-labelledby="gallery-page-title">
     <div class="container">
-      <p class="eyebrow">Свежие фото</p>
-      <h1 id="gallery-page-title">Фото из морских выходов</h1>
-      <p class="page-lead">Сейчас галерея питается локальными данными. Для MVP здесь будет подключение к API свежих фото, модерация и генерация оптимизированных изображений.</p>
+      <p class="eyebrow">{{ text.gallery.eyebrow }}</p>
+      <h1 id="gallery-page-title">{{ text.gallery.title }}</h1>
+      <p class="page-lead">{{ text.gallery.lead }}</p>
       <div class="gallery-list">
         <article v-for="photo in tourPhotos" :key="photo.id" class="photo-card">
           <OptimizedImage
@@ -26,14 +26,18 @@
 </template>
 
 <script setup lang="ts">
-import { tourPhotos } from '~/data/social-proof'
+definePageMeta({
+  alias: ['/en/gallery', '/zh/gallery']
+})
+
+const { text, tourPhotos } = useLocaleContent()
 
 useAnturSeo({
-  title: 'Фото морских прогулок и рыбалки на Камчатке | Антур',
-  description: 'Свежие фото из морских прогулок, рыбалки и крабового сафари на Камчатке.',
+  title: text.value.gallery.seoTitle,
+  description: text.value.gallery.seoDescription,
   path: '/gallery'
 })
 
 const formatDate = (date: string) =>
-  new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date))
+  new Intl.DateTimeFormat(text.value.gallery.dateLocale, { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date))
 </script>

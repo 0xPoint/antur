@@ -1,4 +1,11 @@
-import { business, faq } from '~/data/site'
+import { faq } from '~/data/site'
+import {
+  faqByLocale,
+  getLocaleFromPath,
+  locales,
+  localizedBusiness,
+  localizePath
+} from '~/data/i18n'
 
 interface SeoInput {
   title: string
@@ -13,9 +20,19 @@ export function useAnturSeo(input: SeoInput) {
   const config = useRuntimeConfig()
   const siteUrl = config.public.siteUrl as string
   const assetPath = useAssetPath()
+  const route = useRoute()
+  const locale = getLocaleFromPath(route.path)
   const path = input.path || '/'
-  const url = new URL(assetPath(path), siteUrl).toString()
+  const localizedPath = localizePath(path, locale)
+  const url = new URL(assetPath(localizedPath), siteUrl).toString()
   const image = new URL(assetPath(input.image || '/images/og-image.png'), siteUrl).toString()
+  const localeMeta = locales.find((item) => item.code === locale) || locales[0]
+  const businessText = localizedBusiness[locale]
+  const alternateLinks = locales.map((item) => ({
+    rel: 'alternate',
+    hreflang: item.hreflang,
+    href: new URL(assetPath(localizePath(path, item.code)), siteUrl).toString()
+  }))
 
   useSeoMeta({
     title: input.title,
@@ -24,16 +41,22 @@ export function useAnturSeo(input: SeoInput) {
     ogTitle: input.title,
     ogDescription: input.description,
     ogUrl: url,
+    ogLocale: localeMeta.ogLocale,
     ogImage: image,
     ogImageWidth: input.imageWidth || (!input.image ? 1731 : undefined),
     ogImageHeight: input.imageHeight || (!input.image ? 909 : undefined),
-    ogSiteName: business.brand,
+    ogSiteName: businessText.brand,
     twitterCard: 'summary_large_image',
     twitterImage: image
   })
 
   useHead({
-    link: [{ rel: 'canonical', href: url }]
+    htmlAttrs: { lang: locale },
+    link: [
+      { rel: 'canonical', href: url },
+      ...alternateLinks,
+      { rel: 'alternate', hreflang: 'x-default', href: new URL(assetPath(localizePath(path, 'ru')), siteUrl).toString() }
+    ]
   })
 
   return { siteUrl, url, image }
@@ -43,6 +66,9 @@ export function useBusinessSchema() {
   const config = useRuntimeConfig()
   const siteUrl = config.public.siteUrl as string
   const assetPath = useAssetPath()
+  const route = useRoute()
+  const locale = getLocaleFromPath(route.path)
+  const businessText = localizedBusiness[locale]
 
   useHead({
     script: [
@@ -51,15 +77,19 @@ export function useBusinessSchema() {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'TravelAgency',
-          name: business.brand,
-          legalName: business.legalName,
+          name: businessText.brand,
+          legalName: businessText.legalName,
           telephone: '+79140253972',
-          url: new URL(assetPath('/'), siteUrl).toString(),
-          areaServed: ['Камчатка', 'Петропавловск-Камчатский', 'Авачинская бухта'],
+          url: new URL(assetPath(localizePath('/', locale)), siteUrl).toString(),
+          areaServed: locale === 'ru'
+            ? ['Камчатка', 'Петропавловск-Камчатский', 'Авачинская бухта']
+            : locale === 'zh'
+              ? ['堪察加', '彼得罗巴甫洛夫斯克-堪察加', '阿瓦恰湾']
+              : ['Kamchatka', 'Petropavlovsk-Kamchatsky', 'Avacha Bay'],
           address: {
             '@type': 'PostalAddress',
-            addressLocality: 'Петропавловск-Камчатский',
-            addressRegion: 'Камчатский край',
+            addressLocality: businessText.region,
+            addressRegion: locale === 'ru' ? 'Камчатский край' : locale === 'zh' ? '堪察加边疆区' : 'Kamchatka Krai',
             addressCountry: 'RU'
           }
         })
@@ -69,6 +99,10 @@ export function useBusinessSchema() {
 }
 
 export function useFaqSchema() {
+  const route = useRoute()
+  const locale = getLocaleFromPath(route.path)
+  const localizedFaq = faqByLocale[locale] || faq
+
   useHead({
     script: [
       {
@@ -76,7 +110,7 @@ export function useFaqSchema() {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
-          mainEntity: faq.map((item) => ({
+          mainEntity: localizedFaq.map((item) => ({
             '@type': 'Question',
             name: item.question,
             acceptedAnswer: {

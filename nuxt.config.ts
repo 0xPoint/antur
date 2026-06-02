@@ -21,7 +21,6 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       meta: [
         { name: 'theme-color', content: '#061827' },
-        { property: 'og:locale', content: 'ru_RU' },
         { property: 'og:type', content: 'website' }
       ],
       link: [
@@ -45,11 +44,26 @@ export default defineNuxtConfig({
   routeRules: {
     '/': { ssr: true },
     '/routes/**': { ssr: true },
+    '/en/**': { ssr: true },
+    '/zh/**': { ssr: true },
     '/api/**': { cors: true }
   },
   nitro: {
     prerender: {
-      routes: ['/', '/gallery', '/robots.txt', ...routeOffers.map((offer) => `/routes/${offer.slug}`)]
+      routes: [
+        '/',
+        '/en',
+        '/zh',
+        '/gallery',
+        '/en/gallery',
+        '/zh/gallery',
+        '/robots.txt',
+        ...routeOffers.flatMap((offer) => [
+          `/routes/${offer.slug}`,
+          `/en/routes/${offer.slug}`,
+          `/zh/routes/${offer.slug}`
+        ])
+      ]
     }
   },
   sitemap: {

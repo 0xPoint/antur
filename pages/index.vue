@@ -6,8 +6,8 @@
       <section id="routes" class="section routes" aria-labelledby="routes-title">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Маршруты и цены</p>
-            <h2 id="routes-title">Выберите формат выхода</h2>
+            <p class="eyebrow">{{ text.home.routesEyebrow }}</p>
+            <h2 id="routes-title">{{ text.home.routesTitle }}</h2>
           </div>
           <div class="route-grid">
             <RouteCard v-for="offer in homeRouteOffers" :key="offer.slug" :offer="offer" />
@@ -18,9 +18,9 @@
       <section class="section intro" aria-labelledby="intro-title">
         <div class="container intro-grid">
           <div>
-            <p class="eyebrow">Камчатка с воды</p>
-            <h2 id="intro-title">Море, вулканы и маршруты с характером</h2>
-            <p>Подберем формат под вашу компанию: короткая прогулка по бухте, рыбалка в океане, выход к острову Старичков или длинный день с Бухтой Русской, крабом и остановками на берегу.</p>
+            <p class="eyebrow">{{ text.home.introEyebrow }}</p>
+            <h2 id="intro-title">{{ text.home.introTitle }}</h2>
+            <p>{{ text.home.introText }}</p>
           </div>
           <figure class="section-photo intro-photo">
             <OptimizedImage
@@ -30,9 +30,9 @@
               sizes="(max-width: 820px) 92vw, 44vw"
               :widths="[480, 720, 960]"
               loading="lazy"
-              alt="Скалы Камчатки со стороны океана"
+              :alt="text.home.introAlt"
             />
-            <figcaption>Маршрут подтверждаем накануне выхода с учетом погоды и состояния акватории.</figcaption>
+            <figcaption>{{ text.home.introCaption }}</figcaption>
           </figure>
         </div>
       </section>
@@ -40,12 +40,12 @@
       <section v-if="showFreshPhotos" class="section gallery" aria-labelledby="gallery-title">
         <div class="container gallery-grid">
           <div class="gallery-copy">
-            <p class="eyebrow">Свежие фото</p>
-            <h2 id="gallery-title">Океан, краб, рыбалка и Камчатка в одном дне</h2>
-            <p>Фото вынесены в отдельный контентный слой. Сейчас они берутся из локальных данных, дальше этот слой можно заменить на CMS или storage/CDN без изменения верстки.</p>
-            <NuxtLink class="card-link dark-link" to="/gallery">Смотреть галерею</NuxtLink>
+            <p class="eyebrow">{{ text.home.galleryEyebrow }}</p>
+            <h2 id="gallery-title">{{ text.home.galleryTitle }}</h2>
+            <p>{{ text.home.galleryText }}</p>
+            <NuxtLink class="card-link dark-link" :to="localePath('/gallery')">{{ text.home.galleryLink }}</NuxtLink>
           </div>
-          <div class="photo-stack" aria-label="Фотографии тура">
+          <div class="photo-stack" :aria-label="text.home.galleryAria">
             <OptimizedImage
               v-for="photo in tourPhotos.slice(0, 2)"
               :key="photo.id"
@@ -64,9 +64,9 @@
       <section id="safety" class="section safety" aria-labelledby="safety-title">
         <div class="container safety-grid">
           <div class="safety-copy">
-          <p class="eyebrow">Почему спокойно</p>
-          <h2 id="safety-title">Маршрут ведет капитан, а не расписание</h2>
-          <p>Камчатское море быстро меняется, поэтому программа всегда сверяется с прогнозом, состоянием акватории и составом группы. Если условия требуют корректировки, обсуждаем это заранее.</p>
+          <p class="eyebrow">{{ text.home.safetyEyebrow }}</p>
+          <h2 id="safety-title">{{ text.home.safetyTitle }}</h2>
+          <p>{{ text.home.safetyText }}</p>
           </div>
           <div class="proof-grid">
             <div v-for="(item, index) in proofItems" :key="item.title" class="proof-item">
@@ -81,11 +81,11 @@
       <section id="booking" class="section booking" aria-labelledby="booking-title">
         <div class="container booking-panel">
           <div class="booking-copy">
-            <p class="eyebrow">Бронирование</p>
-            <h2 id="booking-title">Подберем дату и формат выхода</h2>
-            <p>Напишите или позвоните: уточним маршрут, сезонную цену, состав группы и прогноз. Для бронирования места нужна предоплата 1 000 ₽.</p>
+            <p class="eyebrow">{{ text.home.bookingEyebrow }}</p>
+            <h2 id="booking-title">{{ text.home.bookingTitle }}</h2>
+            <p>{{ text.home.bookingText }}</p>
             <div class="booking-actions">
-              <ContactButton label="Записаться" context="Бронирование морской прогулки" />
+              <ContactButton :label="text.home.bookingButton" :context="text.home.bookingContext" />
             </div>
           </div>
           <OptimizedImage
@@ -96,7 +96,7 @@
             sizes="(max-width: 760px) 82vw, 34vw"
             :widths="[480, 720, 960]"
             loading="lazy"
-            alt="Крабовая дегустация на борту"
+            :alt="text.home.bookingAlt"
           />
         </div>
       </section>
@@ -106,8 +106,8 @@
       <section id="faq" class="section faq" aria-labelledby="faq-title">
         <div class="container faq-grid">
           <div>
-            <p class="eyebrow">Часто задаваемые вопросы</p>
-            <h2 id="faq-title">Перед выходом в море</h2>
+            <p class="eyebrow">{{ text.home.faqEyebrow }}</p>
+            <h2 id="faq-title">{{ text.home.faqTitle }}</h2>
             <figure class="section-photo faq-photo">
               <OptimizedImage
                 src="/images/faq-preview.png"
@@ -116,12 +116,12 @@
                 sizes="(max-width: 820px) 92vw, 40vw"
                 :widths="[480, 720, 960]"
                 loading="lazy"
-                alt="Морские прогулки и глубоководная рыбалка на Камчатке"
+                :alt="text.home.faqAlt"
               />
             </figure>
           </div>
           <div class="faq-list">
-            <div v-for="(item, index) in faq" :key="item.question" class="faq-item">
+            <div v-for="(item, index) in faqItems" :key="item.question" class="faq-item">
               <button
                 class="faq-question"
                 type="button"
@@ -144,18 +144,18 @@
         <div class="container">
           <div class="reviews-head">
             <div class="section-heading">
-              <p class="eyebrow">Отзывы</p>
-              <h2 id="reviews-title">Отзывы гостей</h2>
+              <p class="eyebrow">{{ text.home.reviewsEyebrow }}</p>
+              <h2 id="reviews-title">{{ text.home.reviewsTitle }}</h2>
             </div>
           </div>
           <div class="reviews-layout">
             <div class="reviews-slider-shell">
-              <button class="slider-arrow slider-arrow-left" type="button" aria-label="Предыдущие отзывы" @click="scrollReview(-1)">‹</button>
+              <button class="slider-arrow slider-arrow-left" type="button" :aria-label="text.home.prevReviews" @click="scrollReview(-1)">‹</button>
               <div
                 ref="reviewsViewport"
                 class="reviews-slider"
                 :class="{ dragging: reviewDrag.active }"
-                aria-label="Отзывы гостей"
+                :aria-label="text.home.reviewsAria"
                 @pointerdown="startReviewDrag"
                 @pointermove="moveReviewDrag"
                 @pointerup="stopReviewDrag"
@@ -163,7 +163,7 @@
                 @pointerleave="stopReviewDrag"
               >
                 <article v-for="review in reviews" :key="review.id" class="review-slide">
-                  <div class="rating" :aria-label="`${review.rating} из 5`">{{ '★'.repeat(review.rating) }}</div>
+                  <div class="rating" :aria-label="text.home.ratingLabel(review.rating)">{{ '★'.repeat(review.rating) }}</div>
                   <p>{{ review.text }}</p>
                   <footer>
                     <strong>{{ review.name }}</strong>
@@ -171,7 +171,7 @@
                   </footer>
                 </article>
               </div>
-              <button class="slider-arrow slider-arrow-right" type="button" aria-label="Следующие отзывы" @click="scrollReview(1)">›</button>
+              <button class="slider-arrow slider-arrow-right" type="button" :aria-label="text.home.nextReviews" @click="scrollReview(1)">›</button>
             </div>
           </div>
         </div>
@@ -181,13 +181,15 @@
 </template>
 
 <script setup lang="ts">
-import { routeOffers } from '~/data/routes'
-import { business, faq } from '~/data/site'
-import { reviews, tourPhotos } from '~/data/social-proof'
+definePageMeta({
+  alias: ['/en', '/zh']
+})
+
+const { locale, text, routeOffers, faqItems, reviews, tourPhotos, localePath } = useLocaleContent()
 
 useAnturSeo({
-  title: 'Морские прогулки и рыбалка на Камчатке | Антур',
-  description: 'Морские прогулки, глубоководная рыбалка, Бухта Русская, остров Старичков и крабовое сафари из Петропавловска-Камчатского. Официальная деятельность, гости застрахованы.'
+  title: text.value.home.seoTitle,
+  description: text.value.home.seoDescription
 })
 useBusinessSchema()
 useFaqSchema()
@@ -200,11 +202,12 @@ const routeOrder = [
   'rybalka',
   'glubokovodnaya-rybalka'
 ]
-const homeRouteOffers = routeOrder
-  .flatMap((slug) => {
-    const offer = routeOffers.find((item) => item.slug === slug)
+const homeRouteOffers = computed(() =>
+  routeOrder.flatMap((slug) => {
+    const offer = routeOffers.value.find((item) => item.slug === slug)
     return offer ? [offer] : []
   })
+)
 const reviewsViewport = ref<HTMLElement | null>(null)
 const openFaqIndex = ref<number | null>(0)
 const reviewDrag = reactive({
@@ -274,22 +277,22 @@ const stopReviewDrag = (event: PointerEvent) => {
   }
 }
 
-const proofItems = [
+const proofItems = computed(() => [
   {
-    title: 'Лицензированная деятельность',
-    text: 'Работаем официально: ИП Хавилов А. Г.'
+    title: locale.value === 'en' ? 'Official operator' : locale.value === 'zh' ? '正规运营' : 'Лицензированная деятельность',
+    text: locale.value === 'en' ? 'We work officially: Individual Entrepreneur A. G. Khavilov.' : locale.value === 'zh' ? '正规经营：个体经营者 A. G. Khavilov。' : 'Работаем официально: ИП Хавилов А. Г.'
   },
   {
-    title: 'Гости застрахованы',
-    text: 'Все пассажиры и члены экипажа застрахованы.'
+    title: locale.value === 'en' ? 'Guests are insured' : locale.value === 'zh' ? '客人已投保' : 'Гости застрахованы',
+    text: locale.value === 'en' ? 'All passengers and crew members are insured.' : locale.value === 'zh' ? '所有乘客和船员均已投保。' : 'Все пассажиры и члены экипажа застрахованы.'
   },
   {
-    title: 'Маршрут по погоде',
-    text: 'Если условия меняются, заранее обсуждаем перенос или спокойную корректировку программы.'
+    title: locale.value === 'en' ? 'Weather-led route' : locale.value === 'zh' ? '路线按天气调整' : 'Маршрут по погоде',
+    text: locale.value === 'en' ? 'If conditions change, we discuss a transfer or calm adjustment of the program in advance.' : locale.value === 'zh' ? '如果条件变化，我们会提前沟通改期或平稳调整行程。' : 'Если условия меняются, заранее обсуждаем перенос или спокойную корректировку программы.'
   },
   {
-    title: 'Контакт напрямую',
-    text: 'Без посредников: быстро уточняем дату, формат, состав группы и детали выхода.'
+    title: locale.value === 'en' ? 'Direct contact' : locale.value === 'zh' ? '直接联系' : 'Контакт напрямую',
+    text: locale.value === 'en' ? 'No intermediaries: we quickly confirm the date, format, group size and trip details.' : locale.value === 'zh' ? '没有中间商：快速确认日期、形式、团队人数和出海细节。' : 'Без посредников: быстро уточняем дату, формат, состав группы и детали выхода.'
   }
-]
+])
 </script>
