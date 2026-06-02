@@ -34,7 +34,8 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body.menu-open {
+body.menu-open,
+body.modal-open {
   overflow: hidden;
 }
 
@@ -968,6 +969,7 @@ h3 {
 }
 
 .faq-photo img {
+  aspect-ratio: 1200 / 630;
   filter: saturate(0.95) brightness(0.9);
 }
 

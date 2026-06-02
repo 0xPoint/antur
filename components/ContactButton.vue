@@ -5,7 +5,7 @@
     </button>
 
     <Teleport to="body">
-      <div v-if="isOpen" class="contact-modal" role="dialog" aria-modal="true" :aria-labelledby="modalTitleId" @click.self="closeModal">
+      <div v-if="isOpen" class="contact-modal" role="dialog" aria-modal="true" :aria-labelledby="modalTitleId">
         <div class="contact-dialog">
           <button class="contact-close" type="button" aria-label="Закрыть окно связи" @click="closeModal">×</button>
           <div>
@@ -92,6 +92,31 @@ const openModal = () => {
 const closeModal = () => {
   isOpen.value = false
 }
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape' && isOpen.value) {
+    closeModal()
+  }
+}
+
+watch(isOpen, (open) => {
+  if (!import.meta.client) {
+    return
+  }
+
+  document.body.classList.toggle('modal-open', open)
+})
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKeydown)
+  if (import.meta.client) {
+    document.body.classList.remove('modal-open')
+  }
+})
 
 const submitLead = async () => {
   submitStatus.value = 'sending'

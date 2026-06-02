@@ -82,7 +82,7 @@
             <p class="eyebrow">Часто задаваемые вопросы</p>
             <h2 id="faq-title">Перед выходом в море</h2>
             <figure class="section-photo faq-photo">
-              <img :src="assetPath('/images/hero-kamchatka-boat.jpg')" width="1300" height="743" loading="lazy" alt="Катер на фоне вулканов Камчатки">
+              <img :src="assetPath('/images/og-social-preview.png')" width="1200" height="630" loading="lazy" alt="Морские прогулки и глубоководная рыбалка на Камчатке">
             </figure>
           </div>
           <div class="faq-list">
