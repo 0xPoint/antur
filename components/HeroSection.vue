@@ -18,6 +18,7 @@
         :src="assetPath('/images/hero-orca-breach.jpg')"
         width="1920"
         height="1276"
+        loading="eager"
         fetchpriority="high"
         decoding="async"
         alt="Касатки выпрыгивают из воды"
@@ -46,6 +47,8 @@ useHead({
       rel: 'preload',
       as: 'image',
       href: assetPath('/images/webp/hero-orca-breach-mobile-720.webp'),
+      imagesrcset: webpSrcset('/images/hero-orca-breach-mobile.jpg', [480, 720, 920]),
+      imagesizes: '100vw',
       media: '(max-width: 680px)',
       type: 'image/webp',
       fetchpriority: 'high'
@@ -54,6 +57,8 @@ useHead({
       rel: 'preload',
       as: 'image',
       href: assetPath('/images/webp/hero-orca-breach-1600.webp'),
+      imagesrcset: webpSrcset('/images/hero-orca-breach.jpg', [960, 1280, 1600, 1920]),
+      imagesizes: '100vw',
       media: '(min-width: 681px)',
       type: 'image/webp',
       fetchpriority: 'high'

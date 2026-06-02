@@ -5,7 +5,7 @@ const withAppBase = (path: string) => `${appBaseUrl}${path}`
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   experimental: {
     appManifest: false
   },
@@ -25,7 +25,6 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' }
       ],
       link: [
-        { rel: 'preconnect', href: 'https://wa.me' },
         { rel: 'icon', type: 'image/x-icon', href: withAppBase('/favicon.ico') },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: withAppBase('/favicon-32x32.png') },
         { rel: 'apple-touch-icon', sizes: '180x180', href: withAppBase('/apple-touch-icon.png') }
