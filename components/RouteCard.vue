@@ -1,6 +1,15 @@
 <template>
   <NuxtLink class="route-card" :class="{ 'route-card-featured': offer.featured, 'route-card-warm': offer.slug === 'avachinskaya-buhta' }" :to="`/routes/${offer.slug}`">
-    <img class="route-card-image" :src="assetPath(cardImage)" width="1080" height="720" loading="lazy" :alt="cardImageAlt">
+    <OptimizedImage
+      class="route-card-image"
+      :src="cardImage"
+      width="1080"
+      height="720"
+      sizes="(max-width: 680px) 92vw, (max-width: 1100px) 44vw, 31vw"
+      :widths="[480, 720, 960]"
+      loading="lazy"
+      :alt="cardImageAlt"
+    />
     <div class="route-copy">
       <p class="route-kicker">{{ offer.kicker }}</p>
       <h3>{{ offer.title }}</h3>
@@ -17,7 +26,6 @@ const props = defineProps<{
   offer: RouteOffer
 }>()
 
-const assetPath = useAssetPath()
 const cardImage = computed(() => props.offer.pageImage || props.offer.image)
 const cardImageAlt = computed(() => props.offer.pageImageAlt || props.offer.imageAlt)
 </script>

@@ -6,7 +6,15 @@
       <p class="page-lead">Сейчас галерея питается локальными данными. Для MVP здесь будет подключение к API свежих фото, модерация и генерация оптимизированных изображений.</p>
       <div class="gallery-list">
         <article v-for="photo in tourPhotos" :key="photo.id" class="photo-card">
-          <img :src="assetPath(photo.src)" width="900" height="900" loading="lazy" :alt="photo.alt">
+          <OptimizedImage
+            :src="photo.src"
+            width="900"
+            height="900"
+            sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 31vw"
+            :widths="[480, 720, 960]"
+            loading="lazy"
+            :alt="photo.alt"
+          />
           <div>
             <strong>{{ photo.route }}</strong>
             <time :datetime="photo.date">{{ formatDate(photo.date) }}</time>
@@ -19,8 +27,6 @@
 
 <script setup lang="ts">
 import { tourPhotos } from '~/data/social-proof'
-
-const assetPath = useAssetPath()
 
 useAnturSeo({
   title: 'Фото морских прогулок и рыбалки на Камчатке | Антур',

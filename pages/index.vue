@@ -23,7 +23,15 @@
             <p>Подберем формат под вашу компанию: короткая прогулка по бухте, рыбалка в океане, выход к острову Старичков или длинный день с Бухтой Русской, крабом и остановками на берегу.</p>
           </div>
           <figure class="section-photo intro-photo">
-            <img :src="assetPath('/images/kamchatka-ocean-rocks.jpg')" width="1400" height="788" loading="lazy" alt="Скалы Камчатки со стороны океана">
+            <OptimizedImage
+              src="/images/kamchatka-ocean-rocks.jpg"
+              width="1400"
+              height="788"
+              sizes="(max-width: 820px) 92vw, 44vw"
+              :widths="[480, 720, 960]"
+              loading="lazy"
+              alt="Скалы Камчатки со стороны океана"
+            />
             <figcaption>Маршрут подтверждаем накануне выхода с учетом погоды и состояния акватории.</figcaption>
           </figure>
         </div>
@@ -38,7 +46,17 @@
             <NuxtLink class="card-link dark-link" to="/gallery">Смотреть галерею</NuxtLink>
           </div>
           <div class="photo-stack" aria-label="Фотографии тура">
-            <img v-for="photo in tourPhotos.slice(0, 2)" :key="photo.id" :src="assetPath(photo.src)" width="900" height="900" loading="lazy" :alt="photo.alt">
+            <OptimizedImage
+              v-for="photo in tourPhotos.slice(0, 2)"
+              :key="photo.id"
+              :src="photo.src"
+              width="900"
+              height="900"
+              sizes="(max-width: 680px) 72vw, 280px"
+              :widths="[480, 720]"
+              loading="lazy"
+              :alt="photo.alt"
+            />
           </div>
         </div>
       </section>
@@ -70,7 +88,16 @@
               <ContactButton label="Записаться" context="Бронирование морской прогулки" />
             </div>
           </div>
-          <img class="booking-image" :src="assetPath('/images/crab-tasting.jpg')" width="900" height="675" loading="lazy" alt="Крабовая дегустация на борту">
+          <OptimizedImage
+            class="booking-image"
+            src="/images/crab-tasting.jpg"
+            width="900"
+            height="675"
+            sizes="(max-width: 760px) 82vw, 34vw"
+            :widths="[480, 720, 960]"
+            loading="lazy"
+            alt="Крабовая дегустация на борту"
+          />
         </div>
       </section>
     </div>
@@ -82,7 +109,15 @@
             <p class="eyebrow">Часто задаваемые вопросы</p>
             <h2 id="faq-title">Перед выходом в море</h2>
             <figure class="section-photo faq-photo">
-              <img :src="assetPath('/images/faq-social-preview.png')" width="1731" height="909" loading="lazy" alt="Морские прогулки и глубоководная рыбалка на Камчатке">
+              <OptimizedImage
+                src="/images/faq-preview.png"
+                width="1731"
+                height="909"
+                sizes="(max-width: 820px) 92vw, 40vw"
+                :widths="[480, 720, 960]"
+                loading="lazy"
+                alt="Морские прогулки и глубоководная рыбалка на Камчатке"
+              />
             </figure>
           </div>
           <div class="faq-list">
@@ -158,7 +193,6 @@ useBusinessSchema()
 useFaqSchema()
 
 const showFreshPhotos = false
-const assetPath = useAssetPath()
 const routeOrder = [
   'avachinskaya-buhta',
   'ostrov-starichkov',

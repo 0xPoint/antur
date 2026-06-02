@@ -5,6 +5,8 @@ interface SeoInput {
   description: string
   path?: string
   image?: string
+  imageWidth?: number
+  imageHeight?: number
 }
 
 export function useAnturSeo(input: SeoInput) {
@@ -18,11 +20,16 @@ export function useAnturSeo(input: SeoInput) {
   useSeoMeta({
     title: input.title,
     description: input.description,
+    robots: 'index, follow, max-image-preview:large',
     ogTitle: input.title,
     ogDescription: input.description,
     ogUrl: url,
     ogImage: image,
-    twitterCard: 'summary_large_image'
+    ogImageWidth: input.imageWidth || (!input.image ? 1731 : undefined),
+    ogImageHeight: input.imageHeight || (!input.image ? 909 : undefined),
+    ogSiteName: business.brand,
+    twitterCard: 'summary_large_image',
+    twitterImage: image
   })
 
   useHead({
