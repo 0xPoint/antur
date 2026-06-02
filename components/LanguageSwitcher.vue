@@ -1,18 +1,18 @@
 <template>
   <nav class="language-switcher" :aria-label="text.language.label">
-    <NuxtLink
+    <a
       v-for="item in locales"
       :key="item.code"
       class="language-link"
       :class="{ active: item.code === locale }"
-      :to="localePath(route.fullPath, item.code)"
+      :href="localePath(route.fullPath, item.code)"
       :hreflang="item.hreflang"
       :aria-current="item.code === locale ? 'true' : undefined"
       :aria-label="item.code === locale ? `${text.language.current}: ${item.label}` : `${text.language.switchTo} ${item.label}`"
       @click="rememberLocale(item.code)"
     >
       {{ item.shortLabel }}
-    </NuxtLink>
+    </a>
   </nav>
 </template>
 
