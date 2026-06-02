@@ -82,7 +82,7 @@
             <p class="eyebrow">Часто задаваемые вопросы</p>
             <h2 id="faq-title">Перед выходом в море</h2>
             <figure class="section-photo faq-photo">
-              <img :src="assetPath('/images/og-social-preview.png')" width="1200" height="630" loading="lazy" alt="Морские прогулки и глубоководная рыбалка на Камчатке">
+              <img :src="assetPath('/images/faq-social-preview.png')" width="1731" height="909" loading="lazy" alt="Морские прогулки и глубоководная рыбалка на Камчатке">
             </figure>
           </div>
           <div class="faq-list">
