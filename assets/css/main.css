@@ -1658,7 +1658,9 @@ h3 {
   }
 
   .site-header {
+    position: static;
     min-height: 64px;
+    background: rgba(5, 13, 20, 0.96);
   }
 
   .brand small {
@@ -1686,7 +1688,7 @@ h3 {
 
   .hero {
     min-height: 88svh;
-    padding: 104px 0 52px;
+    padding: 40px 0 52px;
     background:
       radial-gradient(circle at 82% 8%, rgba(255, 107, 43, 0.16), transparent 26%),
       linear-gradient(180deg, #0a1628 0%, #07111b 58%, #050d14 100%);
@@ -1705,7 +1707,7 @@ h3 {
 
   .page-top,
   .route-hero {
-    padding-top: 104px;
+    padding-top: 48px;
   }
 
   .hero-overlay {
