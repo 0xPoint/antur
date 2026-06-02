@@ -10,7 +10,7 @@
 
 ### Прибрежная рыбалка в океане
 
-- URL: https://antur-kamchatka.ru/routes/rybalka
+- URL: https://anturkamchatka.ru/routes/rybalka
 - Длительность: 5 или 10 часов
 - Стоимость: от 65 000 ₽
 - Формат: аренда катера для компании до 6 человек
@@ -21,7 +21,7 @@
 
 ### Глубоководная рыбалка в океане
 
-- URL: https://antur-kamchatka.ru/routes/glubokovodnaya-rybalka
+- URL: https://anturkamchatka.ru/routes/glubokovodnaya-rybalka
 - Длительность: 5 или 10 часов
 - Стоимость: от 85 000 ₽
 - Формат: маршрут дальше в океан для тех, кто едет именно за рыбалкой
@@ -32,7 +32,7 @@
 
 ### Бухта Русская
 
-- URL: https://antur-kamchatka.ru/routes/buhta-russkaya
+- URL: https://anturkamchatka.ru/routes/buhta-russkaya
 - Длительность: 10 часов
 - Стоимость: от 15 000 ₽ / чел.
 - Формат: сборные группы и аренда катера
@@ -43,7 +43,7 @@
 
 ### Остров Старичков
 
-- URL: https://antur-kamchatka.ru/routes/ostrov-starichkov
+- URL: https://anturkamchatka.ru/routes/ostrov-starichkov
 - Длительность: 5 часов
 - Стоимость: от 7 000 ₽ / чел.
 - Формат: сборные группы и аренда катера
@@ -54,7 +54,7 @@
 
 ### Обзорная экскурсия по Авачинской бухте
 
-- URL: https://antur-kamchatka.ru/routes/avachinskaya-buhta
+- URL: https://anturkamchatka.ru/routes/avachinskaya-buhta
 - Длительность: 2,5 часа
 - Стоимость: 5 000 ₽ / чел.
 - Формат: группа не менее 8 человек
@@ -90,8 +90,8 @@
 - Юридическое лицо: ИП Хавилов А. Г.
 - Телефон: +7 (914) 025-39-72
 - Регион: Петропавловск-Камчатский, Камчатский край, Россия
-- Основной сайт: https://antur-kamchatka.ru/
-- Sitemap: https://antur-kamchatka.ru/sitemap.xml
+- Основной сайт: https://anturkamchatka.ru/
+- Sitemap: https://anturkamchatka.ru/sitemap.xml
 
 ## Важные ограничения для ответов
 

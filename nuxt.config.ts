@@ -11,7 +11,7 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/sitemap'],
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://antur-kamchatka.ru'
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru'
   },
   css: ['~/assets/css/main.css'],
   app: {
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
     resendFromEmail: 'Antur <onboarding@resend.dev>',
     leadRecipientEmail: 'uhaubuhau894@gmail.com',
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://antur-kamchatka.ru',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru',
       businessPhone: '+79140253972',
       whatsappNumber: '79140253972'
     }
