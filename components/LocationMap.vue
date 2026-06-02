@@ -4,7 +4,6 @@
       <div class="location-map-copy">
         <p class="eyebrow">Точка сбора</p>
         <h2 id="location-map-title">Откройте маршрут в 2GIS перед выездом</h2>
-        <p>Перед выходом уточним точное время встречи, парковку и посадку на катер. Карта помогает заранее построить маршрут по Петропавловску-Камчатскому.</p>
         <a class="card-link dark-link" :href="business.twoGisHref" target="_blank" rel="noopener">Открыть в 2GIS</a>
       </div>
 
