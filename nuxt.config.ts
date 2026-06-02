@@ -1,5 +1,8 @@
 import { routeOffers } from './data/routes'
 
+const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
+const withAppBase = (path: string) => `${appBaseUrl}${path}`
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
@@ -23,9 +26,9 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'preconnect', href: 'https://wa.me' },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-        { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' }
+        { rel: 'icon', type: 'image/x-icon', href: withAppBase('/favicon.ico') },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: withAppBase('/favicon-32x32.png') },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: withAppBase('/apple-touch-icon.png') }
       ]
     }
   },

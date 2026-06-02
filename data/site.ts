@@ -6,11 +6,9 @@ export const business = {
   phoneHref: 'tel:+79140253972',
   twoGisHref: 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561',
   mapPreviewSrc:
-    'https://static.maps.2gis.com/1.0?s=880x440&c=53.04,158.65&z=11&pt=53.04,158.65~c:oe~s:l',
+    'https://static.maps.2gis.com/1.0?s=880x440&c=53.04,158.65&z=12&pt=53.04,158.65~c:oe~s:l',
   messengerText: 'Здравствуйте! Хочу уточнить морскую прогулку на Камчатке.',
-  maxHref: 'https://max.ru/',
-  maxLinkNote:
-    'MAX публично документирует ссылки для ботов и мини-приложений; ссылка на конкретного абонента по номеру на max.ru не описана. Замените maxHref на ссылку профиля из приложения, когда она будет доступна.',
+  maxHref: 'https://max.ru/u/f9LHodD0cOKnmEcZjEEpqClPr9moNdgqysezc0_6apuvig7tTlULNKzeVek',
   whatsappHref:
     'https://wa.me/79140253972?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BC%D0%BE%D1%80%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D1%83%20%D0%BD%D0%B0%20%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D0%BA%D0%B5.',
   assurances: [
