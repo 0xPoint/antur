@@ -47,6 +47,9 @@ export default defineNuxtConfig({
     '/routes/**': { ssr: true },
     '/en/**': { ssr: true },
     '/zh/**': { ssr: true },
+    '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/images/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+    '/videos/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
     '/api/**': { cors: true }
   },
   nitro: {

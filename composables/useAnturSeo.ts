@@ -25,7 +25,7 @@ export function useAnturSeo(input: SeoInput) {
   const path = input.path || '/'
   const localizedPath = localizePath(path, locale)
   const url = new URL(assetPath(localizedPath), siteUrl).toString()
-  const image = new URL(assetPath(input.image || '/images/og-image.png'), siteUrl).toString()
+  const image = new URL(assetPath(input.image || '/images/hero-kamchatka-boat.jpg'), siteUrl).toString()
   const localeMeta = locales.find((item) => item.code === locale) || locales[0]
   const businessText = localizedBusiness[locale]
   const alternateLinks = locales.map((item) => ({
@@ -43,8 +43,8 @@ export function useAnturSeo(input: SeoInput) {
     ogUrl: url,
     ogLocale: localeMeta.ogLocale,
     ogImage: image,
-    ogImageWidth: input.imageWidth || (!input.image ? 1731 : undefined),
-    ogImageHeight: input.imageHeight || (!input.image ? 909 : undefined),
+    ogImageWidth: input.imageWidth || (!input.image ? 2200 : undefined),
+    ogImageHeight: input.imageHeight || (!input.image ? 1238 : undefined),
     ogSiteName: businessText.brand,
     twitterCard: 'summary_large_image',
     twitterImage: image

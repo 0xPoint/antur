@@ -8,7 +8,7 @@
       :href="localePath(route.fullPath, item.code)"
       :hreflang="item.hreflang"
       :aria-current="item.code === locale ? 'true' : undefined"
-      :aria-label="item.code === locale ? `${text.language.current}: ${item.label}` : `${text.language.switchTo} ${item.label}`"
+      :aria-label="item.code === locale ? `${item.shortLabel}, ${text.language.current}: ${item.label}` : `${item.shortLabel}, ${text.language.switchTo} ${item.label}`"
       @click="rememberLocale(item.code)"
     >
       {{ item.shortLabel }}

@@ -95,24 +95,134 @@ export const reviews: Review[] = [
 
 export const tourPhotos: TourPhoto[] = [
   {
-    id: 'photo-catch',
-    src: '/images/fishing-deck.jpg',
-    alt: 'Снасти на палубе катера во время морской рыбалки',
-    route: 'Рыбалка',
-    date: '2026-05-31'
+    id: 'photo-orca-2026-05-30',
+    src: '/images/antur-kamchatka-orca-2026-05-30.jpg',
+    alt: 'Косатка выходит из воды у берегов Камчатки во время морской прогулки',
+    route: 'Морская прогулка',
+    date: '2026-05-30'
   },
   {
-    id: 'photo-crab',
-    src: '/images/crab-tasting.jpg',
-    alt: 'Крабовая дегустация на борту у берегов Камчатки',
+    id: 'photo-fishing-catch-2026-05-30',
+    src: '/images/antur-kamchatka-fishing-catch-2026-05-30.jpg',
+    alt: 'Гость с уловом на борту катера во время морской рыбалки на Камчатке',
+    route: 'Глубоководная рыбалка',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-sea-lions-2026-05-30',
+    src: '/images/antur-kamchatka-sea-lions-rocks-2026-05-30.jpg',
+    alt: 'Сивучи отдыхают на скалах у камчатского побережья',
+    route: 'Остров Старичков',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-kekur-2026-05-30',
+    src: '/images/antur-kamchatka-kekur-ocean-2026-05-30.jpg',
+    alt: 'Кекур в океане на маршруте морской прогулки по Камчатке',
+    route: 'Авачинская бухта',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-sea-cave-2026-05-30',
+    src: '/images/antur-kamchatka-sea-cave-2026-05-30.jpg',
+    alt: 'Морская арка в скалах у побережья Камчатки',
+    route: 'Морская прогулка',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-bird-cliffs-2026-05-30',
+    src: '/images/antur-kamchatka-bird-cliffs-2026-05-30.jpg',
+    alt: 'Морские птицы на скалах у острова Старичков',
+    route: 'Остров Старичков',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-crab-deck-2026-05-30',
+    src: '/images/antur-kamchatka-crab-safari-deck-2026-05-30.jpg',
+    alt: 'Крабовый улов на палубе катера во время крабового сафари',
     route: 'Крабовое сафари',
-    date: '2026-05-31'
+    date: '2026-05-30'
   },
   {
-    id: 'photo-boat',
-    src: '/images/hero-kamchatka-boat.jpg',
-    alt: 'Катер в океане у вулканического побережья Камчатки',
-    route: 'Бухта Русская',
-    date: '2026-05-31'
+    id: 'photo-crab-tasting-2026-05-30',
+    src: '/images/antur-kamchatka-crab-tasting-2026-05-30.jpg',
+    alt: 'Камчатский краб на столах после морской прогулки',
+    route: 'Крабовое сафари',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-ukha-2026-05-30',
+    src: '/images/antur-kamchatka-ukha-after-tour-2026-05-30.jpg',
+    alt: 'Горячая уха и стол для гостей после морского выхода',
+    route: 'После выхода',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-coastal-base-2026-05-30',
+    src: '/images/antur-kamchatka-coastal-base-2026-05-30.jpg',
+    alt: 'Теплая зона отдыха со столами для гостей после морской прогулки',
+    route: 'После выхода',
+    date: '2026-05-30'
+  },
+  {
+    id: 'photo-boat-pier-2026-06-01',
+    src: '/images/antur-kamchatka-boat-pier-2026-06-01.jpg',
+    alt: 'Катер Антур у причала в Петропавловске-Камчатском',
+    route: 'Катер Антур',
+    date: '2026-06-01'
+  },
+  {
+    id: 'video-sea-tour-2026-05-30',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-sea-tour-2026-05-30.mp4',
+    videoSrc: '/videos/antur-kamchatka-sea-tour-2026-05-30.mp4',
+    alt: 'Видео морской прогулки по Камчатке',
+    route: 'Видео с маршрута',
+    date: '2026-05-30'
+  },
+  {
+    id: 'video-ocean-route-2026-05-23',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-ocean-route-2026-05-23.mp4',
+    videoSrc: '/videos/antur-kamchatka-ocean-route-2026-05-23.mp4',
+    alt: 'Видео морского маршрута у побережья Камчатки',
+    route: 'Видео с маршрута',
+    date: '2026-05-23'
+  },
+  {
+    id: 'video-boat-moment-2026-05-27',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-boat-moment-2026-05-27.mp4',
+    videoSrc: '/videos/antur-kamchatka-boat-moment-2026-05-27.mp4',
+    alt: 'Видео с катера Антур во время морского выхода',
+    route: 'Катер Антур',
+    date: '2026-05-27'
+  },
+  {
+    id: 'video-crab-safari-2026-05-30',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-crab-safari-2026-05-30.mp4',
+    videoSrc: '/videos/antur-kamchatka-crab-safari-2026-05-30.mp4',
+    alt: 'Видео крабового сафари на Камчатке',
+    route: 'Крабовое сафари',
+    date: '2026-05-30'
+  },
+  {
+    id: 'video-sea-landscape-2026-05-30',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-sea-landscape-2026-05-30.mp4',
+    videoSrc: '/videos/antur-kamchatka-sea-landscape-2026-05-30.mp4',
+    alt: 'Видео морского пейзажа на маршруте по Камчатке',
+    route: 'Морской пейзаж',
+    date: '2026-05-30'
+  },
+  {
+    id: 'video-ocean-wildlife-2026-05-30',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-ocean-wildlife-2026-05-30.mp4',
+    videoSrc: '/videos/antur-kamchatka-ocean-wildlife-2026-05-30.mp4',
+    alt: 'Видео встречи с морской природой Камчатки',
+    route: 'Видео с океана',
+    date: '2026-05-30'
   }
 ]

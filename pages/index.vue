@@ -37,7 +37,7 @@
         </div>
       </section>
 
-      <section v-if="showFreshPhotos" class="section gallery" aria-labelledby="gallery-title">
+      <section id="gallery" v-if="showFreshPhotos" class="section gallery" aria-labelledby="gallery-title">
         <div class="container gallery-grid">
           <div class="gallery-copy">
             <p class="eyebrow">{{ text.home.galleryEyebrow }}</p>
@@ -45,19 +45,10 @@
             <p>{{ text.home.galleryText }}</p>
             <NuxtLink class="card-link dark-link" :to="localePath('/gallery')">{{ text.home.galleryLink }}</NuxtLink>
           </div>
-          <div class="photo-stack" :aria-label="text.home.galleryAria">
-            <OptimizedImage
-              v-for="photo in tourPhotos.slice(0, 2)"
-              :key="photo.id"
-              :src="photo.src"
-              width="900"
-              height="900"
-              sizes="(max-width: 680px) 72vw, 280px"
-              :widths="[480, 720]"
-              loading="lazy"
-              :alt="photo.alt"
-            />
-          </div>
+          <LazyTourMediaSlider
+            :items="tourPhotos"
+            :labels="text.home.gallerySlider"
+          />
         </div>
       </section>
 
@@ -194,7 +185,7 @@ useAnturSeo({
 useBusinessSchema()
 useFaqSchema()
 
-const showFreshPhotos = false
+const showFreshPhotos = true
 const routeOrder = [
   'avachinskaya-buhta',
   'ostrov-starichkov',

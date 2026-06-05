@@ -3,8 +3,11 @@
     <a class="skip-link" href="#main">{{ text.skip }}</a>
 
     <header class="site-header" :aria-label="text.navAria">
-      <NuxtLink class="brand" :to="localePath('/')" :aria-label="text.homeAria">
-        <img class="brand-logo" :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
+      <NuxtLink class="brand" :to="localePath('/')" :aria-label="`${businessText.brand} ${businessText.tagline}, ${text.homeAria}`">
+        <picture class="brand-logo-picture">
+          <source type="image/webp" :srcset="assetPath('/images/antur-logo-mark.webp')">
+          <img class="brand-logo" :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
+        </picture>
         <span>
           <strong class="brand-word">{{ businessText.brand }}</strong>
           <small>{{ businessText.tagline }}</small>
@@ -13,6 +16,7 @@
 
       <nav class="nav-links" :aria-label="text.navAria">
         <NuxtLink :to="localePath('/#routes')">{{ text.nav.routes }}</NuxtLink>
+        <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
         <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
         <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
       </nav>
@@ -27,13 +31,16 @@
       <slot />
     </main>
 
-    <LocationMap />
+    <LazyLocationMap />
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
           <NuxtLink class="footer-brand" :to="localePath('/')">
-            <img :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
+            <picture>
+              <source type="image/webp" :srcset="assetPath('/images/antur-logo-mark.webp')">
+              <img :src="assetPath('/images/antur-logo-mark.png')" width="82" height="62" alt="" aria-hidden="true">
+            </picture>
             <span>{{ businessText.brand }}</span>
           </NuxtLink>
           <p>{{ businessText.legalName }}</p>

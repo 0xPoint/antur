@@ -5,8 +5,18 @@
       <h1 id="gallery-page-title">{{ text.gallery.title }}</h1>
       <p class="page-lead">{{ text.gallery.lead }}</p>
       <div class="gallery-list">
-        <article v-for="photo in tourPhotos" :key="photo.id" class="photo-card">
+        <article v-for="photo in tourPhotos" :key="photo.id" class="photo-card" :class="{ 'video-card': photo.kind === 'video' }">
+          <video
+            v-if="photo.kind === 'video'"
+            controls
+            playsinline
+            preload="metadata"
+            :aria-label="photo.alt"
+          >
+            <source :src="assetPath(photo.videoSrc || photo.src)" type="video/mp4">
+          </video>
           <OptimizedImage
+            v-else
             :src="photo.src"
             width="900"
             height="900"
@@ -15,10 +25,6 @@
             loading="lazy"
             :alt="photo.alt"
           />
-          <div>
-            <strong>{{ photo.route }}</strong>
-            <time :datetime="photo.date">{{ formatDate(photo.date) }}</time>
-          </div>
         </article>
       </div>
     </div>
@@ -30,6 +36,7 @@ definePageMeta({
   alias: ['/en/gallery', '/zh/gallery']
 })
 
+const assetPath = useAssetPath()
 const { text, tourPhotos } = useLocaleContent()
 
 useAnturSeo({
@@ -37,7 +44,4 @@ useAnturSeo({
   description: text.value.gallery.seoDescription,
   path: '/gallery'
 })
-
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat(text.value.gallery.dateLocale, { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(date))
 </script>

@@ -3,7 +3,7 @@
     <picture class="hero-media">
       <source
         type="image/webp"
-        :srcset="webpSrcset('/images/hero-orca-breach-mobile.jpg', [480, 720, 920])"
+        :srcset="webpSrcset('/images/hero-orca-breach-mobile.jpg', [480, 720])"
         media="(max-width: 680px)"
         sizes="100vw"
       >
@@ -48,7 +48,7 @@ useHead({
       rel: 'preload',
       as: 'image',
       href: assetPath('/images/webp/hero-orca-breach-mobile-720.webp'),
-      imagesrcset: webpSrcset('/images/hero-orca-breach-mobile.jpg', [480, 720, 920]),
+      imagesrcset: webpSrcset('/images/hero-orca-breach-mobile.jpg', [480, 720]),
       imagesizes: '100vw',
       media: '(max-width: 680px)',
       type: 'image/webp',

@@ -103,7 +103,7 @@ export const ui = {
     skip: 'Перейти к содержанию',
     homeAria: 'Антур, на главную',
     navAria: 'Разделы сайта',
-    nav: { routes: 'Маршруты', reviews: 'Отзывы', booking: 'Бронь' },
+    nav: { routes: 'Маршруты', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь' },
     contact: {
       cta: 'Связаться',
       book: 'Забронировать',
@@ -146,9 +146,15 @@ export const ui = {
       introCaption: 'Маршрут подтверждаем накануне выхода с учетом погоды и состояния акватории.',
       galleryEyebrow: 'Свежие фото',
       galleryTitle: 'Океан, краб, рыбалка и Камчатка в одном дне',
-      galleryText: 'Фото вынесены в отдельный контентный слой. Сейчас они берутся из локальных данных, дальше этот слой можно заменить на CMS или storage/CDN без изменения верстки.',
+      galleryText: 'Живые кадры с маршрутов: косатки, сивучи, скалы, рыбалка, краб и спокойные моменты после выхода.',
       galleryLink: 'Смотреть галерею',
       galleryAria: 'Фотографии тура',
+      gallerySlider: {
+        previous: 'Предыдущее медиа',
+        next: 'Следующее медиа',
+        open: 'Открыть во весь экран',
+        close: 'Закрыть полноэкранный просмотр'
+      },
       safetyEyebrow: 'Почему спокойно',
       safetyTitle: 'Маршрут ведет капитан, а не расписание',
       safetyText: 'Камчатское море быстро меняется, поэтому программа всегда сверяется с прогнозом, состоянием акватории и составом группы. Если условия требуют корректировки, обсуждаем это заранее.',
@@ -185,7 +191,7 @@ export const ui = {
       seoDescription: 'Свежие фото из морских прогулок, рыбалки и крабового сафари на Камчатке.',
       eyebrow: 'Свежие фото',
       title: 'Фото из морских выходов',
-      lead: 'Сейчас галерея питается локальными данными. Для MVP здесь будет подключение к API свежих фото, модерация и генерация оптимизированных изображений.',
+      lead: 'Свежие фото и видео с морских прогулок, рыбалки и крабового сафари. Показываем реальные детали маршрутов, природы и отдыха после выхода.',
       dateLocale: 'ru-RU'
     }
   },
@@ -193,7 +199,7 @@ export const ui = {
     skip: 'Skip to content',
     homeAria: 'Antur, home page',
     navAria: 'Site sections',
-    nav: { routes: 'Routes', reviews: 'Reviews', booking: 'Booking' },
+    nav: { routes: 'Routes', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking' },
     contact: {
       cta: 'Contact',
       book: 'Book',
@@ -236,9 +242,15 @@ export const ui = {
       introCaption: 'The route is confirmed the day before departure with weather and sea conditions in mind.',
       galleryEyebrow: 'Fresh photos',
       galleryTitle: 'Ocean, crab, fishing and Kamchatka in one day',
-      galleryText: 'Photos are kept in a separate content layer. They currently come from local data and can later be replaced by CMS or storage/CDN without changing the layout.',
+      galleryText: 'Real moments from the routes: orcas, sea lions, cliffs, fishing, crab and calm time after the trip.',
       galleryLink: 'View gallery',
       galleryAria: 'Tour photos',
+      gallerySlider: {
+        previous: 'Previous media',
+        next: 'Next media',
+        open: 'Open fullscreen',
+        close: 'Close fullscreen view'
+      },
       safetyEyebrow: 'Why it feels calm',
       safetyTitle: 'The captain leads the route, not the timetable',
       safetyText: 'Kamchatka waters change quickly, so every program is checked against forecast, sea state and group composition. If conditions require a change, we discuss it in advance.',
@@ -275,7 +287,7 @@ export const ui = {
       seoDescription: 'Fresh photos from sea tours, fishing trips and crab safari in Kamchatka.',
       eyebrow: 'Fresh photos',
       title: 'Photos from sea trips',
-      lead: 'The gallery currently uses local content. For the MVP it can connect to an API for fresh photos, moderation and optimized image generation.',
+      lead: 'Fresh photos and videos from sea tours, fishing trips and crab safari. See the routes, wildlife and post-trip moments as they are.',
       dateLocale: 'en-US'
     }
   },
@@ -283,7 +295,7 @@ export const ui = {
     skip: '跳到主要内容',
     homeAria: 'Antur 首页',
     navAria: '网站栏目',
-    nav: { routes: '路线', reviews: '评价', booking: '预订' },
+    nav: { routes: '路线', gallery: '照片', reviews: '评价', booking: '预订' },
     contact: {
       cta: '联系',
       book: '预订',
@@ -326,9 +338,15 @@ export const ui = {
       introCaption: '出发前一天会根据天气和海况确认路线。',
       galleryEyebrow: '最新照片',
       galleryTitle: '一天里看见海洋、帝王蟹、钓鱼和堪察加',
-      galleryText: '照片位于独立内容层。当前使用本地数据，之后可替换为 CMS 或 storage/CDN，不影响页面结构。',
+      galleryText: '路线中的真实画面：虎鲸、海狮、岩石、海钓、帝王蟹和出海后的轻松时刻。',
       galleryLink: '查看图库',
       galleryAria: '行程照片',
+      gallerySlider: {
+        previous: '上一项媒体',
+        next: '下一项媒体',
+        open: '全屏打开',
+        close: '关闭全屏查看'
+      },
       safetyEyebrow: '为什么安心',
       safetyTitle: '路线由船长决定，而不是死板时间表',
       safetyText: '堪察加海况变化很快，因此每次行程都会结合天气预报、海况和团队组成确认。如需调整，我们会提前沟通。',
@@ -365,7 +383,7 @@ export const ui = {
       seoDescription: '堪察加海上观光、钓鱼和帝王蟹体验的最新照片。',
       eyebrow: '最新照片',
       title: '出海照片',
-      lead: '图库当前使用本地内容。MVP 阶段可接入最新照片 API、审核和优化图片生成。',
+      lead: '来自海上观光、海钓和帝王蟹体验的最新照片与视频，展示路线、自然和出海后的真实细节。',
       dateLocale: 'zh-CN'
     }
   }
@@ -691,16 +709,59 @@ export const reviewsByLocale: Record<LocaleCode, Review[]> = {
   ]
 }
 
+const tourMediaText = {
+  en: {
+    'photo-orca-2026-05-30': { alt: 'Orca rising from the water near the Kamchatka coast during a sea tour', route: 'Sea tour' },
+    'photo-fishing-catch-2026-05-30': { alt: 'Guest with the catch on board during a Kamchatka sea fishing trip', route: 'Deep-sea fishing' },
+    'photo-sea-lions-2026-05-30': { alt: 'Sea lions resting on rocks near the Kamchatka coast', route: 'Starichkov Island' },
+    'photo-kekur-2026-05-30': { alt: 'Ocean rock stack on a Kamchatka sea tour route', route: 'Avacha Bay' },
+    'photo-sea-cave-2026-05-30': { alt: 'Sea arch in the cliffs near the Kamchatka coast', route: 'Sea tour' },
+    'photo-bird-cliffs-2026-05-30': { alt: 'Sea birds on the cliffs near Starichkov Island', route: 'Starichkov Island' },
+    'photo-crab-deck-2026-05-30': { alt: 'Crab catch on the boat deck during a crab safari', route: 'Crab safari' },
+    'photo-crab-tasting-2026-05-30': { alt: 'Kamchatka crab served after the sea tour', route: 'Crab safari' },
+    'photo-ukha-2026-05-30': { alt: 'Hot fish soup and a guest table after a sea trip', route: 'After the trip' },
+    'photo-coastal-base-2026-05-30': { alt: 'Warm guest area with tables after a sea tour', route: 'After the trip' },
+    'photo-boat-pier-2026-06-01': { alt: 'Antur boat at the pier in Petropavlovsk-Kamchatsky', route: 'Antur boat' },
+    'video-sea-tour-2026-05-30': { alt: 'Video from a Kamchatka sea tour', route: 'Route video' },
+    'video-ocean-route-2026-05-23': { alt: 'Video from an ocean route near the Kamchatka coast', route: 'Route video' },
+    'video-boat-moment-2026-05-27': { alt: 'Video from the Antur boat during a sea trip', route: 'Antur boat' },
+    'video-crab-safari-2026-05-30': { alt: 'Video from a Kamchatka crab safari', route: 'Crab safari' },
+    'video-sea-landscape-2026-05-30': { alt: 'Video of the sea landscape on a Kamchatka route', route: 'Sea landscape' },
+    'video-ocean-wildlife-2026-05-30': { alt: 'Video of Kamchatka ocean wildlife', route: 'Ocean video' }
+  },
+  zh: {
+    'photo-orca-2026-05-30': { alt: '海上观光时虎鲸在堪察加海岸附近跃出水面', route: '海上观光' },
+    'photo-fishing-catch-2026-05-30': { alt: '堪察加海钓时客人在船上展示收获', route: '深海海钓' },
+    'photo-sea-lions-2026-05-30': { alt: '堪察加海岸岩石上休息的海狮', route: '斯塔里奇科夫岛' },
+    'photo-kekur-2026-05-30': { alt: '堪察加海上路线中的海中岩柱', route: '阿瓦恰湾' },
+    'photo-sea-cave-2026-05-30': { alt: '堪察加海岸岩石中的海蚀拱门', route: '海上观光' },
+    'photo-bird-cliffs-2026-05-30': { alt: '斯塔里奇科夫岛附近岩壁上的海鸟', route: '斯塔里奇科夫岛' },
+    'photo-crab-deck-2026-05-30': { alt: '帝王蟹体验中船甲板上的螃蟹收获', route: '帝王蟹体验' },
+    'photo-crab-tasting-2026-05-30': { alt: '海上行程后享用的堪察加帝王蟹', route: '帝王蟹体验' },
+    'photo-ukha-2026-05-30': { alt: '出海后为客人准备的热鱼汤和餐桌', route: '出海之后' },
+    'photo-coastal-base-2026-05-30': { alt: '海上观光后供客人休息的温暖用餐区', route: '出海之后' },
+    'photo-boat-pier-2026-06-01': { alt: '停靠在彼得罗巴甫洛夫斯克-堪察加码头的 Antur 船', route: 'Antur 船' },
+    'video-sea-tour-2026-05-30': { alt: '堪察加海上观光视频', route: '路线视频' },
+    'video-ocean-route-2026-05-23': { alt: '堪察加海岸附近海上路线视频', route: '路线视频' },
+    'video-boat-moment-2026-05-27': { alt: 'Antur 船出海时的视频', route: 'Antur 船' },
+    'video-crab-safari-2026-05-30': { alt: '堪察加帝王蟹体验视频', route: '帝王蟹体验' },
+    'video-sea-landscape-2026-05-30': { alt: '堪察加路线中的海上风景视频', route: '海上风景' },
+    'video-ocean-wildlife-2026-05-30': { alt: '堪察加海洋野生动物视频', route: '海洋视频' }
+  }
+} satisfies Record<Exclude<LocaleCode, 'ru'>, Record<string, { alt: string, route: string }>>
+
+const localizeTourMedia = (locale: Exclude<LocaleCode, 'ru'>) =>
+  ruTourPhotos.map((item) => {
+    const localeText: Record<string, { alt: string, route: string }> = tourMediaText[locale]
+
+    return {
+      ...item,
+      ...(localeText[item.id] || {})
+    }
+  })
+
 export const tourPhotosByLocale: Record<LocaleCode, TourPhoto[]> = {
   ru: ruTourPhotos,
-  en: [
-    { ...ruTourPhotos[0], alt: 'Fishing tackle on the deck during a sea fishing trip', route: 'Fishing' },
-    { ...ruTourPhotos[1], alt: 'Crab tasting on board near the Kamchatka coast', route: 'Crab safari' },
-    { ...ruTourPhotos[2], alt: 'Boat in the ocean near the volcanic Kamchatka coast', route: 'Russkaya Bay' }
-  ],
-  zh: [
-    { ...ruTourPhotos[0], alt: '海钓时船甲板上的钓具', route: '海钓' },
-    { ...ruTourPhotos[1], alt: '堪察加海岸附近船上的帝王蟹品尝', route: '帝王蟹体验' },
-    { ...ruTourPhotos[2], alt: '堪察加火山海岸附近海上的船', route: '鲁斯卡亚湾' }
-  ]
+  en: localizeTourMedia('en'),
+  zh: localizeTourMedia('zh')
 }

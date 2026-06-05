@@ -37,6 +37,8 @@ export interface Review {
 export interface TourPhoto {
   id: string
   src: string
+  kind?: 'photo' | 'video'
+  videoSrc?: string
   alt: string
   route: string
   date: string
