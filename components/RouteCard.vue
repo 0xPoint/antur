@@ -5,8 +5,8 @@
       :src="cardImage"
       width="1080"
       height="720"
-      sizes="(max-width: 680px) 92vw, (max-width: 1100px) 44vw, 31vw"
-      :widths="[480, 720, 960]"
+      :sizes="cardSizes"
+      :widths="cardWidths"
       loading="lazy"
       fetchpriority="low"
       root-margin="120px"
@@ -31,4 +31,14 @@ const props = defineProps<{
 const { localePath, text } = useLocaleContent()
 const cardImage = computed(() => props.offer.pageImage || props.offer.image)
 const cardImageAlt = computed(() => props.offer.pageImageAlt || props.offer.imageAlt)
+const cardSizes = computed(() =>
+  props.offer.slug === 'avachinskaya-buhta'
+    ? '(max-width: 960px) 92vw, 1180px'
+    : '(max-width: 680px) 92vw, (max-width: 1100px) 44vw, 31vw'
+)
+const cardWidths = computed(() =>
+  props.offer.slug === 'avachinskaya-buhta'
+    ? [480, 720, 960, 1280, 1600, 1920]
+    : [480, 720, 960]
+)
 </script>

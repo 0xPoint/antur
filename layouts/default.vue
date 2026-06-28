@@ -44,6 +44,7 @@
             <span>{{ businessText.brand }}</span>
           </NuxtLink>
           <p>{{ businessText.legalName }}</p>
+          <NuxtLink class="footer-legal-link" :to="localePath('/privacy')">{{ privacy.linkLabel }}</NuxtLink>
         </div>
         <address class="footer-contact">
           <div class="footer-contact-row">
@@ -69,5 +70,5 @@
 import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
-const { localePath, text, businessText } = useLocaleContent()
+const { localePath, text, businessText, privacy } = useLocaleContent()
 </script>

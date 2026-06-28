@@ -484,11 +484,10 @@ const enRouteOffers: RouteOffer[] = [
     priceOptions: [
       { season: 'May - September', format: 'Group of at least 8 guests', price: '5,000 ₽ / guest' }
     ],
-    image: '/images/hero-kamchatka-boat.jpg',
-    imageAlt: 'Boat moving through Avacha Bay in the evening',
-    pageImage: '/images/location-three-brothers.jpg',
-    pageImageAlt: 'Three Brothers rocks in Avacha Bay',
-    imageCredit: ruRouteOffers[4].imageCredit
+    image: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    imageAlt: 'Three Brothers rocks in Avacha Bay',
+    pageImage: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    pageImageAlt: 'Three Brothers rocks in Avacha Bay'
   }
 ]
 
@@ -587,11 +586,10 @@ const zhRouteOffers: RouteOffer[] = [
     priceOptions: [
       { season: '5 月 - 9 月', format: '至少 8 人成团', price: '5,000 ₽ / 人' }
     ],
-    image: '/images/hero-kamchatka-boat.jpg',
-    imageAlt: '傍晚行驶在阿瓦恰湾的船',
-    pageImage: '/images/location-three-brothers.jpg',
-    pageImageAlt: '阿瓦恰湾三兄弟岩',
-    imageCredit: ruRouteOffers[4].imageCredit
+    image: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    imageAlt: '阿瓦恰湾三兄弟岩',
+    pageImage: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    pageImageAlt: '阿瓦恰湾三兄弟岩'
   }
 ]
 
@@ -681,36 +679,64 @@ export const bookingTermsByLocale = {
   ]
 } satisfies Record<LocaleCode, string[]>
 
+// Переводы отзывов ключуются по id (не по индексу), чтобы добавление или
+// переупорядочивание ruReviews не ломало соответствие переводов.
+const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: string, route: string, text: string }>> = {
+  en: {
+    'review-yandex-001': { name: 'Victoria K.', route: 'Yandex Maps', text: 'Many thanks to ANTUR and our wonderful captain Alexander for a sea of positive impressions, beautiful views, emotions and treats. Everything went wonderfully!' },
+    'review-yandex-002': { name: 'Zhanna M.', route: 'Yandex Maps', text: 'A huge thank you to Alexander for the sea journey — everything went superbly! Everything was organized at the highest level and thought through to the smallest detail, an engaging route and stunning local nature. Kamchatka won our hearts!' },
+    'review-yandex-003': { name: 'Yulia Nikolaeva', route: 'Yandex Maps', text: 'We really enjoyed the sea trip! Great service and an attentive captain. We admired the views and ate well. Many thanks for the emotions, I recommend it to everyone!' },
+    'review-001': { name: 'Andrey M.', route: 'Deep-sea fishing', text: 'We came for fishing and got a full day at sea. The crew calmly explained the tackle and helped at the spots. The fish soup after the trip was a separate pleasure.' },
+    'review-002': { name: 'Marina and Ilya', route: 'Russkaya Bay', text: 'We liked the pace: no rush, but the day was very full. The landing, crab, fishing and bay views were stronger than we expected.' },
+    'review-003': { name: 'Sergey P.', route: 'Starichkov Island', text: 'We took a short trip to Starichkov. The crew was attentive, helped with boarding, suggested photo spots and made the children feel calm. The crab was fresh and very tasty.' },
+    'review-004': { name: 'Ekaterina N.', route: 'Avacha Bay', text: 'For a first view of Kamchatka from the water, this format was perfect. The captain warned us about clothing and weather in advance, and everything on board was clean and clear.' },
+    'review-005': { name: 'Dmitry K.', route: 'Coastal fishing', text: 'I was new to sea fishing, but the team helped right away: they gave tackle, showed how to use it and calmly supported us throughout the trip. We caught fish and got even more emotions.' },
+    'review-006': { name: 'Olga R.', route: 'Russkaya Bay', text: 'What I liked most was the honesty about the weather: they explained in advance where we would go and why. Lunch with seafood after the walk was simple, fresh and very tasty.' },
+    'review-007': { name: 'Pavel S.', route: 'Deep-sea fishing', text: 'A good trip for people who come specifically to fish. A good boat, experienced crew, clear organization and a lot of real ocean.' },
+    'review-008': { name: 'Anna V.', route: 'Starichkov Island', text: 'Birds, cliffs, ocean and crab on board made five hours feel very rich. Special thanks for taking care of parents and children.' },
+    'review-009': { name: 'Mikhail and Tatiana', route: 'Avacha Bay', text: 'The short route turned out to be more than just sightseeing. Three Brothers look powerful from the water, and the crew led the trip calmly, with explanations and photo pauses.' },
+    'review-010': { name: 'Irina L.', route: 'Russkaya Bay', text: 'We remember not only the nature but also the people on board. Warm attitude, tasty fish soup, crab and hot tea made it clear that the group was truly cared for.' }
+  },
+  zh: {
+    'review-yandex-001': { name: '维多利亚 K.', route: 'Yandex 地图', text: '非常感谢 ANTUR 和我们出色的船长 Alexander，带来满满的正能量、美丽的景色、感动和美食。一切都非常完美！' },
+    'review-yandex-002': { name: '然娜 M.', route: 'Yandex 地图', text: '非常感谢 Alexander 的海上之旅——一切都棒极了！组织得非常专业，每个细节都考虑周到，路线引人入胜，当地自然风光令人惊叹。堪察加征服了我们的心！' },
+    'review-yandex-003': { name: '尤利娅·尼科拉耶娃', route: 'Yandex 地图', text: '海上之行非常愉快！服务很好，船长很细心。我们饱览美景，也吃得很好。非常感谢这些感动，推荐给大家！' },
+    'review-001': { name: 'Andrey M.', route: '深海海钓', text: '我们本来是为了钓鱼而来，结果得到了一整天的海上体验。船员很耐心地讲解钓具，在钓点也一直帮助我们。出海后的鱼汤也非常难忘。' },
+    'review-002': { name: 'Marina 和 Ilya', route: '鲁斯卡亚湾', text: '节奏很好：不赶时间，但一天非常充实。上岸、帝王蟹、钓鱼和海湾景色都比预期更令人印象深刻。' },
+    'review-003': { name: 'Sergey P.', route: '斯塔里奇科夫岛', text: '我们选择了去斯塔里奇科夫岛的短途行程。船员很细心，帮助登船，也告诉我们哪里适合拍照，孩子们也很安心。帝王蟹很新鲜。' },
+    'review-004': { name: 'Ekaterina N.', route: '阿瓦恰湾', text: '第一次从海上认识堪察加，这个形式非常合适。船长提前提醒了衣着和天气，船上干净，组织也很清楚。' },
+    'review-005': { name: 'Dmitry K.', route: '近海海钓', text: '我是海钓新手，但团队马上就开始帮助：提供钓具，示范如何使用，整个行程都很耐心。我们有收获，也有很多情绪价值。' },
+    'review-006': { name: 'Olga R.', route: '鲁斯卡亚湾', text: '最喜欢的是他们对天气很诚实：提前解释了我们会去哪里，以及为什么这样安排。出海后的海鲜午餐简单、新鲜、很好吃。' },
+    'review-007': { name: 'Pavel S.', route: '深海海钓', text: '非常适合专门来钓鱼的人。船不错，船员有经验，组织清楚，而且有真正的海洋感。' },
+    'review-008': { name: 'Anna V.', route: '斯塔里奇科夫岛', text: '海鸟、岩石、海洋和船上的帝王蟹让五个小时非常充实。也感谢他们照顾老人和孩子。' },
+    'review-009': { name: 'Mikhail 和 Tatiana', route: '阿瓦恰湾', text: '短途路线并不只是简单观光。从海上看三兄弟岩很震撼，船员节奏很稳，有讲解，也留了拍照时间。' },
+    'review-010': { name: 'Irina L.', route: '鲁斯卡亚湾', text: '记住的不只是自然景色，还有船上的人。温暖的态度、好喝的鱼汤、帝王蟹和热茶，让人感到团队真的在照顾客人。' }
+  }
+}
+
+const localizeReviews = (locale: Exclude<LocaleCode, 'ru'>): Review[] =>
+  ruReviews.map((review) => ({
+    ...review,
+    ...(reviewText[locale][review.id] || {})
+  }))
+
 export const reviewsByLocale: Record<LocaleCode, Review[]> = {
   ru: ruReviews,
-  en: [
-    { ...ruReviews[0], name: 'Andrey M.', route: 'Deep-sea fishing', text: 'We came for fishing and got a full day at sea. The crew calmly explained the tackle and helped at the spots. The fish soup after the trip was a separate pleasure.' },
-    { ...ruReviews[1], name: 'Marina and Ilya', route: 'Russkaya Bay', text: 'We liked the pace: no rush, but the day was very full. The landing, crab, fishing and bay views were stronger than we expected.' },
-    { ...ruReviews[2], name: 'Sergey P.', route: 'Starichkov Island', text: 'We took a short trip to Starichkov. The crew was attentive, helped with boarding, suggested photo spots and made the children feel calm. The crab was fresh and very tasty.' },
-    { ...ruReviews[3], name: 'Ekaterina N.', route: 'Avacha Bay', text: 'For a first view of Kamchatka from the water, this format was perfect. The captain warned us about clothing and weather in advance, and everything on board was clean and clear.' },
-    { ...ruReviews[4], name: 'Dmitry K.', route: 'Coastal fishing', text: 'I was new to sea fishing, but the team helped right away: they gave tackle, showed how to use it and calmly supported us throughout the trip. We caught fish and got even more emotions.' },
-    { ...ruReviews[5], name: 'Olga R.', route: 'Russkaya Bay', text: 'What I liked most was the honesty about the weather: they explained in advance where we would go and why. Lunch with seafood after the walk was simple, fresh and very tasty.' },
-    { ...ruReviews[6], name: 'Pavel S.', route: 'Deep-sea fishing', text: 'A good trip for people who come specifically to fish. A good boat, experienced crew, clear organization and a lot of real ocean.' },
-    { ...ruReviews[7], name: 'Anna V.', route: 'Starichkov Island', text: 'Birds, cliffs, ocean and crab on board made five hours feel very rich. Special thanks for taking care of parents and children.' },
-    { ...ruReviews[8], name: 'Mikhail and Tatiana', route: 'Avacha Bay', text: 'The short route turned out to be more than just sightseeing. Three Brothers look powerful from the water, and the crew led the trip calmly, with explanations and photo pauses.' },
-    { ...ruReviews[9], name: 'Irina L.', route: 'Russkaya Bay', text: 'We remember not only the nature but also the people on board. Warm attitude, tasty fish soup, crab and hot tea made it clear that the group was truly cared for.' }
-  ],
-  zh: [
-    { ...ruReviews[0], name: 'Andrey M.', route: '深海海钓', text: '我们本来是为了钓鱼而来，结果得到了一整天的海上体验。船员很耐心地讲解钓具，在钓点也一直帮助我们。出海后的鱼汤也非常难忘。' },
-    { ...ruReviews[1], name: 'Marina 和 Ilya', route: '鲁斯卡亚湾', text: '节奏很好：不赶时间，但一天非常充实。上岸、帝王蟹、钓鱼和海湾景色都比预期更令人印象深刻。' },
-    { ...ruReviews[2], name: 'Sergey P.', route: '斯塔里奇科夫岛', text: '我们选择了去斯塔里奇科夫岛的短途行程。船员很细心，帮助登船，也告诉我们哪里适合拍照，孩子们也很安心。帝王蟹很新鲜。' },
-    { ...ruReviews[3], name: 'Ekaterina N.', route: '阿瓦恰湾', text: '第一次从海上认识堪察加，这个形式非常合适。船长提前提醒了衣着和天气，船上干净，组织也很清楚。' },
-    { ...ruReviews[4], name: 'Dmitry K.', route: '近海海钓', text: '我是海钓新手，但团队马上就开始帮助：提供钓具，示范如何使用，整个行程都很耐心。我们有收获，也有很多情绪价值。' },
-    { ...ruReviews[5], name: 'Olga R.', route: '鲁斯卡亚湾', text: '最喜欢的是他们对天气很诚实：提前解释了我们会去哪里，以及为什么这样安排。出海后的海鲜午餐简单、新鲜、很好吃。' },
-    { ...ruReviews[6], name: 'Pavel S.', route: '深海海钓', text: '非常适合专门来钓鱼的人。船不错，船员有经验，组织清楚，而且有真正的海洋感。' },
-    { ...ruReviews[7], name: 'Anna V.', route: '斯塔里奇科夫岛', text: '海鸟、岩石、海洋和船上的帝王蟹让五个小时非常充实。也感谢他们照顾老人和孩子。' },
-    { ...ruReviews[8], name: 'Mikhail 和 Tatiana', route: '阿瓦恰湾', text: '短途路线并不只是简单观光。从海上看三兄弟岩很震撼，船员节奏很稳，有讲解，也留了拍照时间。' },
-    { ...ruReviews[9], name: 'Irina L.', route: '鲁斯卡亚湾', text: '记住的不只是自然景色，还有船上的人。温暖的态度、好喝的鱼汤、帝王蟹和热茶，让人感到团队真的在照顾客人。' }
-  ]
+  en: localizeReviews('en'),
+  zh: localizeReviews('zh')
 }
 
 const tourMediaText = {
   en: {
+    'photo-captain-helm-2026-06-24': { alt: 'Antur captain at the boat helm against the Kamchatka cliffs', route: 'Sea tour' },
+    'photo-crab-catch-2026-06-24': { alt: 'Fresh crab in a guest’s hands on board during a crab safari', route: 'Crab safari' },
+    'photo-snow-crab-urchin-2026-06-24': { alt: 'Snow crab and a sea urchin against the Kamchatka waters', route: 'Crab safari' },
+    'photo-seafood-dinner-deck-2026-06-24': { alt: 'Table with crab, sea urchins and wine on deck at sunset', route: 'After the trip' },
+    'photo-sea-urchins-platter-2026-06-24': { alt: 'Plate of fresh sea urchins on board the Antur boat', route: 'Sea delicacies' },
+    'photo-deck-table-cliffs-2026-06-24': { alt: 'Set table on deck against the green Kamchatka cliffs', route: 'After the trip' },
+    'photo-sea-cliff-cave-2026-06-24': { alt: 'Tall coastal cliff with a grotto at the waterline in Kamchatka', route: 'Sea tour' },
+    'photo-rock-passage-waves-2026-06-24': { alt: 'Narrow passage between cliffs with waves and snowy peaks on the horizon', route: 'Russkaya Bay' },
+    'photo-sea-stacks-2026-06-24': { alt: 'Green-topped rock stacks near the Kamchatka coast', route: 'Starichkov Island' },
     'photo-orca-2026-05-30': { alt: 'Orca rising from the water near the Kamchatka coast during a sea tour', route: 'Sea tour' },
     'photo-fishing-catch-2026-05-30': { alt: 'Guest with the catch on board during a Kamchatka sea fishing trip', route: 'Deep-sea fishing' },
     'photo-sea-lions-2026-05-30': { alt: 'Sea lions resting on rocks near the Kamchatka coast', route: 'Starichkov Island' },
@@ -730,6 +756,15 @@ const tourMediaText = {
     'video-ocean-wildlife-2026-05-30': { alt: 'Video of Kamchatka ocean wildlife', route: 'Ocean video' }
   },
   zh: {
+    'photo-captain-helm-2026-06-24': { alt: 'Antur 船长在驾驶舱掌舵，背景是堪察加的岩壁', route: '海上观光' },
+    'photo-crab-catch-2026-06-24': { alt: '帝王蟹体验中客人手里捧着新鲜螃蟹', route: '帝王蟹体验' },
+    'photo-snow-crab-urchin-2026-06-24': { alt: '雪蟹和海胆，背景是堪察加海域', route: '帝王蟹体验' },
+    'photo-seafood-dinner-deck-2026-06-24': { alt: '日落时甲板上摆放着螃蟹、海胆和葡萄酒的餐桌', route: '出海之后' },
+    'photo-sea-urchins-platter-2026-06-24': { alt: 'Antur 船上一盘新鲜的海胆', route: '海鲜美味' },
+    'photo-deck-table-cliffs-2026-06-24': { alt: '甲板上摆好的餐桌，背景是堪察加翠绿的岩壁', route: '出海之后' },
+    'photo-sea-cliff-cave-2026-06-24': { alt: '堪察加水边带有岩洞的高耸海岸岩壁', route: '海上观光' },
+    'photo-rock-passage-waves-2026-06-24': { alt: '岩石之间狭窄的水道，伴有海浪和地平线上的雪峰', route: '鲁斯卡亚湾' },
+    'photo-sea-stacks-2026-06-24': { alt: '堪察加海岸附近顶部覆盖绿色植被的岩柱', route: '斯塔里奇科夫岛' },
     'photo-orca-2026-05-30': { alt: '海上观光时虎鲸在堪察加海岸附近跃出水面', route: '海上观光' },
     'photo-fishing-catch-2026-05-30': { alt: '堪察加海钓时客人在船上展示收获', route: '深海海钓' },
     'photo-sea-lions-2026-05-30': { alt: '堪察加海岸岩石上休息的海狮', route: '斯塔里奇科夫岛' },

@@ -27,6 +27,13 @@ export default defineSitemapEventHandler(() => [
       lastmod: today,
       changefreq: weekly,
       priority: 0.7 as const
+    },
+    {
+      loc: localizedPath(prefix, '/privacy'),
+      _sitemap: 'pages',
+      lastmod: today,
+      changefreq: 'yearly' as const,
+      priority: 0.2 as const
     }
   ]),
   ...localePrefixes.flatMap((prefix) =>

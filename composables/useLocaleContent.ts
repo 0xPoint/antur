@@ -12,6 +12,7 @@ import {
   ui,
   type LocaleCode
 } from '~/data/i18n'
+import { privacyByLocale } from '~/data/privacy'
 
 export const useLocaleContent = () => {
   const route = useRoute()
@@ -29,7 +30,8 @@ export const useLocaleContent = () => {
     faqItems: computed(() => faqByLocale[locale.value]),
     bookingTerms: computed(() => bookingTermsByLocale[locale.value]),
     reviews: computed(() => reviewsByLocale[locale.value]),
-    tourPhotos: computed(() => tourPhotosByLocale[locale.value])
+    tourPhotos: computed(() => tourPhotosByLocale[locale.value]),
+    privacy: computed(() => privacyByLocale[locale.value])
   }
 }
 

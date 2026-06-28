@@ -2,6 +2,33 @@ import type { Review, TourPhoto } from '~/types/content'
 
 export const reviews: Review[] = [
   {
+    id: 'review-yandex-001',
+    name: 'Виктория К.',
+    route: 'Яндекс.Карты',
+    date: '2026-06-22',
+    rating: 5,
+    text:
+      'Большое спасибо АНТУР и нашему замечательному капитану Александру за море положительных впечатлений, прекрасные виды, эмоции и угощения. Все прошло замечательно!'
+  },
+  {
+    id: 'review-yandex-002',
+    name: 'Жанна М.',
+    route: 'Яндекс.Карты',
+    date: '2026-06-22',
+    rating: 5,
+    text:
+      'Огромное спасибо Александру за морское путешествие — всё прошло великолепно! Всё организовано на высшем уровне, продумано до мелочей, маршрут увлекательный, потрясающая местная природа. Камчатка покорила наши сердца!'
+  },
+  {
+    id: 'review-yandex-003',
+    name: 'Юлия Николаева',
+    route: 'Яндекс.Карты',
+    date: '2026-06-22',
+    rating: 5,
+    text:
+      'Морская прогулка очень понравилась! Отличный сервис и внимательный капитан. Налюбовались на красоты и вкусно поели. Огромное спасибо за эмоции, рекомендую всем!'
+  },
+  {
     id: 'review-001',
     name: 'Андрей М.',
     route: 'Глубоководная рыбалка',
@@ -94,6 +121,69 @@ export const reviews: Review[] = [
 ]
 
 export const tourPhotos: TourPhoto[] = [
+  {
+    id: 'photo-captain-helm-2026-06-24',
+    src: '/images/antur-kamchatka-captain-helm-2026-06-24.jpg',
+    alt: 'Капитан Антур за штурвалом катера на фоне камчатских скал',
+    route: 'Морская прогулка',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-crab-catch-2026-06-24',
+    src: '/images/antur-kamchatka-crab-catch-2026-06-24.jpg',
+    alt: 'Свежий краб в руках гостя на борту катера во время крабового сафари',
+    route: 'Крабовое сафари',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-snow-crab-urchin-2026-06-24',
+    src: '/images/antur-kamchatka-snow-crab-urchin-2026-06-24.jpg',
+    alt: 'Краб-стригун и морской еж на фоне камчатской акватории',
+    route: 'Крабовое сафари',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-seafood-dinner-deck-2026-06-24',
+    src: '/images/antur-kamchatka-seafood-dinner-deck-2026-06-24.jpg',
+    alt: 'Стол с крабом, морскими ежами и вином на палубе катера на закате',
+    route: 'После выхода',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-sea-urchins-platter-2026-06-24',
+    src: '/images/antur-kamchatka-sea-urchins-platter-2026-06-24.jpg',
+    alt: 'Тарелка свежих морских ежей на борту катера Антур',
+    route: 'Морские деликатесы',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-deck-table-cliffs-2026-06-24',
+    src: '/images/antur-kamchatka-deck-table-cliffs-2026-06-24.jpg',
+    alt: 'Сервированный стол на палубе на фоне зеленых скал Камчатки',
+    route: 'После выхода',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-sea-cliff-cave-2026-06-24',
+    src: '/images/antur-kamchatka-sea-cliff-cave-2026-06-24.jpg',
+    alt: 'Высокая прибрежная скала с гротом у воды на Камчатке',
+    route: 'Морская прогулка',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-rock-passage-waves-2026-06-24',
+    src: '/images/antur-kamchatka-rock-passage-waves-2026-06-24.jpg',
+    alt: 'Узкий проход между скалами с волнами и снежными вершинами на горизонте',
+    route: 'Бухта Русская',
+    date: '2026-06-24'
+  },
+  {
+    id: 'photo-sea-stacks-2026-06-24',
+    src: '/images/antur-kamchatka-sea-stacks-2026-06-24.jpg',
+    alt: 'Скалы-кекуры с зеленью у побережья Камчатки',
+    route: 'Остров Старичков',
+    date: '2026-06-24'
+  },
   {
     id: 'photo-orca-2026-05-30',
     src: '/images/antur-kamchatka-orca-2026-05-30.jpg',

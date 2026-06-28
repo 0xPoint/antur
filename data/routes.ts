@@ -112,13 +112,9 @@ export const routeOffers: RouteOffer[] = [
     priceOptions: [
       { season: 'май - сентябрь', format: 'Группа не менее 8 человек', price: '5 000 ₽ / чел.' }
     ],
-    image: '/images/hero-kamchatka-boat.jpg',
-    imageAlt: 'Катер идет по вечерней Авачинской бухте',
-    pageImage: '/images/location-three-brothers.jpg',
-    pageImageAlt: 'Кекуры Три брата в Авачинской бухте',
-    imageCredit: {
-      label: 'Natonik / Wikimedia Commons, CC BY-SA 4.0',
-      url: 'https://commons.wikimedia.org/wiki/File:Kamchatka_3_Brothers.jpg'
-    }
+    image: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    imageAlt: 'Кекуры Три брата в Авачинской бухте',
+    pageImage: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
+    pageImageAlt: 'Кекуры Три брата в Авачинской бухте'
   }
 ]

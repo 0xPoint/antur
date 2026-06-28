@@ -38,6 +38,7 @@ jobs:
         run: pnpm generate
         env:
           NUXT_PUBLIC_SITE_URL: https://anturkamchatka.ru
+          NUXT_PUBLIC_YANDEX_METRIKA_ID: '110113081'
           NUXT_APP_BASE_URL: /
 
       - name: Disable Jekyll

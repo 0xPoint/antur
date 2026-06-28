@@ -3,6 +3,9 @@ import { routeOffers } from './data/routes'
 const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
 const withAppBase = (path: string) => `${appBaseUrl}${path}`
 
+// Яндекс.Метрика. ID берётся из env, дефолт — боевой счётчик Антур.
+const yandexMetrikaId = process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '110113081'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: false },
@@ -28,7 +31,11 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: withAppBase('/favicon-32x32.png') },
         { rel: 'apple-touch-icon', sizes: '180x180', href: withAppBase('/apple-touch-icon.png') },
         { rel: 'alternate', type: 'text/plain', title: 'LLMs.txt', href: withAppBase('/llms.txt') }
-      ]
+      ],
+      // Фолбэк Метрики для клиентов без JS (SSR-рендерится на всех страницах).
+      noscript: yandexMetrikaId
+        ? [{ innerHTML: `<div><img src="https://mc.yandex.ru/watch/${yandexMetrikaId}" style="position:absolute; left:-9999px;" alt="" /></div>` }]
+        : []
     }
   },
   runtimeConfig: {
@@ -39,7 +46,8 @@ export default defineNuxtConfig({
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru',
       businessPhone: '+79140253972',
-      whatsappNumber: '79140253972'
+      whatsappNumber: '79140253972',
+      yandexMetrikaId
     }
   },
   routeRules: {
@@ -61,6 +69,9 @@ export default defineNuxtConfig({
         '/gallery',
         '/en/gallery',
         '/zh/gallery',
+        '/privacy',
+        '/en/privacy',
+        '/zh/privacy',
         '/robots.txt',
         ...routeOffers.flatMap((offer) => [
           `/routes/${offer.slug}`,

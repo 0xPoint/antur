@@ -81,7 +81,7 @@
           </div>
           <OptimizedImage
             class="booking-image"
-            src="/images/crab-tasting.jpg"
+            src="/images/antur-kamchatka-crab-wine-deck-2026-06-14.jpg"
             width="900"
             height="675"
             sizes="(max-width: 760px) 82vw, 34vw"
