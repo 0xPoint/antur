@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "test": "tsc -p tsconfig.test.json && node --test .tmp/test-dist/tests/*.test.js"
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^7.4.7",

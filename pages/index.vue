@@ -32,7 +32,6 @@
               loading="lazy"
               :alt="text.home.introAlt"
             />
-            <figcaption>{{ text.home.introCaption }}</figcaption>
           </figure>
         </div>
       </section>
@@ -139,42 +138,7 @@
               <h2 id="reviews-title">{{ text.home.reviewsTitle }}</h2>
             </div>
           </div>
-          <div class="reviews-layout">
-            <div class="reviews-slider-shell">
-              <button class="slider-arrow slider-arrow-left" type="button" :aria-label="text.home.prevReviews" @click="scrollReview(-1)">‹</button>
-              <div
-                ref="reviewsViewport"
-                class="reviews-slider"
-                :class="{ dragging: reviewDrag.active }"
-                :aria-label="text.home.reviewsAria"
-                @pointerdown="startReviewDrag"
-                @pointermove="moveReviewDrag"
-                @pointerup="stopReviewDrag"
-                @pointercancel="stopReviewDrag"
-                @pointerleave="stopReviewDrag"
-              >
-                <article v-for="review in reviews" :key="review.id" class="review-slide">
-                  <div class="rating" :aria-label="text.home.ratingLabel(review.rating)">{{ '★'.repeat(review.rating) }}</div>
-                  <p>{{ review.text }}</p>
-                  <footer>
-                    <strong>{{ review.name }}</strong>
-                    <span>
-                      <NuxtLink v-if="review.routeSlug" :to="localePath(`/routes/${review.routeSlug}`)">{{ review.route }}</NuxtLink>
-                      <template v-else>{{ review.route }}</template>
-                    </span>
-                    <span>
-                      <time :datetime="review.date">{{ formatDate(review.date) }}</time>
-                      <template v-if="review.sourceUrl && review.source">
-                        · <a :href="review.sourceUrl" target="_blank" rel="noopener nofollow">{{ review.source }}</a>
-                      </template>
-                      <template v-else-if="review.source"> · {{ review.source }}</template>
-                    </span>
-                  </footer>
-                </article>
-              </div>
-              <button class="slider-arrow slider-arrow-right" type="button" :aria-label="text.home.nextReviews" @click="scrollReview(1)">›</button>
-            </div>
-          </div>
+          <ReviewSlider :reviews="reviews" :label="text.home.reviewsAria" />
         </div>
       </section>
     </div>
@@ -209,80 +173,10 @@ const homeRouteOffers = computed(() =>
     return offer ? [offer] : []
   })
 )
-const reviewsViewport = ref<HTMLElement | null>(null)
 const openFaqIndex = ref<number | null>(0)
-const reviewDrag = reactive({
-  active: false,
-  startX: 0,
-  scrollLeft: 0
-})
-
-const scrollReview = (direction: -1 | 1) => {
-  const viewport = reviewsViewport.value
-
-  if (!viewport) {
-    return
-  }
-
-  const maxScroll = viewport.scrollWidth - viewport.clientWidth
-  const pageStep = Math.max(viewport.clientWidth - 48, 280)
-  const isAtEnd = viewport.scrollLeft >= maxScroll - 8
-  const isAtStart = viewport.scrollLeft <= 8
-
-  if (direction > 0 && isAtEnd) {
-    viewport.scrollTo({ left: 0, behavior: 'smooth' })
-    return
-  }
-
-  if (direction < 0 && isAtStart) {
-    viewport.scrollTo({ left: maxScroll, behavior: 'smooth' })
-    return
-  }
-
-  viewport.scrollBy({ left: pageStep * direction, behavior: 'smooth' })
-}
-
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date(`${date}T00:00:00`))
 
 const toggleFaq = (index: number) => {
   openFaqIndex.value = openFaqIndex.value === index ? null : index
-}
-
-const startReviewDrag = (event: PointerEvent) => {
-  const viewport = reviewsViewport.value
-
-  if (!viewport) {
-    return
-  }
-
-  reviewDrag.active = true
-  reviewDrag.startX = event.clientX
-  reviewDrag.scrollLeft = viewport.scrollLeft
-  viewport.setPointerCapture(event.pointerId)
-}
-
-const moveReviewDrag = (event: PointerEvent) => {
-  const viewport = reviewsViewport.value
-
-  if (!viewport || !reviewDrag.active) {
-    return
-  }
-
-  viewport.scrollLeft = reviewDrag.scrollLeft - (event.clientX - reviewDrag.startX)
-}
-
-const stopReviewDrag = (event: PointerEvent) => {
-  const viewport = reviewsViewport.value
-  reviewDrag.active = false
-
-  if (viewport?.hasPointerCapture(event.pointerId)) {
-    viewport.releasePointerCapture(event.pointerId)
-  }
 }
 
 const proofItems = computed(() => [

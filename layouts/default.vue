@@ -50,10 +50,10 @@
               {{ offer.title }}
             </NuxtLink>
             <template v-if="locale === 'ru'">
-              <NuxtLink v-for="page in seoLandingPages" :key="page.slug" :to="`/${page.slug}`">
+              <NuxtLink v-for="page in ruOnlySeoLandingLinks" :key="page.slug" :to="`/${page.slug}`">
                 {{ page.title }}
               </NuxtLink>
-              <NuxtLink v-for="page in infoPages" :key="page.slug" :to="`/${page.slug}`">
+              <NuxtLink v-for="page in ruOnlyInfoPageLinks" :key="page.slug" :to="`/${page.slug}`">
                 {{ page.title }}
               </NuxtLink>
             </template>
@@ -95,8 +95,7 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
-import { infoPages } from '~/data/info-pages'
-import { seoLandingPages } from '~/data/seo-pages'
+import { ruOnlyInfoPageLinks, ruOnlySeoLandingLinks } from '~/data/ru-only-pages'
 
 const assetPath = useAssetPath()
 const { locale, localePath, text, businessText, privacy, routeOffers } = useLocaleContent()

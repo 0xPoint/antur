@@ -1,4 +1,5 @@
 import type { Review, TourPhoto } from '~/types/content'
+import { sortReviewsByDateDesc } from '~/utils/reviews'
 
 const yandexReviewsUrl =
   'https://yandex.ru/maps/?text=%D0%90%D0%BD%D1%82%D1%83%D1%80%20%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D0%BA%D0%B0%20%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D1%81%D0%BA-%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D1%81%D0%BA%D0%B8%D0%B9'
@@ -7,7 +8,7 @@ const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561/ta
 // Реальные отзывы гостей с публичных площадок (2ГИС, Яндекс.Карты).
 // Тексты собраны из официальных карточек организации и приведены дословно
 // (с лёгкой нормализацией пробелов/эмодзи). Семейные отзывы исключены.
-export const reviews: Review[] = [
+export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-yandex-001',
     name: 'Виктория К.',
@@ -208,7 +209,7 @@ export const reviews: Review[] = [
     text:
       'Случилось нам отправиться на морское путешествие — это были самые незабываемые впечатления и яркие эмоции. Чистое комфортное судно, дружная атмосфера и очень вкусные угощения. Нам безумно повезло с погодой: мы увидели красоты Камчатки, диких птиц и морских жителей, насладились сполна. Благодарны вам за этот прекрасный день!'
   }
-]
+])
 
 export const tourPhotos: TourPhoto[] = [
   {

@@ -48,14 +48,14 @@
       </div>
     </section>
 
-    <section v-if="freshPhotos.length" class="section route-gallery-section">
+    <section v-if="pagePhotos.length" class="section route-gallery-section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">{{ text.home.galleryEyebrow }}</p>
           <h2>{{ text.route.routePhotos }}</h2>
         </div>
         <div class="gallery-list">
-          <article v-for="photo in freshPhotos" :key="photo.id" class="photo-card">
+          <article v-for="photo in pagePhotos" :key="photo.id" class="photo-card">
             <OptimizedImage
               :src="photo.src"
               width="900"
@@ -65,10 +65,6 @@
               loading="lazy"
               :alt="photo.alt"
             />
-            <div class="photo-copy">
-              <strong>{{ photo.caption || photo.alt }}</strong>
-              <span>{{ photo.route }} · <time :datetime="photo.date">{{ formatDate(photo.date) }}</time></span>
-            </div>
           </article>
         </div>
       </div>
@@ -115,13 +111,15 @@ const pageRoutes = computed(() =>
     return offer ? [offer] : []
   })
 )
-const freshPhotos = computed(() => tourPhotos.value.slice(0, 3))
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date(`${date}T00:00:00`))
+const pagePhotos = computed(() => {
+  const photos = tourPhotos.value.filter((photo) => photo.kind !== 'video')
+  const selected = props.page.photoIds?.flatMap((id) => {
+    const photo = photos.find((item) => item.id === id)
+    return photo ? [photo] : []
+  }) || []
+
+  return (selected.length ? selected : photos).slice(0, 3)
+})
 const assetPath = useAssetPath()
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string

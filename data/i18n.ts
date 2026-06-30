@@ -132,7 +132,7 @@ export const ui = {
       title: 'Морские прогулки и глубоководная рыбалка на Камчатке',
       lead: 'Выходы в Тихий океан из Петропавловска-Камчатского: сборные группы от 5 000 ₽ / чел., аренда катера для рыбалки, крабовое сафари, Бухта Русская и остров Старичков. Работаем официально, пассажиры застрахованы.',
       routes: 'Смотреть маршруты',
-      note: 'Ответим по датам, погоде и формату поездки',
+      note: 'Ответим по датам, погоде и маршруту',
       imageAlt: 'Косатки выпрыгивают из воды',
       context: 'Бронирование из первого экрана'
     },
@@ -140,13 +140,12 @@ export const ui = {
       seoTitle: 'Морские прогулки и рыбалка на Камчатке | Антур',
       seoDescription: 'Морские прогулки, глубоководная рыбалка, Бухта Русская, остров Старичков и крабовое сафари из Петропавловска-Камчатского. Официальная деятельность, гости застрахованы.',
       routesEyebrow: 'Маршруты и цены',
-      routesTitle: 'Выберите формат выхода',
+      routesTitle: 'Выберите маршрут',
       details: 'Подробнее',
       introEyebrow: 'Камчатка с воды',
       introTitle: 'Море, вулканы и маршруты с характером',
-      introText: 'Подберем формат под вашу компанию: короткая прогулка по бухте, рыбалка в океане, выход к острову Старичков или длинный день с Бухтой Русской, крабом и остановками на берегу.',
+      introText: 'Подберем маршрут под вашу компанию: короткая прогулка по бухте, рыбалка в океане, выход к острову Старичков или длинный день с Бухтой Русской, крабом и остановками на берегу.',
       introAlt: 'Скалы Камчатки со стороны океана',
-      introCaption: 'Маршрут подтверждаем накануне выхода с учетом погоды и состояния акватории.',
       galleryEyebrow: 'Свежие фото',
       galleryTitle: 'Океан, краб, рыбалка и Камчатка в одном дне',
       galleryText: 'Живые кадры с маршрутов: косатки, сивучи, скалы, рыбалка, краб и спокойные моменты после выхода.',
@@ -162,7 +161,7 @@ export const ui = {
       safetyTitle: 'Маршрут ведет капитан, а не расписание',
       safetyText: 'Камчатское море быстро меняется, поэтому программа всегда сверяется с прогнозом, состоянием акватории и составом группы. Если условия требуют корректировки, обсуждаем это заранее.',
       bookingEyebrow: 'Бронирование',
-      bookingTitle: 'Подберем дату и формат выхода',
+      bookingTitle: 'Подберем дату и маршрут',
       bookingText: 'Напишите или позвоните: уточним маршрут, сезонную цену, состав группы и прогноз. Для бронирования места нужна предоплата 1 000 ₽.',
       bookingButton: 'Записаться',
       bookingContext: 'Бронирование морской прогулки',
@@ -175,6 +174,9 @@ export const ui = {
       reviewsAria: 'Отзывы гостей',
       prevReviews: 'Предыдущие отзывы',
       nextReviews: 'Следующие отзывы',
+      reviewOriginalLink: 'показать оригинал',
+      reviewMoreLink: 'читать полностью',
+      reviewCollapseLink: 'свернуть',
       ratingLabel: (rating: number) => `${rating} из 5`
     },
     route: {
@@ -254,7 +256,6 @@ export const ui = {
       introTitle: 'Ocean, volcanoes and routes with character',
       introText: 'We will choose a format for your group: a short bay tour, ocean fishing, Starichkov Island or a full day to Russkaya Bay with crab, fishing and shore stops.',
       introAlt: 'Kamchatka cliffs seen from the ocean',
-      introCaption: 'The route is confirmed the day before departure with weather and sea conditions in mind.',
       galleryEyebrow: 'Fresh photos',
       galleryTitle: 'Ocean, crab, fishing and Kamchatka in one day',
       galleryText: 'Real moments from the routes: orcas, sea lions, cliffs, fishing, crab and calm time after the trip.',
@@ -283,6 +284,9 @@ export const ui = {
       reviewsAria: 'Guest reviews',
       prevReviews: 'Previous reviews',
       nextReviews: 'Next reviews',
+      reviewOriginalLink: 'show original',
+      reviewMoreLink: 'read full review',
+      reviewCollapseLink: 'collapse',
       ratingLabel: (rating: number) => `${rating} out of 5`
     },
     route: {
@@ -362,7 +366,6 @@ export const ui = {
       introTitle: '海洋、火山与有性格的路线',
       introText: '我们会按您的团队选择形式：短途海湾观光、海钓、斯塔里奇科夫岛，或前往鲁斯卡亚湾的一整天行程，包含帝王蟹、钓鱼和岸上停留。',
       introAlt: '从海上看到的堪察加海岸岩石',
-      introCaption: '出发前一天会根据天气和海况确认路线。',
       galleryEyebrow: '最新照片',
       galleryTitle: '一天里看见海洋、帝王蟹、钓鱼和堪察加',
       galleryText: '路线中的真实画面：虎鲸、海狮、岩石、海钓、帝王蟹和出海后的轻松时刻。',
@@ -391,6 +394,9 @@ export const ui = {
       reviewsAria: '客人评价',
       prevReviews: '上一条评价',
       nextReviews: '下一条评价',
+      reviewOriginalLink: '查看原文',
+      reviewMoreLink: '阅读全文',
+      reviewCollapseLink: '收起',
       ratingLabel: (rating: number) => `${rating} / 5`
     },
     route: {
@@ -435,8 +441,8 @@ const enRouteOffers: RouteOffer[] = [
     kicker: 'Boat charter',
     duration: '5 or 10 hours',
     price: 'from 65,000 ₽',
-    description: 'A trip for up to 6 guests: fishing near the Kamchatka coast, prepared tackle and an optional crab safari by agreement with the captain.',
-    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Crab safari by agreement with the captain'],
+    description: 'A trip for up to 6 guests: fishing near the Kamchatka coast, tackle on board and a crab safari when weather and sea conditions allow.',
+    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
     priceOptions: [
       { season: 'May - September', format: '5 hours, group up to 6 guests', price: '65,000 ₽' },
       { season: 'May - September', format: '10 hours, group up to 6 guests', price: '130,000 ₽' },
@@ -455,8 +461,8 @@ const enRouteOffers: RouteOffer[] = [
     kicker: 'Boat charter',
     duration: '5 or 10 hours',
     price: 'from 85,000 ₽',
-    description: 'A route farther into the ocean for guests who come specifically for fishing: more time on the water, deeper spots and a fuller day.',
-    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Crab safari by agreement with the captain'],
+    description: 'A route farther into the ocean for guests who come specifically for fishing: more time on the water, productive depths and a fuller sea day.',
+    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
     priceOptions: [
       { season: 'May - September', format: '5 hours, group up to 6 guests', price: '85,000 ₽' },
       { season: 'May - September', format: '10 hours, group up to 6 guests', price: '170,000 ₽' },
@@ -474,8 +480,8 @@ const enRouteOffers: RouteOffer[] = [
     kicker: '10 hours',
     duration: '10 hours',
     price: 'from 15,000 ₽ / guest',
-    description: 'A full sea day to Russkaya Bay with a shore landing, fishing and crab safari.',
-    highlights: ['Crab safari', '10-hour fishing route', 'Bay entrance and shore landing', 'Shared groups and boat charter'],
+    description: 'A full sea day to Russkaya Bay with a shore landing, fishing, crab safari, snacks and a full lunch on board.',
+    highlights: ['Crab safari', '10-hour fishing route', 'Snacks and lunch on board', 'Bay entrance and shore landing', 'Shared groups and boat charter'],
     priceOptions: [
       { season: 'May - June', format: 'Shared group', price: '15,000 ₽ / guest' },
       { season: 'May - June', format: 'Boat charter, group up to 8 guests', price: '120,000 ₽' },
@@ -496,8 +502,8 @@ const enRouteOffers: RouteOffer[] = [
     kicker: '5 hours',
     duration: '5 hours',
     price: 'from 7,000 ₽ / guest',
-    description: 'A five-hour route to Starichkov Island: cliffs, seabirds, sea fishing and crab safari in one trip.',
-    highlights: ['Sea fishing', 'Crab safari', 'Shared groups and boat charter', '5-hour route'],
+    description: 'A five-hour route to Starichkov Island: cliffs, seabirds, sea fishing, crab safari, freshly cooked crab, snacks and a full lunch in one trip.',
+    highlights: ['Sea fishing', 'Crab safari', 'Freshly cooked crab', 'Snacks and lunch on board', 'Shared groups and boat charter', '5-hour route'],
     priceOptions: [
       { season: 'May - June', format: 'Shared group', price: '7,000 ₽ / guest' },
       { season: 'May - June', format: 'Boat charter, group up to 8 guests', price: '56,000 ₽' },
@@ -519,7 +525,7 @@ const enRouteOffers: RouteOffer[] = [
     duration: '2.5 hours',
     price: '5,000 ₽ / guest',
     description: 'A calm sightseeing trip through Avacha Bay: Three Brothers rocks, Tikhaya Bay and city views from the water.',
-    highlights: ['Three Brothers rocks', 'Tikhaya Bay', 'Group of at least 8 guests', 'May - September'],
+    highlights: ['Three Brothers rocks', 'Tikhaya Bay', 'Snacks on board', 'Group of at least 8 guests', 'May - September'],
     priceOptions: [
       { season: 'May - September', format: 'Group of at least 8 guests', price: '5,000 ₽ / guest' }
     ],
@@ -537,8 +543,8 @@ const zhRouteOffers: RouteOffer[] = [
     kicker: '包船',
     duration: '5 或 10 小时',
     price: '65,000 ₽ 起',
-    description: '适合最多 6 人的出海行程：在堪察加海岸附近钓鱼，提供钓具，也可与船长协商加入帝王蟹体验。',
-    highlights: ['最多 6 人成团', '提供钓具', '帝王蟹体验可与船长协商'],
+    description: '适合最多 6 人的出海行程：在堪察加海岸附近钓鱼，船上提供钓具；天气和海况合适时可加入帝王蟹体验。',
+    highlights: ['最多 6 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
     priceOptions: [
       { season: '5 月 - 9 月', format: '5 小时，最多 6 人', price: '65,000 ₽' },
       { season: '5 月 - 9 月', format: '10 小时，最多 6 人', price: '130,000 ₽' },
@@ -557,8 +563,8 @@ const zhRouteOffers: RouteOffer[] = [
     kicker: '包船',
     duration: '5 或 10 小时',
     price: '85,000 ₽ 起',
-    description: '更深入太平洋的钓鱼路线，适合专程来海钓的客人：水上时间更长、钓点更深、一天更充实。',
-    highlights: ['最多 6 人成团', '提供钓具', '帝王蟹体验可与船长协商'],
+    description: '更深入太平洋的钓鱼路线，适合专程来海钓的客人：水上时间更长、钓点更深入、海上一天更充实。',
+    highlights: ['最多 6 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
     priceOptions: [
       { season: '5 月 - 9 月', format: '5 小时，最多 6 人', price: '85,000 ₽' },
       { season: '5 月 - 9 月', format: '10 小时，最多 6 人', price: '170,000 ₽' },
@@ -576,8 +582,8 @@ const zhRouteOffers: RouteOffer[] = [
     kicker: '10 小时',
     duration: '10 小时',
     price: '15,000 ₽ / 人起',
-    description: '前往鲁斯卡亚湾的一整天海上行程，包含上岸停留、钓鱼和帝王蟹体验。',
-    highlights: ['帝王蟹体验', '10 小时钓鱼行程', '进入海湾并上岸停留', '可拼团或包船'],
+    description: '前往鲁斯卡亚湾的一整天海上行程，包含上岸停留、钓鱼、帝王蟹体验、船上小吃和完整午餐。',
+    highlights: ['帝王蟹体验', '10 小时钓鱼行程', '船上小吃和午餐', '进入海湾并上岸停留', '可拼团或包船'],
     priceOptions: [
       { season: '5 月 - 6 月', format: '拼团', price: '15,000 ₽ / 人' },
       { season: '5 月 - 6 月', format: '包船，最多 8 人', price: '120,000 ₽' },
@@ -598,8 +604,8 @@ const zhRouteOffers: RouteOffer[] = [
     kicker: '5 小时',
     duration: '5 小时',
     price: '7,000 ₽ / 人起',
-    description: '前往斯塔里奇科夫岛的 5 小时路线：海岸岩石、海鸟、海钓和帝王蟹体验都在一次行程中。',
-    highlights: ['海钓', '帝王蟹体验', '可拼团或包船', '5 小时路线'],
+    description: '前往斯塔里奇科夫岛的 5 小时路线：海岸岩石、海鸟、海钓、帝王蟹体验、现煮帝王蟹、小吃和完整午餐都在一次行程中。',
+    highlights: ['海钓', '帝王蟹体验', '现煮帝王蟹', '船上小吃和午餐', '可拼团或包船', '5 小时路线'],
     priceOptions: [
       { season: '5 月 - 6 月', format: '拼团', price: '7,000 ₽ / 人' },
       { season: '5 月 - 6 月', format: '包船，最多 8 人', price: '56,000 ₽' },
@@ -621,7 +627,7 @@ const zhRouteOffers: RouteOffer[] = [
     duration: '2.5 小时',
     price: '5,000 ₽ / 人',
     description: '轻松的阿瓦恰湾观光路线：三兄弟岩、季哈亚湾，以及从海上看城市景色。',
-    highlights: ['三兄弟岩', '季哈亚湾', '至少 8 人成团', '5 月 - 9 月'],
+    highlights: ['三兄弟岩', '季哈亚湾', '船上小吃', '至少 8 人成团', '5 月 - 9 月'],
     priceOptions: [
       { season: '5 月 - 9 月', format: '至少 8 人成团', price: '5,000 ₽ / 人' }
     ],
@@ -659,7 +665,7 @@ export const faqByLocale = {
     },
     {
       question: 'What food or treats are included?',
-      answer: 'It depends on the route and agreement: fish soup, tea, crab and seafood may be included on sea trips. We confirm the exact format when booking.'
+      answer: 'Short trips - fishing, Avacha Bay sightseeing and crab safari - include snacks on board. On Starichkov Island, we serve snacks, a full lunch and freshly cooked crab on board. Russkaya Bay includes snacks and a full lunch. You can bring personal food and drinks additionally.'
     },
     {
       question: 'Can children join?',
@@ -701,7 +707,7 @@ export const faqByLocale = {
     },
     {
       question: '餐食和招待包含什么？',
-      answer: '具体取决于路线和约定：出海行程中可能包含鱼汤、茶、帝王蟹和海鲜。预订时会确认所选路线的具体内容。'
+      answer: '短途行程，包括海钓、阿瓦恰湾观光和帝王蟹体验，船上包含小吃。斯塔里奇科夫岛行程会提供小吃、完整午餐和船上现煮帝王蟹。鲁斯卡亚湾包含小吃和完整午餐。也可以额外自带个人食品和饮品。'
     },
     {
       question: '儿童可以参加吗？',

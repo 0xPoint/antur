@@ -156,7 +156,6 @@
               loading="lazy"
               :alt="item.alt"
             />
-            <figcaption>{{ item.caption }}</figcaption>
           </figure>
         </div>
       </div>
@@ -168,23 +167,7 @@
           <p class="eyebrow">{{ text.home.reviewsEyebrow }}</p>
           <h2>{{ text.route.routeReviews }}</h2>
         </div>
-        <div class="reviews-grid">
-          <article v-for="review in routeReviews" :key="review.id" class="review-card">
-            <div class="rating" :aria-label="text.home.ratingLabel(review.rating)">{{ '★'.repeat(review.rating) }}</div>
-            <p>{{ review.text }}</p>
-            <footer>
-              <strong>{{ review.name }}</strong>
-              <span>{{ review.route }}</span>
-              <span>
-                <time :datetime="review.date">{{ formatDate(review.date) }}</time>
-                <template v-if="review.sourceUrl && review.source">
-                  · <a :href="review.sourceUrl" target="_blank" rel="noopener nofollow">{{ review.source }}</a>
-                </template>
-                <template v-else-if="review.source"> · {{ review.source }}</template>
-              </span>
-            </footer>
-          </article>
-        </div>
+        <ReviewSlider :reviews="routeReviews" :label="text.route.routeReviews" :link-routes="false" />
       </div>
     </section>
 
@@ -218,6 +201,8 @@
 </template>
 
 <script setup lang="ts">
+import { sortReviewsByDateDesc } from '~/utils/reviews'
+
 definePageMeta({
   alias: ['/en/routes/:slug', '/zh/routes/:slug']
 })
@@ -249,15 +234,15 @@ const routeReviews = computed(() => {
   }
 
   if (currentOffer.reviewIds?.length) {
-    return currentOffer.reviewIds
-      .flatMap((id) => {
+    return sortReviewsByDateDesc(
+      currentOffer.reviewIds.flatMap((id) => {
         const review = reviews.value.find((item) => item.id === id)
         return review ? [review] : []
       })
-      .slice(0, 3)
+    ).slice(0, 3)
   }
 
-  return reviews.value.filter((review) => review.routeSlug === currentOffer.slug).slice(0, 3)
+  return sortReviewsByDateDesc(reviews.value.filter((review) => review.routeSlug === currentOffer.slug)).slice(0, 3)
 })
 const relatedRoutes = computed(() =>
   routeOffers.value.filter((item) => item.slug !== offer.value?.slug).slice(0, 3)
@@ -349,12 +334,6 @@ const parseRubPrice = (price: string) => {
   const match = price.replace(/\s/g, '').match(/\d+/)
   return match ? Number(match[0]) : undefined
 }
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date(`${date}T00:00:00`))
 const assetPath = useAssetPath()
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string

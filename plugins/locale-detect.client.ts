@@ -3,8 +3,10 @@ import {
   getLocaleFromPath,
   isLocaleCode,
   localizePath,
+  stripLocaleFromPath,
   type LocaleCode
 } from '~/data/i18n'
+import { ruOnlyPagePaths } from '~/data/ru-only-pages'
 
 const storageKey = 'antur:locale'
 const detectionKey = 'antur:locale-detected'
@@ -51,6 +53,11 @@ export default defineNuxtPlugin(() => {
 
   if (getLocaleFromPath(route.path) !== defaultLocale) {
     window.localStorage.setItem(storageKey, getLocaleFromPath(route.path))
+    return
+  }
+
+  if (ruOnlyPagePaths.has(stripLocaleFromPath(route.path))) {
+    window.localStorage.setItem(storageKey, defaultLocale)
     return
   }
 

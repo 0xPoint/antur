@@ -15,6 +15,23 @@
           >
             <source :src="assetPath(photo.videoSrc || photo.src)" type="video/mp4">
           </video>
+          <NuxtLink
+            v-else-if="getPhotoRoutePath(photo)"
+            class="photo-card-link"
+            :to="getPhotoRoutePath(photo)"
+            :aria-label="`${photo.alt}. ${photo.route}`"
+          >
+            <OptimizedImage
+              :src="photo.src"
+              width="900"
+              height="900"
+              sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 31vw"
+              :widths="[480, 720, 960]"
+              :loading="getPhotoLoading(photo)"
+              :fetchpriority="getPhotoFetchPriority(photo)"
+              :alt="photo.alt"
+            />
+          </NuxtLink>
           <OptimizedImage
             v-else
             :src="photo.src"
@@ -22,17 +39,10 @@
             height="900"
             sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 31vw"
             :widths="[480, 720, 960]"
-            loading="lazy"
+            :loading="getPhotoLoading(photo)"
+            :fetchpriority="getPhotoFetchPriority(photo)"
             :alt="photo.alt"
           />
-          <div class="photo-copy">
-            <strong>{{ photo.caption || photo.alt }}</strong>
-            <span>
-              <NuxtLink v-if="getPhotoRouteSlug(photo)" :to="localePath(`/routes/${getPhotoRouteSlug(photo)}`)">{{ photo.route }}</NuxtLink>
-              <template v-else>{{ photo.route }}</template>
-              <template v-if="photo.date"> · <time :datetime="photo.date">{{ formatDate(photo.date) }}</time></template>
-            </span>
-          </div>
         </article>
       </div>
     </div>
@@ -44,14 +54,31 @@ definePageMeta({
   alias: ['/en/gallery', '/zh/gallery']
 })
 
-const assetPath = useAssetPath()
+const { assetPath, webpSrcset } = useImageSources()
 const { text, tourPhotos, localePath } = useLocaleContent()
+const firstImagePhoto = computed(() => tourPhotos.value.find((photo) => photo.kind !== 'video'))
 
 useAnturSeo({
   title: text.value.gallery.seoTitle,
   description: text.value.gallery.seoDescription,
   path: '/gallery'
 })
+
+useHead(() => firstImagePhoto.value
+  ? {
+      link: [
+        {
+          rel: 'preload',
+          as: 'image',
+          href: assetPath(`/images/webp/${firstImagePhoto.value.src.split('/').pop()?.replace(/\.[^.]+$/, '')}-720.webp`),
+          imagesrcset: webpSrcset(firstImagePhoto.value.src, [480, 720, 960]),
+          imagesizes: '(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 31vw',
+          type: 'image/webp',
+          fetchpriority: 'high'
+        }
+      ]
+    }
+  : {})
 
 const routeKeywordSlugs = [
   { slug: 'buhta-russkaya', keywords: ['бухта русская', 'russkaya', '鲁斯卡亚'] },
@@ -74,10 +101,12 @@ const getPhotoRouteSlug = (photo: { routeSlug?: string, route: string }) => {
   return match?.slug
 }
 
-const formatDate = (date: string) =>
-  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).format(new Date(`${date}T00:00:00`))
+const getPhotoRoutePath = (photo: { routeSlug?: string, route: string }) => {
+  const slug = getPhotoRouteSlug(photo)
+  return slug ? localePath(`/routes/${slug}`) : undefined
+}
+
+const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id
+const getPhotoLoading = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'eager' : 'lazy'
+const getPhotoFetchPriority = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'high' : 'low'
 </script>
