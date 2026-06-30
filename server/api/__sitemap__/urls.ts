@@ -1,4 +1,5 @@
 import { routeOffers } from '~/data/routes'
+import { infoPages } from '~/data/info-pages'
 import { seoLandingPages } from '~/data/seo-pages'
 import { tourPhotos } from '~/data/social-proof'
 
@@ -55,5 +56,12 @@ export default defineSitemapEventHandler(() => [
     lastmod: page.updatedAt,
     changefreq: weekly,
     priority: 0.7 as const
+  })),
+  ...infoPages.map((page) => ({
+    loc: `/${page.slug}`,
+    _sitemap: 'pages',
+    lastmod: page.updatedAt,
+    changefreq: 'monthly' as const,
+    priority: 0.6 as const
   }))
 ])

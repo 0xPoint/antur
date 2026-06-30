@@ -1,4 +1,5 @@
 import { routeOffers } from './data/routes'
+import { infoPages } from './data/info-pages'
 import { seoLandingPages } from './data/seo-pages'
 
 const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
@@ -74,6 +75,8 @@ export default defineNuxtConfig({
         '/en/privacy',
         '/zh/privacy',
         '/robots.txt',
+        '/image-sitemap.xml',
+        ...infoPages.map((page) => `/${page.slug}`),
         ...seoLandingPages.map((page) => `/${page.slug}`),
         ...routeOffers.flatMap((offer) => [
           `/routes/${offer.slug}`,

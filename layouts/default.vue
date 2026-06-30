@@ -53,16 +53,33 @@
               <NuxtLink v-for="page in seoLandingPages" :key="page.slug" :to="`/${page.slug}`">
                 {{ page.title }}
               </NuxtLink>
+              <NuxtLink v-for="page in infoPages" :key="page.slug" :to="`/${page.slug}`">
+                {{ page.title }}
+              </NuxtLink>
             </template>
           </nav>
         </div>
         <address class="footer-contact">
           <div class="footer-contact-row">
-            <a class="footer-phone" :href="business.phoneHref">{{ business.phone }}</a>
-            <a class="messenger-icon" :href="business.whatsappHref" target="_blank" rel="noopener" :aria-label="text.contact.whatsapp">
+            <a class="footer-phone" :href="business.phoneHref" @click="trackFooterContact('footer_phone_click')">{{ business.phone }}</a>
+            <a
+              class="messenger-icon"
+              :href="business.whatsappHref"
+              target="_blank"
+              rel="noopener"
+              :aria-label="text.contact.whatsapp"
+              @click="trackFooterContact('footer_whatsapp_click')"
+            >
               <img :src="assetPath('/images/whatsapp-glyph.svg')" width="24" height="24" alt="" aria-hidden="true">
             </a>
-            <a class="messenger-icon messenger-icon-max" :href="business.maxHref" target="_blank" rel="noopener" :aria-label="text.contact.max">
+            <a
+              class="messenger-icon messenger-icon-max"
+              :href="business.maxHref"
+              target="_blank"
+              rel="noopener"
+              :aria-label="text.contact.max"
+              @click="trackFooterContact('footer_max_click')"
+            >
               <img :src="assetPath('/images/max-logo.svg')" width="24" height="24" alt="" aria-hidden="true">
             </a>
           </div>
@@ -78,8 +95,19 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
+import { infoPages } from '~/data/info-pages'
 import { seoLandingPages } from '~/data/seo-pages'
 
 const assetPath = useAssetPath()
 const { locale, localePath, text, businessText, privacy, routeOffers } = useLocaleContent()
+const route = useRoute()
+const { $reachGoal } = useNuxtApp()
+
+const trackFooterContact = (goal: string) => {
+  $reachGoal?.(goal, {
+    locale: locale.value,
+    path: route.fullPath,
+    placement: 'footer'
+  })
+}
 </script>

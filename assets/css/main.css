@@ -1706,6 +1706,60 @@ h3 {
   color: var(--mist);
 }
 
+.info-content-section {
+  background: #f2f7f7;
+  color: #0b2535;
+}
+
+.info-content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.16fr) minmax(300px, 0.84fr);
+  gap: clamp(28px, 5vw, 68px);
+  align-items: start;
+}
+
+.info-section-list {
+  display: grid;
+  gap: 18px;
+}
+
+.info-section-item,
+.info-checklist {
+  border: 1px solid rgba(11, 37, 53, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 50px rgba(7, 25, 38, 0.08);
+}
+
+.info-section-item {
+  padding: clamp(22px, 4vw, 34px);
+}
+
+.info-section-item h2,
+.info-checklist h2 {
+  margin-bottom: 14px;
+  color: #0b2535;
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.16;
+}
+
+.info-section-item p {
+  margin: 0;
+  color: #405566;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.info-checklist {
+  position: sticky;
+  top: 104px;
+  padding: clamp(22px, 4vw, 30px);
+}
+
+.info-checklist .route-text-list li {
+  color: #405566;
+}
+
 .route-timeline {
   display: grid;
   gap: 14px;
@@ -1992,9 +2046,14 @@ h3 {
   .route-detail-grid,
   .route-extra-grid,
   .route-info-grid,
+  .info-content-grid,
   .route-gallery-list,
   .safety-grid {
     grid-template-columns: 1fr;
+  }
+
+  .info-checklist {
+    position: static;
   }
 
   .route-card,

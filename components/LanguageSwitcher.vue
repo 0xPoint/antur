@@ -17,12 +17,16 @@
 </template>
 
 <script setup lang="ts">
+import { infoPages } from '~/data/info-pages'
 import { seoLandingPages } from '~/data/seo-pages'
 import type { LocaleCode } from '~/data/i18n'
 
 const route = useRoute()
 const { locale, locales, localePath, text } = useLocaleContent()
-const ruOnlyLandingSlugs = new Set(seoLandingPages.map((item) => `/${item.slug}`))
+const ruOnlyLandingSlugs = new Set([
+  ...seoLandingPages.map((item) => `/${item.slug}`),
+  ...infoPages.map((item) => `/${item.slug}`)
+])
 const isRuOnlyLanding = computed(() => ruOnlyLandingSlugs.has(route.path))
 
 const targetHref = (targetLocale: LocaleCode) => {

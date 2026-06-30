@@ -15,15 +15,15 @@
           </div>
 
           <div class="contact-options" :aria-label="text.contact.options">
-            <a class="contact-option" :href="maxHref" target="_blank" rel="noopener">
+            <a class="contact-option" :href="maxHref" target="_blank" rel="noopener" @click="trackContact('contact_max_click')">
               <img :src="assetPath('/images/max-logo.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>MAX</span>
             </a>
-            <a class="contact-option" :href="whatsappHref" target="_blank" rel="noopener">
+            <a class="contact-option" :href="whatsappHref" target="_blank" rel="noopener" @click="trackContact('contact_whatsapp_click')">
               <img :src="assetPath('/images/whatsapp-glyph.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>WhatsApp</span>
             </a>
-            <a class="contact-option" :href="business.phoneHref">
+            <a class="contact-option" :href="business.phoneHref" @click="trackContact('contact_phone_click')">
               <span class="phone-icon" aria-hidden="true">☎</span>
               <span>{{ text.contact.call }}</span>
             </a>
@@ -39,6 +39,8 @@ import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
 const { locale, text } = useLocaleContent()
+const route = useRoute()
+const { $reachGoal } = useNuxtApp()
 const props = withDefaults(defineProps<{
   label?: string
   variant?: 'primary' | 'ghost' | 'dark'
@@ -73,8 +75,16 @@ const whatsappHref = computed(() =>
   `https://wa.me/79140253972?text=${encodeURIComponent(contactMessage.value)}`
 )
 const maxHref = computed(() => business.maxHref)
+const trackContact = (goal: string) => {
+  $reachGoal?.(goal, {
+    context: props.context,
+    locale: locale.value,
+    path: route.fullPath
+  })
+}
 
 const openModal = () => {
+  trackContact('contact_modal_open')
   isOpen.value = true
 }
 

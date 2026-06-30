@@ -4,6 +4,7 @@ export default defineEventHandler((event) => {
   const baseURL = config.app.baseURL || '/'
   const rootUrl = new URL(baseURL, siteUrl)
   const sitemapUrl = new URL(`${baseURL.replace(/\/$/, '')}/sitemap.xml`, siteUrl).toString()
+  const imageSitemapUrl = new URL(`${baseURL.replace(/\/$/, '')}/image-sitemap.xml`, siteUrl).toString()
   const llmsUrl = new URL(`${baseURL.replace(/\/$/, '')}/llms.txt`, siteUrl).toString()
   const llmsFullUrl = new URL(`${baseURL.replace(/\/$/, '')}/llms-full.txt`, siteUrl).toString()
   const host = rootUrl.hostname
@@ -38,6 +39,7 @@ User-agent: Yandex
 Allow: /
 
 Sitemap: ${sitemapUrl}
+Sitemap: ${imageSitemapUrl}
 Host: ${host}
 
 # AI agent context: ${llmsUrl}

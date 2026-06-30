@@ -8,6 +8,8 @@ type YandexMetrika = ((counterId: number, action: string, ...rest: unknown[]) =>
   l?: number
 }
 
+type ReachGoal = (goal: string, params?: Record<string, unknown>) => void
+
 declare global {
   interface Window {
     ym?: YandexMetrika
@@ -15,16 +17,37 @@ declare global {
   }
 }
 
-export default defineNuxtPlugin(() => {
-  if (import.meta.dev) {
-    return
+declare module '#app' {
+  interface NuxtApp {
+    $reachGoal: ReachGoal
   }
+}
 
+export default defineNuxtPlugin(() => {
   const rawId = useRuntimeConfig().public.yandexMetrikaId
   const counterId = Number(rawId)
+  const reachGoal: ReachGoal = (goal, params = {}) => {
+    if (import.meta.dev || !counterId) {
+      return
+    }
+
+    window.ym?.(counterId, 'reachGoal', goal, params)
+  }
+
+  if (import.meta.dev) {
+    return {
+      provide: {
+        reachGoal
+      }
+    }
+  }
 
   if (!counterId) {
-    return
+    return {
+      provide: {
+        reachGoal
+      }
+    }
   }
 
   const scriptSrc = `https://mc.yandex.ru/metrika/tag.js?id=${counterId}`
@@ -67,4 +90,10 @@ export default defineNuxtPlugin(() => {
       })
     })
   })
+
+  return {
+    provide: {
+      reachGoal
+    }
+  }
 })
