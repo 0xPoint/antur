@@ -158,7 +158,14 @@
                   <p>{{ review.text }}</p>
                   <footer>
                     <strong>{{ review.name }}</strong>
-                    <span>{{ review.route }}</span>
+                    <span>
+                      <NuxtLink v-if="review.routeSlug" :to="localePath(`/routes/${review.routeSlug}`)">{{ review.route }}</NuxtLink>
+                      <template v-else>{{ review.route }}</template>
+                    </span>
+                    <span>
+                      <time :datetime="review.date">{{ formatDate(review.date) }}</time>
+                      <template v-if="review.source"> · {{ review.source }}</template>
+                    </span>
                   </footer>
                 </article>
               </div>
@@ -231,6 +238,13 @@ const scrollReview = (direction: -1 | 1) => {
 
   viewport.scrollBy({ left: pageStep * direction, behavior: 'smooth' })
 }
+
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date(`${date}T00:00:00`))
 
 const toggleFaq = (index: number) => {
   openFaqIndex.value = openFaqIndex.value === index ? null : index

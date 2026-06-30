@@ -15,11 +15,11 @@
           </div>
 
           <div class="contact-options" :aria-label="text.contact.options">
-            <a class="contact-option" :href="business.maxHref" target="_blank" rel="noopener">
+            <a class="contact-option" :href="maxHref" target="_blank" rel="noopener">
               <img :src="assetPath('/images/max-logo.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>MAX</span>
             </a>
-            <a class="contact-option" :href="business.whatsappHref" target="_blank" rel="noopener">
+            <a class="contact-option" :href="whatsappHref" target="_blank" rel="noopener">
               <img :src="assetPath('/images/whatsapp-glyph.svg')" width="28" height="28" alt="" aria-hidden="true">
               <span>WhatsApp</span>
             </a>
@@ -38,7 +38,7 @@
 import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
-const { text } = useLocaleContent()
+const { locale, text } = useLocaleContent()
 const props = withDefaults(defineProps<{
   label?: string
   variant?: 'primary' | 'ghost' | 'dark'
@@ -58,6 +58,21 @@ const buttonClass = computed(() => ({
   'btn-dark': props.variant === 'dark'
 }))
 const label = computed(() => props.label || text.value.contact.cta)
+const contactMessage = computed(() => {
+  if (locale.value === 'en') {
+    return `Hello! I would like to check dates and availability: ${props.context}.`
+  }
+
+  if (locale.value === 'zh') {
+    return `您好！我想确认日期和名额：${props.context}。`
+  }
+
+  return `Здравствуйте! Хочу уточнить дату и места: ${props.context}.`
+})
+const whatsappHref = computed(() =>
+  `https://wa.me/79140253972?text=${encodeURIComponent(contactMessage.value)}`
+)
+const maxHref = computed(() => business.maxHref)
 
 const openModal = () => {
   isOpen.value = true

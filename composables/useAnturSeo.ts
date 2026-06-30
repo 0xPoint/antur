@@ -1,4 +1,4 @@
-import { faq } from '~/data/site'
+import { business, faq } from '~/data/site'
 import {
   faqByLocale,
   getLocaleFromPath,
@@ -14,6 +14,7 @@ interface SeoInput {
   image?: string
   imageWidth?: number
   imageHeight?: number
+  localized?: boolean
 }
 
 export function useAnturSeo(input: SeoInput) {
@@ -28,11 +29,14 @@ export function useAnturSeo(input: SeoInput) {
   const image = new URL(assetPath(input.image || '/images/hero-kamchatka-boat.jpg'), siteUrl).toString()
   const localeMeta = locales.find((item) => item.code === locale) || locales[0]
   const businessText = localizedBusiness[locale]
-  const alternateLinks = locales.map((item) => ({
-    rel: 'alternate',
-    hreflang: item.hreflang,
-    href: new URL(assetPath(localizePath(path, item.code)), siteUrl).toString()
-  }))
+  const hasLocalizedAlternates = input.localized !== false
+  const alternateLinks = hasLocalizedAlternates
+    ? locales.map((item) => ({
+        rel: 'alternate',
+        hreflang: item.hreflang,
+        href: new URL(assetPath(localizePath(path, item.code)), siteUrl).toString()
+      }))
+    : []
 
   useSeoMeta({
     title: input.title,
@@ -55,7 +59,9 @@ export function useAnturSeo(input: SeoInput) {
     link: [
       { rel: 'canonical', href: url },
       ...alternateLinks,
-      { rel: 'alternate', hreflang: 'x-default', href: new URL(assetPath(localizePath(path, 'ru')), siteUrl).toString() }
+      ...(hasLocalizedAlternates
+        ? [{ rel: 'alternate', hreflang: 'x-default', href: new URL(assetPath(localizePath(path, 'ru')), siteUrl).toString() }]
+        : [])
     ]
   })
 
@@ -69,6 +75,9 @@ export function useBusinessSchema() {
   const route = useRoute()
   const locale = getLocaleFromPath(route.path)
   const businessText = localizedBusiness[locale]
+  const businessUrl = new URL(assetPath(localizePath('/', locale)), siteUrl).toString()
+  const logoUrl = new URL(assetPath('/images/antur-logo-mark.png'), siteUrl).toString()
+  const imageUrl = new URL(assetPath('/images/hero-kamchatka-boat.jpg'), siteUrl).toString()
 
   useHead({
     script: [
@@ -77,15 +86,35 @@ export function useBusinessSchema() {
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'TravelAgency',
+          '@id': `${businessUrl}#organization`,
           name: businessText.brand,
           legalName: businessText.legalName,
-          telephone: '+79140253972',
-          url: new URL(assetPath(localizePath('/', locale)), siteUrl).toString(),
+          telephone: business.phone,
+          url: businessUrl,
+          logo: logoUrl,
+          image: imageUrl,
+          priceRange: '5 000 ₽ - 170 000 ₽',
           areaServed: locale === 'ru'
             ? ['Камчатка', 'Петропавловск-Камчатский', 'Авачинская бухта']
             : locale === 'zh'
               ? ['堪察加', '彼得罗巴甫洛夫斯克-堪察加', '阿瓦恰湾']
               : ['Kamchatka', 'Petropavlovsk-Kamchatsky', 'Avacha Bay'],
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 53.04,
+            longitude: 158.65
+          },
+          hasMap: business.twoGisHref,
+          sameAs: [
+            business.twoGisHref,
+            business.maxHref
+          ],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: business.phone,
+            contactType: locale === 'ru' ? 'Бронирование морских прогулок' : 'Booking',
+            availableLanguage: ['ru', 'en', 'zh']
+          },
           address: {
             '@type': 'PostalAddress',
             addressLocality: businessText.region,

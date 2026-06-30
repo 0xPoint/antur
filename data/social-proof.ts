@@ -4,7 +4,8 @@ export const reviews: Review[] = [
   {
     id: 'review-yandex-001',
     name: 'Виктория К.',
-    route: 'Яндекс.Карты',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
     date: '2026-06-22',
     rating: 5,
     text:
@@ -13,7 +14,8 @@ export const reviews: Review[] = [
   {
     id: 'review-yandex-002',
     name: 'Жанна М.',
-    route: 'Яндекс.Карты',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
     date: '2026-06-22',
     rating: 5,
     text:
@@ -22,7 +24,9 @@ export const reviews: Review[] = [
   {
     id: 'review-yandex-003',
     name: 'Юлия Николаева',
-    route: 'Яндекс.Карты',
+    route: 'Авачинская бухта',
+    routeSlug: 'avachinskaya-buhta',
+    source: 'Яндекс.Карты',
     date: '2026-06-22',
     rating: 5,
     text:
@@ -32,6 +36,7 @@ export const reviews: Review[] = [
     id: 'review-001',
     name: 'Андрей М.',
     route: 'Глубоководная рыбалка',
+    routeSlug: 'glubokovodnaya-rybalka',
     date: '2025-08-17',
     rating: 5,
     text:
@@ -41,6 +46,7 @@ export const reviews: Review[] = [
     id: 'review-002',
     name: 'Марина и Илья',
     route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2025-07-29',
     rating: 5,
     text:
@@ -50,6 +56,7 @@ export const reviews: Review[] = [
     id: 'review-003',
     name: 'Сергей П.',
     route: 'Остров Старичков',
+    routeSlug: 'ostrov-starichkov',
     date: '2025-06-12',
     rating: 5,
     text:
@@ -59,6 +66,7 @@ export const reviews: Review[] = [
     id: 'review-004',
     name: 'Екатерина Н.',
     route: 'Авачинская бухта',
+    routeSlug: 'avachinskaya-buhta',
     date: '2025-09-03',
     rating: 5,
     text:
@@ -68,6 +76,7 @@ export const reviews: Review[] = [
     id: 'review-005',
     name: 'Дмитрий К.',
     route: 'Прибрежная рыбалка',
+    routeSlug: 'rybalka',
     date: '2025-08-04',
     rating: 5,
     text:
@@ -77,6 +86,7 @@ export const reviews: Review[] = [
     id: 'review-006',
     name: 'Ольга Р.',
     route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2025-07-18',
     rating: 5,
     text:
@@ -86,6 +96,7 @@ export const reviews: Review[] = [
     id: 'review-007',
     name: 'Павел С.',
     route: 'Глубоководная рыбалка',
+    routeSlug: 'glubokovodnaya-rybalka',
     date: '2025-08-22',
     rating: 5,
     text:
@@ -95,6 +106,7 @@ export const reviews: Review[] = [
     id: 'review-008',
     name: 'Анна В.',
     route: 'Остров Старичков',
+    routeSlug: 'ostrov-starichkov',
     date: '2025-06-25',
     rating: 5,
     text:
@@ -104,6 +116,7 @@ export const reviews: Review[] = [
     id: 'review-009',
     name: 'Михаил и Татьяна',
     route: 'Авачинская бухта',
+    routeSlug: 'avachinskaya-buhta',
     date: '2025-09-11',
     rating: 5,
     text:
@@ -113,6 +126,7 @@ export const reviews: Review[] = [
     id: 'review-010',
     name: 'Ирина Л.',
     route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2025-08-31',
     rating: 5,
     text:

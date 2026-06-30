@@ -1,6 +1,6 @@
 <template>
   <NuxtLink class="route-card" :class="{ 'route-card-featured': offer.featured, 'route-card-warm': offer.slug === 'avachinskaya-buhta' }" :to="localePath(`/routes/${offer.slug}`)">
-    <DeferredOptimizedImage
+    <OptimizedImage
       class="route-card-image"
       :src="cardImage"
       width="1080"
@@ -9,7 +9,6 @@
       :widths="cardWidths"
       loading="lazy"
       fetchpriority="low"
-      root-margin="120px"
       :alt="cardImageAlt"
     />
     <div class="route-copy">

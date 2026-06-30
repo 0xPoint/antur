@@ -45,6 +45,16 @@
           </NuxtLink>
           <p>{{ businessText.legalName }}</p>
           <NuxtLink class="footer-legal-link" :to="localePath('/privacy')">{{ privacy.linkLabel }}</NuxtLink>
+          <nav class="footer-routes" :aria-label="text.nav.routes">
+            <NuxtLink v-for="offer in routeOffers" :key="offer.slug" :to="localePath(`/routes/${offer.slug}`)">
+              {{ offer.title }}
+            </NuxtLink>
+            <template v-if="locale === 'ru'">
+              <NuxtLink v-for="page in seoLandingPages" :key="page.slug" :to="`/${page.slug}`">
+                {{ page.title }}
+              </NuxtLink>
+            </template>
+          </nav>
         </div>
         <address class="footer-contact">
           <div class="footer-contact-row">
@@ -68,7 +78,8 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
+import { seoLandingPages } from '~/data/seo-pages'
 
 const assetPath = useAssetPath()
-const { localePath, text, businessText, privacy } = useLocaleContent()
+const { locale, localePath, text, businessText, privacy, routeOffers } = useLocaleContent()
 </script>

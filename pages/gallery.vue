@@ -25,6 +25,14 @@
             loading="lazy"
             :alt="photo.alt"
           />
+          <div class="photo-copy">
+            <strong>{{ photo.caption || photo.alt }}</strong>
+            <span>
+              <NuxtLink v-if="getPhotoRouteSlug(photo)" :to="localePath(`/routes/${getPhotoRouteSlug(photo)}`)">{{ photo.route }}</NuxtLink>
+              <template v-else>{{ photo.route }}</template>
+              <template v-if="photo.date"> · <time :datetime="photo.date">{{ formatDate(photo.date) }}</time></template>
+            </span>
+          </div>
         </article>
       </div>
     </div>
@@ -37,11 +45,39 @@ definePageMeta({
 })
 
 const assetPath = useAssetPath()
-const { text, tourPhotos } = useLocaleContent()
+const { text, tourPhotos, localePath } = useLocaleContent()
 
 useAnturSeo({
   title: text.value.gallery.seoTitle,
   description: text.value.gallery.seoDescription,
   path: '/gallery'
 })
+
+const routeKeywordSlugs = [
+  { slug: 'buhta-russkaya', keywords: ['бухта русская', 'russkaya', '鲁斯卡亚'] },
+  { slug: 'ostrov-starichkov', keywords: ['старичков', 'starichkov', '斯塔里奇科夫'] },
+  { slug: 'avachinskaya-buhta', keywords: ['авачин', 'avacha', '阿瓦恰', 'три брата', 'three brothers', '三兄弟'] },
+  { slug: 'glubokovodnaya-rybalka', keywords: ['глубок', 'deep-sea', '深海'] },
+  { slug: 'rybalka', keywords: ['рыбал', 'fishing', '海钓'] }
+]
+
+const getPhotoRouteSlug = (photo: { routeSlug?: string, route: string }) => {
+  if (photo.routeSlug) {
+    return photo.routeSlug
+  }
+
+  const route = photo.route.toLowerCase()
+  const match = routeKeywordSlugs.find((item) =>
+    item.keywords.some((keyword) => route.includes(keyword.toLowerCase()))
+  )
+
+  return match?.slug
+}
+
+const formatDate = (date: string) =>
+  new Intl.DateTimeFormat(text.value.gallery.dateLocale, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(new Date(`${date}T00:00:00`))
 </script>

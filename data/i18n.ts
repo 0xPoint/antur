@@ -64,6 +64,7 @@ export const localizedBusiness = {
     region: 'Петропавловск-Камчатский',
     mapEyebrow: 'Точка сбора',
     mapTitle: 'Точка сбора на интерактивной карте',
+    mapDescription: 'Выходим из Петропавловска-Камчатского. Точную точку сбора и время подтверждаем при бронировании маршрута.',
     mapLink: 'Открыть в 2GIS',
     mapLabel: 'Интерактивная карта точки сбора Антур',
     mapAlt: 'Карта Петропавловска-Камчатского с точкой сбора Антур',
@@ -77,6 +78,7 @@ export const localizedBusiness = {
     region: 'Petropavlovsk-Kamchatsky',
     mapEyebrow: 'Meeting point',
     mapTitle: 'Meeting point on an interactive map',
+    mapDescription: 'Trips depart from Petropavlovsk-Kamchatsky. We confirm the exact meeting point and departure time when booking.',
     mapLink: 'Open in 2GIS',
     mapLabel: 'Interactive map of the Antur meeting point',
     mapAlt: 'Map of Petropavlovsk-Kamchatsky with the Antur meeting point',
@@ -90,6 +92,7 @@ export const localizedBusiness = {
     region: '彼得罗巴甫洛夫斯克-堪察加',
     mapEyebrow: '集合点',
     mapTitle: '集合点互动地图',
+    mapDescription: '行程从彼得罗巴甫洛夫斯克-堪察加出发。具体集合点和出发时间会在预订时确认。',
     mapLink: '在 2GIS 中打开',
     mapLabel: 'Antur 集合点互动地图',
     mapAlt: '彼得罗巴甫洛夫斯克-堪察加 Antur 集合点地图',
@@ -127,10 +130,10 @@ export const ui = {
     hero: {
       location: 'Петропавловск-Камчатский',
       title: 'Морские прогулки и глубоководная рыбалка на Камчатке',
-      lead: 'Выходы в Тихий океан на катере: рыбалка, крабовое сафари, Бухта Русская, остров Старичков и спокойный морской день с экипажем, который знает акваторию.',
+      lead: 'Выходы в Тихий океан из Петропавловска-Камчатского: сборные группы от 5 000 ₽ / чел., аренда катера для рыбалки, крабовое сафари, Бухта Русская и остров Старичков. Работаем официально, пассажиры застрахованы.',
       routes: 'Смотреть маршруты',
       note: 'Ответим по датам, погоде и формату поездки',
-      imageAlt: 'Касатки выпрыгивают из воды',
+      imageAlt: 'Косатки выпрыгивают из воды',
       context: 'Бронирование из первого экрана'
     },
     home: {
@@ -183,6 +186,18 @@ export const ui = {
       price: 'Стоимость',
       currentPrice: 'Актуальный прайс',
       seasonalPrice: 'Цены по сезону и формату',
+      audience: 'Кому подойдет',
+      timeline: 'Как проходит выход',
+      includedDetails: 'Что входит',
+      notIncluded: 'Что не входит',
+      bring: 'Что взять с собой',
+      weather: 'Погода и перенос',
+      children: 'Можно ли с детьми',
+      meetingPoint: 'Точка сбора',
+      routePhotos: 'Фото с маршрута',
+      routeReviews: 'Отзывы по маршруту',
+      routeFaq: 'Вопросы по маршруту',
+      otherRoutes: 'Другие маршруты',
       seoSuffix: 'на Камчатке | Антур',
       touristTypes: ['рыбалка', 'морская прогулка', 'Камчатка']
     },
@@ -223,7 +238,7 @@ export const ui = {
     hero: {
       location: 'Petropavlovsk-Kamchatsky',
       title: 'Kamchatka sea tours and deep-sea fishing',
-      lead: 'Boat trips into the Pacific Ocean: fishing, crab safari, Russkaya Bay, Starichkov Island and a calm sea day with a crew that knows the local waters.',
+      lead: 'Pacific Ocean boat trips from Petropavlovsk-Kamchatsky: shared groups from 5,000 ₽ per guest, boat charter for fishing, crab safari, Russkaya Bay and Starichkov Island. Official operator, passengers are insured.',
       routes: 'View routes',
       note: 'We will advise on dates, weather and the right trip format',
       imageAlt: 'Orcas jumping out of the water',
@@ -279,6 +294,18 @@ export const ui = {
       price: 'Price',
       currentPrice: 'Current price list',
       seasonalPrice: 'Prices by season and format',
+      audience: 'Who it suits',
+      timeline: 'How the trip goes',
+      includedDetails: 'What is included',
+      notIncluded: 'What is not included',
+      bring: 'What to bring',
+      weather: 'Weather and rescheduling',
+      children: 'Children on board',
+      meetingPoint: 'Meeting point',
+      routePhotos: 'Route photos',
+      routeReviews: 'Route reviews',
+      routeFaq: 'Route questions',
+      otherRoutes: 'Other routes',
       seoSuffix: 'in Kamchatka | Antur',
       touristTypes: ['fishing', 'sea tour', 'Kamchatka']
     },
@@ -319,7 +346,7 @@ export const ui = {
     hero: {
       location: '彼得罗巴甫洛夫斯克-堪察加',
       title: '堪察加海上观光与深海钓鱼',
-      lead: '乘船进入太平洋：海钓、帝王蟹体验、鲁斯卡亚湾、斯塔里奇科夫岛，以及由熟悉海域的船员陪同的轻松海上一日游。',
+      lead: '从彼得罗巴甫洛夫斯克-堪察加出发进入太平洋：拼团 5,000 ₽ / 人起，也可包船海钓、帝王蟹体验、鲁斯卡亚湾和斯塔里奇科夫岛。正规运营，乘客已投保。',
       routes: '查看路线',
       note: '我们会根据日期、天气和出行形式给出建议',
       imageAlt: '虎鲸跃出水面',
@@ -375,6 +402,18 @@ export const ui = {
       price: '价格',
       currentPrice: '当前价目表',
       seasonalPrice: '按季节和形式计价',
+      audience: '适合人群',
+      timeline: '行程怎样进行',
+      includedDetails: '包含内容',
+      notIncluded: '不包含',
+      bring: '建议携带',
+      weather: '天气与改期',
+      children: '儿童同行',
+      meetingPoint: '集合点',
+      routePhotos: '路线照片',
+      routeReviews: '路线评价',
+      routeFaq: '路线问题',
+      otherRoutes: '其他路线',
       seoSuffix: '| 堪察加 | Antur',
       touristTypes: ['海钓', '海上观光', '堪察加']
     },
@@ -607,8 +646,20 @@ export const faqByLocale = {
       answer: 'We check the forecast and sea state before departure. If going out is unsafe or uncomfortable, we will suggest another date or a different format.'
     },
     {
+      question: 'If the trip is cancelled because of weather, do I lose the prepayment?',
+      answer: 'No. If we reschedule because the weather or sea state is unsafe, we discuss another date or format. The non-refundable rule applies when the guest cancels a reserved seat.'
+    },
+    {
       question: 'Can I join without fishing experience?',
       answer: 'Yes. The crew will explain the tackle and help on board. You can come for your first sea fishing trip or choose a more serious deep-sea format.'
+    },
+    {
+      question: 'What if I get seasick?',
+      answer: 'Tell us in advance and bring your usual seasickness medicine. For a first trip, choose Avacha Bay or Starichkov Island instead of a long ocean route.'
+    },
+    {
+      question: 'What food or treats are included?',
+      answer: 'It depends on the route and agreement: fish soup, tea, crab and seafood may be included on sea trips. We confirm the exact format when booking.'
     },
     {
       question: 'Can children join?',
@@ -620,7 +671,7 @@ export const faqByLocale = {
     },
     {
       question: 'Is prepayment required?',
-      answer: 'Yes. A 1,000 ₽ prepayment reserves a seat. If you cancel the trip, the prepayment is not refunded.'
+      answer: 'Yes. A 1,000 ₽ prepayment reserves a seat. If the guest cancels the trip, the prepayment is not refunded.'
     },
     {
       question: 'Are whales and orcas guaranteed?',
@@ -637,8 +688,20 @@ export const faqByLocale = {
       answer: '出发前我们会检查天气预报和海况。如果出海不安全或体验不好，会建议改期或更换行程形式。'
     },
     {
+      question: '如果因天气取消出海，预付款会损失吗？',
+      answer: '不会。如果因天气或海况不安全由我们建议改期，会协商新的日期或行程形式。预付款不退仅适用于客人主动取消已预留名额。'
+    },
+    {
       question: '没有钓鱼经验可以参加吗？',
       answer: '可以。船员会讲解钓具并在船上协助。可以作为第一次海钓体验，也可以选择更深入的深海钓鱼形式。'
+    },
+    {
+      question: '如果晕船怎么办？',
+      answer: '请提前告知，并携带自己常用的晕船药。第一次出海建议选择阿瓦恰湾或斯塔里奇科夫岛，而不是较长的远海路线。'
+    },
+    {
+      question: '餐食和招待包含什么？',
+      answer: '具体取决于路线和约定：出海行程中可能包含鱼汤、茶、帝王蟹和海鲜。预订时会确认所选路线的具体内容。'
     },
     {
       question: '儿童可以参加吗？',
@@ -650,7 +713,7 @@ export const faqByLocale = {
     },
     {
       question: '需要预付款吗？',
-      answer: '需要。预留名额需支付 1,000 ₽ 预付款。如客人取消行程，预付款不退。'
+      answer: '需要。预留名额需支付 1,000 ₽ 预付款。如客人主动取消行程，预付款不退。'
     },
     {
       question: '一定能看到鲸鱼或虎鲸吗？',
@@ -668,24 +731,24 @@ export const bookingTermsByLocale = {
   en: [
     'Children under 5 join free of charge when accompanied by parents or responsible adults.',
     'Birthday guests, children under 12, and repeat or next-trip bookings receive a 10% discount.',
-    'A 1,000 ₽ prepayment is required to reserve a seat. If you cancel the trip, the prepayment is not refunded.',
+    'A 1,000 ₽ prepayment is required to reserve a seat. If the guest cancels the trip, the prepayment is not refunded.',
     'All passengers and crew members are insured.'
   ],
   zh: [
     '5 岁以下儿童在父母或负责人陪同下免费。',
     '生日客人、12 岁以下儿童，以及再次预订或下一次行程可享 10% 优惠。',
-    '预留名额需支付 1,000 ₽ 预付款。如客人取消行程，预付款不退。',
+    '预留名额需支付 1,000 ₽ 预付款。如客人主动取消行程，预付款不退。',
     '所有乘客和船员均已投保。'
   ]
 } satisfies Record<LocaleCode, string[]>
 
 // Переводы отзывов ключуются по id (не по индексу), чтобы добавление или
 // переупорядочивание ruReviews не ломало соответствие переводов.
-const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: string, route: string, text: string }>> = {
+const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: string, route: string, text: string, source?: string }>> = {
   en: {
-    'review-yandex-001': { name: 'Victoria K.', route: 'Yandex Maps', text: 'Many thanks to ANTUR and our wonderful captain Alexander for a sea of positive impressions, beautiful views, emotions and treats. Everything went wonderfully!' },
-    'review-yandex-002': { name: 'Zhanna M.', route: 'Yandex Maps', text: 'A huge thank you to Alexander for the sea journey — everything went superbly! Everything was organized at the highest level and thought through to the smallest detail, an engaging route and stunning local nature. Kamchatka won our hearts!' },
-    'review-yandex-003': { name: 'Yulia Nikolaeva', route: 'Yandex Maps', text: 'We really enjoyed the sea trip! Great service and an attentive captain. We admired the views and ate well. Many thanks for the emotions, I recommend it to everyone!' },
+    'review-yandex-001': { name: 'Victoria K.', route: 'Sea tour', source: 'Yandex Maps', text: 'Many thanks to ANTUR and our wonderful captain Alexander for a sea of positive impressions, beautiful views, emotions and treats. Everything went wonderfully!' },
+    'review-yandex-002': { name: 'Zhanna M.', route: 'Sea tour', source: 'Yandex Maps', text: 'A huge thank you to Alexander for the sea journey — everything went superbly! Everything was organized at the highest level and thought through to the smallest detail, an engaging route and stunning local nature. Kamchatka won our hearts!' },
+    'review-yandex-003': { name: 'Yulia Nikolaeva', route: 'Avacha Bay', source: 'Yandex Maps', text: 'We really enjoyed the sea trip! Great service and an attentive captain. We admired the views and ate well. Many thanks for the emotions, I recommend it to everyone!' },
     'review-001': { name: 'Andrey M.', route: 'Deep-sea fishing', text: 'We came for fishing and got a full day at sea. The crew calmly explained the tackle and helped at the spots. The fish soup after the trip was a separate pleasure.' },
     'review-002': { name: 'Marina and Ilya', route: 'Russkaya Bay', text: 'We liked the pace: no rush, but the day was very full. The landing, crab, fishing and bay views were stronger than we expected.' },
     'review-003': { name: 'Sergey P.', route: 'Starichkov Island', text: 'We took a short trip to Starichkov. The crew was attentive, helped with boarding, suggested photo spots and made the children feel calm. The crab was fresh and very tasty.' },
@@ -698,9 +761,9 @@ const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: strin
     'review-010': { name: 'Irina L.', route: 'Russkaya Bay', text: 'We remember not only the nature but also the people on board. Warm attitude, tasty fish soup, crab and hot tea made it clear that the group was truly cared for.' }
   },
   zh: {
-    'review-yandex-001': { name: '维多利亚 K.', route: 'Yandex 地图', text: '非常感谢 ANTUR 和我们出色的船长 Alexander，带来满满的正能量、美丽的景色、感动和美食。一切都非常完美！' },
-    'review-yandex-002': { name: '然娜 M.', route: 'Yandex 地图', text: '非常感谢 Alexander 的海上之旅——一切都棒极了！组织得非常专业，每个细节都考虑周到，路线引人入胜，当地自然风光令人惊叹。堪察加征服了我们的心！' },
-    'review-yandex-003': { name: '尤利娅·尼科拉耶娃', route: 'Yandex 地图', text: '海上之行非常愉快！服务很好，船长很细心。我们饱览美景，也吃得很好。非常感谢这些感动，推荐给大家！' },
+    'review-yandex-001': { name: '维多利亚 K.', route: '海上观光', source: 'Yandex 地图', text: '非常感谢 ANTUR 和我们出色的船长 Alexander，带来满满的正能量、美丽的景色、感动和美食。一切都非常完美！' },
+    'review-yandex-002': { name: '然娜 M.', route: '海上观光', source: 'Yandex 地图', text: '非常感谢 Alexander 的海上之旅——一切都棒极了！组织得非常专业，每个细节都考虑周到，路线引人入胜，当地自然风光令人惊叹。堪察加征服了我们的心！' },
+    'review-yandex-003': { name: '尤利娅·尼科拉耶娃', route: '阿瓦恰湾', source: 'Yandex 地图', text: '海上之行非常愉快！服务很好，船长很细心。我们饱览美景，也吃得很好。非常感谢这些感动，推荐给大家！' },
     'review-001': { name: 'Andrey M.', route: '深海海钓', text: '我们本来是为了钓鱼而来，结果得到了一整天的海上体验。船员很耐心地讲解钓具，在钓点也一直帮助我们。出海后的鱼汤也非常难忘。' },
     'review-002': { name: 'Marina 和 Ilya', route: '鲁斯卡亚湾', text: '节奏很好：不赶时间，但一天非常充实。上岸、帝王蟹、钓鱼和海湾景色都比预期更令人印象深刻。' },
     'review-003': { name: 'Sergey P.', route: '斯塔里奇科夫岛', text: '我们选择了去斯塔里奇科夫岛的短途行程。船员很细心，帮助登船，也告诉我们哪里适合拍照，孩子们也很安心。帝王蟹很新鲜。' },
