@@ -177,7 +177,10 @@
               <span>{{ review.route }}</span>
               <span>
                 <time :datetime="review.date">{{ formatDate(review.date) }}</time>
-                <template v-if="review.source"> · {{ review.source }}</template>
+                <template v-if="review.sourceUrl && review.source">
+                  · <a :href="review.sourceUrl" target="_blank" rel="noopener nofollow">{{ review.source }}</a>
+                </template>
+                <template v-else-if="review.source"> · {{ review.source }}</template>
               </span>
             </footer>
           </article>

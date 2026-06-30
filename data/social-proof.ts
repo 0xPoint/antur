@@ -1,5 +1,9 @@
 import type { Review, TourPhoto } from '~/types/content'
 
+const yandexReviewsUrl =
+  'https://yandex.ru/maps/?text=%D0%90%D0%BD%D1%82%D1%83%D1%80%20%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D0%BA%D0%B0%20%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D1%81%D0%BA-%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D1%81%D0%BA%D0%B8%D0%B9'
+const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561/tab/reviews'
+
 // Реальные отзывы гостей с публичных площадок (2ГИС, Яндекс.Карты).
 // Тексты собраны из официальных карточек организации и приведены дословно
 // (с лёгкой нормализацией пробелов/эмодзи). Семейные отзывы исключены.
@@ -9,6 +13,7 @@ export const reviews: Review[] = [
     name: 'Виктория К.',
     route: 'Морская прогулка',
     source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
     date: '2026-06-22',
     rating: 5,
     text:
@@ -19,6 +24,7 @@ export const reviews: Review[] = [
     name: 'Жанна М.',
     route: 'Морская прогулка',
     source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
     date: '2026-06-22',
     rating: 5,
     text:
@@ -30,6 +36,7 @@ export const reviews: Review[] = [
     route: 'Авачинская бухта',
     routeSlug: 'avachinskaya-buhta',
     source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
     date: '2026-06-22',
     rating: 5,
     text:
@@ -41,6 +48,7 @@ export const reviews: Review[] = [
     route: 'Бухта Русская',
     routeSlug: 'buhta-russkaya',
     source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
     date: '2026-06-29',
     rating: 5,
     text:
@@ -52,6 +60,7 @@ export const reviews: Review[] = [
     route: 'Прибрежная рыбалка',
     routeSlug: 'rybalka',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-29',
     rating: 5,
     text:
@@ -63,6 +72,7 @@ export const reviews: Review[] = [
     route: 'Прибрежная рыбалка',
     routeSlug: 'rybalka',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-01',
     rating: 5,
     text:
@@ -74,6 +84,7 @@ export const reviews: Review[] = [
     route: 'Прибрежная рыбалка',
     routeSlug: 'rybalka',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-17',
     rating: 5,
     text:
@@ -85,6 +96,7 @@ export const reviews: Review[] = [
     route: 'Глубоководная рыбалка',
     routeSlug: 'glubokovodnaya-rybalka',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-12',
     rating: 5,
     text:
@@ -96,6 +108,7 @@ export const reviews: Review[] = [
     route: 'Глубоководная рыбалка',
     routeSlug: 'glubokovodnaya-rybalka',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-01',
     rating: 5,
     text:
@@ -107,6 +120,7 @@ export const reviews: Review[] = [
     route: 'Авачинская бухта',
     routeSlug: 'avachinskaya-buhta',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
     rating: 5,
     text:
@@ -118,6 +132,7 @@ export const reviews: Review[] = [
     route: 'Авачинская бухта',
     routeSlug: 'avachinskaya-buhta',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
     rating: 5,
     text:
@@ -129,6 +144,7 @@ export const reviews: Review[] = [
     route: 'Остров Старичков',
     routeSlug: 'ostrov-starichkov',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-20',
     rating: 5,
     text:
@@ -140,6 +156,7 @@ export const reviews: Review[] = [
     route: 'Остров Старичков',
     routeSlug: 'ostrov-starichkov',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
     rating: 5,
     text:
@@ -151,6 +168,7 @@ export const reviews: Review[] = [
     route: 'Бухта Русская',
     routeSlug: 'buhta-russkaya',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-21',
     rating: 5,
     text:
@@ -162,6 +180,7 @@ export const reviews: Review[] = [
     route: 'Бухта Русская',
     routeSlug: 'buhta-russkaya',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-10',
     rating: 5,
     text:
@@ -172,6 +191,7 @@ export const reviews: Review[] = [
     name: 'Айнура',
     route: 'Морская прогулка',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-15',
     rating: 5,
     text:
@@ -182,6 +202,7 @@ export const reviews: Review[] = [
     name: 'Ирина Р.',
     route: 'Морская прогулка',
     source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
     date: '2026-06-15',
     rating: 5,
     text:

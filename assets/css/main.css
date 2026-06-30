@@ -1861,7 +1861,9 @@ h3 {
 }
 
 .photo-copy a,
-.review-slide footer a {
+.review-slide footer a,
+.review-card footer a {
+  color: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

@@ -60,6 +60,7 @@ export interface Review {
   name: string
   route: string
   source?: string
+  sourceUrl?: string
   routeSlug?: string
   date: string
   rating: number
