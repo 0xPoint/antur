@@ -95,7 +95,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Крабовое сафари можно добавить по согласованию'
       }
     ],
-    reviewIds: ['review-005', 'review-001', 'review-007'],
+    reviewIds: ['review-2gis-002', 'review-2gis-003', 'review-2gis-001'],
     image: '/images/fishing-deck.jpg',
     imageAlt: 'Снасти на палубе катера во время морской рыбалки',
     pageImage: '/images/fishing-deck.jpg',
@@ -200,7 +200,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'После выхода можно обсудить улов и следующий маршрут'
       }
     ],
-    reviewIds: ['review-007', 'review-001', 'review-005'],
+    reviewIds: ['review-2gis-004', 'review-2gis-005', 'review-2gis-003'],
     image: '/images/fishing-deck.jpg',
     imageAlt: 'Снасти на палубе катера во время глубоководной рыбалки',
     pageImage: '/images/location-avacha-boat.jpg',
@@ -308,7 +308,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Крабовое сафари добавляет маршруту гастрономический акцент'
       }
     ],
-    reviewIds: ['review-002', 'review-006', 'review-010'],
+    reviewIds: ['review-2gis-010', 'review-2gis-011', 'review-yandex-004'],
     image: '/images/hero-kamchatka-boat.jpg',
     imageAlt: 'Катер в океане у побережья Камчатки',
     pageImage: '/images/location-buhta-russkaya.jpg',
@@ -416,7 +416,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Кекуры и океанские виды по маршруту'
       }
     ],
-    reviewIds: ['review-003', 'review-008', 'review-010'],
+    reviewIds: ['review-2gis-008', 'review-2gis-009', 'review-2gis-012'],
     image: '/images/crab-tasting.jpg',
     imageAlt: 'Крабовая дегустация на борту у берегов Камчатки',
     pageImage: '/images/location-starichkov.jpg',
@@ -518,7 +518,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Маршрут легко совместить с прогулкой по городу'
       }
     ],
-    reviewIds: ['review-004', 'review-009', 'review-yandex-003'],
+    reviewIds: ['review-yandex-003', 'review-2gis-006', 'review-2gis-007'],
     image: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
     imageAlt: 'Кекуры Три брата в Авачинской бухте',
     pageImage: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',

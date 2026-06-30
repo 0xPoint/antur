@@ -1069,6 +1069,7 @@ h3 {
 }
 
 .review-slide p {
+  margin: 12px 0;
   color: var(--mist);
 }
 
