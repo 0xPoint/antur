@@ -37,6 +37,13 @@ export default defineEventHandler((event) => {
     return sendRedirect(event, `${legacyTarget}${requestUrl.search}`, 301)
   }
 
+  // Во время prerender Nuxt ставит статические роуты в очередь без trailing slash
+  // (формат vue-router); редирект здесь записал бы meta-refresh заглушку поверх
+  // уже сгенерированного HTML страницы.
+  if (import.meta.prerender) {
+    return
+  }
+
   if (!shouldSkipTrailingSlash(requestUrl.pathname) && requestUrl.pathname !== normalizedPath) {
     return sendRedirect(event, `${normalizedPath}${requestUrl.search}`, 301)
   }
