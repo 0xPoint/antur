@@ -212,6 +212,9 @@ const mobileMenuOpen = ref(false)
 watch(() => route.fullPath, () => {
   mobileMenuOpen.value = false
 })
+watch(mobileMenuOpen, (open) => {
+  document.documentElement.classList.toggle('mobile-nav-lock', open)
+})
 
 const trackFooterContact = (goal: string) => {
   $reachGoal?.(goal, {

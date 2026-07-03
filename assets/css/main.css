@@ -168,6 +168,13 @@ button:focus-visible,
   display: none;
 }
 
+/* Пока открыто мобильное меню, страница под ним не должна скроллиться */
+html.mobile-nav-lock,
+html.mobile-nav-lock body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .nav-dropdown {
   position: relative;
   display: inline-flex;
@@ -2222,11 +2229,14 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 18px;
-    max-height: calc(100vh - 72px);
+    /* 100% здесь — высота шапки (containing block): панель занимает
+       весь экран от низа шапки до низа вьюпорта */
+    height: calc(100vh - 100%);
+    height: calc(100dvh - 100%);
     padding: 20px clamp(16px, 4vw, 48px) 26px;
     overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--ocean-950);
-    border-bottom: 1px solid rgba(232, 240, 245, 0.12);
   }
 
   .mobile-nav-group {
@@ -2431,6 +2441,15 @@ h3 {
     min-height: 64px;
     padding: 10px 16px;
     background: rgba(5, 13, 20, 0.96);
+  }
+
+  /* При открытом меню шапка пиннится к верху экрана, чтобы панель
+     (отсчитывающая высоту от низа шапки) заняла ровно весь вьюпорт */
+  .site-header-menu-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   .brand {
