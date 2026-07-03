@@ -37,7 +37,6 @@
             </NuxtLink>
           </div>
         </div>
-        <NuxtLink :to="charterPath">{{ text.nav.charter }}</NuxtLink>
         <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
         <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
         <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
