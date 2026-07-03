@@ -60,7 +60,10 @@
         </button>
       </div>
 
-      <nav v-show="mobileMenuOpen" id="mobile-nav" class="mobile-nav" :aria-label="text.navAria">
+      <nav v-show="mobileMenuOpen" id="mobile-nav" class="mobile-nav" :aria-label="text.navAria" @click="onMobileNavClick">
+        <div class="mobile-nav-group">
+          <NuxtLink :to="localePath('/')">{{ text.nav.home }}</NuxtLink>
+        </div>
         <div class="mobile-nav-group">
           <NuxtLink class="mobile-nav-heading" :to="seaHubPath">{{ text.nav.routes }}</NuxtLink>
           <NuxtLink v-for="item in seaNavLinks" :key="item.path" :to="item.path">
@@ -215,6 +218,14 @@ watch(() => route.fullPath, () => {
 watch(mobileMenuOpen, (open) => {
   document.documentElement.classList.toggle('mobile-nav-lock', open)
 })
+
+// Закрываем меню по клику на любую ссылку — watch по route.fullPath не
+// сработает, если URL не меняется (клик «Главная» на главной странице)
+const onMobileNavClick = (event: MouseEvent) => {
+  if ((event.target as HTMLElement).closest('a')) {
+    mobileMenuOpen.value = false
+  }
+}
 
 const trackFooterContact = (goal: string) => {
   $reachGoal?.(goal, {
