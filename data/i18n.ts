@@ -128,7 +128,7 @@ export const ui = {
     skip: 'Перейти к содержанию',
     homeAria: 'Антур, на главную',
     navAria: 'Разделы сайта',
-    nav: { routes: 'Морские прогулки', fishing: 'Рыбалка', charter: 'Катер', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь', seaRoutesLabel: 'Маршруты морских прогулок', fishingRoutesLabel: 'Разделы рыбалки' },
+    nav: { routes: 'Морские прогулки', fishing: 'Рыбалка', charter: 'Катер', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь', seaRoutesLabel: 'Маршруты морских прогулок', fishingRoutesLabel: 'Разделы рыбалки', menuOpen: 'Открыть меню', menuClose: 'Закрыть меню' },
     contact: {
       cta: 'Связаться',
       book: 'Забронировать',
@@ -238,7 +238,7 @@ export const ui = {
     skip: 'Skip to content',
     homeAria: 'Antur, home page',
     navAria: 'Site sections',
-    nav: { routes: 'Sea tours', fishing: 'Fishing', charter: 'Charter', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking', seaRoutesLabel: 'Sea tour routes', fishingRoutesLabel: 'Fishing routes' },
+    nav: { routes: 'Sea tours', fishing: 'Fishing', charter: 'Charter', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking', seaRoutesLabel: 'Sea tour routes', fishingRoutesLabel: 'Fishing routes', menuOpen: 'Open menu', menuClose: 'Close menu' },
     contact: {
       cta: 'Contact',
       book: 'Book',
@@ -348,7 +348,7 @@ export const ui = {
     skip: '跳到主要内容',
     homeAria: 'Antur 首页',
     navAria: '网站栏目',
-    nav: { routes: '海上观光', fishing: '海钓', charter: '包船', gallery: '照片', reviews: '评价', booking: '预订', seaRoutesLabel: '海上观光路线', fishingRoutesLabel: '海钓路线' },
+    nav: { routes: '海上观光', fishing: '海钓', charter: '包船', gallery: '照片', reviews: '评价', booking: '预订', seaRoutesLabel: '海上观光路线', fishingRoutesLabel: '海钓路线', menuOpen: '打开菜单', menuClose: '关闭菜单' },
     contact: {
       cta: '联系',
       book: '预订',

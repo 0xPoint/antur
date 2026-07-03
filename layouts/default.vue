@@ -2,7 +2,7 @@
   <div>
     <a class="skip-link" href="#main">{{ text.skip }}</a>
 
-    <header class="site-header" :aria-label="text.navAria">
+    <header class="site-header" :class="{ 'site-header-menu-open': mobileMenuOpen }" :aria-label="text.navAria">
       <NuxtLink class="brand" :to="localePath('/')" :aria-label="`${businessText.brand} ${businessText.tagline}, ${text.homeAria}`">
         <picture class="brand-logo-picture">
           <source type="image/webp" :srcset="assetPath('/images/antur-logo-mark.webp')">
@@ -46,7 +46,41 @@
       <div class="header-tools">
         <LanguageSwitcher />
         <ContactButton class="header-contact" :label="text.contact.book" :context="text.contact.bookContext" />
+        <button
+          class="nav-burger"
+          type="button"
+          :class="{ 'nav-burger-open': mobileMenuOpen }"
+          :aria-label="mobileMenuOpen ? text.nav.menuClose : text.nav.menuOpen"
+          :aria-expanded="mobileMenuOpen"
+          aria-controls="mobile-nav"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+          <span aria-hidden="true" />
+        </button>
       </div>
+
+      <nav v-show="mobileMenuOpen" id="mobile-nav" class="mobile-nav" :aria-label="text.navAria">
+        <div class="mobile-nav-group">
+          <NuxtLink class="mobile-nav-heading" :to="seaHubPath">{{ text.nav.routes }}</NuxtLink>
+          <NuxtLink v-for="item in seaNavLinks" :key="item.path" :to="item.path">
+            {{ item.title }}
+          </NuxtLink>
+        </div>
+        <div class="mobile-nav-group">
+          <NuxtLink class="mobile-nav-heading" :to="fishingHubPath">{{ text.nav.fishing }}</NuxtLink>
+          <NuxtLink v-for="item in fishingNavLinks" :key="item.path" :to="item.path">
+            {{ item.title }}
+          </NuxtLink>
+        </div>
+        <div class="mobile-nav-group">
+          <NuxtLink :to="charterPath">{{ text.nav.charter }}</NuxtLink>
+          <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
+          <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
+          <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
+        </div>
+      </nav>
     </header>
 
     <main id="main">
@@ -174,6 +208,11 @@ const fishingNavLinks = computed(() => [
   ...routeNavLinks(fishingRouteSlugs),
   ...(locale.value === 'ru' ? ruFishingSeoNavLinks : [])
 ])
+
+const mobileMenuOpen = ref(false)
+watch(() => route.fullPath, () => {
+  mobileMenuOpen.value = false
+})
 
 const trackFooterContact = (goal: string) => {
   $reachGoal?.(goal, {

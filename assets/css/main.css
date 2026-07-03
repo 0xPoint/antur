@@ -163,6 +163,11 @@ button:focus-visible,
   color: var(--white);
 }
 
+.nav-burger,
+.mobile-nav {
+  display: none;
+}
+
 .nav-dropdown {
   position: relative;
   display: inline-flex;
@@ -2165,6 +2170,95 @@ h3 {
     display: none;
   }
 
+  .nav-burger {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    border: 1px solid rgba(232, 240, 245, 0.25);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--mist);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .nav-burger-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-burger-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-burger-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* backdrop-filter шапки рисует размытый фон и под дочерней панелью меню —
+     на время открытого меню отключаем его и делаем фон сплошным */
+  .site-header-menu-open {
+    background: var(--ocean-950);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-height: calc(100vh - 72px);
+    padding: 20px clamp(16px, 4vw, 48px) 26px;
+    overflow-y: auto;
+    background: var(--ocean-950);
+    border-bottom: 1px solid rgba(232, 240, 245, 0.12);
+  }
+
+  .mobile-nav-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav-group + .mobile-nav-group {
+    padding-top: 16px;
+    border-top: 1px solid rgba(232, 240, 245, 0.12);
+  }
+
+  .mobile-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--mist);
+    font-size: 16px;
+  }
+
+  .mobile-nav a:hover {
+    color: var(--white);
+  }
+
+  .mobile-nav-heading {
+    color: var(--gold) !important;
+    font-size: 13px;
+    font-weight: 850;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
   .header-tools {
     gap: 8px;
   }
@@ -2329,7 +2423,8 @@ h3 {
   }
 
   .site-header {
-    position: static;
+    /* relative (не static): в потоке, как раньше, но даёт якорь для .mobile-nav */
+    position: relative;
     gap: 10px;
     min-height: 64px;
     padding: 10px 16px;
