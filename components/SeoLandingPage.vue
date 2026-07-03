@@ -15,6 +15,7 @@
       <div class="container route-hero-content">
         <nav class="route-breadcrumbs" :aria-label="text.navAria">
           <NuxtLink :to="localePath('/')">{{ businessText.brand }}</NuxtLink>
+          <NuxtLink v-if="breadcrumbParent" :to="breadcrumbParent.path">{{ breadcrumbParent.title }}</NuxtLink>
           <span>{{ page.title }}</span>
         </nav>
         <p class="eyebrow">{{ page.eyebrow }}</p>
@@ -44,6 +45,22 @@
         </div>
         <div class="route-grid">
           <RouteCard v-for="offer in pageRoutes" :key="offer.slug" :offer="offer" />
+        </div>
+      </div>
+    </section>
+
+    <section v-if="page.links?.length" class="section route-extra-section seo-link-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">{{ page.linksEyebrow || page.eyebrow }}</p>
+          <h2>{{ page.linksTitle || text.route.otherRoutes }}</h2>
+        </div>
+        <div class="route-extra-grid">
+          <NuxtLink v-for="link in page.links" :key="link.path" class="detail-panel detail-panel-link" :to="link.path">
+            <span>{{ link.eyebrow || page.eyebrow }}</span>
+            <strong>{{ link.title }}</strong>
+            <p>{{ link.text }}</p>
+          </NuxtLink>
         </div>
       </div>
     </section>
@@ -99,7 +116,7 @@ const { text, businessText, routeOffers, tourPhotos, localePath } = useLocaleCon
 useAnturSeo({
   title: props.page.seoTitle,
   description: props.page.seoDescription,
-  path: `/${props.page.slug}`,
+  path: props.page.path,
   image: props.page.heroImage,
   localized: false
 })
@@ -123,7 +140,41 @@ const pagePhotos = computed(() => {
 const assetPath = useAssetPath()
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string
-const pageUrl = new URL(assetPath(`/${props.page.slug}`), siteUrl).toString()
+const pageUrl = new URL(assetPath(props.page.path), siteUrl).toString()
+const homeUrl = new URL(assetPath('/'), siteUrl).toString()
+const breadcrumbParent = computed(() => {
+  if (props.page.path.startsWith('/morskie-progulki/') && props.page.path !== '/morskie-progulki/') {
+    return { title: 'Морские прогулки', path: '/morskie-progulki/' }
+  }
+
+  if (props.page.path.startsWith('/rybalka/') && props.page.path !== '/rybalka/') {
+    return { title: 'Рыбалка', path: '/rybalka/' }
+  }
+
+  return null
+})
+const breadcrumbItems = computed(() => [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: businessText.value.brand,
+    item: homeUrl
+  },
+  ...(breadcrumbParent.value
+    ? [{
+        '@type': 'ListItem',
+        position: 2,
+        name: breadcrumbParent.value.title,
+        item: new URL(assetPath(breadcrumbParent.value.path), siteUrl).toString()
+      }]
+    : []),
+  {
+    '@type': 'ListItem',
+    position: breadcrumbParent.value ? 3 : 2,
+    name: props.page.title,
+    item: pageUrl
+  }
+])
 
 useHead({
   script: [
@@ -140,7 +191,7 @@ useHead({
         mainEntity: pageRoutes.value.map((offer) => ({
           '@type': 'TouristTrip',
           name: offer.title,
-          url: new URL(assetPath(`/routes/${offer.slug}`), siteUrl).toString(),
+          url: new URL(assetPath(offer.path), siteUrl).toString(),
           offers: offer.price ? {
             '@type': 'Offer',
             priceCurrency: 'RUB',
@@ -153,16 +204,13 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: props.page.faq.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer
-          }
-        }))
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbItems.value
       })
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(buildFaqSchema(props.page.faq))
     }
   ]
 })

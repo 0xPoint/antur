@@ -55,7 +55,7 @@ definePageMeta({
 })
 
 const { assetPath, webpSrcset } = useImageSources()
-const { text, tourPhotos, localePath } = useLocaleContent()
+const { text, tourPhotos, routeOffers } = useLocaleContent()
 const firstImagePhoto = computed(() => tourPhotos.value.find((photo) => photo.kind !== 'video'))
 
 useAnturSeo({
@@ -103,7 +103,7 @@ const getPhotoRouteSlug = (photo: { routeSlug?: string, route: string }) => {
 
 const getPhotoRoutePath = (photo: { routeSlug?: string, route: string }) => {
   const slug = getPhotoRouteSlug(photo)
-  return slug ? localePath(`/routes/${slug}`) : undefined
+  return slug ? routeOffers.value.find((offer) => offer.slug === slug)?.path : undefined
 }
 
 const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id

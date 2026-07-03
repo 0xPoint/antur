@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="route-card" :class="{ 'route-card-featured': offer.featured, 'route-card-warm': offer.slug === 'avachinskaya-buhta' }" :to="localePath(`/routes/${offer.slug}`)">
+  <NuxtLink class="route-card" :class="{ 'route-card-featured': offer.featured, 'route-card-warm': offer.slug === 'avachinskaya-buhta' }" :to="offer.path">
     <OptimizedImage
       class="route-card-image"
       :src="cardImage"
@@ -27,7 +27,7 @@ const props = defineProps<{
   offer: RouteOffer
 }>()
 
-const { localePath, text } = useLocaleContent()
+const { text } = useLocaleContent()
 const cardImage = computed(() => props.offer.pageImage || props.offer.image)
 const cardImageAlt = computed(() => props.offer.pageImageAlt || props.offer.imageAlt)
 const cardSizes = computed(() =>

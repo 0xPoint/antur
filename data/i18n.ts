@@ -1,4 +1,4 @@
-import { routeOffers as ruRouteOffers } from './routes'
+import { getLocalizedRoutePath, getRouteOfferBySlug, routeOffers as ruRouteOffers } from './routes'
 import { bookingTerms as ruBookingTerms, faq as ruFaq } from './site'
 import { reviews as ruReviews, tourPhotos as ruTourPhotos } from './social-proof'
 import type { Review, RouteOffer, TourPhoto } from '~/types/content'
@@ -29,6 +29,14 @@ export const getLocaleFromPath = (path: string): LocaleCode => {
   return isLocaleCode(firstSegment) ? firstSegment : defaultLocale
 }
 
+export const withTrailingSlash = (path: string) => {
+  const [pathWithQuery, hash = ''] = path.split('#')
+  const [pathname, query = ''] = pathWithQuery.split('?')
+  const normalizedPathname = pathname === '/' ? '/' : `${pathname.replace(/\/+$/, '')}/`
+
+  return `${normalizedPathname}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`
+}
+
 export const stripLocaleFromPath = (path: string) => {
   const [pathWithQuery, hash = ''] = path.split('#')
   const [pathname, query = ''] = pathWithQuery.split('?')
@@ -38,8 +46,8 @@ export const stripLocaleFromPath = (path: string) => {
     segments.shift()
   }
 
-  const cleanPath = `/${segments.join('/')}`.replace(/\/$/, '') || '/'
-  return `${cleanPath}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`
+  const cleanPath = segments.length ? `/${segments.join('/')}` : '/'
+  return withTrailingSlash(`${cleanPath}${query ? `?${query}` : ''}${hash ? `#${hash}` : ''}`)
 }
 
 export const localizePath = (path: string, locale: LocaleCode) => {
@@ -50,7 +58,7 @@ export const localizePath = (path: string, locale: LocaleCode) => {
     return cleanPath
   }
 
-  const localizedPath = pathWithQuery === '/' ? `/${locale}` : `/${locale}${pathWithQuery}`
+  const localizedPath = pathWithQuery === '/' ? `/${locale}/` : `/${locale}${pathWithQuery}`
   return `${localizedPath}${hash ? `#${hash}` : ''}`
 }
 
@@ -101,12 +109,26 @@ export const localizedBusiness = {
   }
 } satisfies Record<LocaleCode, Record<string, string>>
 
+const localizedRouteBase = (slug: string, locale: LocaleCode, categoryTitle: string) => {
+  const ruOffer = getRouteOfferBySlug(slug)
+
+  return {
+    path: getLocalizedRoutePath(slug, locale),
+    pathSlug: ruOffer.pathSlug,
+    categoryTitle,
+    categoryPath: localizePath('/#routes', locale),
+    relatedSlugs: ruOffer.relatedSlugs,
+    updatedAt: ruOffer.updatedAt,
+    imageCredit: ruOffer.imageCredit
+  }
+}
+
 export const ui = {
   ru: {
     skip: 'Перейти к содержанию',
     homeAria: 'Антур, на главную',
     navAria: 'Разделы сайта',
-    nav: { routes: 'Маршруты', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь' },
+    nav: { routes: 'Морские прогулки', fishing: 'Рыбалка', charter: 'Катер', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь', seaRoutesLabel: 'Маршруты морских прогулок', fishingRoutesLabel: 'Разделы рыбалки' },
     contact: {
       cta: 'Связаться',
       book: 'Забронировать',
@@ -216,7 +238,7 @@ export const ui = {
     skip: 'Skip to content',
     homeAria: 'Antur, home page',
     navAria: 'Site sections',
-    nav: { routes: 'Routes', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking' },
+    nav: { routes: 'Sea tours', fishing: 'Fishing', charter: 'Charter', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking', seaRoutesLabel: 'Sea tour routes', fishingRoutesLabel: 'Fishing routes' },
     contact: {
       cta: 'Contact',
       book: 'Book',
@@ -326,7 +348,7 @@ export const ui = {
     skip: '跳到主要内容',
     homeAria: 'Antur 首页',
     navAria: '网站栏目',
-    nav: { routes: '路线', gallery: '照片', reviews: '评价', booking: '预订' },
+    nav: { routes: '海上观光', fishing: '海钓', charter: '包船', gallery: '照片', reviews: '评价', booking: '预订', seaRoutesLabel: '海上观光路线', fishingRoutesLabel: '海钓路线' },
     contact: {
       cta: '联系',
       book: '预订',
@@ -437,45 +459,46 @@ export const ui = {
 const enRouteOffers: RouteOffer[] = [
   {
     slug: 'rybalka',
+    ...localizedRouteBase('rybalka', 'en', 'Fishing'),
     title: 'Coastal ocean fishing',
     kicker: 'Boat charter',
     duration: '5 or 10 hours',
     price: 'from 65,000 ₽',
-    description: 'A trip for up to 6 guests: fishing near the Kamchatka coast, tackle on board and a crab safari when weather and sea conditions allow.',
-    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
+    description: 'A trip for up to 11 guests: fishing near the Kamchatka coast, tackle on board and a crab safari when weather and sea conditions allow.',
+    highlights: ['Group of up to 11 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
     priceOptions: [
-      { season: 'May - September', format: '5 hours, group up to 6 guests', price: '65,000 ₽' },
-      { season: 'May - September', format: '10 hours, group up to 6 guests', price: '130,000 ₽' },
+      { season: 'May - September', format: '5 hours, group up to 11 guests', price: '65,000 ₽' },
+      { season: 'May - September', format: '10 hours, group up to 11 guests', price: '130,000 ₽' },
       { season: 'May - September', format: 'Extra boat charter time', price: '5,000 ₽ / hour' }
     ],
     image: '/images/fishing-deck.jpg',
     imageAlt: 'Fishing tackle on the deck during a sea fishing trip',
     pageImage: '/images/fishing-deck.jpg',
     pageImageAlt: 'Fishing tackle on the deck during a sea fishing trip',
-    imageCredit: ruRouteOffers[0].imageCredit,
     featured: true
   },
   {
     slug: 'glubokovodnaya-rybalka',
+    ...localizedRouteBase('glubokovodnaya-rybalka', 'en', 'Fishing'),
     title: 'Deep-sea ocean fishing',
     kicker: 'Boat charter',
     duration: '5 or 10 hours',
     price: 'from 85,000 ₽',
     description: 'A route farther into the ocean for guests who come specifically for fishing: more time on the water, productive depths and a fuller sea day.',
-    highlights: ['Group of up to 6 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
+    highlights: ['Group of up to 11 guests', 'Fishing tackle is provided', 'Snacks on board', 'Crab safari when conditions allow'],
     priceOptions: [
-      { season: 'May - September', format: '5 hours, group up to 6 guests', price: '85,000 ₽' },
-      { season: 'May - September', format: '10 hours, group up to 6 guests', price: '170,000 ₽' },
+      { season: 'May - September', format: '5 hours, group up to 11 guests', price: '85,000 ₽' },
+      { season: 'May - September', format: '10 hours, group up to 11 guests', price: '170,000 ₽' },
       { season: 'May - September', format: 'Extra boat charter time', price: '5,000 ₽ / hour' }
     ],
     image: '/images/fishing-deck.jpg',
     imageAlt: 'Fishing tackle on the deck during a deep-sea fishing trip',
     pageImage: '/images/location-avacha-boat.jpg',
-    pageImageAlt: 'Ocean view near the Kamchatka coast',
-    imageCredit: ruRouteOffers[1].imageCredit
+    pageImageAlt: 'Ocean view near the Kamchatka coast'
   },
   {
     slug: 'buhta-russkaya',
+    ...localizedRouteBase('buhta-russkaya', 'en', 'Sea tours'),
     title: 'Russkaya Bay',
     kicker: '10 hours',
     duration: '10 hours',
@@ -493,11 +516,11 @@ const enRouteOffers: RouteOffer[] = [
     image: '/images/hero-kamchatka-boat.jpg',
     imageAlt: 'Boat in the ocean near the Kamchatka coast',
     pageImage: '/images/location-buhta-russkaya.jpg',
-    pageImageAlt: 'Cape Kekurny beach in Russkaya Bay, Kamchatka',
-    imageCredit: ruRouteOffers[2].imageCredit
+    pageImageAlt: 'Cape Kekurny beach in Russkaya Bay, Kamchatka'
   },
   {
     slug: 'ostrov-starichkov',
+    ...localizedRouteBase('ostrov-starichkov', 'en', 'Sea tours'),
     title: 'Starichkov Island',
     kicker: '5 hours',
     duration: '5 hours',
@@ -515,11 +538,11 @@ const enRouteOffers: RouteOffer[] = [
     image: '/images/crab-tasting.jpg',
     imageAlt: 'Crab tasting on board near the Kamchatka coast',
     pageImage: '/images/location-starichkov.jpg',
-    pageImageAlt: 'Starichkov Island and coastal cliffs in Kamchatka',
-    imageCredit: ruRouteOffers[3].imageCredit
+    pageImageAlt: 'Starichkov Island and coastal cliffs in Kamchatka'
   },
   {
     slug: 'avachinskaya-buhta',
+    ...localizedRouteBase('avachinskaya-buhta', 'en', 'Sea tours'),
     title: 'Avacha Bay sightseeing tour',
     kicker: '2.5 hours',
     duration: '2.5 hours',
@@ -539,45 +562,46 @@ const enRouteOffers: RouteOffer[] = [
 const zhRouteOffers: RouteOffer[] = [
   {
     slug: 'rybalka',
+    ...localizedRouteBase('rybalka', 'zh', '海钓'),
     title: '近海海钓',
     kicker: '包船',
     duration: '5 或 10 小时',
     price: '65,000 ₽ 起',
-    description: '适合最多 6 人的出海行程：在堪察加海岸附近钓鱼，船上提供钓具；天气和海况合适时可加入帝王蟹体验。',
-    highlights: ['最多 6 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
+    description: '适合最多 11 人的出海行程：在堪察加海岸附近钓鱼，船上提供钓具；天气和海况合适时可加入帝王蟹体验。',
+    highlights: ['最多 11 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
     priceOptions: [
-      { season: '5 月 - 9 月', format: '5 小时，最多 6 人', price: '65,000 ₽' },
-      { season: '5 月 - 9 月', format: '10 小时，最多 6 人', price: '130,000 ₽' },
+      { season: '5 月 - 9 月', format: '5 小时，最多 11 人', price: '65,000 ₽' },
+      { season: '5 月 - 9 月', format: '10 小时，最多 11 人', price: '130,000 ₽' },
       { season: '5 月 - 9 月', format: '包船延长时间', price: '5,000 ₽ / 小时' }
     ],
     image: '/images/fishing-deck.jpg',
     imageAlt: '海钓时船甲板上的钓具',
     pageImage: '/images/fishing-deck.jpg',
     pageImageAlt: '海钓时船甲板上的钓具',
-    imageCredit: ruRouteOffers[0].imageCredit,
     featured: true
   },
   {
     slug: 'glubokovodnaya-rybalka',
+    ...localizedRouteBase('glubokovodnaya-rybalka', 'zh', '海钓'),
     title: '深海海钓',
     kicker: '包船',
     duration: '5 或 10 小时',
     price: '85,000 ₽ 起',
     description: '更深入太平洋的钓鱼路线，适合专程来海钓的客人：水上时间更长、钓点更深入、海上一天更充实。',
-    highlights: ['最多 6 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
+    highlights: ['最多 11 人成团', '提供钓具', '船上小吃', '条件合适时可体验帝王蟹'],
     priceOptions: [
-      { season: '5 月 - 9 月', format: '5 小时，最多 6 人', price: '85,000 ₽' },
-      { season: '5 月 - 9 月', format: '10 小时，最多 6 人', price: '170,000 ₽' },
+      { season: '5 月 - 9 月', format: '5 小时，最多 11 人', price: '85,000 ₽' },
+      { season: '5 月 - 9 月', format: '10 小时，最多 11 人', price: '170,000 ₽' },
       { season: '5 月 - 9 月', format: '包船延长时间', price: '5,000 ₽ / 小时' }
     ],
     image: '/images/fishing-deck.jpg',
     imageAlt: '深海钓鱼时船甲板上的钓具',
     pageImage: '/images/location-avacha-boat.jpg',
-    pageImageAlt: '堪察加海岸附近的海景',
-    imageCredit: ruRouteOffers[1].imageCredit
+    pageImageAlt: '堪察加海岸附近的海景'
   },
   {
     slug: 'buhta-russkaya',
+    ...localizedRouteBase('buhta-russkaya', 'zh', '海上观光'),
     title: '鲁斯卡亚湾',
     kicker: '10 小时',
     duration: '10 小时',
@@ -595,11 +619,11 @@ const zhRouteOffers: RouteOffer[] = [
     image: '/images/hero-kamchatka-boat.jpg',
     imageAlt: '堪察加海岸附近海上的船',
     pageImage: '/images/location-buhta-russkaya.jpg',
-    pageImageAlt: '堪察加鲁斯卡亚湾克库尔尼角海滩',
-    imageCredit: ruRouteOffers[2].imageCredit
+    pageImageAlt: '堪察加鲁斯卡亚湾克库尔尼角海滩'
   },
   {
     slug: 'ostrov-starichkov',
+    ...localizedRouteBase('ostrov-starichkov', 'zh', '海上观光'),
     title: '斯塔里奇科夫岛',
     kicker: '5 小时',
     duration: '5 小时',
@@ -617,11 +641,11 @@ const zhRouteOffers: RouteOffer[] = [
     image: '/images/crab-tasting.jpg',
     imageAlt: '堪察加海岸附近船上的帝王蟹品尝',
     pageImage: '/images/location-starichkov.jpg',
-    pageImageAlt: '堪察加斯塔里奇科夫岛和海岸岩石',
-    imageCredit: ruRouteOffers[3].imageCredit
+    pageImageAlt: '堪察加斯塔里奇科夫岛和海岸岩石'
   },
   {
     slug: 'avachinskaya-buhta',
+    ...localizedRouteBase('avachinskaya-buhta', 'zh', '海上观光'),
     title: '阿瓦恰湾观光游',
     kicker: '2.5 小时',
     duration: '2.5 小时',

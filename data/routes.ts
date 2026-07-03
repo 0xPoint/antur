@@ -1,8 +1,15 @@
 import type { RouteOffer } from '~/types/content'
 
+export type RouteLocaleCode = 'ru' | 'en' | 'zh'
+
 export const routeOffers: RouteOffer[] = [
   {
     slug: 'rybalka',
+    path: '/rybalka/morskaya-rybalka/',
+    pathSlug: 'morskaya-rybalka',
+    categoryTitle: 'Рыбалка',
+    categoryPath: '/rybalka/',
+    relatedSlugs: ['glubokovodnaya-rybalka'],
     title: 'Прибрежная рыбалка в океане',
     kicker: 'Аренда катера',
     duration: '5 или 10 часов',
@@ -10,17 +17,17 @@ export const routeOffers: RouteOffer[] = [
     updatedAt: '2026-06-29',
     seoTitle: 'Морская рыбалка на катере на Камчатке | от 65 000 ₽ | Антур',
     seoDescription:
-      'Прибрежная морская рыбалка на Камчатке для компании до 6 человек: аренда катера, снасти, закуски на борту и крабовое сафари по погоде.',
+      'Прибрежная морская рыбалка на Камчатке для компании до 11 человек: аренда катера, снасти, закуски на борту и крабовое сафари по погоде.',
     description:
-      'Выход для компании до 6 человек: рыбалка у камчатского побережья, снасти на борту и возможность провести крабовое сафари, если позволяют погода и акватория.',
-    highlights: ['Группа не более 6 человек', 'Снасти предоставляются', 'Закуски на борту', 'Крабовое сафари по погоде'],
+      'Выход для компании до 11 человек: рыбалка у камчатского побережья, снасти на борту и возможность провести крабовое сафари, если позволяют погода и акватория.',
+    highlights: ['Группа не более 11 человек', 'Снасти предоставляются', 'Закуски на борту', 'Крабовое сафари по погоде'],
     priceOptions: [
-      { season: 'май - сентябрь', format: '5 часов, группа до 6 человек', price: '65 000 ₽' },
-      { season: 'май - сентябрь', format: '10 часов, группа до 6 человек', price: '130 000 ₽' },
+      { season: 'май - сентябрь', format: '5 часов, группа до 11 человек', price: '65 000 ₽' },
+      { season: 'май - сентябрь', format: '10 часов, группа до 11 человек', price: '130 000 ₽' },
       { season: 'май - сентябрь', format: 'Продление аренды катера', price: '5 000 ₽ / час' }
     ],
     audience: [
-      'Компания до 6 человек, которая хочет выйти в океан отдельным катером.',
+      'Компания до 11 человек, которая хочет выйти в океан отдельным катером.',
       'Новички в морской рыбалке: экипаж подскажет по снастям и точкам.',
       'Гости, которым важен гибкий темп без большой сборной группы.'
     ],
@@ -109,6 +116,10 @@ export const routeOffers: RouteOffer[] = [
   },
   {
     slug: 'glubokovodnaya-rybalka',
+    path: '/rybalka/glubokovodnaya-rybalka/',
+    categoryTitle: 'Рыбалка',
+    categoryPath: '/rybalka/',
+    relatedSlugs: ['rybalka'],
     title: 'Глубоководная рыбалка в океане',
     kicker: 'Аренда катера',
     duration: '5 или 10 часов',
@@ -116,18 +127,18 @@ export const routeOffers: RouteOffer[] = [
     updatedAt: '2026-06-29',
     seoTitle: 'Глубоководная рыбалка на Камчатке | от 85 000 ₽ | Антур',
     seoDescription:
-      'Глубоководная рыбалка в океане на Камчатке: аренда катера для компании до 6 человек, снасти, выход из Петропавловска-Камчатского и больше времени на воде.',
+      'Глубоководная рыбалка в океане на Камчатке: аренда катера для компании до 11 человек, снасти, выход из Петропавловска-Камчатского и больше времени на воде.',
     description:
       'Маршрут дальше в океан для тех, кто едет именно за рыбалкой: больше времени на воде, рабочие глубины и насыщенный морской день.',
-    highlights: ['Группа не более 6 человек', 'Снасти предоставляются', 'Закуски на борту', 'Крабовое сафари по погоде'],
+    highlights: ['Группа не более 11 человек', 'Снасти предоставляются', 'Закуски на борту', 'Крабовое сафари по погоде'],
     priceOptions: [
-      { season: 'май - сентябрь', format: '5 часов, группа до 6 человек', price: '85 000 ₽' },
-      { season: 'май - сентябрь', format: '10 часов, группа до 6 человек', price: '170 000 ₽' },
+      { season: 'май - сентябрь', format: '5 часов, группа до 11 человек', price: '85 000 ₽' },
+      { season: 'май - сентябрь', format: '10 часов, группа до 11 человек', price: '170 000 ₽' },
       { season: 'май - сентябрь', format: 'Продление аренды катера', price: '5 000 ₽ / час' }
     ],
     audience: [
       'Гости, которые едут именно за рыбалкой, а не только за прогулкой.',
-      'Небольшие компании до 6 человек, которым нужен отдельный катер.',
+      'Небольшие компании до 11 человек, которым нужен отдельный катер.',
       'Те, кто хочет больше времени на воде и дальние рыболовные точки.'
     ],
     timeline: [
@@ -214,6 +225,10 @@ export const routeOffers: RouteOffer[] = [
   },
   {
     slug: 'buhta-russkaya',
+    path: '/morskie-progulki/buhta-russkaya/',
+    categoryTitle: 'Морские прогулки',
+    categoryPath: '/morskie-progulki/',
+    relatedSlugs: ['ostrov-starichkov', 'avachinskaya-buhta', 'rybalka'],
     title: 'Бухта Русская',
     kicker: '10 часов',
     duration: '10 часов',
@@ -323,6 +338,10 @@ export const routeOffers: RouteOffer[] = [
   },
   {
     slug: 'ostrov-starichkov',
+    path: '/morskie-progulki/ostrov-starichkov/',
+    categoryTitle: 'Морские прогулки',
+    categoryPath: '/morskie-progulki/',
+    relatedSlugs: ['avachinskaya-buhta', 'buhta-russkaya', 'rybalka'],
     title: 'Остров Старичков',
     kicker: '5 часов',
     duration: '5 часов',
@@ -433,6 +452,10 @@ export const routeOffers: RouteOffer[] = [
   },
   {
     slug: 'avachinskaya-buhta',
+    path: '/morskie-progulki/avachinskaya-buhta/',
+    categoryTitle: 'Морские прогулки',
+    categoryPath: '/morskie-progulki/',
+    relatedSlugs: ['ostrov-starichkov', 'buhta-russkaya', 'rybalka'],
     title: 'Обзорная экскурсия по Авачинской бухте',
     kicker: '2,5 часа',
     duration: '2,5 часа',
@@ -531,3 +554,26 @@ export const routeOffers: RouteOffer[] = [
     pageImageAlt: 'Кекуры Три брата в Авачинской бухте'
   }
 ]
+
+const routeOfferBySlug = new Map(routeOffers.map((offer) => [offer.slug, offer]))
+
+export const getRouteOfferBySlug = (slug: string) => {
+  const offer = routeOfferBySlug.get(slug)
+
+  if (!offer) {
+    throw new Error(`Unknown route offer slug: ${slug}`)
+  }
+
+  return offer
+}
+
+export const getLegacyRoutePath = (slug: string) => `/routes/${slug}/`
+
+export const getLocalizedRoutePath = (slug: string, locale: RouteLocaleCode) =>
+  locale === 'ru' ? getRouteOfferBySlug(slug).path : `/${locale}${getLegacyRoutePath(slug)}`
+
+export const getLocalizedRoutePaths = (slug: string): Record<RouteLocaleCode, string> => ({
+  ru: getLocalizedRoutePath(slug, 'ru'),
+  en: getLocalizedRoutePath(slug, 'en'),
+  zh: getLocalizedRoutePath(slug, 'zh')
+})

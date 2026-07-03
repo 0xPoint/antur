@@ -15,7 +15,29 @@
       </NuxtLink>
 
       <nav class="nav-links" :aria-label="text.navAria">
-        <NuxtLink :to="localePath('/#routes')">{{ text.nav.routes }}</NuxtLink>
+        <div class="nav-dropdown">
+          <NuxtLink class="nav-link nav-dropdown-trigger" :to="seaHubPath" aria-haspopup="true">
+            {{ text.nav.routes }}
+            <span class="nav-caret" aria-hidden="true" />
+          </NuxtLink>
+          <div class="nav-dropdown-menu" :aria-label="text.nav.seaRoutesLabel">
+            <NuxtLink v-for="item in seaNavLinks" :key="item.path" :to="item.path">
+              {{ item.title }}
+            </NuxtLink>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <NuxtLink class="nav-link nav-dropdown-trigger" :to="fishingHubPath" aria-haspopup="true">
+            {{ text.nav.fishing }}
+            <span class="nav-caret" aria-hidden="true" />
+          </NuxtLink>
+          <div class="nav-dropdown-menu" :aria-label="text.nav.fishingRoutesLabel">
+            <NuxtLink v-for="item in fishingNavLinks" :key="item.path" :to="item.path">
+              {{ item.title }}
+            </NuxtLink>
+          </div>
+        </div>
+        <NuxtLink :to="charterPath">{{ text.nav.charter }}</NuxtLink>
         <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
         <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
         <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
@@ -46,14 +68,17 @@
           <p>{{ businessText.legalName }}</p>
           <NuxtLink class="footer-legal-link" :to="localePath('/privacy')">{{ privacy.linkLabel }}</NuxtLink>
           <nav class="footer-routes" :aria-label="text.nav.routes">
-            <NuxtLink v-for="offer in routeOffers" :key="offer.slug" :to="localePath(`/routes/${offer.slug}`)">
+            <NuxtLink v-for="offer in routeOffers" :key="offer.slug" :to="offer.path">
               {{ offer.title }}
             </NuxtLink>
             <template v-if="locale === 'ru'">
-              <NuxtLink v-for="page in ruOnlySeoLandingLinks" :key="page.slug" :to="`/${page.slug}`">
+              <NuxtLink v-for="page in ruOnlySeoLandingLinks" :key="page.path" :to="page.path">
                 {{ page.title }}
               </NuxtLink>
-              <NuxtLink v-for="page in ruOnlyInfoPageLinks" :key="page.slug" :to="`/${page.slug}`">
+              <NuxtLink v-for="page in ruOnlyInfoPageLinks" :key="page.path" :to="page.path">
+                {{ page.title }}
+              </NuxtLink>
+              <NuxtLink v-for="page in ruOnlyGuideLinks" :key="page.path" :to="page.path">
                 {{ page.title }}
               </NuxtLink>
             </template>
@@ -95,12 +120,60 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
-import { ruOnlyInfoPageLinks, ruOnlySeoLandingLinks } from '~/data/ru-only-pages'
+import { ruOnlyGuideLinks, ruOnlyInfoPageLinks, ruOnlySeoLandingLinks } from '~/data/ru-only-pages'
 
 const assetPath = useAssetPath()
 const { locale, localePath, text, businessText, privacy, routeOffers } = useLocaleContent()
 const route = useRoute()
 const { $reachGoal } = useNuxtApp()
+const seaRouteSlugs = ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkaya']
+const fishingRouteSlugs = ['rybalka', 'glubokovodnaya-rybalka']
+const ruSeaSeoNavLinks = [
+  { path: '/morskie-progulki/krabovoe-safari/', title: 'Крабовое сафари' },
+  { path: '/morskie-progulki-petropavlovsk-kamchatskiy/', title: 'Из Петропавловска-Камчатского' }
+]
+const ruFishingSeoNavLinks = [
+  { path: '/rybalka/sezon-rybalki/', title: 'Сезон рыбалки' }
+]
+const routeNavTitles: Record<string, Record<string, string>> = {
+  ru: {
+    rybalka: 'Морская рыбалка',
+    'glubokovodnaya-rybalka': 'Глубоководная рыбалка',
+    'buhta-russkaya': 'Бухта Русская',
+    'ostrov-starichkov': 'Остров Старичков',
+    'avachinskaya-buhta': 'Авачинская бухта'
+  },
+  en: {
+    rybalka: 'Coastal fishing',
+    'glubokovodnaya-rybalka': 'Deep-sea fishing'
+  },
+  zh: {
+    rybalka: '近海海钓',
+    'glubokovodnaya-rybalka': '深海海钓'
+  }
+}
+const routeNavLinks = (slugs: string[]) =>
+  slugs.flatMap((slug) => {
+    const offer = routeOffers.value.find((item) => item.slug === slug)
+
+    return offer
+      ? [{
+          path: offer.path,
+          title: routeNavTitles[locale.value]?.[slug] || offer.title
+        }]
+      : []
+  })
+const seaHubPath = computed(() => locale.value === 'ru' ? '/morskie-progulki/' : localePath('/#routes'))
+const fishingHubPath = computed(() => locale.value === 'ru' ? '/rybalka/' : localePath('/#routes'))
+const charterPath = computed(() => locale.value === 'ru' ? '/arenda-katera/' : localePath('/#booking'))
+const seaNavLinks = computed(() => [
+  ...routeNavLinks(seaRouteSlugs),
+  ...(locale.value === 'ru' ? ruSeaSeoNavLinks : [])
+])
+const fishingNavLinks = computed(() => [
+  ...routeNavLinks(fishingRouteSlugs),
+  ...(locale.value === 'ru' ? ruFishingSeoNavLinks : [])
+])
 
 const trackFooterContact = (goal: string) => {
   $reachGoal?.(goal, {

@@ -1,6 +1,6 @@
 <template>
   <article>
-    <section class="route-hero info-hero">
+    <section class="route-hero info-hero guide-hero">
       <OptimizedImage
         :src="page.heroImage"
         width="1600"
@@ -21,17 +21,7 @@
         <h1>{{ page.title }}</h1>
         <p>{{ page.description }}</p>
         <div class="hero-actions">
-          <ContactButton :label="text.contact.bookTrip" :context="page.ctaContext" />
-        </div>
-      </div>
-    </section>
-
-    <section class="section route-extra-section">
-      <div class="container route-extra-grid">
-        <div v-for="panel in page.panels" :key="panel.title" class="detail-panel">
-          <span>{{ page.eyebrow }}</span>
-          <strong>{{ panel.title }}</strong>
-          <p>{{ panel.text }}</p>
+          <ContactButton :label="page.ctaLabel || text.contact.bookTrip" :context="page.ctaContext" />
         </div>
       </div>
     </section>
@@ -44,12 +34,33 @@
             <p>{{ section.text }}</p>
           </article>
         </div>
-        <aside class="info-checklist" :aria-labelledby="`${page.slug}-checklist`">
-          <h2 :id="`${page.slug}-checklist`">{{ page.checklistTitle }}</h2>
-          <ul class="route-text-list">
-            <li v-for="item in page.checklist" :key="item">{{ item }}</li>
-          </ul>
+        <aside class="info-checklist guide-service-panel" :aria-labelledby="`${page.slug}-services`">
+          <p class="eyebrow">{{ page.linksEyebrow || 'Маршруты по теме' }}</p>
+          <h2 :id="`${page.slug}-services`">{{ page.linksTitle || 'Выбрать морской выход' }}</h2>
+          <div class="guide-service-links">
+            <NuxtLink v-for="link in page.serviceLinks" :key="link.path" class="guide-service-link" :to="link.path">
+              <span>{{ link.eyebrow }}</span>
+              <strong>{{ link.title }}</strong>
+              <p>{{ link.text }}</p>
+            </NuxtLink>
+          </div>
         </aside>
+      </div>
+    </section>
+
+    <section v-if="relatedPages.length" class="section route-extra-section seo-link-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Полезно туристу</p>
+          <h2>Еще по теме</h2>
+        </div>
+        <div class="route-extra-grid">
+          <NuxtLink v-for="related in relatedPages" :key="related.path" class="detail-panel detail-panel-link" :to="related.path">
+            <span>{{ related.eyebrow }}</span>
+            <strong>{{ related.title }}</strong>
+            <p>{{ related.description }}</p>
+          </NuxtLink>
+        </div>
       </div>
     </section>
 
@@ -57,7 +68,7 @@
       <div class="container faq-grid">
         <div>
           <p class="eyebrow">{{ text.home.faqEyebrow }}</p>
-          <h2>{{ text.route.routeFaq }}</h2>
+          <h2>{{ page.faqTitle || 'Вопросы по теме' }}</h2>
         </div>
         <div class="faq-list">
           <article v-for="item in page.faq" :key="item.question" class="faq-item route-faq-item">
@@ -71,10 +82,10 @@
 </template>
 
 <script setup lang="ts">
-import type { InfoPage } from '~/data/info-pages'
+import { guidePages, type GuidePage } from '~/data/guide-pages'
 
 const props = defineProps<{
-  page: InfoPage
+  page: GuidePage
 }>()
 
 const { text, businessText, localePath } = useLocaleContent()
@@ -82,15 +93,22 @@ const { text, businessText, localePath } = useLocaleContent()
 const seo = useAnturSeo({
   title: props.page.seoTitle,
   description: props.page.seoDescription,
-  path: `/${props.page.slug}/`,
+  path: props.page.path,
   image: props.page.heroImage,
   localized: false
 })
 useBusinessSchema()
 
 const assetPath = useAssetPath()
-const pageUrl = new URL(assetPath(`/${props.page.slug}/`), seo.siteUrl).toString()
+const pageUrl = new URL(assetPath(props.page.path), seo.siteUrl).toString()
 const homeUrl = new URL(assetPath('/'), seo.siteUrl).toString()
+const imageUrl = new URL(assetPath(props.page.heroImage), seo.siteUrl).toString()
+const relatedPages = computed(() =>
+  props.page.relatedSlugs.flatMap((slug) => {
+    const related = guidePages.find((item) => item.slug === slug)
+    return related ? [related] : []
+  })
+)
 
 useHead({
   script: [
@@ -98,17 +116,19 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': props.page.schemaType,
-        '@id': `${pageUrl}#webpage`,
-        name: props.page.title,
+        '@type': 'Article',
+        '@id': `${pageUrl}#article`,
+        headline: props.page.title,
         description: props.page.description,
-        url: pageUrl,
-        image: new URL(assetPath(props.page.heroImage), seo.siteUrl).toString(),
+        image: imageUrl,
         dateModified: props.page.updatedAt,
-        isPartOf: {
-          '@type': 'WebSite',
-          name: businessText.value.brand,
-          url: homeUrl
+        datePublished: props.page.updatedAt,
+        mainEntityOfPage: pageUrl,
+        author: {
+          '@id': `${homeUrl}#organization`
+        },
+        publisher: {
+          '@id': `${homeUrl}#organization`
         }
       })
     },

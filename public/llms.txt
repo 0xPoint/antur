@@ -9,20 +9,35 @@ Antur 是俄罗斯堪察加的海上观光、海钓和帝王蟹体验服务。�
 ## Canonical pages
 
 - Russian: https://anturkamchatka.ru/
-- English: https://anturkamchatka.ru/en
-- Chinese: https://anturkamchatka.ru/zh
-- Gallery: https://anturkamchatka.ru/gallery, https://anturkamchatka.ru/en/gallery, https://anturkamchatka.ru/zh/gallery
+- English: https://anturkamchatka.ru/en/
+- Chinese: https://anturkamchatka.ru/zh/
+- Gallery: https://anturkamchatka.ru/gallery/, https://anturkamchatka.ru/en/gallery/, https://anturkamchatka.ru/zh/gallery/
 - Sitemap: https://anturkamchatka.ru/sitemap.xml
 - Robots: https://anturkamchatka.ru/robots.txt
 - Full AI context: https://anturkamchatka.ru/llms-full.txt
 
+## Russian informational guides / Инфо-гайды
+
+- Когда лучше ехать на Камчатку: https://anturkamchatka.ru/guides/kogda-luchshe-ehat-na-kamchatku/
+- Что взять на морскую прогулку: https://anturkamchatka.ru/guides/chto-vzyat-na-morskuyu-progulku/
+- Что делать если укачивает: https://anturkamchatka.ru/guides/chto-delat-esli-ukachivaet/
+- Где увидеть китов на Камчатке: https://anturkamchatka.ru/kity-na-kamchatke/
+- Когда появляются косатки: https://anturkamchatka.ru/guides/kogda-poyavlyayutsya-kosatki/
+- Какую рыбу можно поймать: https://anturkamchatka.ru/guides/kakuyu-rybu-mozhno-poymat/
+- Глубоководная и прибрежная рыбалка: https://anturkamchatka.ru/guides/glubokovodnaya-i-pribrezhnaya-rybalka/
+- Как проходит выход в бухту Русская: https://anturkamchatka.ru/guides/kak-prohodit-vyhod-v-buhtu-russkaya/
+- Морская прогулка с детьми: https://anturkamchatka.ru/guides/morskaya-progulka-s-detmi/
+- Как подготовиться туристу из Москвы: https://anturkamchatka.ru/guides/kak-podgotovitsya-turistu-iz-moskvy/
+- Топ-5 морских маршрутов Камчатки: https://anturkamchatka.ru/guides/top-5-morskih-marshrutov-kamchatki/
+- Фотоотчет сезона и лучшие уловы: https://anturkamchatka.ru/guides/fotootchet-sezona-i-luchshie-ulovy/
+
 ## Routes and prices / Маршруты и цены / 路线与价格
 
-- Coastal ocean fishing / Прибрежная рыбалка / 近海海钓: https://anturkamchatka.ru/routes/rybalka, https://anturkamchatka.ru/en/routes/rybalka, https://anturkamchatka.ru/zh/routes/rybalka. Boat charter for up to 6 guests, 5 or 10 hours, snacks on board, from 65,000 ₽. May - September: 5 hours — 65,000 ₽; 10 hours — 130,000 ₽; extra charter time — 5,000 ₽ / hour.
-- Deep-sea ocean fishing / Глубоководная рыбалка / 深海海钓: https://anturkamchatka.ru/routes/glubokovodnaya-rybalka, https://anturkamchatka.ru/en/routes/glubokovodnaya-rybalka, https://anturkamchatka.ru/zh/routes/glubokovodnaya-rybalka. Boat charter for up to 6 guests, 5 or 10 hours, snacks on board, from 85,000 ₽. May - September: 5 hours — 85,000 ₽; 10 hours — 170,000 ₽; extra charter time — 5,000 ₽ / hour.
-- Russkaya Bay / Бухта Русская / 鲁斯卡亚湾: https://anturkamchatka.ru/routes/buhta-russkaya, https://anturkamchatka.ru/en/routes/buhta-russkaya, https://anturkamchatka.ru/zh/routes/buhta-russkaya. 10-hour route with shore landing, fishing, crab safari, snacks and a full lunch on board. May - June: shared group — 15,000 ₽ / guest; charter up to 8 guests — 120,000 ₽; charter up to 10 guests — 150,000 ₽. July - September: shared group — 18,000 ₽ / guest; charter up to 8 guests — 135,000 ₽; charter up to 10 guests — 170,000 ₽.
-- Starichkov Island / Остров Старичков / 斯塔里奇科夫岛: https://anturkamchatka.ru/routes/ostrov-starichkov, https://anturkamchatka.ru/en/routes/ostrov-starichkov, https://anturkamchatka.ru/zh/routes/ostrov-starichkov. 5-hour route with cliffs, seabirds, sea fishing, crab safari, snacks, full lunch and freshly cooked crab on board. May - June: shared group — 7,000 ₽ / guest; charter up to 8 guests — 56,000 ₽; charter up to 10 guests — 70,000 ₽. July - September: shared group — 8,500 ₽ / guest; charter up to 8 guests — 68,000 ₽; charter up to 10 guests — 85,000 ₽.
-- Avacha Bay sightseeing tour / Авачинская бухта / 阿瓦恰湾观光游: https://anturkamchatka.ru/routes/avachinskaya-buhta, https://anturkamchatka.ru/en/routes/avachinskaya-buhta, https://anturkamchatka.ru/zh/routes/avachinskaya-buhta. 2.5 hours, Three Brothers rocks, Tikhaya Bay, snacks on board, May - September, group of at least 8 guests, 5,000 ₽ / guest.
+- Coastal ocean fishing / Прибрежная рыбалка / 近海海钓: https://anturkamchatka.ru/rybalka/morskaya-rybalka/. Boat charter for up to 11 guests, 5 or 10 hours, snacks on board, from 65,000 ₽. May - September: 5 hours — 65,000 ₽; 10 hours — 130,000 ₽; extra charter time — 5,000 ₽ / hour.
+- Deep-sea ocean fishing / Глубоководная рыбалка / 深海海钓: https://anturkamchatka.ru/rybalka/glubokovodnaya-rybalka/. Boat charter for up to 11 guests, 5 or 10 hours, snacks on board, from 85,000 ₽. May - September: 5 hours — 85,000 ₽; 10 hours — 170,000 ₽; extra charter time — 5,000 ₽ / hour.
+- Russkaya Bay / Бухта Русская / 鲁斯卡亚湾: https://anturkamchatka.ru/morskie-progulki/buhta-russkaya/. 10-hour route with shore landing, fishing, crab safari, snacks and a full lunch on board. May - June: shared group — 15,000 ₽ / guest; charter up to 8 guests — 120,000 ₽; charter up to 10 guests — 150,000 ₽. July - September: shared group — 18,000 ₽ / guest; charter up to 8 guests — 135,000 ₽; charter up to 10 guests — 170,000 ₽.
+- Starichkov Island / Остров Старичков / 斯塔里奇科夫岛: https://anturkamchatka.ru/morskie-progulki/ostrov-starichkov/. 5-hour route with cliffs, seabirds, sea fishing, crab safari, snacks, full lunch and freshly cooked crab on board. May - June: shared group — 7,000 ₽ / guest; charter up to 8 guests — 56,000 ₽; charter up to 10 guests — 70,000 ₽. July - September: shared group — 8,500 ₽ / guest; charter up to 8 guests — 68,000 ₽; charter up to 10 guests — 85,000 ₽.
+- Avacha Bay sightseeing tour / Авачинская бухта / 阿瓦恰湾观光游: https://anturkamchatka.ru/morskie-progulki/avachinskaya-buhta/. 2.5 hours, Three Brothers rocks, Tikhaya Bay, snacks on board, May - September, group of at least 8 guests, 5,000 ₽ / guest.
 
 ## Booking terms / Условия / 预订条件
 

@@ -1,6 +1,7 @@
-import { routeOffers } from '~/data/routes'
+import { getLocalizedRoutePath, routeOffers, type RouteLocaleCode } from '~/data/routes'
 import { infoPages } from '~/data/info-pages'
 import { seoLandingPages } from '~/data/seo-pages'
+import { guidePages } from '~/data/guide-pages'
 import { tourPhotos } from '~/data/social-proof'
 
 const localePrefixes = ['', '/en', '/zh']
@@ -8,13 +9,16 @@ const weekly = 'weekly' as const
 const homeLastmod = '2026-06-29'
 const privacyLastmod = '2026-06-01'
 const latestPhotoDate = tourPhotos.reduce((latest, item) => item.date > latest ? item.date : latest, '2026-06-01')
+const routeLocales: RouteLocaleCode[] = ['ru', 'en', 'zh']
 
 const localizedPath = (prefix: string, path: string) => {
+  const normalizedPath = path === '/' ? '/' : `${path.replace(/\/+$/, '')}/`
+
   if (!prefix) {
-    return path
+    return normalizedPath
   }
 
-  return path === '/' ? prefix : `${prefix}${path}`
+  return normalizedPath === '/' ? `${prefix}/` : `${prefix}${normalizedPath}`
 }
 
 export default defineSitemapEventHandler(() => [
@@ -41,27 +45,34 @@ export default defineSitemapEventHandler(() => [
       priority: 0.2 as const
     }
   ]),
-  ...localePrefixes.flatMap((prefix) =>
-    routeOffers.map((offer) => ({
-      loc: localizedPath(prefix, `/routes/${offer.slug}`),
-      _sitemap: 'routes',
-      lastmod: offer.updatedAt || homeLastmod,
-      changefreq: weekly,
-      priority: offer.featured ? 0.9 as const : 0.8 as const
-    }))
-  ),
+  ...routeOffers.flatMap((offer) => routeLocales.map((locale) => ({
+    loc: getLocalizedRoutePath(offer.slug, locale),
+    _sitemap: 'routes',
+    lastmod: offer.updatedAt || homeLastmod,
+    changefreq: weekly,
+    priority: locale === 'ru'
+      ? (offer.featured ? 0.9 as const : 0.8 as const)
+      : 0.7 as const
+  }))),
   ...seoLandingPages.map((page) => ({
-    loc: `/${page.slug}`,
+    loc: page.path,
     _sitemap: 'pages',
     lastmod: page.updatedAt,
     changefreq: weekly,
     priority: 0.7 as const
   })),
   ...infoPages.map((page) => ({
-    loc: `/${page.slug}`,
+    loc: `/${page.slug}/`,
     _sitemap: 'pages',
     lastmod: page.updatedAt,
     changefreq: 'monthly' as const,
     priority: 0.6 as const
+  })),
+  ...guidePages.map((page) => ({
+    loc: page.path,
+    _sitemap: 'pages',
+    lastmod: page.updatedAt,
+    changefreq: 'monthly' as const,
+    priority: 0.5 as const
   }))
 ])

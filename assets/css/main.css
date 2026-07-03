@@ -31,6 +31,7 @@ body {
   color: var(--white);
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   line-height: 1.55;
+  overflow-x: hidden;
   text-rendering: optimizeLegibility;
 }
 
@@ -151,7 +152,85 @@ button:focus-visible,
   font-size: 15px;
 }
 
+.nav-links > a,
+.nav-dropdown-trigger {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
 .nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  gap: 7px;
+}
+
+.nav-caret {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  opacity: 0.74;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: -12px;
+  display: grid;
+  min-width: 260px;
+  gap: 2px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(8, 22, 34, 0.98);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  visibility: hidden;
+}
+
+.nav-dropdown-menu::before {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  height: 10px;
+  content: "";
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--mist);
+  font-size: 14px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
   color: var(--white);
 }
 
@@ -613,7 +692,7 @@ h3 {
   grid-column: span 3;
 }
 
-.route-card:first-child {
+.route-grid--featured .route-card:first-child {
   grid-column: 1 / -1;
   min-height: 440px;
 }
@@ -636,7 +715,7 @@ h3 {
   background: linear-gradient(135deg, rgba(143, 216, 207, 0.12), rgba(229, 185, 111, 0.12)), var(--ocean-800);
 }
 
-.route-card:first-child .route-card-image {
+.route-grid--featured .route-card:first-child .route-card-image {
   height: clamp(340px, 34vw, 520px);
   object-position: center 46%;
 }
@@ -1673,6 +1752,16 @@ h3 {
   padding: 22px;
 }
 
+.detail-panel-link {
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.detail-panel-link:hover {
+  border-color: rgba(229, 185, 111, 0.64);
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
 .detail-panel span {
   color: var(--muted);
   font-size: 14px;
@@ -1801,6 +1890,51 @@ h3 {
 
 .info-checklist .route-text-list li {
   color: #405566;
+}
+
+.guide-service-panel .eyebrow {
+  margin-bottom: 8px;
+  color: #7b5a27;
+}
+
+.guide-service-links {
+  display: grid;
+  gap: 12px;
+}
+
+.guide-service-link {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid rgba(11, 37, 53, 0.12);
+  border-radius: 8px;
+  background: #f7fbfb;
+  color: #0b2535;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.guide-service-link:hover {
+  border-color: rgba(166, 75, 35, 0.36);
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+.guide-service-link span {
+  color: #687d8c;
+  font-size: 13px;
+}
+
+.guide-service-link strong {
+  color: #0b2535;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.guide-service-link p {
+  margin: 0;
+  color: #405566;
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .route-timeline {
@@ -2071,7 +2205,7 @@ h3 {
 
   .route-card,
   .route-card-featured,
-  .route-card:first-child {
+  .route-grid--featured .route-card:first-child {
     grid-column: span 1;
   }
 
@@ -2196,18 +2330,46 @@ h3 {
 
   .site-header {
     position: static;
+    gap: 10px;
     min-height: 64px;
+    padding: 10px 16px;
     background: rgba(5, 13, 20, 0.96);
+  }
+
+  .brand {
+    gap: 10px;
   }
 
   .brand small {
     display: none;
   }
 
+  .brand-word {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+  }
+
   .brand-logo-picture {
-    width: 48px;
-    height: 38px;
-    flex-basis: 48px;
+    width: 42px;
+    height: 34px;
+    flex-basis: 42px;
+  }
+
+  .header-tools {
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .language-switcher {
+    grid-template-columns: repeat(3, 28px);
+    min-height: 32px;
+    padding: 2px;
+  }
+
+  .language-link {
+    min-width: 28px;
+    padding: 5px 3px;
+    font-size: 10px;
   }
 
   .header-call {
@@ -2268,9 +2430,9 @@ h3 {
   }
 
   .route-hero .hero-actions .btn {
-    min-height: 88px;
-    padding: 26px 36px;
-    font-size: 22px;
+    min-height: 56px;
+    padding: 15px 18px;
+    font-size: 17px;
   }
 
   .hero-cta {
@@ -2458,6 +2620,37 @@ h3 {
   .messenger-icon img {
     width: 22px;
     height: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: min(100% - 32px, 344px);
+  }
+
+  .route-hero-content {
+    width: min(100%, 344px);
+    max-width: 344px;
+  }
+
+  .route-hero-content p {
+    max-width: 100%;
+    font-size: 16px;
+    overflow-wrap: break-word;
+  }
+
+  .route-hero .hero-actions {
+    width: 100%;
+    max-width: 344px;
+  }
+
+  .route-hero .hero-actions .contact-widget {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .route-hero .hero-actions .btn {
+    max-width: 100%;
   }
 }
 

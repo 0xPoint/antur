@@ -1,11 +1,32 @@
 import { business, faq } from '~/data/site'
 import {
+  defaultLocale,
   faqByLocale,
   getLocaleFromPath,
   locales,
   localizedBusiness,
-  localizePath
+  localizePath,
+  stripLocaleFromPath,
+  type LocaleCode
 } from '~/data/i18n'
+
+interface FaqSchemaItem {
+  question: string
+  answer: string
+}
+
+export const buildFaqSchema = (items: FaqSchemaItem[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer
+    }
+  }))
+})
 
 interface SeoInput {
   title: string
@@ -15,6 +36,7 @@ interface SeoInput {
   imageWidth?: number
   imageHeight?: number
   localized?: boolean
+  localizedPaths?: Partial<Record<LocaleCode, string>>
 }
 
 export function useAnturSeo(input: SeoInput) {
@@ -24,19 +46,36 @@ export function useAnturSeo(input: SeoInput) {
   const route = useRoute()
   const locale = getLocaleFromPath(route.path)
   const path = input.path || '/'
-  const localizedPath = localizePath(path, locale)
-  const url = new URL(assetPath(localizedPath), siteUrl).toString()
+  const hasExplicitLocalizedPaths = Boolean(input.localizedPaths)
+  const hasLocalizedAlternates = hasExplicitLocalizedPaths || input.localized !== false
+  const canonicalPath = input.localizedPaths
+    ? input.localizedPaths[locale] || input.localizedPaths[defaultLocale] || path
+    : hasLocalizedAlternates
+      ? localizePath(path, locale)
+      : stripLocaleFromPath(path)
+  const url = new URL(assetPath(canonicalPath), siteUrl).toString()
   const image = new URL(assetPath(input.image || '/images/hero-kamchatka-boat.jpg'), siteUrl).toString()
   const localeMeta = locales.find((item) => item.code === locale) || locales[0]
   const businessText = localizedBusiness[locale]
-  const hasLocalizedAlternates = input.localized !== false
-  const alternateLinks = hasLocalizedAlternates
-    ? locales.map((item) => ({
+  const alternateLinks = input.localizedPaths
+    ? locales.flatMap((item) => {
+        const localizedPath = input.localizedPaths?.[item.code]
+
+        return localizedPath
+          ? [{
+              rel: 'alternate',
+              hreflang: item.hreflang,
+              href: new URL(assetPath(localizedPath), siteUrl).toString()
+            }]
+          : []
+      })
+    : hasLocalizedAlternates
+      ? locales.map((item) => ({
         rel: 'alternate',
         hreflang: item.hreflang,
         href: new URL(assetPath(localizePath(path, item.code)), siteUrl).toString()
       }))
-    : []
+      : []
 
   useSeoMeta({
     title: input.title,
@@ -60,7 +99,11 @@ export function useAnturSeo(input: SeoInput) {
       { rel: 'canonical', href: url },
       ...alternateLinks,
       ...(hasLocalizedAlternates
-        ? [{ rel: 'alternate', hreflang: 'x-default', href: new URL(assetPath(localizePath(path, 'ru')), siteUrl).toString() }]
+        ? [{
+            rel: 'alternate',
+            hreflang: 'x-default',
+            href: new URL(assetPath(input.localizedPaths?.[defaultLocale] || localizePath(path, defaultLocale)), siteUrl).toString()
+          }]
         : [])
     ]
   })
@@ -85,7 +128,7 @@ export function useBusinessSchema() {
         type: 'application/ld+json',
         innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'TravelAgency',
+          '@type': ['Organization', 'LocalBusiness', 'TravelAgency'],
           '@id': `${businessUrl}#organization`,
           name: businessText.brand,
           legalName: businessText.legalName,
@@ -136,18 +179,7 @@ export function useFaqSchema() {
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: localizedFaq.map((item) => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer
-            }
-          }))
-        })
+        innerHTML: JSON.stringify(buildFaqSchema(localizedFaq))
       }
     ]
   })

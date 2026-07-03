@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import { getLocalizedRoutePath, routeOffers } from '~/data/routes'
 import { ruOnlyPagePaths } from '~/data/ru-only-pages'
 import { stripLocaleFromPath } from '~/data/i18n'
 import type { LocaleCode } from '~/data/i18n'
@@ -24,8 +25,22 @@ import type { LocaleCode } from '~/data/i18n'
 const route = useRoute()
 const { locale, locales, localePath, text } = useLocaleContent()
 const isRuOnlyLanding = computed(() => ruOnlyPagePaths.has(stripLocaleFromPath(route.path)))
+const currentRouteOffer = computed(() => {
+  const routeSlug = String(route.params.slug || '')
+  const cleanPath = stripLocaleFromPath(route.path)
+
+  return routeOffers.find((offer) =>
+    offer.slug === routeSlug ||
+    offer.pathSlug === routeSlug ||
+    offer.path === cleanPath
+  )
+})
 
 const targetHref = (targetLocale: LocaleCode) => {
+  if (currentRouteOffer.value) {
+    return getLocalizedRoutePath(currentRouteOffer.value.slug, targetLocale)
+  }
+
   if (isRuOnlyLanding.value && targetLocale !== 'ru') {
     return localePath('/', targetLocale)
   }

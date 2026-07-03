@@ -1,9 +1,15 @@
-import { routeOffers } from './data/routes'
+import { getLocalizedRoutePath, routeOffers } from './data/routes'
 import { infoPages } from './data/info-pages'
 import { seoLandingPages } from './data/seo-pages'
+import { guidePages } from './data/guide-pages'
 
 const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
 const withAppBase = (path: string) => `${appBaseUrl}${path}`
+const routePrerenderPaths = routeOffers.flatMap((offer) => [
+  getLocalizedRoutePath(offer.slug, 'ru'),
+  getLocalizedRoutePath(offer.slug, 'en'),
+  getLocalizedRoutePath(offer.slug, 'zh')
+])
 
 // Яндекс.Метрика. ID берётся из env, дефолт — боевой счётчик Антур.
 const yandexMetrikaId = process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '110113081'
@@ -16,7 +22,8 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/sitemap'],
   site: {
-    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru'
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru',
+    trailingSlash: true
   },
   css: ['~/assets/css/main.css'],
   app: {
@@ -54,7 +61,11 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/': { ssr: true },
-    '/routes/**': { ssr: true },
+    '/morskie-progulki/**': { ssr: true },
+    '/rybalka/**': { ssr: true },
+    '/guides/**': { ssr: true },
+    '/arenda-katera/': { ssr: true },
+    '/kity-na-kamchatke/': { ssr: true },
     '/en/**': { ssr: true },
     '/zh/**': { ssr: true },
     '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
@@ -66,23 +77,20 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         '/',
-        '/en',
-        '/zh',
-        '/gallery',
-        '/en/gallery',
-        '/zh/gallery',
-        '/privacy',
-        '/en/privacy',
-        '/zh/privacy',
+        '/en/',
+        '/zh/',
+        '/gallery/',
+        '/en/gallery/',
+        '/zh/gallery/',
+        '/privacy/',
+        '/en/privacy/',
+        '/zh/privacy/',
         '/robots.txt',
         '/image-sitemap.xml',
-        ...infoPages.map((page) => `/${page.slug}`),
-        ...seoLandingPages.map((page) => `/${page.slug}`),
-        ...routeOffers.flatMap((offer) => [
-          `/routes/${offer.slug}`,
-          `/en/routes/${offer.slug}`,
-          `/zh/routes/${offer.slug}`
-        ])
+        ...infoPages.map((page) => `/${page.slug}/`),
+        ...guidePages.map((page) => page.path),
+        ...seoLandingPages.map((page) => page.path),
+        ...routePrerenderPaths
       ]
     }
   },

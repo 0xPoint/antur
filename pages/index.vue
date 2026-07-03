@@ -9,7 +9,7 @@
             <p class="eyebrow">{{ text.home.routesEyebrow }}</p>
             <h2 id="routes-title">{{ text.home.routesTitle }}</h2>
           </div>
-          <div class="route-grid">
+          <div class="route-grid route-grid--featured">
             <RouteCard v-for="offer in homeRouteOffers" :key="offer.slug" :offer="offer" />
           </div>
         </div>

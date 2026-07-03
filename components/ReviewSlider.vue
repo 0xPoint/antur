@@ -30,7 +30,7 @@
             <span>
               <NuxtLink
                 v-if="linkRoutes && review.routeSlug"
-                :to="localePath(`/routes/${review.routeSlug}`)"
+                :to="routePathBySlug(review.routeSlug)"
                 @pointerdown.stop
                 @click.stop
               >{{ review.route }}</NuxtLink>
@@ -68,9 +68,11 @@ withDefaults(defineProps<{
   linkRoutes: true
 })
 
-const { text, localePath } = useLocaleContent()
+const { text, routeOffers } = useLocaleContent()
 const { openExternalPopup } = useExternalPopup()
 const { viewport, drag, scrollByPage, startDrag, moveDrag, stopDrag, preventClickAfterDrag } = useDragSlider()
+
+const routePathBySlug = (slug: string) => routeOffers.value.find((offer) => offer.slug === slug)?.path || '/morskie-progulki/'
 
 const formatDate = (date: string) =>
   new Intl.DateTimeFormat(text.value.gallery.dateLocale, {

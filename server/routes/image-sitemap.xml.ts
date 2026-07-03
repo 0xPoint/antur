@@ -34,7 +34,7 @@ export default defineEventHandler((event) => {
   }))
 
   const routeImages = routeOffers.map((offer) => ({
-    page: `/routes/${offer.slug}`,
+    page: offer.path,
     images: [
       {
         src: offer.pageImage || offer.image,
@@ -58,7 +58,7 @@ export default defineEventHandler((event) => {
 
   const urlEntries = [
     {
-      loc: absolute('/gallery'),
+      loc: absolute('/gallery/'),
       images: galleryImages
     },
     ...routeImages.map((entry) => ({

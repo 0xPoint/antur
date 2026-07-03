@@ -22,6 +22,11 @@ export interface RouteFaqItem {
 
 export interface RouteOffer {
   slug: string
+  path: string
+  pathSlug?: string
+  categoryTitle?: string
+  categoryPath?: string
+  relatedSlugs?: string[]
   title: string
   kicker: string
   duration: string
