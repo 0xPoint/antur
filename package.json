@@ -6,6 +6,7 @@
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "postgenerate": "node scripts/generate-static-redirects.mjs .output/public",
     "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck",

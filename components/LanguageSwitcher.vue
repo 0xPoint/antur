@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
-import { getLocalizedRoutePath, routeOffers } from '~/data/routes'
+import { findRouteLinkByPath, getLocalizedRoutePathBySlug } from '~/data/route-links'
 import { ruOnlyPagePaths } from '~/data/ru-only-pages'
-import { stripLocaleFromPath } from '~/data/i18n'
-import type { LocaleCode } from '~/data/i18n'
+import { stripLocaleFromPath } from '~/data/i18n-base'
+import type { LocaleCode } from '~/data/i18n-base'
 
 const route = useRoute()
 const { locale, locales, localePath, text } = useLocaleContent()
@@ -29,16 +29,12 @@ const currentRouteOffer = computed(() => {
   const routeSlug = String(route.params.slug || '')
   const cleanPath = stripLocaleFromPath(route.path)
 
-  return routeOffers.find((offer) =>
-    offer.slug === routeSlug ||
-    offer.pathSlug === routeSlug ||
-    offer.path === cleanPath
-  )
+  return findRouteLinkByPath(cleanPath, routeSlug)
 })
 
 const targetHref = (targetLocale: LocaleCode) => {
   if (currentRouteOffer.value) {
-    return getLocalizedRoutePath(currentRouteOffer.value.slug, targetLocale)
+    return getLocalizedRoutePathBySlug(currentRouteOffer.value.slug, targetLocale)
   }
 
   if (isRuOnlyLanding.value && targetLocale !== 'ru') {
@@ -54,5 +50,6 @@ const rememberLocale = (targetLocale: LocaleCode) => {
   }
 
   window.localStorage.setItem('antur:locale', targetLocale)
+  window.localStorage.setItem('antur:locale-explicit', '1')
 }
 </script>

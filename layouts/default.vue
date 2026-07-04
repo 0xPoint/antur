@@ -102,22 +102,11 @@
             <span>{{ businessText.brand }}</span>
           </NuxtLink>
           <p>{{ businessText.legalName }}</p>
-          <NuxtLink class="footer-legal-link" :to="localePath('/privacy')">{{ privacy.linkLabel }}</NuxtLink>
+          <NuxtLink class="footer-legal-link" :to="localePath('/privacy')">{{ privacyLinkLabel }}</NuxtLink>
           <nav class="footer-routes" :aria-label="text.nav.routes">
-            <NuxtLink v-for="offer in routeOffers" :key="offer.slug" :to="offer.path">
-              {{ offer.title }}
+            <NuxtLink v-for="link in footerHubLinks" :key="link.path" :to="link.path">
+              {{ link.title }}
             </NuxtLink>
-            <template v-if="locale === 'ru'">
-              <NuxtLink v-for="page in ruOnlySeoLandingLinks" :key="page.path" :to="page.path">
-                {{ page.title }}
-              </NuxtLink>
-              <NuxtLink v-for="page in ruOnlyInfoPageLinks" :key="page.path" :to="page.path">
-                {{ page.title }}
-              </NuxtLink>
-              <NuxtLink v-for="page in ruOnlyGuideLinks" :key="page.path" :to="page.path">
-                {{ page.title }}
-              </NuxtLink>
-            </template>
           </nav>
         </div>
         <address class="footer-contact">
@@ -156,10 +145,11 @@
 
 <script setup lang="ts">
 import { business } from '~/data/site'
-import { ruOnlyGuideLinks, ruOnlyInfoPageLinks, ruOnlySeoLandingLinks } from '~/data/ru-only-pages'
 
 const assetPath = useAssetPath()
-const { locale, localePath, text, businessText, privacy, routeOffers } = useLocaleContent()
+const { locale, localePath, text, businessText } = useLocaleContent()
+const { routeLinks } = useRouteLinks()
+const privacyLinkLabel = usePrivacyLink()
 const route = useRoute()
 const { $reachGoal } = useNuxtApp()
 const seaRouteSlugs = ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkaya']
@@ -190,12 +180,12 @@ const routeNavTitles: Record<string, Record<string, string>> = {
 }
 const routeNavLinks = (slugs: string[]) =>
   slugs.flatMap((slug) => {
-    const offer = routeOffers.value.find((item) => item.slug === slug)
+    const routeLink = routeLinks.value.find((item) => item.slug === slug)
 
-    return offer
+    return routeLink
       ? [{
-          path: offer.path,
-          title: routeNavTitles[locale.value]?.[slug] || offer.title
+          path: routeLink.path,
+          title: routeNavTitles[locale.value]?.[slug] || routeLink.title
         }]
       : []
   })
@@ -210,6 +200,25 @@ const fishingNavLinks = computed(() => [
   ...routeNavLinks(fishingRouteSlugs),
   ...(locale.value === 'ru' ? ruFishingSeoNavLinks : [])
 ])
+const footerHubLinks = computed(() => {
+  if (locale.value === 'ru') {
+    return [
+      { path: '/morskie-progulki/', title: 'Морские прогулки' },
+      { path: '/rybalka/', title: 'Рыбалка' },
+      { path: '/guides/', title: 'Гайды и советы' },
+      { path: '/gallery/', title: 'Галерея сезона' },
+      { path: '/o-kompanii/', title: 'О компании' },
+      { path: '/bezopasnost-na-more/', title: 'Безопасность на море' }
+    ]
+  }
+
+  return [
+    { path: localePath('/#routes'), title: text.value.nav.routes },
+    { path: localePath('/gallery'), title: text.value.nav.gallery },
+    { path: localePath('/#reviews'), title: text.value.nav.reviews },
+    { path: localePath('/#booking'), title: text.value.nav.booking }
+  ]
+})
 
 const mobileMenuOpen = ref(false)
 watch(() => route.fullPath, () => {

@@ -57,7 +57,7 @@ useHead({
     {
       rel: 'preload',
       as: 'image',
-      href: assetPath('/images/webp/hero-orca-breach-1600.webp'),
+      href: assetPath('/images/webp/hero-orca-breach-1280.webp'),
       imagesrcset: webpSrcset('/images/hero-orca-breach.jpg', [960, 1280, 1600, 1920]),
       imagesizes: '100vw',
       media: '(min-width: 681px)',

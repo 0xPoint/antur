@@ -23,11 +23,7 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  alias: ['/en/privacy', '/zh/privacy']
-})
-
-const { privacy } = useLocaleContent()
+const { privacy } = usePrivacyContent()
 
 useAnturSeo({
   title: privacy.value.seoTitle,

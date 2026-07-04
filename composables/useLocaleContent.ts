@@ -1,18 +1,12 @@
 import {
-  bookingTermsByLocale,
   defaultLocale,
-  faqByLocale,
   getLocaleFromPath,
   localizedBusiness,
   locales,
   localizePath,
-  reviewsByLocale,
-  routeOffersByLocale,
-  tourPhotosByLocale,
   ui,
   type LocaleCode
-} from '~/data/i18n'
-import { privacyByLocale } from '~/data/privacy'
+} from '~/data/i18n-base'
 
 export const useLocaleContent = () => {
   const route = useRoute()
@@ -25,13 +19,7 @@ export const useLocaleContent = () => {
     locales,
     localePath,
     text: computed(() => ui[locale.value]),
-    businessText: computed(() => localizedBusiness[locale.value]),
-    routeOffers: computed(() => routeOffersByLocale[locale.value]),
-    faqItems: computed(() => faqByLocale[locale.value]),
-    bookingTerms: computed(() => bookingTermsByLocale[locale.value]),
-    reviews: computed(() => reviewsByLocale[locale.value]),
-    tourPhotos: computed(() => tourPhotosByLocale[locale.value]),
-    privacy: computed(() => privacyByLocale[locale.value])
+    businessText: computed(() => localizedBusiness[locale.value])
   }
 }
 

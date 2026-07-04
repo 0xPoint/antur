@@ -167,7 +167,7 @@
           <p class="eyebrow">{{ text.home.reviewsEyebrow }}</p>
           <h2>{{ text.route.routeReviews }}</h2>
         </div>
-        <ReviewSlider :reviews="routeReviews" :label="text.route.routeReviews" :link-routes="false" />
+        <LazyReviewSlider :reviews="routeReviews" :label="text.route.routeReviews" :link-routes="false" />
       </div>
     </section>
 
@@ -205,7 +205,9 @@ import { getLocalizedRoutePath, getLocalizedRoutePaths } from '~/data/routes'
 import { sortReviewsByDateDesc } from '~/utils/reviews'
 
 const route = useRoute()
-const { locale, text, businessText, routeOffers, bookingTerms, reviews, localePath } = useLocaleContent()
+const { locale, text, businessText, localePath } = useLocaleContent()
+const { routeOffers, bookingTerms } = useRouteContent()
+const { reviews } = useSocialProof()
 const routeSlug = computed(() => String(route.params.slug || ''))
 const offer = computed(() =>
   routeOffers.value.find((item) => item.slug === routeSlug.value || item.pathSlug === routeSlug.value)

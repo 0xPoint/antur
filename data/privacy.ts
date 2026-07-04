@@ -1,4 +1,4 @@
-import type { LocaleCode } from './i18n'
+import type { LocaleCode } from './i18n-base'
 
 export interface PrivacySection {
   heading: string

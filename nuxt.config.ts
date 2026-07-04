@@ -80,6 +80,7 @@ export default defineNuxtConfig({
         '/en/',
         '/zh/',
         '/gallery/',
+        '/guides/',
         '/en/gallery/',
         '/zh/gallery/',
         '/privacy/',

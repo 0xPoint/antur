@@ -111,7 +111,9 @@ const props = defineProps<{
   page: SeoLandingPage
 }>()
 
-const { text, businessText, routeOffers, tourPhotos, localePath } = useLocaleContent()
+const { text, businessText, localePath } = useLocaleContent()
+const { routeOffers } = useRouteContent()
+const { tourPhotos } = useSocialProof()
 
 useAnturSeo({
   title: props.page.seoTitle,

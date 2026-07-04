@@ -1,14 +1,16 @@
 import { business, faq } from '~/data/site'
 import {
-  defaultLocale,
   faqByLocale,
+} from '~/data/i18n'
+import {
+  defaultLocale,
   getLocaleFromPath,
   locales,
   localizedBusiness,
   localizePath,
   stripLocaleFromPath,
   type LocaleCode
-} from '~/data/i18n'
+} from '~/data/i18n-base'
 
 interface FaqSchemaItem {
   question: string

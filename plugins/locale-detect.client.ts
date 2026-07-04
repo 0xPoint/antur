@@ -3,12 +3,13 @@ import {
   getLocaleFromPath,
   isLocaleCode,
   localizePath,
-  stripLocaleFromPath,
-  type LocaleCode
-} from '~/data/i18n'
+  stripLocaleFromPath
+} from '~/data/i18n-base'
+import type { LocaleCode } from '~/data/i18n-base'
 import { ruOnlyPagePaths } from '~/data/ru-only-pages'
 
 const storageKey = 'antur:locale'
+const explicitChoiceKey = 'antur:locale-explicit'
 const detectionKey = 'antur:locale-detected'
 
 const detectLocale = (): LocaleCode => {
@@ -61,21 +62,25 @@ export default defineNuxtPlugin(() => {
     return
   }
 
+  const storedLocale = window.localStorage.getItem(storageKey)
+  const hasExplicitChoice = window.localStorage.getItem(explicitChoiceKey) === '1'
+
+  if (hasExplicitChoice && isLocaleCode(storedLocale) && storedLocale !== defaultLocale) {
+    const targetPath = localizePath(route.fullPath, storedLocale)
+
+    if (targetPath !== route.fullPath) {
+      void navigateTo(targetPath, { replace: true })
+      return
+    }
+  }
+
   if (window.sessionStorage.getItem(detectionKey)) {
     return
   }
 
   window.sessionStorage.setItem(detectionKey, '1')
-  const detectedLocale = detectLocale()
-  window.localStorage.setItem(storageKey, detectedLocale)
 
-  if (detectedLocale === defaultLocale) {
-    return
-  }
-
-  const targetPath = localizePath(route.fullPath, detectedLocale)
-
-  if (targetPath !== route.fullPath) {
-    void navigateTo(targetPath, { replace: true })
+  if (!isLocaleCode(storedLocale)) {
+    window.localStorage.setItem(storageKey, detectLocale())
   }
 })

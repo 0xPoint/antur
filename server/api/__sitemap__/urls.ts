@@ -1,4 +1,5 @@
 import { getLocalizedRoutePath, routeOffers, type RouteLocaleCode } from '~/data/routes'
+import { guideHubPage } from '~/data/guide-hub'
 import { infoPages } from '~/data/info-pages'
 import { seoLandingPages } from '~/data/seo-pages'
 import { guidePages } from '~/data/guide-pages'
@@ -54,6 +55,13 @@ export default defineSitemapEventHandler(() => [
       ? (offer.featured ? 0.9 as const : 0.8 as const)
       : 0.7 as const
   }))),
+  {
+    loc: guideHubPage.path,
+    _sitemap: 'pages',
+    lastmod: guideHubPage.updatedAt,
+    changefreq: 'monthly' as const,
+    priority: 0.6 as const
+  },
   ...seoLandingPages.map((page) => ({
     loc: page.path,
     _sitemap: 'pages',

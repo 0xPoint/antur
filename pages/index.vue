@@ -36,6 +36,23 @@
         </div>
       </section>
 
+      <section v-if="locale === 'ru'" class="section route-extra-section seo-link-section" aria-labelledby="planning-links-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Перед бронированием</p>
+            <h2 id="planning-links-title">Что полезно открыть до выхода в море</h2>
+            <p class="hub-section-copy">Собрали страницы, которые помогают выбрать старт из Петропавловска-Камчатского, заранее понять условия на воде и не потерять полезные материалы перед поездкой.</p>
+          </div>
+          <div class="route-extra-grid">
+            <NuxtLink v-for="link in ruPlanningLinks" :key="link.path" class="detail-panel detail-panel-link" :to="link.path">
+              <span>{{ link.eyebrow }}</span>
+              <strong>{{ link.title }}</strong>
+              <p>{{ link.text }}</p>
+            </NuxtLink>
+          </div>
+        </div>
+      </section>
+
       <section id="gallery" v-if="showFreshPhotos" class="section gallery" aria-labelledby="gallery-title">
         <div class="container gallery-grid">
           <div class="gallery-copy">
@@ -138,7 +155,7 @@
               <h2 id="reviews-title">{{ text.home.reviewsTitle }}</h2>
             </div>
           </div>
-          <ReviewSlider :reviews="reviews" :label="text.home.reviewsAria" />
+          <LazyReviewSlider :reviews="reviews" :label="text.home.reviewsAria" />
         </div>
       </section>
     </div>
@@ -146,11 +163,9 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  alias: ['/en', '/zh']
-})
-
-const { locale, text, routeOffers, faqItems, reviews, tourPhotos, localePath } = useLocaleContent()
+const { locale, text, localePath } = useLocaleContent()
+const { routeOffers, faqItems } = useRouteContent()
+const { reviews, tourPhotos } = useSocialProof()
 
 useAnturSeo({
   title: text.value.home.seoTitle,
@@ -197,4 +212,30 @@ const proofItems = computed(() => [
     text: locale.value === 'en' ? 'No intermediaries: we quickly confirm the date, format, group size and trip details.' : locale.value === 'zh' ? '没有中间商：快速确认日期、形式、团队人数和出海细节。' : 'Без посредников: быстро уточняем дату, формат, состав группы и детали выхода.'
   }
 ])
+const ruPlanningLinks = [
+  {
+    path: '/morskie-progulki-petropavlovsk-kamchatskiy/',
+    eyebrow: 'Старт',
+    title: 'Морские прогулки из Петропавловска-Камчатского',
+    text: 'Коротко сравните Авачинскую бухту, остров Старичков и Бухту Русскую, если стартуете из города и хотите быстро выбрать формат.'
+  },
+  {
+    path: '/bezopasnost-na-more/',
+    eyebrow: 'Важно',
+    title: 'Безопасность на море',
+    text: 'Погодные ограничения, решение капитана, дети на борту, страховка гостей и что взять с собой перед выходом.'
+  },
+  {
+    path: '/guides/',
+    eyebrow: 'Гайды',
+    title: 'Гайды и советы перед выходом в море',
+    text: 'Отдельный хаб с практичными материалами: сезон, укачивание, вещи на борт, дети, косатки и выбор рыбалки.'
+  },
+  {
+    path: '/o-kompanii/',
+    eyebrow: 'Антур',
+    title: 'О компании',
+    text: 'Кто организует выходы, как выглядит публичная структура маршрутов и на каких страницах смотреть свежий контент сезона.'
+  }
+] as const
 </script>

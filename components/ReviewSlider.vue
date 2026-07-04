@@ -68,11 +68,10 @@ withDefaults(defineProps<{
   linkRoutes: true
 })
 
-const { text, routeOffers } = useLocaleContent()
+const { text } = useLocaleContent()
+const { routePathBySlug } = useRouteLinks()
 const { openExternalPopup } = useExternalPopup()
 const { viewport, drag, scrollByPage, startDrag, moveDrag, stopDrag, preventClickAfterDrag } = useDragSlider()
-
-const routePathBySlug = (slug: string) => routeOffers.value.find((offer) => offer.slug === slug)?.path || '/morskie-progulki/'
 
 const formatDate = (date: string) =>
   new Intl.DateTimeFormat(text.value.gallery.dateLocale, {

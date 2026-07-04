@@ -14,6 +14,7 @@ export const ruOnlyInfoPageLinks = [
 ]
 
 export const ruOnlyGuideLinks = [
+  { path: '/guides/', title: 'Гайды и советы перед выходом в море' },
   { path: '/guides/kogda-luchshe-ehat-na-kamchatku/', title: 'Когда лучше ехать на Камчатку' },
   { path: '/guides/chto-vzyat-na-morskuyu-progulku/', title: 'Что взять на морскую прогулку' },
   { path: '/guides/chto-delat-esli-ukachivaet/', title: 'Что делать, если укачивает' },

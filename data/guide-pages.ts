@@ -124,6 +124,8 @@ const serviceLinks = {
   }
 } satisfies Record<string, GuidePageLink>
 
+export const guideServiceLinks = serviceLinks
+
 export const guidePages: GuidePage[] = [
   {
     slug: 'kogda-luchshe-ehat-na-kamchatku',

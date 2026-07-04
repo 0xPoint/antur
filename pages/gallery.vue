@@ -50,12 +50,10 @@
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  alias: ['/en/gallery', '/zh/gallery']
-})
-
 const { assetPath, webpSrcset } = useImageSources()
-const { text, tourPhotos, routeOffers } = useLocaleContent()
+const { text } = useLocaleContent()
+const { tourPhotos } = useSocialProof()
+const { routePathBySlug } = useRouteLinks()
 const firstImagePhoto = computed(() => tourPhotos.value.find((photo) => photo.kind !== 'video'))
 
 useAnturSeo({
@@ -103,7 +101,7 @@ const getPhotoRouteSlug = (photo: { routeSlug?: string, route: string }) => {
 
 const getPhotoRoutePath = (photo: { routeSlug?: string, route: string }) => {
   const slug = getPhotoRouteSlug(photo)
-  return slug ? routeOffers.value.find((offer) => offer.slug === slug)?.path : undefined
+  return slug ? routePathBySlug(slug) : undefined
 }
 
 const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id

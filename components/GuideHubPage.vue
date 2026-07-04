@@ -15,51 +15,56 @@
       <div class="container route-hero-content">
         <nav class="route-breadcrumbs" :aria-label="text.navAria">
           <NuxtLink :to="localePath('/')">{{ businessText.brand }}</NuxtLink>
-          <NuxtLink :to="guideHubPage.path">{{ guideHubPage.breadcrumbTitle }}</NuxtLink>
           <span>{{ page.title }}</span>
         </nav>
         <p class="eyebrow">{{ page.eyebrow }}</p>
         <h1>{{ page.title }}</h1>
         <p>{{ page.description }}</p>
         <div class="hero-actions">
-          <ContactButton :label="page.ctaLabel || text.contact.bookTrip" :context="page.ctaContext" />
+          <ContactButton :label="page.ctaLabel" :context="page.ctaContext" />
         </div>
       </div>
     </section>
 
-    <section class="section info-content-section">
-      <div class="container info-content-grid">
-        <div class="info-section-list">
-          <article v-for="section in page.sections" :key="section.title" class="info-section-item">
-            <h2>{{ section.title }}</h2>
-            <p>{{ section.text }}</p>
-          </article>
+    <section class="section route-extra-section">
+      <div class="container route-extra-grid">
+        <div v-for="panel in page.panels" :key="panel.title" class="detail-panel">
+          <span>{{ page.eyebrow }}</span>
+          <strong>{{ panel.title }}</strong>
+          <p>{{ panel.text }}</p>
         </div>
-        <aside class="info-checklist guide-service-panel" :aria-labelledby="`${page.slug}-services`">
-          <p class="eyebrow">{{ page.linksEyebrow || 'Маршруты по теме' }}</p>
-          <h2 :id="`${page.slug}-services`">{{ page.linksTitle || 'Выбрать морской выход' }}</h2>
-          <div class="guide-service-links">
-            <NuxtLink v-for="link in page.serviceLinks" :key="link.path" class="guide-service-link" :to="link.path">
-              <span>{{ link.eyebrow }}</span>
-              <strong>{{ link.title }}</strong>
-              <p>{{ link.text }}</p>
-            </NuxtLink>
-          </div>
-        </aside>
       </div>
     </section>
 
-    <section v-if="relatedPages.length" class="section route-extra-section seo-link-section">
+    <section v-for="section in guideSections" :key="section.title" class="section route-extra-section seo-link-section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Полезно туристу</p>
-          <h2>Еще по теме</h2>
+          <p class="eyebrow">{{ section.eyebrow }}</p>
+          <h2>{{ section.title }}</h2>
+          <p class="hub-section-copy">{{ section.description }}</p>
         </div>
         <div class="route-extra-grid">
-          <NuxtLink v-for="related in relatedPages" :key="related.path" class="detail-panel detail-panel-link" :to="related.path">
-            <span>{{ related.eyebrow }}</span>
-            <strong>{{ related.title }}</strong>
-            <p>{{ related.description }}</p>
+          <NuxtLink v-for="guide in section.pages" :key="guide.path" class="detail-panel detail-panel-link" :to="guide.path">
+            <span>{{ guide.eyebrow }}</span>
+            <strong>{{ guide.title }}</strong>
+            <p>{{ guide.description }}</p>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
+    <section class="section route-extra-section seo-link-section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Хабы</p>
+          <h2>Куда перейти дальше</h2>
+          <p class="hub-section-copy">Если уже выбираете конкретный морской день, переходите в хабы маршрутов, рыбалки и живого сезона.</p>
+        </div>
+        <div class="route-extra-grid">
+          <NuxtLink v-for="link in page.serviceLinks" :key="link.path" class="detail-panel detail-panel-link" :to="link.path">
+            <span>{{ link.eyebrow }}</span>
+            <strong>{{ link.title }}</strong>
+            <p>{{ link.text }}</p>
           </NuxtLink>
         </div>
       </div>
@@ -69,7 +74,7 @@
       <div class="container faq-grid">
         <div>
           <p class="eyebrow">{{ text.home.faqEyebrow }}</p>
-          <h2>{{ page.faqTitle || 'Вопросы по теме' }}</h2>
+          <h2>Вопросы по гайдам</h2>
         </div>
         <div class="faq-list">
           <article v-for="item in page.faq" :key="item.question" class="faq-item route-faq-item">
@@ -83,11 +88,11 @@
 </template>
 
 <script setup lang="ts">
-import { guideHubPage } from '~/data/guide-hub'
-import { guidePages, type GuidePage } from '~/data/guide-pages'
+import { guidePages } from '~/data/guide-pages'
+import type { GuideHubPage } from '~/data/guide-hub'
 
 const props = defineProps<{
-  page: GuidePage
+  page: GuideHubPage
 }>()
 
 const { text, businessText, localePath } = useLocaleContent()
@@ -104,13 +109,24 @@ useBusinessSchema()
 const assetPath = useAssetPath()
 const pageUrl = new URL(assetPath(props.page.path), seo.siteUrl).toString()
 const homeUrl = new URL(assetPath('/'), seo.siteUrl).toString()
-const guideHubUrl = new URL(assetPath(guideHubPage.path), seo.siteUrl).toString()
 const imageUrl = new URL(assetPath(props.page.heroImage), seo.siteUrl).toString()
-const relatedPages = computed(() =>
-  props.page.relatedSlugs.flatMap((slug) => {
-    const related = guidePages.find((item) => item.slug === slug)
-    return related ? [related] : []
-  })
+const guideBySlug = new Map(guidePages.map((guide) => [guide.slug, guide] as const))
+const guideSections = computed(() =>
+  props.page.sections.map((section) => ({
+    ...section,
+    pages: section.slugs.flatMap((slug) => {
+      const guide = guideBySlug.get(slug)
+      return guide ? [guide] : []
+    })
+  }))
+)
+const guideItemList = computed(() =>
+  guideSections.value.flatMap((section) => section.pages).map((guide, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: guide.title,
+    url: new URL(assetPath(guide.path), seo.siteUrl).toString()
+  }))
 )
 
 useHead({
@@ -119,19 +135,16 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Article',
-        '@id': `${pageUrl}#article`,
-        headline: props.page.title,
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#collection`,
+        name: props.page.title,
         description: props.page.description,
+        url: pageUrl,
         image: imageUrl,
         dateModified: props.page.updatedAt,
-        datePublished: props.page.updatedAt,
-        mainEntityOfPage: pageUrl,
-        author: {
-          '@id': `${homeUrl}#organization`
-        },
-        publisher: {
-          '@id': `${homeUrl}#organization`
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: guideItemList.value
         }
       })
     },
@@ -150,12 +163,6 @@ useHead({
           {
             '@type': 'ListItem',
             position: 2,
-            name: guideHubPage.breadcrumbTitle,
-            item: guideHubUrl
-          },
-          {
-            '@type': 'ListItem',
-            position: 3,
             name: props.page.title,
             item: pageUrl
           }
