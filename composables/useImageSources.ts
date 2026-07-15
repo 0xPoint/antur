@@ -9,6 +9,7 @@ const availableWebpWidthsByStem: Record<string, number[]> = {
   'antur-kamchatka-captain-helm-2026-06-24': [480, 720, 960],
   'antur-kamchatka-coastal-base-2026-05-30': [480, 720, 960],
   'antur-kamchatka-crab-catch-2026-06-24': [480, 720, 960],
+  'antur-kamchatka-crab-tray-2026-07-07': [480, 720, 960],
   'antur-kamchatka-crab-safari-deck-2026-05-30': [480, 720, 960],
   'antur-kamchatka-crab-tasting-2026-05-30': [480, 720, 960],
   'antur-kamchatka-crab-wine-deck-2026-06-14': [480, 720, 960],

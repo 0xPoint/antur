@@ -37,6 +37,7 @@
             </NuxtLink>
           </div>
         </div>
+        <NuxtLink v-if="locale === 'ru'" :to="charterPath">{{ text.nav.charter }}</NuxtLink>
         <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
         <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
         <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
@@ -110,6 +111,7 @@
           </nav>
         </div>
         <address class="footer-contact">
+          <a class="footer-address" :href="business.yandexHref" target="_blank" rel="noopener">{{ businessText.address }}</a>
           <div class="footer-contact-row">
             <a class="footer-phone" :href="business.phoneHref" @click="trackFooterContact('footer_phone_click')">{{ business.phone }}</a>
             <a
@@ -156,7 +158,8 @@ const seaRouteSlugs = ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkay
 const fishingRouteSlugs = ['rybalka', 'glubokovodnaya-rybalka']
 const ruSeaSeoNavLinks = [
   { path: '/morskie-progulki/krabovoe-safari/', title: 'Крабовое сафари' },
-  { path: '/morskie-progulki-petropavlovsk-kamchatskiy/', title: 'Из Петропавловска-Камчатского' }
+  { path: '/morskie-progulki-petropavlovsk-kamchatskiy/', title: 'Из Петропавловска-Камчатского' },
+  { path: '/kity-na-kamchatke/', title: 'Киты и косатки' }
 ]
 const ruFishingSeoNavLinks = [
   { path: '/rybalka/sezon-rybalki/', title: 'Сезон рыбалки' }

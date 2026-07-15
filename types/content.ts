@@ -77,6 +77,7 @@ export interface TourPhoto {
   src: string
   kind?: 'photo' | 'video'
   videoSrc?: string
+  posterSrc?: string
   alt: string
   route: string
   routeSlug?: string

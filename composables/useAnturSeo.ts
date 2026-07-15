@@ -146,11 +146,12 @@ export function useBusinessSchema() {
               : ['Kamchatka', 'Petropavlovsk-Kamchatsky', 'Avacha Bay'],
           geo: {
             '@type': 'GeoCoordinates',
-            latitude: 53.04,
-            longitude: 158.65
+            latitude: 52.963069,
+            longitude: 158.700983
           },
-          hasMap: business.twoGisHref,
+          hasMap: business.yandexHref,
           sameAs: [
+            business.yandexHref,
             business.twoGisHref,
             business.maxHref
           ],
@@ -162,6 +163,7 @@ export function useBusinessSchema() {
           },
           address: {
             '@type': 'PostalAddress',
+            streetAddress: business.streetAddress,
             addressLocality: businessText.region,
             addressRegion: locale === 'ru' ? 'Камчатский край' : locale === 'zh' ? '堪察加边疆区' : 'Kamchatka Krai',
             addressCountry: 'RU'

@@ -5,7 +5,10 @@
         <p class="eyebrow">{{ businessText.mapEyebrow }}</p>
         <h2 id="location-map-title">{{ businessText.mapTitle }}</h2>
         <p>{{ businessText.mapDescription }}</p>
-        <a class="card-link dark-link" :href="business.twoGisHref" target="_blank" rel="noopener">{{ businessText.mapLink }}</a>
+        <div class="map-links">
+          <a class="card-link dark-link" :href="business.twoGisHref" target="_blank" rel="noopener">{{ businessText.mapLink }}</a>
+          <a class="card-link dark-link" :href="business.yandexHref" target="_blank" rel="noopener">{{ businessText.mapYandexLink }}</a>
+        </div>
       </div>
 
       <div

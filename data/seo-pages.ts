@@ -25,6 +25,7 @@ export interface SeoLandingPage {
   seoDescription: string
   updatedAt: string
   heroImage: string
+  heroMobileImage?: string
   heroAlt: string
   ctaContext: string
   routeSlugs: string[]
@@ -47,12 +48,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Крабовое сафари на Камчатке | Морская прогулка с крабом | Антур',
     seoDescription:
       'Крабовое сафари на Камчатке: морская прогулка, свежий краб и закуски на борту, рыбалка и маршруты к острову Старичков, Бухте Русской или отдельной аренде катера.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/antur-kamchatka-crab-catch-2026-06-24.jpg',
     heroAlt: 'Свежий краб на борту катера во время крабового сафари на Камчатке',
     ctaContext: 'Крабовое сафари на Камчатке',
     routeSlugs: ['ostrov-starichkov', 'buhta-russkaya', 'rybalka'],
-    photoIds: ['photo-snow-crab-urchin-2026-06-24', 'photo-crab-deck-2026-05-30', 'photo-crab-tasting-2026-05-30'],
+    photoIds: ['photo-crab-tray-2026-07-07', 'photo-snow-crab-urchin-2026-06-24', 'photo-crab-deck-2026-05-30'],
     sections: [
       {
         title: 'Как проходит крабовое сафари',
@@ -100,12 +101,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Аренда катера на Камчатке | Рыбалка и морские прогулки | Антур',
     seoDescription:
       'Аренда катера на Камчатке для компании: морская рыбалка, глубоководная рыбалка, Бухта Русская, крабовое сафари и маршруты из Петропавловска-Камчатского.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/antur-kamchatka-boat-pier-2026-06-01.jpg',
     heroAlt: 'Катер Антур у причала в Петропавловске-Камчатском',
     ctaContext: 'Аренда катера на Камчатке',
     routeSlugs: ['rybalka', 'glubokovodnaya-rybalka', 'buhta-russkaya'],
-    photoIds: ['photo-boat-pier-2026-06-01', 'photo-captain-helm-2026-06-24', 'photo-fishing-catch-2026-05-30'],
+    photoIds: ['video-fishing-trip-2026-07-03', 'photo-boat-pier-2026-06-01', 'photo-captain-helm-2026-06-24'],
     sections: [
       {
         title: 'Когда стоит брать катер отдельно',
@@ -149,12 +150,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Морские прогулки Петропавловск-Камчатский | Цены и маршруты | Антур',
     seoDescription:
       'Морские прогулки из Петропавловска-Камчатского: Авачинская бухта, Три брата, остров Старичков, Бухта Русская, рыбалка и крабовое сафари.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/antur-kamchatka-three-brothers-avacha-2026-06-26.jpg',
     heroAlt: 'Кекуры Три брата в Авачинской бухте на маршруте из Петропавловска-Камчатского',
     ctaContext: 'Морская прогулка из Петропавловска-Камчатского',
     routeSlugs: ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkaya'],
-    photoIds: ['photo-kekur-2026-05-30', 'photo-sea-cave-2026-05-30', 'photo-orca-2026-05-30'],
+    photoIds: ['video-coastal-route-2026-07-07', 'video-orcas-2026-07-07', 'photo-kekur-2026-05-30'],
     sections: [
       {
         title: 'Как выбрать маршрут',
@@ -202,12 +203,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Морские прогулки на Камчатке | Цены и маршруты | Антур',
     seoDescription:
       'Морские прогулки на Камчатке: Авачинская бухта, остров Старичков, Бухта Русская, крабовое сафари, цены, свежие фото и бронирование у Антур.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/antur-kamchatka-seafood-dinner-deck-2026-06-24.jpg',
     heroAlt: 'Морепродукты на палубе катера во время морского выхода на Камчатке в 2026 году',
     ctaContext: 'Морские прогулки на Камчатке',
     routeSlugs: ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkaya'],
-    photoIds: ['photo-rock-passage-waves-2026-06-24', 'photo-sea-stacks-2026-06-24', 'photo-fishing-catch-2026-05-30'],
+    photoIds: ['video-coastal-route-2026-07-07', 'photo-crab-tray-2026-07-07', 'video-orcas-2026-07-07'],
     linksTitle: 'Смежные форматы',
     linksEyebrow: 'Что еще посмотреть',
     links: [
@@ -252,8 +253,8 @@ export const seoLandingPages: SeoLandingPage[] = [
         text: 'Для части маршрутов цена меняется после июня. На страницах маршрутов указаны отдельные варианты для мая-июня и июля-сентября.'
       },
       {
-        title: 'Свежие фото',
-        text: 'На сайте опубликованы реальные кадры с выходов 2026 года: краб, рыбалка, скалы, косатки, сивучи и моменты на борту.'
+        title: 'Что видели на выходах 3–10 июля',
+        text: 'Свежие материалы сезона показывают рыбалку с борта, косаток у побережья, сивучей на скалах и большой маршрут вдоль заснеженных склонов. Каждая встреча с животными случайна и не гарантируется.'
       },
       {
         title: 'Как быстрее выбрать дату',
@@ -285,12 +286,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Рыбалка на Камчатке | Морская рыбалка, туры и цены | Антур',
     seoDescription:
       'Рыбалка на Камчатке: морская рыбалка на катере, глубоководная рыбалка, цены, сезон, снасти и аренда катера для компании.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/antur-kamchatka-fishing-catch-2026-05-30.jpg',
     heroAlt: 'Гость с уловом на борту катера во время рыбалки на Камчатке',
     ctaContext: 'Рыбалка на Камчатке',
     routeSlugs: ['rybalka', 'glubokovodnaya-rybalka'],
-    photoIds: ['photo-fishing-catch-2026-05-30', 'photo-coastal-base-2026-05-30', 'photo-captain-helm-2026-06-24'],
+    photoIds: ['video-fishing-trip-2026-07-03', 'photo-fishing-catch-2026-05-30', 'photo-captain-helm-2026-06-24'],
     linksTitle: 'Полезно перед рыбалкой',
     linksEyebrow: 'Планирование',
     links: [
@@ -313,8 +314,8 @@ export const seoLandingPages: SeoLandingPage[] = [
         text: 'Для компании можно выбрать прибрежную морскую рыбалку или более дальний глубоководный выход. Оба формата проходят на катере с экипажем и зависят от прогноза.'
       },
       {
-        title: 'Что входит в формат',
-        text: 'На рыболовных выходах предоставляем базовые снасти, помогаем новичкам на точках и держим темп маршрута по состоянию воды.'
+        title: 'Свежий выход 3 июля',
+        text: 'В галерее опубликовано видео июльской рыбалки с борта катера. На рыболовных выходах предоставляем базовые снасти, помогаем новичкам на точках и держим темп маршрута по состоянию воды.'
       },
       {
         title: 'Как выбрать длительность',
@@ -415,12 +416,13 @@ export const seoLandingPages: SeoLandingPage[] = [
     seoTitle: 'Киты на Камчатке | Когда смотреть китов и косаток | Антур',
     seoDescription:
       'Киты на Камчатке: когда смотреть, где возможны встречи с китами и косатками, маршруты в Бухту Русскую, к острову Старичков и морские прогулки.',
-    updatedAt: '2026-06-29',
+    updatedAt: '2026-07-15',
     heroImage: '/images/hero-orca-breach.jpg',
+    heroMobileImage: '/images/hero-orca-breach-mobile.jpg',
     heroAlt: 'Косатка выпрыгивает из воды у берегов Камчатки',
     ctaContext: 'Киты на Камчатке',
     routeSlugs: ['buhta-russkaya', 'ostrov-starichkov'],
-    photoIds: ['photo-orca-2026-05-30', 'photo-sea-stacks-2026-06-24', 'photo-rock-passage-waves-2026-06-24'],
+    photoIds: ['video-orcas-2026-07-07', 'video-sea-lions-2026-07-10', 'photo-orca-2026-05-30'],
     linksTitle: 'Где увидеть китов?',
     linksEyebrow: 'Перелинковка',
     links: [
@@ -445,8 +447,8 @@ export const seoLandingPages: SeoLandingPage[] = [
     ],
     sections: [
       {
-        title: 'Когда смотреть китов и косаток',
-        text: 'Встречи с китами и косатками возможны в морской сезон, но зависят от миграции, кормовой базы, погоды и фактической обстановки на воде.'
+        title: 'Свежие наблюдения июля 2026',
+        text: 'На выходе 7 июля гости сняли косаток у камчатского побережья. В отзыве о маршруте в Бухту Русскую 9 июля также отмечены косатки, каланы и морские львы. Это фактические встречи сезона, а не обещание увидеть животных на следующем выходе.'
       },
       {
         title: 'На каких маршрутах выше шанс',

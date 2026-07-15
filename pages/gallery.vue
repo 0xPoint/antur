@@ -8,9 +8,11 @@
         <article v-for="photo in tourPhotos" :key="photo.id" class="photo-card" :class="{ 'video-card': photo.kind === 'video' }">
           <video
             v-if="photo.kind === 'video'"
+            :ref="registerVideo"
             controls
             playsinline
-            preload="metadata"
+            preload="none"
+            :data-poster="photo.posterSrc ? assetPath(photo.posterSrc) : undefined"
             :aria-label="photo.alt"
           >
             <source :src="assetPath(photo.videoSrc || photo.src)" type="video/mp4">
@@ -43,6 +45,12 @@
             :fetchpriority="getPhotoFetchPriority(photo)"
             :alt="photo.alt"
           />
+          <div class="photo-card-caption">
+            <NuxtLink v-if="getPhotoRoutePath(photo)" :to="getPhotoRoutePath(photo)">{{ photo.route }}</NuxtLink>
+            <strong v-else>{{ photo.route }}</strong>
+            <p>{{ photo.caption || photo.alt }}</p>
+            <time :datetime="photo.date">{{ formatMediaDate(photo.date) }}</time>
+          </div>
         </article>
       </div>
     </div>
@@ -54,6 +62,7 @@ const { assetPath, webpSrcset } = useImageSources()
 const { text } = useLocaleContent()
 const { tourPhotos } = useSocialProof()
 const { routePathBySlug } = useRouteLinks()
+const { locale } = useLocaleContent()
 const firstImagePhoto = computed(() => tourPhotos.value.find((photo) => photo.kind !== 'video'))
 
 useAnturSeo({
@@ -61,6 +70,42 @@ useAnturSeo({
   description: text.value.gallery.seoDescription,
   path: '/gallery'
 })
+useBusinessSchema()
+
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+const absoluteAssetUrl = (path: string) => new URL(assetPath(path), siteUrl).toString()
+const galleryUrl = absoluteAssetUrl('/gallery/')
+
+useHead(() => ({
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ImageGallery',
+      '@id': `${galleryUrl}#gallery`,
+      name: text.value.gallery.title,
+      description: text.value.gallery.lead,
+      url: galleryUrl,
+      associatedMedia: tourPhotos.value.map((item) => item.kind === 'video'
+        ? {
+            '@type': 'VideoObject',
+            name: item.alt,
+            description: item.caption || item.alt,
+            contentUrl: absoluteAssetUrl(item.videoSrc || item.src),
+            thumbnailUrl: item.posterSrc ? absoluteAssetUrl(item.posterSrc) : undefined,
+            uploadDate: item.date
+          }
+        : {
+            '@type': 'ImageObject',
+            name: item.alt,
+            caption: item.caption || item.alt,
+            contentUrl: absoluteAssetUrl(item.src),
+            datePublished: item.date
+          })
+    })
+  }]
+}))
 
 useHead(() => firstImagePhoto.value
   ? {
@@ -107,4 +152,49 @@ const getPhotoRoutePath = (photo: { routeSlug?: string, route: string }) => {
 const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id
 const getPhotoLoading = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'eager' : 'lazy'
 const getPhotoFetchPriority = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'high' : 'low'
+const formatMediaDate = (date: string) => new Intl.DateTimeFormat(
+  locale.value === 'zh' ? 'zh-CN' : locale.value === 'en' ? 'en-GB' : 'ru-RU',
+  { day: 'numeric', month: 'long', year: 'numeric' }
+).format(new Date(`${date}T12:00:00`))
+
+const videoElements = new Set<HTMLVideoElement>()
+let videoObserver: IntersectionObserver | undefined
+
+const registerVideo = (element: unknown) => {
+  if (import.meta.client && element instanceof HTMLVideoElement) {
+    videoElements.add(element)
+  }
+}
+
+onMounted(() => {
+  const loadVideoPreview = (video: HTMLVideoElement) => {
+    if (video.dataset.poster && !video.poster) {
+      video.poster = video.dataset.poster
+    }
+  }
+
+  if (!('IntersectionObserver' in window)) {
+    videoElements.forEach(loadVideoPreview)
+    return
+  }
+
+  videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return
+      }
+
+      const video = entry.target as HTMLVideoElement
+      loadVideoPreview(video)
+      videoObserver?.unobserve(video)
+    })
+  }, { rootMargin: '240px 0px' })
+
+  videoElements.forEach((video) => videoObserver?.observe(video))
+})
+
+onBeforeUnmount(() => {
+  videoObserver?.disconnect()
+  videoElements.clear()
+})
 </script>

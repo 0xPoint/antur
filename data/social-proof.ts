@@ -2,13 +2,37 @@ import type { Review, TourPhoto } from '~/types/content'
 import { sortReviewsByDateDesc } from '~/utils/reviews'
 
 const yandexReviewsUrl =
-  'https://yandex.ru/maps/?text=%D0%90%D0%BD%D1%82%D1%83%D1%80%20%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D0%BA%D0%B0%20%D0%9F%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%B0%D0%B2%D0%BB%D0%BE%D0%B2%D1%81%D0%BA-%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D1%81%D0%BA%D0%B8%D0%B9'
+  'https://yandex.ru/maps/org/antur/183818402222/reviews/'
 const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561/tab/reviews'
 
 // Реальные отзывы гостей с публичных площадок (2ГИС, Яндекс.Карты).
 // Тексты собраны из официальных карточек организации и приведены дословно
 // (с лёгкой нормализацией пробелов/эмодзи). Семейные отзывы исключены.
 export const reviews: Review[] = sortReviewsByDateDesc([
+  {
+    id: 'review-yandex-005',
+    name: 'Ludmila Ruban',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-10',
+    rating: 5,
+    text:
+      'Сколько раз можно открывать Камчатку заново, бесконечно. Вот и на морской экскурсии 09.07.2026 на «Антуре» в бухту Русскую было замечательно, с опытным капитаном Александром. У его все по честному страховка, рыбалка, обед с ухой, перекусы с блинчиками, бутерброды с рыбкой. Показал все красоты Авачинской бухты и малых бухт, скалы Три брата, о. Старичков... Видели птичьи базары, косаток, каланов, морских львов. Весь путь солнце скользило по верхушкам белоснежных сопок. Воспоминания навсегда! Спасибо большое Александру и Марине за прекрасный день. С уважением Людмила и Вика.'
+  },
+  {
+    id: 'review-2gis-014',
+    name: 'Максим Шишканов',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
+    date: '2026-07-10',
+    rating: 5,
+    text:
+      'Если вы планируете морскую прогулку на Камчатке, то вам точно к ребятам из «Антур»! Наш выход в бухту Русскую превзошел все ожидания. Природа Камчатки просто нереальная, а с такой организацией путешествие превращается в чистый кайф.'
+  },
   {
     id: 'review-yandex-001',
     name: 'Виктория К.',
@@ -213,6 +237,62 @@ export const reviews: Review[] = sortReviewsByDateDesc([
 
 export const tourPhotos: TourPhoto[] = [
   {
+    id: 'photo-crab-tray-2026-07-07',
+    src: '/images/antur-kamchatka-crab-tray-2026-07-07.jpg',
+    alt: 'Гость держит поднос с приготовленными крабами после морского выхода на Камчатке',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Свежий краб после морского выхода 7 июля 2026 года.',
+    date: '2026-07-07'
+  },
+  {
+    id: 'video-sea-lions-2026-07-10',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-sea-lions-2026-07-10.mp4',
+    videoSrc: '/videos/antur-kamchatka-sea-lions-2026-07-10.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-sea-lions-2026-07-10.jpg',
+    alt: 'Сивучи на прибрежных скалах во время морской прогулки на Камчатке',
+    route: 'Морская прогулка',
+    caption: 'Сивучи на прибрежных скалах во время выхода 10 июля 2026 года.',
+    date: '2026-07-10'
+  },
+  {
+    id: 'video-orcas-2026-07-07',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-orcas-2026-07-07.mp4',
+    videoSrc: '/videos/antur-kamchatka-orcas-2026-07-07.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-orcas-2026-07-07.jpg',
+    alt: 'Косатки у камчатского побережья во время морской прогулки',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Косатки у камчатского побережья во время выхода 7 июля 2026 года.',
+    date: '2026-07-07'
+  },
+  {
+    id: 'video-coastal-route-2026-07-07',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-coastal-route-2026-07-07.mp4',
+    videoSrc: '/videos/antur-kamchatka-coastal-route-2026-07-07.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-coastal-route-2026-07-07.jpg',
+    alt: 'Скалы и заснеженные склоны на морском маршруте вдоль Камчатки',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Скалы и заснеженные склоны на большом морском маршруте 7 июля 2026 года.',
+    date: '2026-07-07'
+  },
+  {
+    id: 'video-fishing-trip-2026-07-03',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-fishing-trip-2026-07-03.mp4',
+    videoSrc: '/videos/antur-kamchatka-fishing-trip-2026-07-03.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-fishing-trip-2026-07-03.jpg',
+    alt: 'Гости рыбачат с борта катера Антур в Авачинском заливе',
+    route: 'Прибрежная рыбалка',
+    routeSlug: 'rybalka',
+    caption: 'Рыбалка с борта катера в Авачинском заливе 3 июля 2026 года.',
+    date: '2026-07-03'
+  },
+  {
     id: 'photo-captain-helm-2026-06-24',
     src: '/images/antur-kamchatka-captain-helm-2026-06-24.jpg',
     alt: 'Капитан Антур за штурвалом катера на фоне камчатских скал',
@@ -357,6 +437,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-sea-tour-2026-05-30.mp4',
     videoSrc: '/videos/antur-kamchatka-sea-tour-2026-05-30.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-sea-tour-2026-05-30.jpg',
     alt: 'Видео морской прогулки по Камчатке',
     route: 'Видео с маршрута',
     date: '2026-05-30'
@@ -366,6 +447,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-ocean-route-2026-05-23.mp4',
     videoSrc: '/videos/antur-kamchatka-ocean-route-2026-05-23.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-ocean-route-2026-05-23.jpg',
     alt: 'Видео морского маршрута у побережья Камчатки',
     route: 'Видео с маршрута',
     date: '2026-05-23'
@@ -375,6 +457,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-boat-moment-2026-05-27.mp4',
     videoSrc: '/videos/antur-kamchatka-boat-moment-2026-05-27.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-boat-moment-2026-05-27.jpg',
     alt: 'Видео с катера Антур во время морского выхода',
     route: 'Катер Антур',
     date: '2026-05-27'
@@ -384,6 +467,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-crab-safari-2026-05-30.mp4',
     videoSrc: '/videos/antur-kamchatka-crab-safari-2026-05-30.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-crab-safari-2026-05-30.jpg',
     alt: 'Видео крабового сафари на Камчатке',
     route: 'Крабовое сафари',
     date: '2026-05-30'
@@ -393,6 +477,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-sea-landscape-2026-05-30.mp4',
     videoSrc: '/videos/antur-kamchatka-sea-landscape-2026-05-30.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-sea-landscape-2026-05-30.jpg',
     alt: 'Видео морского пейзажа на маршруте по Камчатке',
     route: 'Морской пейзаж',
     date: '2026-05-30'
@@ -402,6 +487,7 @@ export const tourPhotos: TourPhoto[] = [
     kind: 'video',
     src: '/videos/antur-kamchatka-ocean-wildlife-2026-05-30.mp4',
     videoSrc: '/videos/antur-kamchatka-ocean-wildlife-2026-05-30.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-ocean-wildlife-2026-05-30.jpg',
     alt: 'Видео встречи с морской природой Камчатки',
     route: 'Видео с океана',
     date: '2026-05-30'

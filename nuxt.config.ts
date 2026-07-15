@@ -88,6 +88,7 @@ export default defineNuxtConfig({
         '/zh/privacy/',
         '/robots.txt',
         '/image-sitemap.xml',
+        '/video-sitemap.xml',
         ...infoPages.map((page) => `/${page.slug}/`),
         ...guidePages.map((page) => page.path),
         ...seoLandingPages.map((page) => page.path),

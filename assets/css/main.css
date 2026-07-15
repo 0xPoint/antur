@@ -848,6 +848,24 @@ h3 {
   background: #061827;
 }
 
+.media-slide-caption {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 14px 16px 16px;
+  cursor: default;
+}
+
+.media-slide-caption strong {
+  color: var(--ink);
+}
+
+.media-slide-caption span,
+.media-slide-caption time {
+  color: #526575;
+  font-size: 14px;
+}
+
 .media-slide video {
   display: block;
   background: #061827;
@@ -2042,6 +2060,30 @@ h3 {
   display: block;
 }
 
+.photo-card-caption {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px 16px;
+}
+
+.photo-card-caption a,
+.photo-card-caption strong {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.photo-card-caption p {
+  margin: 0;
+  color: #526575;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.photo-card-caption time {
+  color: #526575;
+  font-size: 13px;
+}
+
 .review-slide footer a,
 .review-original-link {
   color: inherit;
@@ -2102,6 +2144,22 @@ h3 {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.footer-address {
+  max-width: 360px;
+  color: var(--mist);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: right;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.map-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
 }
 
 .footer-phone {

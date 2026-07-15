@@ -3,6 +3,7 @@
     <section class="route-hero seo-landing-hero">
       <OptimizedImage
         :src="page.heroImage"
+        :mobile-src="page.heroMobileImage"
         width="1600"
         height="900"
         sizes="100vw"
@@ -65,23 +66,38 @@
       </div>
     </section>
 
-    <section v-if="pagePhotos.length" class="section route-gallery-section">
+    <section v-if="pageMedia.length" class="section route-gallery-section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">{{ text.home.galleryEyebrow }}</p>
           <h2>{{ text.route.routePhotos }}</h2>
         </div>
         <div class="gallery-list">
-          <article v-for="photo in pagePhotos" :key="photo.id" class="photo-card">
+          <article v-for="media in pageMedia" :key="media.id" class="photo-card" :class="{ 'video-card': media.kind === 'video' }">
+            <video
+              v-if="media.kind === 'video'"
+              controls
+              playsinline
+              preload="metadata"
+              :poster="media.posterSrc ? assetPath(media.posterSrc) : undefined"
+              :aria-label="media.alt"
+            >
+              <source :src="assetPath(media.videoSrc || media.src)" type="video/mp4">
+            </video>
             <OptimizedImage
-              :src="photo.src"
+              v-else
+              :src="media.src"
               width="900"
               height="900"
               sizes="(max-width: 760px) 92vw, (max-width: 1100px) 44vw, 31vw"
               :widths="[480, 720, 960]"
               loading="lazy"
-              :alt="photo.alt"
+              :alt="media.alt"
             />
+            <div class="photo-card-caption">
+              <strong>{{ media.route }}</strong>
+              <p>{{ media.caption || media.alt }}</p>
+            </div>
           </article>
         </div>
       </div>
@@ -130,14 +146,14 @@ const pageRoutes = computed(() =>
     return offer ? [offer] : []
   })
 )
-const pagePhotos = computed(() => {
-  const photos = tourPhotos.value.filter((photo) => photo.kind !== 'video')
+const pageMedia = computed(() => {
+  const media = tourPhotos.value
   const selected = props.page.photoIds?.flatMap((id) => {
-    const photo = photos.find((item) => item.id === id)
-    return photo ? [photo] : []
+    const item = media.find((entry) => entry.id === id)
+    return item ? [item] : []
   }) || []
 
-  return (selected.length ? selected : photos).slice(0, 3)
+  return (selected.length ? selected : media).slice(0, 3)
 })
 const assetPath = useAssetPath()
 const config = useRuntimeConfig()

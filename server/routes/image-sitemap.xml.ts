@@ -27,7 +27,7 @@ export default defineEventHandler((event) => {
   const withBase = (path: string) => `${baseURL.replace(/\/$/, '')}${path}`
   const absolute = (path: string) => new URL(withBase(path), siteUrl).toString()
 
-  const galleryImages = tourPhotos.map((photo) => ({
+  const galleryImages = tourPhotos.filter((photo) => photo.kind !== 'video').map((photo) => ({
     src: photo.src,
     title: photo.route,
     caption: photo.caption || photo.alt
@@ -47,7 +47,7 @@ export default defineEventHandler((event) => {
         caption: item.caption || item.alt
       })),
       ...tourPhotos
-        .filter((photo) => (photo.routeSlug || routeSlugByName[photo.route]) === offer.slug)
+        .filter((photo) => photo.kind !== 'video' && (photo.routeSlug || routeSlugByName[photo.route]) === offer.slug)
         .map((photo) => ({
           src: photo.src,
           title: offer.title,

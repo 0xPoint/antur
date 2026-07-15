@@ -53,6 +53,7 @@
             controls
             playsinline
             preload="metadata"
+            :poster="currentItem.posterSrc ? assetPath(currentItem.posterSrc) : undefined"
             :aria-label="currentItem.alt"
             @play="mainVideoIsPlaying = true"
             @pause="mainVideoIsPlaying = false"
@@ -69,6 +70,12 @@
             </svg>
           </button>
         </div>
+
+        <p class="media-slide-caption">
+          <strong>{{ currentItem.route }}</strong>
+          <span>{{ currentItem.caption || currentItem.alt }}</span>
+          <time :datetime="currentItem.date">{{ currentItem.date }}</time>
+        </p>
 
       </div>
 
@@ -114,11 +121,16 @@
             controls
             playsinline
             preload="metadata"
+            :poster="lightboxItem.posterSrc ? assetPath(lightboxItem.posterSrc) : undefined"
             :aria-label="lightboxItem.alt"
           >
             <source :src="assetPath(lightboxItem.videoSrc || lightboxItem.src)" type="video/mp4">
           </video>
           <img v-else :src="assetPath(lightboxItem.src)" :alt="lightboxItem.alt">
+          <figcaption>
+            <span>{{ lightboxItem.caption || lightboxItem.alt }}</span>
+            <time :datetime="lightboxItem.date">{{ lightboxItem.date }}</time>
+          </figcaption>
         </figure>
 
         <button class="media-lightbox-nav media-lightbox-next" type="button" :aria-label="labels.next" @click="showLightboxNext">›</button>

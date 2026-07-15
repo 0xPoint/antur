@@ -4,11 +4,13 @@ export const business = {
   region: 'Петропавловск-Камчатский',
   phone: '+7 (914) 025-39-72',
   phoneHref: 'tel:+79140253972',
+  streetAddress: 'Индустриальная улица, 39/2',
+  yandexHref: 'https://yandex.ru/maps/org/antur/183818402222/',
   twoGisHref: 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561',
   twoGisWidgetSrc:
-    'https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A53.04%2C%22lon%22%3A158.65%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22p_kamchatskiy%22%7D%2C%22org%22%3A%2270000001114347561%22%7D',
+    'https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A52.963069%2C%22lon%22%3A158.700983%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22p_kamchatskiy%22%7D%2C%22org%22%3A%2270000001114347561%22%7D',
   mapPreviewSrc:
-    'https://static.maps.2gis.com/1.0?s=880x440&c=53.04,158.65&z=12&pt=53.04,158.65~c:oe~s:l',
+    'https://static.maps.2gis.com/1.0?s=880x440&c=52.963069,158.700983&z=16&pt=52.963069,158.700983~c:oe~s:l',
   messengerText: 'Здравствуйте! Хочу уточнить морскую прогулку на Камчатке.',
   maxHref: 'https://max.ru/u/f9LHodD0cOKnmEcZjEEpqClPr9moNdgqysezc0_6apuvig7tTlULNKzeVek',
   whatsappHref:

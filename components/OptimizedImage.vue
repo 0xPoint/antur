@@ -1,6 +1,14 @@
 <template>
   <picture class="optimized-picture">
+    <source
+      v-if="mobileSrc"
+      type="image/webp"
+      :media="mobileMedia"
+      :srcset="webpSrcset(mobileSrc, mobileWidths)"
+      :sizes="sizes"
+    >
     <source type="image/webp" :srcset="webpSrcset(src, widths)" :sizes="sizes">
+    <source v-if="mobileSrc" :media="mobileMedia" :srcset="assetPath(mobileSrc)">
     <img
       v-bind="imgAttrs"
       :class="attrs.class"
@@ -22,17 +30,22 @@ defineOptions({
 
 const props = withDefaults(defineProps<{
   src: string
+  mobileSrc?: string
   alt: string
   width: number | string
   height: number | string
   sizes?: string
   widths?: number[]
+  mobileWidths?: number[]
+  mobileMedia?: string
   loading?: 'lazy' | 'eager'
   fetchpriority?: 'high' | 'low' | 'auto'
   decoding?: 'async' | 'sync' | 'auto'
 }>(), {
   sizes: '100vw',
   widths: () => [480, 720, 960, 1280],
+  mobileWidths: () => [480, 720],
+  mobileMedia: '(max-width: 680px)',
   loading: 'lazy',
   fetchpriority: undefined,
   decoding: 'async'
@@ -46,5 +59,5 @@ const imgAttrs = computed(() => {
   return rest
 })
 
-const { src, alt, width, height, sizes, widths, loading, fetchpriority, decoding } = toRefs(props)
+const { src, mobileSrc, alt, width, height, sizes, widths, mobileWidths, mobileMedia, loading, fetchpriority, decoding } = toRefs(props)
 </script>
