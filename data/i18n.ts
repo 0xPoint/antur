@@ -668,10 +668,245 @@ const zhRouteOffers: RouteOffer[] = [
   }
 ]
 
+const enRouteDetails: Record<string, Partial<RouteOffer>> = {
+  rybalka: {
+    updatedAt: '2026-07-20',
+    seoTitle: 'Kamchatka fishing charter | Coastal boat fishing | Antur',
+    seoDescription: 'Private Kamchatka fishing charter from Petropavlovsk-Kamchatsky: 5 or 10 hours, tackle, crew support and space for up to 11 guests.',
+    audience: [
+      'First-time sea anglers who want crew support with tackle and fishing spots.',
+      'Private groups of up to 11 guests looking for a flexible coastal fishing day.',
+      'Travellers who want fishing without committing to the longer deep-sea route.'
+    ],
+    timeline: [
+      { title: 'Meet at pier 2', text: 'We confirm the boarding time and meet at 39/2 Industrialnaya Street in Petropavlovsk-Kamchatsky.' },
+      { title: 'Coastal fishing', text: 'The captain selects working areas for the actual wind, sea state and group experience; the crew helps with tackle.' },
+      { title: 'Return to port', text: 'The 5-hour option suits a first trip, while 10 hours gives the group more time on the water.' }
+    ],
+    included: ['Private boat for the booked time', 'Captain and crew', 'Basic fishing tackle', 'Snacks on board'],
+    notIncluded: ['Transfer to pier 2', 'Personal food and drinks', 'Extra charter time beyond the booked program'],
+    bring: ['Windproof warm layer', 'Shoes with a non-slip sole', 'Personal seasickness medicine', 'Charged phone or camera'],
+    weather: 'The captain checks the forecast and actual sea state. If the route is unsafe or uncomfortable, we discuss rescheduling or a calmer format.',
+    children: 'Children can join when they are comfortable on the water and accompanied by an adult. A shorter trip is usually easier for a first sea experience.',
+    meetingPoint: '39/2 Industrialnaya Street, first floor, pier 2, Petropavlovsk-Kamchatsky. The exact boarding time is confirmed after booking.',
+    routeFaq: [
+      { question: 'Is this a private Kamchatka fishing charter?', answer: 'Yes. The boat is booked for your group for 5 or 10 hours, with space for up to 11 guests.' },
+      { question: 'Do I need fishing experience?', answer: 'No. The crew provides basic tackle, explains the setup and helps at the fishing spots.' },
+      { question: 'Is a specific catch guaranteed?', answer: 'No. Species and catch depend on the day, depth, weather and selected fishing area.' }
+    ]
+  },
+  'glubokovodnaya-rybalka': {
+    updatedAt: '2026-07-20',
+    seoTitle: 'Deep-sea fishing charter in Kamchatka | Antur',
+    seoDescription: 'Deep-sea fishing charter from Petropavlovsk-Kamchatsky for up to 11 guests: farther ocean areas, 5 or 10 hours, tackle and crew support.',
+    audience: ['Anglers who want more time at productive depths', 'Private groups prepared for a longer ocean day', 'Guests who already know they are comfortable offshore'],
+    timeline: [
+      { title: 'Weather and group check', text: 'Before boarding, the captain confirms wind, visibility, sea state and the experience of the group.' },
+      { title: 'Run farther into the ocean', text: 'The route goes beyond the easier coastal format and is adjusted to conditions rather than a fixed point on a map.' },
+      { title: 'Fishing at working depths', text: 'The crew prepares tackle and helps guests while the captain monitors conditions throughout the trip.' }
+    ],
+    included: ['Private boat charter', 'Captain and crew', 'Basic fishing tackle', 'Snacks on board'],
+    notIncluded: ['Transfer to the boarding point', 'Guaranteed species or catch size', 'Hours beyond the selected charter'],
+    bring: ['Warm waterproof outer layer', 'Non-slip footwear', 'Personal seasickness medicine', 'Dry layer for the return'],
+    weather: 'Deep-sea fishing is more sensitive to wind and wave conditions. The captain may reschedule or suggest coastal fishing when the offshore route is not comfortable.',
+    children: 'This format is better for older children and adults who already tolerate long sea trips. Families can start with Avacha Bay or coastal fishing.',
+    meetingPoint: 'Pier 2 at 39/2 Industrialnaya Street, Petropavlovsk-Kamchatsky. Departure details are confirmed before the trip.',
+    routeFaq: [
+      { question: 'How is deep-sea fishing different from coastal fishing?', answer: 'It involves a farther run, working at greater depths and a fuller ocean day.' },
+      { question: 'Can beginners book this charter?', answer: 'Yes, but guests should be ready for more time offshore. For a first trip, coastal fishing is usually easier.' },
+      { question: 'Can weather change the route?', answer: 'Yes. Offshore safety takes priority, so the captain may shorten, move or reschedule the program.' }
+    ]
+  },
+  'buhta-russkaya': {
+    updatedAt: '2026-07-20',
+    seoTitle: 'Russkaya Bay tour from Petropavlovsk-Kamchatsky | Prices | Antur',
+    seoDescription: 'Ten-hour Russkaya Bay boat tour from Petropavlovsk-Kamchatsky with coastal scenery, fishing, lunch, a possible shore landing and seasonal prices.',
+    audience: ['Travellers who want a full day rather than a short bay cruise', 'Guests choosing between a shared departure and a private boat', 'Groups interested in coast, fishing and lunch in one program'],
+    timeline: [
+      { title: 'Morning departure from Petropavlovsk-Kamchatsky', text: 'The group boards at the confirmed time and heads south-west along the Kamchatka coast.' },
+      { title: 'Coastal passage', text: 'Cliffs, small bays and open water shape the route; wildlife may appear but is never guaranteed.' },
+      { title: 'Russkaya Bay program', text: 'The plan includes fishing, lunch and a shore landing or crab activity when conditions allow.' },
+      { title: 'Evening return', text: 'The boat returns to port after a full sea day of about 10 hours.' }
+    ],
+    included: ['Ten-hour sea route', 'Captain and crew', 'Fishing', 'Snacks and full lunch', 'Shore landing and crab activity when safe'],
+    notIncluded: ['Transfer to the pier', 'Alcohol and personal extras', 'Activities cancelled because of unsafe conditions'],
+    bring: ['Windproof warm clothing', 'Comfortable deck footwear', 'Seasickness medicine if needed', 'A spare dry layer'],
+    weather: 'Russkaya Bay is a long ocean route. Wind or waves can lead to a change of date or a calmer alternative.',
+    children: 'Suitable for children who already tolerate a long day on the water. Avacha Bay is usually better for a first short trip.',
+    meetingPoint: 'Antur, 39/2 Industrialnaya Street, pier 2, Petropavlovsk-Kamchatsky. Boarding time is confirmed when booking.',
+    routeFaq: [
+      { question: 'How do I reach Russkaya Bay?', answer: 'The tourist route goes by boat from Petropavlovsk-Kamchatsky. Transfer to pier 2 is not included.' },
+      { question: 'Can I join without advance booking?', answer: 'Do not rely on walk-in availability. Shared departures depend on open seats, group formation and weather.' },
+      { question: 'What is the 2026 price?', answer: 'A shared place costs 15,000 ₽ in May-June and 18,000 ₽ in July-September. Private charter prices are shown in the price table.' }
+    ]
+  },
+  'ostrov-starichkov': {
+    updatedAt: '2026-07-20',
+    seoTitle: 'Starichkov Island boat tour in Kamchatka | Antur',
+    seoDescription: 'Five-hour Starichkov Island boat tour from Petropavlovsk-Kamchatsky with cliffs, seabirds, sea fishing, lunch and freshly cooked crab.',
+    audience: ['Visitors who want more than a short sightseeing loop but not a ten-hour route', 'Families comfortable with five hours at sea', 'Guests interested in cliffs, seabirds, fishing and lunch'],
+    timeline: [
+      { title: 'Leave Avacha Bay', text: 'The route starts in Petropavlovsk-Kamchatsky and passes the coastal landmarks toward open water.' },
+      { title: 'Approach Starichkov Island', text: 'Guests view cliffs and seabird habitat from a respectful distance selected by the captain.' },
+      { title: 'Fishing and meal on board', text: 'Fishing, lunch and freshly cooked crab form the practical middle part of the five-hour program.' }
+    ],
+    included: ['Five-hour route', 'Captain and crew', 'Sea fishing', 'Snacks and full lunch', 'Freshly cooked crab'],
+    notIncluded: ['Transfer to the pier', 'Guaranteed wildlife sightings', 'Extra charter time'],
+    bring: ['Warm windproof layer', 'Non-slip footwear', 'Camera with charged battery', 'Personal seasickness medicine'],
+    weather: 'The captain confirms whether open-water conditions are suitable. The route can be adjusted or moved to another date.',
+    children: 'Many families choose this middle-length route, but the final decision should reflect the child’s sea experience and weather.',
+    meetingPoint: 'Pier 2, 39/2 Industrialnaya Street, Petropavlovsk-Kamchatsky. We confirm departure time before boarding.',
+    routeFaq: [
+      { question: 'Is Starichkov Island a landing tour?', answer: 'The route focuses on views from the water. The captain chooses a safe distance from cliffs and wildlife areas.' },
+      { question: 'Are fishing and crab included?', answer: 'They are part of the published program, subject to weather, sea state and safe operating conditions.' },
+      { question: 'Is five hours suitable for a first trip?', answer: 'For many guests it is a balanced option. Those worried about seasickness may prefer the shorter Avacha Bay route.' }
+    ]
+  },
+  'avachinskaya-buhta': {
+    updatedAt: '2026-07-20',
+    seoTitle: 'Avacha Bay boat tour from Petropavlovsk-Kamchatsky | Antur',
+    seoDescription: 'A 2.5-hour Avacha Bay sightseeing boat tour to the Three Brothers rocks and Tikhaya Bay, with city and volcano views from the water.',
+    audience: ['First-time visitors to Petropavlovsk-Kamchatsky', 'Families looking for the shortest sea route', 'Travellers with limited time before another Kamchatka activity'],
+    timeline: [
+      { title: 'Board in the city', text: 'The route begins at pier 2 in Petropavlovsk-Kamchatsky after a short boarding briefing.' },
+      { title: 'Three Brothers rocks', text: 'The boat crosses Avacha Bay for the classic view of the sea stacks and surrounding coast.' },
+      { title: 'Tikhaya Bay and return', text: 'The trip continues past Tikhaya Bay and returns with city and volcano views from the water.' }
+    ],
+    included: ['2.5-hour sightseeing route', 'Captain and crew', 'Three Brothers and Tikhaya Bay views', 'Snacks on board'],
+    notIncluded: ['Transfer to pier 2', 'Fishing as the main program', 'Guaranteed wildlife sightings'],
+    bring: ['Warm windproof layer', 'Non-slip shoes', 'Camera or phone', 'Personal seasickness medicine if needed'],
+    weather: 'Even inside Avacha Bay, the captain checks wind, visibility and sea state before departure.',
+    children: 'This is the easiest route for a first family sea trip. Children must stay with an accompanying adult.',
+    meetingPoint: '39/2 Industrialnaya Street, pier 2, Petropavlovsk-Kamchatsky. The exact time is confirmed after the group is formed.',
+    routeFaq: [
+      { question: 'Is this the shortest Kamchatka boat tour?', answer: 'Yes. At 2.5 hours, it is the shortest Antur sightseeing route and a practical first sea experience.' },
+      { question: 'What can I see?', answer: 'The published route includes Three Brothers rocks, Tikhaya Bay and views of Petropavlovsk-Kamchatsky from the water.' },
+      { question: 'Is a minimum group required?', answer: 'Yes. The shared departure is planned for a group of at least eight guests.' }
+    ]
+  }
+}
+
+const zhRouteDetails: Record<string, Partial<RouteOffer>> = {
+  rybalka: {
+    updatedAt: '2026-07-20',
+    seoTitle: '堪察加包船海钓｜彼得罗巴甫洛夫斯克出发｜Antur',
+    seoDescription: '从彼得罗巴甫洛夫斯克-堪察加出发的近海包船钓鱼：5 或 10 小时，最多 11 人，提供基础钓具和船员协助。',
+    audience: ['第一次体验俄罗斯海钓、需要船员协助的客人', '希望整船出行、人数不超过 11 人的团队', '想先体验较短近海路线的家庭或朋友'],
+    timeline: [
+      { title: '在 2 号码头集合', text: '预订后确认时间，在彼得罗巴甫洛夫斯克-堪察加工业街 39/2 登船。' },
+      { title: '按当天海况选择钓点', text: '船长会结合风浪、能见度和团队经验选择近海区域，船员提供基础钓具并协助操作。' },
+      { title: '返回港口', text: '5 小时适合首次体验，10 小时则能在海上安排更充足的钓鱼时间。' }
+    ],
+    included: ['预订时段内的包船', '船长和船员服务', '基础海钓钓具', '船上小吃'],
+    notIncluded: ['前往码头的接送', '个人食品和饮品', '超出预订时段的包船时间'],
+    bring: ['防风保暖外套', '防滑鞋', '个人常用晕船药', '充好电的手机或相机'],
+    weather: '船长会检查天气预报和实际海况。如不适合安全出海，会沟通改期或选择更平稳的形式。',
+    children: '儿童适应海上环境并有成人陪同时可以参加。第一次出海通常建议先选较短时长。',
+    meetingPoint: '彼得罗巴甫洛夫斯克-堪察加，工业街 39/2，一层，2 号码头。登船时间会在预订后确认。',
+    routeFaq: [
+      { question: '这是私人包船海钓吗？', answer: '是。可按团队预订 5 或 10 小时，最多 11 人。' },
+      { question: '没有钓鱼经验可以吗？', answer: '可以。船员会提供基础钓具、讲解使用方法并在钓点协助。' },
+      { question: '能保证钓到某种鱼吗？', answer: '不能。鱼种和收获取决于当天钓点、深度、天气和海况。' }
+    ]
+  },
+  'glubokovodnaya-rybalka': {
+    updatedAt: '2026-07-20',
+    seoTitle: '堪察加深海包船钓鱼｜Antur',
+    seoDescription: '从彼得罗巴甫洛夫斯克-堪察加出发的深海钓鱼包船：更远海域、5 或 10 小时、最多 11 人，提供基础钓具。',
+    audience: ['希望在更深水域投入更多钓鱼时间的客人', '能适应较长远海行程的私人团队', '已经有出海经验并明确以钓鱼为目的的旅行者'],
+    timeline: [
+      { title: '出发前确认海况', text: '船长会确认风、浪、能见度和团队情况，再决定是否适合远海。' },
+      { title: '驶向更远钓点', text: '路线比近海钓鱼更深入太平洋，具体方向会根据当天条件调整。' },
+      { title: '在工作水深钓鱼', text: '船员准备基础钓具并协助客人，船长持续关注天气变化。' }
+    ],
+    included: ['私人包船', '船长和船员', '基础钓具', '船上小吃'],
+    notIncluded: ['前往集合点的接送', '保证特定鱼种或收获重量', '超出所选时长的额外时间'],
+    bring: ['防水保暖外层', '防滑鞋', '个人晕船药', '备用干燥衣物'],
+    weather: '深海路线更受风浪影响。如远海条件不舒适，船长可能建议改期或改为近海钓鱼。',
+    children: '更适合已经适应长时间出海的成年人和较大儿童。首次家庭出海可先选阿瓦恰湾。',
+    meetingPoint: '彼得罗巴甫洛夫斯克-堪察加工业街 39/2，2 号码头。出发细节会提前确认。',
+    routeFaq: [
+      { question: '深海钓鱼和近海钓鱼有什么区别？', answer: '深海路线航行更远、工作水深更大，整体海上时间和体力要求也更高。' },
+      { question: '新手可以预订吗？', answer: '可以，但需要做好更长远海行程的准备。首次体验通常更适合近海形式。' },
+      { question: '天气会改变路线吗？', answer: '会。安全优先，船长可以缩短、调整或改期。' }
+    ]
+  },
+  'buhta-russkaya': {
+    updatedAt: '2026-07-20',
+    seoTitle: '堪察加鲁斯卡亚湾一日船游｜价格与路线｜Antur',
+    seoDescription: '从彼得罗巴甫洛夫斯克-堪察加前往鲁斯卡亚湾的 10 小时海上行程：海岸风景、钓鱼、午餐、视条件上岸及季节价格。',
+    audience: ['希望体验完整海上一天而不是短途观光的客人', '在拼团和私人包船之间选择的团队', '希望一次包含海岸景色、钓鱼和午餐的旅行者'],
+    timeline: [
+      { title: '早晨从城市出发', text: '在确认时间登船，沿堪察加海岸向鲁斯卡亚湾方向航行。' },
+      { title: '海岸航行', text: '沿途可见岩壁、小海湾和外海景色；野生动物可能出现，但不能保证。' },
+      { title: '鲁斯卡亚湾行程', text: '计划包括钓鱼、午餐，并在条件允许时安排上岸或帝王蟹体验。' },
+      { title: '傍晚返回', text: '完整海上行程约 10 小时，傍晚返回港口。' }
+    ],
+    included: ['10 小时海上路线', '船长和船员', '钓鱼', '小吃和完整午餐', '安全条件允许时上岸及帝王蟹体验'],
+    notIncluded: ['前往码头的接送', '酒精饮品和个人消费', '因安全条件取消的可选活动'],
+    bring: ['防风保暖衣物', '适合甲板的鞋', '需要时携带晕船药', '备用干燥衣物'],
+    weather: '鲁斯卡亚湾属于较长外海路线。风浪不合适时会改期或建议更平稳的替代路线。',
+    children: '适合已经能适应长时间海上活动的儿童。第一次短途体验更建议阿瓦恰湾。',
+    meetingPoint: 'Antur：彼得罗巴甫洛夫斯克-堪察加工业街 39/2，2 号码头。预订时确认登船时间。',
+    routeFaq: [
+      { question: '怎样从彼得罗巴甫洛夫斯克前往鲁斯卡亚湾？', answer: '旅游路线从城市乘船前往。到 2 号码头的接送不包含在价格内。' },
+      { question: '不提前预订可以参加吗？', answer: '不建议依赖现场名额。拼团出发取决于空位、成团和天气。' },
+      { question: '2026 年价格是多少？', answer: '5—6 月拼团 15,000 ₽ / 人，7—9 月 18,000 ₽ / 人；包船价格见页面价目表。' }
+    ]
+  },
+  'ostrov-starichkov': {
+    updatedAt: '2026-07-20',
+    seoTitle: '堪察加斯塔里奇科夫岛船游｜Antur',
+    seoDescription: '从彼得罗巴甫洛夫斯克出发的 5 小时斯塔里奇科夫岛海上路线：海岸岩石、海鸟、海钓、午餐和现煮帝王蟹。',
+    audience: ['希望比短途观光更丰富、又不想参加 10 小时行程的客人', '能适应 5 小时海上活动的家庭', '关注岩石、海鸟、钓鱼和船上午餐的旅行者'],
+    timeline: [
+      { title: '驶出阿瓦恰湾', text: '从彼得罗巴甫洛夫斯克出发，经过海岸标志性景观进入外海。' },
+      { title: '接近斯塔里奇科夫岛', text: '船长会选择尊重海鸟栖息地并符合海况的观察距离。' },
+      { title: '钓鱼和船上午餐', text: '海钓、午餐和现煮帝王蟹构成 5 小时行程的重要部分。' }
+    ],
+    included: ['5 小时路线', '船长和船员', '海钓', '小吃和完整午餐', '现煮帝王蟹'],
+    notIncluded: ['前往码头的接送', '保证看到野生动物', '额外包船时间'],
+    bring: ['防风保暖层', '防滑鞋', '充好电的相机', '个人晕船药'],
+    weather: '船长会确认外海条件是否适合。路线可能调整或改期。',
+    children: '许多家庭会选择这条中等时长路线，但仍需结合孩子的出海经验和当天海况。',
+    meetingPoint: '彼得罗巴甫洛夫斯克-堪察加工业街 39/2，2 号码头。登船时间提前确认。',
+    routeFaq: [
+      { question: '会登上斯塔里奇科夫岛吗？', answer: '路线以海上观察为主，船长会选择远离岩壁和野生动物区域的安全距离。' },
+      { question: '钓鱼和帝王蟹包含吗？', answer: '属于公布的行程内容，但仍取决于天气、海况和安全条件。' },
+      { question: '5 小时适合第一次出海吗？', answer: '对许多客人来说是平衡选择；担心晕船时可先选更短的阿瓦恰湾。' }
+    ]
+  },
+  'avachinskaya-buhta': {
+    updatedAt: '2026-07-20',
+    seoTitle: '彼得罗巴甫洛夫斯克阿瓦恰湾船游｜Antur',
+    seoDescription: '2.5 小时阿瓦恰湾观光船游：三兄弟岩、季哈亚湾，以及从海上看到的城市和火山景色。',
+    audience: ['第一次到彼得罗巴甫洛夫斯克-堪察加的游客', '希望选择最短海上路线的家庭', '当天还安排其他堪察加活动、时间有限的旅行者'],
+    timeline: [
+      { title: '在城市登船', text: '在彼得罗巴甫洛夫斯克-堪察加 2 号码头集合并完成简短登船说明。' },
+      { title: '三兄弟岩', text: '穿过阿瓦恰湾，从海上观看代表性的三兄弟岩和周边海岸。' },
+      { title: '季哈亚湾后返回', text: '继续经过季哈亚湾，在返回时欣赏城市和火山方向景色。' }
+    ],
+    included: ['2.5 小时观光路线', '船长和船员', '三兄弟岩及季哈亚湾景色', '船上小吃'],
+    notIncluded: ['前往 2 号码头的接送', '以钓鱼为主的项目', '保证看到野生动物'],
+    bring: ['防风保暖层', '防滑鞋', '手机或相机', '需要时携带晕船药'],
+    weather: '即使在阿瓦恰湾内，出发前船长也会检查风、能见度和海况。',
+    children: '这是最适合家庭第一次出海的路线，儿童需要始终由成人陪同。',
+    meetingPoint: '彼得罗巴甫洛夫斯克-堪察加工业街 39/2，2 号码头。成团后确认准确时间。',
+    routeFaq: [
+      { question: '这是 Antur 最短的海上路线吗？', answer: '是。2.5 小时适合第一次体验堪察加海上观光。' },
+      { question: '能看到什么？', answer: '公布路线包括三兄弟岩、季哈亚湾，以及从海上看到的彼得罗巴甫洛夫斯克景色。' },
+      { question: '需要最低成团人数吗？', answer: '需要。拼团出发计划至少 8 人。' }
+    ]
+  }
+}
+
+const applyRouteDetails = (offers: RouteOffer[], details: Record<string, Partial<RouteOffer>>) =>
+  offers.map((offer) => ({ ...offer, ...details[offer.slug] }))
+
 export const routeOffersByLocale: Record<LocaleCode, RouteOffer[]> = {
   ru: ruRouteOffers,
-  en: enRouteOffers,
-  zh: zhRouteOffers
+  en: applyRouteDetails(enRouteOffers, enRouteDetails),
+  zh: applyRouteDetails(zhRouteOffers, zhRouteDetails)
 }
 
 export const faqByLocale = {

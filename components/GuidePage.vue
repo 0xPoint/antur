@@ -29,11 +29,26 @@
 
     <section class="section info-content-section">
       <div class="container info-content-grid">
-        <div class="info-section-list">
-          <article v-for="section in page.sections" :key="section.title" class="info-section-item">
-            <h2>{{ section.title }}</h2>
-            <p>{{ section.text }}</p>
-          </article>
+        <div class="guide-main-content">
+          <aside class="guide-byline" aria-label="Авторство и экспертная проверка">
+            <div>
+              <span>Автор</span>
+              <strong>{{ editorialProfile.authorName }}</strong>
+            </div>
+            <div>
+              <span>Экспертная проверка</span>
+              <strong>{{ editorialProfile.reviewerName }}</strong>
+              <small>{{ editorialProfile.reviewerRole }}</small>
+            </div>
+            <p>{{ editorialProfile.experienceNote }}</p>
+            <time :datetime="dateModified">Обновлено {{ formattedModifiedDate }}</time>
+          </aside>
+          <div class="info-section-list">
+            <article v-for="section in page.sections" :key="section.title" class="info-section-item">
+              <h2>{{ section.title }}</h2>
+              <p>{{ section.text }}</p>
+            </article>
+          </div>
         </div>
         <aside class="info-checklist guide-service-panel" :aria-labelledby="`${page.slug}-services`">
           <p class="eyebrow">{{ page.linksEyebrow || 'Маршруты по теме' }}</p>
@@ -85,6 +100,7 @@
 <script setup lang="ts">
 import { guideHubPage } from '~/data/guide-hub'
 import { guidePages, type GuidePage } from '~/data/guide-pages'
+import { editorialProfile } from '~/data/editorial'
 
 const props = defineProps<{
   page: GuidePage
@@ -106,6 +122,14 @@ const pageUrl = new URL(assetPath(props.page.path), seo.siteUrl).toString()
 const homeUrl = new URL(assetPath('/'), seo.siteUrl).toString()
 const guideHubUrl = new URL(assetPath(guideHubPage.path), seo.siteUrl).toString()
 const imageUrl = new URL(assetPath(props.page.heroImage), seo.siteUrl).toString()
+const dateModified = props.page.updatedAt > editorialProfile.updatedAt
+  ? props.page.updatedAt
+  : editorialProfile.updatedAt
+const formattedModifiedDate = new Intl.DateTimeFormat('ru-RU', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+}).format(new Date(`${dateModified}T12:00:00+12:00`))
 const relatedPages = computed(() =>
   props.page.relatedSlugs.flatMap((slug) => {
     const related = guidePages.find((item) => item.slug === slug)
@@ -124,11 +148,21 @@ useHead({
         headline: props.page.title,
         description: props.page.description,
         image: imageUrl,
-        dateModified: props.page.updatedAt,
+        dateModified,
         datePublished: props.page.updatedAt,
         mainEntityOfPage: pageUrl,
         author: {
-          '@id': `${homeUrl}#organization`
+          '@type': 'Organization',
+          '@id': `${homeUrl}#organization`,
+          name: editorialProfile.authorName
+        },
+        reviewedBy: {
+          '@type': 'Person',
+          name: editorialProfile.reviewerName,
+          jobTitle: editorialProfile.reviewerRole,
+          worksFor: {
+            '@id': `${homeUrl}#organization`
+          }
         },
         publisher: {
           '@id': `${homeUrl}#organization`

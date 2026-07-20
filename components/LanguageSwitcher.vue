@@ -18,13 +18,13 @@
 
 <script setup lang="ts">
 import { findRouteLinkByPath, getLocalizedRoutePathBySlug } from '~/data/route-links'
-import { ruOnlyPagePaths } from '~/data/ru-only-pages'
+import { localeOnlyPageLocaleByPath } from '~/data/ru-only-pages'
 import { stripLocaleFromPath } from '~/data/i18n-base'
 import type { LocaleCode } from '~/data/i18n-base'
 
 const route = useRoute()
 const { locale, locales, localePath, text } = useLocaleContent()
-const isRuOnlyLanding = computed(() => ruOnlyPagePaths.has(stripLocaleFromPath(route.path)))
+const pageOnlyLocale = computed(() => localeOnlyPageLocaleByPath.get(stripLocaleFromPath(route.path)))
 const currentRouteOffer = computed(() => {
   const routeSlug = String(route.params.slug || '')
   const cleanPath = stripLocaleFromPath(route.path)
@@ -37,7 +37,7 @@ const targetHref = (targetLocale: LocaleCode) => {
     return getLocalizedRoutePathBySlug(currentRouteOffer.value.slug, targetLocale)
   }
 
-  if (isRuOnlyLanding.value && targetLocale !== 'ru') {
+  if (pageOnlyLocale.value && targetLocale !== pageOnlyLocale.value) {
     return localePath('/', targetLocale)
   }
 

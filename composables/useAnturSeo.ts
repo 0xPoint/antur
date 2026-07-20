@@ -38,6 +38,7 @@ interface SeoInput {
   imageWidth?: number
   imageHeight?: number
   localized?: boolean
+  preservePath?: boolean
   localizedPaths?: Partial<Record<LocaleCode, string>>
 }
 
@@ -50,11 +51,13 @@ export function useAnturSeo(input: SeoInput) {
   const path = input.path || '/'
   const hasExplicitLocalizedPaths = Boolean(input.localizedPaths)
   const hasLocalizedAlternates = hasExplicitLocalizedPaths || input.localized !== false
-  const canonicalPath = input.localizedPaths
-    ? input.localizedPaths[locale] || input.localizedPaths[defaultLocale] || path
-    : hasLocalizedAlternates
-      ? localizePath(path, locale)
-      : stripLocaleFromPath(path)
+  const canonicalPath = input.preservePath
+    ? path
+    : input.localizedPaths
+      ? input.localizedPaths[locale] || input.localizedPaths[defaultLocale] || path
+      : hasLocalizedAlternates
+        ? localizePath(path, locale)
+        : stripLocaleFromPath(path)
   const url = new URL(assetPath(canonicalPath), siteUrl).toString()
   const image = new URL(assetPath(input.image || '/images/hero-kamchatka-boat.jpg'), siteUrl).toString()
   const localeMeta = locales.find((item) => item.code === locale) || locales[0]

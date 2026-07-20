@@ -1,3 +1,5 @@
+import { videoWatchPages } from './video-pages'
+
 export const ruOnlySeoLandingLinks = [
   { path: '/morskie-progulki/', title: 'Морские прогулки на Камчатке' },
   { path: '/morskie-progulki/krabovoe-safari/', title: 'Крабовое сафари на Камчатке' },
@@ -32,4 +34,10 @@ export const ruOnlyPagePaths = new Set([
   ...ruOnlySeoLandingLinks.map((item) => item.path),
   ...ruOnlyInfoPageLinks.map((item) => item.path),
   ...ruOnlyGuideLinks.map((item) => item.path)
+])
+
+export const localeOnlyPageLocaleByPath = new Map<string, 'ru' | 'en' | 'zh'>([
+  ...[...ruOnlyPagePaths].map((path) => [path, 'ru'] as const),
+  ...videoWatchPages.map((page) => [page.path, 'ru'] as const),
+  ['/boat-charter-kamchatka/', 'en']
 ])

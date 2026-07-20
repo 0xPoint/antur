@@ -49,6 +49,9 @@
             <NuxtLink v-if="getPhotoRoutePath(photo)" :to="getPhotoRoutePath(photo)">{{ photo.route }}</NuxtLink>
             <strong v-else>{{ photo.route }}</strong>
             <p>{{ photo.caption || photo.alt }}</p>
+            <NuxtLink v-if="getVideoWatchPath(photo.id)" class="gallery-watch-link" :to="getVideoWatchPath(photo.id)">
+              Смотреть отдельную страницу видео
+            </NuxtLink>
             <time :datetime="photo.date">{{ formatMediaDate(photo.date) }}</time>
           </div>
         </article>
@@ -58,6 +61,9 @@
 </template>
 
 <script setup lang="ts">
+import { toVideoPublicationDateTime } from '~/utils/video-date'
+import { videoWatchPageByMediaId } from '~/data/video-pages'
+
 const { assetPath, webpSrcset } = useImageSources()
 const { text } = useLocaleContent()
 const { tourPhotos } = useSocialProof()
@@ -65,7 +71,7 @@ const { routePathBySlug } = useRouteLinks()
 const { locale } = useLocaleContent()
 const firstImagePhoto = computed(() => tourPhotos.value.find((photo) => photo.kind !== 'video'))
 
-useAnturSeo({
+const { url: galleryUrl } = useAnturSeo({
   title: text.value.gallery.seoTitle,
   description: text.value.gallery.seoDescription,
   path: '/gallery'
@@ -75,7 +81,6 @@ useBusinessSchema()
 const config = useRuntimeConfig()
 const siteUrl = config.public.siteUrl as string
 const absoluteAssetUrl = (path: string) => new URL(assetPath(path), siteUrl).toString()
-const galleryUrl = absoluteAssetUrl('/gallery/')
 
 useHead(() => ({
   script: [{
@@ -94,7 +99,7 @@ useHead(() => ({
             description: item.caption || item.alt,
             contentUrl: absoluteAssetUrl(item.videoSrc || item.src),
             thumbnailUrl: item.posterSrc ? absoluteAssetUrl(item.posterSrc) : undefined,
-            uploadDate: item.date
+            uploadDate: toVideoPublicationDateTime(item.date)
           }
         : {
             '@type': 'ImageObject',
@@ -148,6 +153,9 @@ const getPhotoRoutePath = (photo: { routeSlug?: string, route: string }) => {
   const slug = getPhotoRouteSlug(photo)
   return slug ? routePathBySlug(slug) : undefined
 }
+
+const getVideoWatchPath = (mediaId: string) =>
+  locale.value === 'ru' ? videoWatchPageByMediaId.get(mediaId)?.path : undefined
 
 const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id
 const getPhotoLoading = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'eager' : 'lazy'

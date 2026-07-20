@@ -2,6 +2,8 @@ import { getLocalizedRoutePath, routeOffers } from './data/routes'
 import { infoPages } from './data/info-pages'
 import { seoLandingPages } from './data/seo-pages'
 import { guidePages } from './data/guide-pages'
+import { boatCharterPage } from './data/boat-charter'
+import { videoWatchPages } from './data/video-pages'
 
 const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
 const withAppBase = (path: string) => `${appBaseUrl}${path}`
@@ -82,6 +84,8 @@ export default defineNuxtConfig({
         '/gallery/',
         '/guides/',
         '/en/gallery/',
+        boatCharterPage.path,
+        ...videoWatchPages.map((page) => page.path),
         '/zh/gallery/',
         '/privacy/',
         '/en/privacy/',

@@ -37,7 +37,7 @@
             </NuxtLink>
           </div>
         </div>
-        <NuxtLink v-if="locale === 'ru'" :to="charterPath">{{ text.nav.charter }}</NuxtLink>
+        <NuxtLink v-if="locale !== 'zh'" :to="charterPath">{{ text.nav.charter }}</NuxtLink>
         <NuxtLink :to="localePath('/#gallery')">{{ text.nav.gallery }}</NuxtLink>
         <NuxtLink :to="localePath('/#reviews')">{{ text.nav.reviews }}</NuxtLink>
         <NuxtLink :to="localePath('/#booking')">{{ text.nav.booking }}</NuxtLink>
@@ -194,7 +194,11 @@ const routeNavLinks = (slugs: string[]) =>
   })
 const seaHubPath = computed(() => locale.value === 'ru' ? '/morskie-progulki/' : localePath('/#routes'))
 const fishingHubPath = computed(() => locale.value === 'ru' ? '/rybalka/' : localePath('/#routes'))
-const charterPath = computed(() => locale.value === 'ru' ? '/arenda-katera/' : localePath('/#booking'))
+const charterPath = computed(() => locale.value === 'ru'
+  ? '/arenda-katera/'
+  : locale.value === 'en'
+    ? '/en/boat-charter-kamchatka/'
+    : localePath('/#booking'))
 const seaNavLinks = computed(() => [
   ...routeNavLinks(seaRouteSlugs),
   ...(locale.value === 'ru' ? ruSeaSeoNavLinks : [])
@@ -217,6 +221,7 @@ const footerHubLinks = computed(() => {
 
   return [
     { path: localePath('/#routes'), title: text.value.nav.routes },
+    ...(locale.value === 'en' ? [{ path: '/en/boat-charter-kamchatka/', title: 'Boat charter' }] : []),
     { path: localePath('/gallery'), title: text.value.nav.gallery },
     { path: localePath('/#reviews'), title: text.value.nav.reviews },
     { path: localePath('/#booking'), title: text.value.nav.booking }
