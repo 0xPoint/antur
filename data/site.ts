@@ -1,20 +1,24 @@
+const whatsappNumber = '79147826446'
+const messengerText = 'Здравствуйте! Планируем выйти в море на Камчатке. Поможете выбрать маршрут и дату?'
+
 export const business = {
   brand: 'Антур',
   legalName: 'ИП Хавилов А. Г.',
   region: 'Петропавловск-Камчатский',
-  phone: '+7 (914) 025-39-72',
-  phoneHref: 'tel:+79140253972',
+  phone: '+7 (914) 782-64-46',
+  phoneHref: 'tel:+79147826446',
+  whatsappNumber,
   streetAddress: 'Индустриальная улица, 39/2',
   yandexHref: 'https://yandex.ru/maps/org/antur/183818402222/',
-  twoGisHref: 'https://2gis.ru/p_kamchatskiy/geo/70000001114347561',
+  twoGisHref: 'https://2gis.ru/p_kamchatskiy/firm/70000001114347561',
   twoGisWidgetSrc:
     'https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A52.963069%2C%22lon%22%3A158.700983%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22p_kamchatskiy%22%7D%2C%22org%22%3A%2270000001114347561%22%7D',
   mapPreviewSrc:
     'https://static.maps.2gis.com/1.0?s=880x440&c=52.963069,158.700983&z=16&pt=52.963069,158.700983~c:oe~s:l',
-  messengerText: 'Здравствуйте! Хочу уточнить морскую прогулку на Камчатке.',
-  maxHref: 'https://max.ru/u/f9LHodD0cOKnmEcZjEEpqClPr9moNdgqysezc0_6apuvig7tTlULNKzeVek',
-  whatsappHref:
-    'https://wa.me/79140253972?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%D1%82%D1%8C%20%D0%BC%D0%BE%D1%80%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%80%D0%BE%D0%B3%D1%83%D0%BB%D0%BA%D1%83%20%D0%BD%D0%B0%20%D0%9A%D0%B0%D0%BC%D1%87%D0%B0%D1%82%D0%BA%D0%B5.',
+  messengerText,
+  maxHref: 'https://max.ru/u/f9LHodD0cOJ2aBP6alCwK5O86LRKkeq4ebtI8ZnDrFWgI2_pgHxVHyy4QEg',
+  maxChannelHref: 'https://max.ru/join/xq4SgOU0H4fy3kO4-aw-uBEKZ9MFXrcVWDjV6ZWYLTc',
+  whatsappHref: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(messengerText)}`,
   assurances: [
     'Лицензированная деятельность',
     'Гости застрахованы',
@@ -46,7 +50,7 @@ export const faq = [
   {
     question: 'Что входит в еду и угощения?',
     answer:
-      'На коротких выходах - рыбалке, прогулке по Авачинской акватории и крабовом сафари - предусмотрены закуски. В программу маршрута к острову Старичков входят перекус, полноценный обед и парной краб на борту. В программу маршрута в Бухту Русскую входят перекус и полноценный обед. Личные продукты и напитки можно взять дополнительно.'
+      'На коротких выходах - рыбалке, прогулке по Авачинской акватории и крабовом сафари - предусмотрены закуски. В программу маршрута к острову Старичков входят перекус и парной краб на борту. В программу маршрута в Бухту Русскую входят перекус и полноценный обед. Личные продукты и напитки можно взять дополнительно.'
   },
   {
     question: 'Можно с детьми?',

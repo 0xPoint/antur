@@ -107,6 +107,29 @@
           />
         </div>
       </section>
+
+      <section class="section max-channel" aria-labelledby="max-channel-title">
+        <div class="container">
+          <div class="max-channel-panel">
+            <div class="max-channel-mark" aria-hidden="true">
+              <img :src="assetPath('/images/max-logo.svg')" width="56" height="56" alt="">
+            </div>
+            <div class="max-channel-copy">
+              <p class="eyebrow">{{ text.home.maxChannelEyebrow }}</p>
+              <h2 id="max-channel-title">{{ text.home.maxChannelTitle }}</h2>
+              <p>{{ text.home.maxChannelText }}</p>
+            </div>
+            <a
+              class="btn btn-primary max-channel-link"
+              :href="business.maxChannelHref"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ text.home.maxChannelButton }}
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
 
     <div class="landing-flow landing-flow-qa">
@@ -163,6 +186,9 @@
 </template>
 
 <script setup lang="ts">
+import { business } from '~/data/site'
+
+const assetPath = useAssetPath()
 const { locale, text, localePath } = useLocaleContent()
 const { routeOffers, faqItems } = useRouteContent()
 const { reviews, tourPhotos } = useSocialProof()

@@ -95,6 +95,8 @@ export function useAnturSeo(input: SeoInput) {
     ogImageHeight: input.imageHeight || (!input.image ? 1238 : undefined),
     ogSiteName: businessText.brand,
     twitterCard: 'summary_large_image',
+    twitterTitle: input.title,
+    twitterDescription: input.description,
     twitterImage: image
   })
 
@@ -156,7 +158,8 @@ export function useBusinessSchema() {
           sameAs: [
             business.yandexHref,
             business.twoGisHref,
-            business.maxHref
+            business.maxHref,
+            business.maxChannelHref
           ],
           contactPoint: {
             '@type': 'ContactPoint',

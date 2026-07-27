@@ -43,8 +43,8 @@ const props = withDefaults(defineProps<{
   decoding?: 'async' | 'sync' | 'auto'
 }>(), {
   sizes: '100vw',
-  widths: () => [480, 720, 960, 1280],
-  mobileWidths: () => [480, 720],
+  widths: () => [480, 640, 720, 960, 1280],
+  mobileWidths: () => [480, 640, 720],
   mobileMedia: '(max-width: 680px)',
   loading: 'lazy',
   fetchpriority: undefined,

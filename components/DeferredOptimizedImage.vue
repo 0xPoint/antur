@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<{
   rootMargin?: string
 }>(), {
   sizes: '100vw',
-  widths: () => [480, 720, 960, 1280],
+  widths: () => [480, 640, 720, 960, 1280],
   loading: 'lazy',
   fetchpriority: undefined,
   decoding: 'async',

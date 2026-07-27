@@ -37,7 +37,7 @@ const cardSizes = computed(() =>
 )
 const cardWidths = computed(() =>
   props.offer.slug === 'avachinskaya-buhta'
-    ? [480, 720, 960, 1280, 1600, 1920]
-    : [480, 720, 960]
+    ? [480, 640, 720, 960, 1280, 1600, 1920]
+    : [480, 640, 720, 960]
 )
 </script>

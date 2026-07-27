@@ -15,9 +15,15 @@
           </div>
 
           <div class="contact-options" :aria-label="text.contact.options">
-            <a class="contact-option" :href="maxHref" target="_blank" rel="noopener" @click="trackContact('contact_max_click')">
+            <a
+              class="contact-option"
+              :href="business.maxHref"
+              target="_blank"
+              rel="noopener"
+              @click="trackContact('contact_max_click')"
+            >
               <img :src="assetPath('/images/max-logo.svg')" width="28" height="28" alt="" aria-hidden="true">
-              <span>MAX</span>
+              <span>{{ text.contact.max }}</span>
             </a>
             <a class="contact-option" :href="whatsappHref" target="_blank" rel="noopener" @click="trackContact('contact_whatsapp_click')">
               <img :src="assetPath('/images/whatsapp-glyph.svg')" width="28" height="28" alt="" aria-hidden="true">
@@ -69,12 +75,11 @@ const contactMessage = computed(() => {
     return `您好！我想确认日期和名额：${props.context}。`
   }
 
-  return `Здравствуйте! Хочу уточнить дату и места: ${props.context}.`
+  return business.messengerText
 })
 const whatsappHref = computed(() =>
-  `https://wa.me/79140253972?text=${encodeURIComponent(contactMessage.value)}`
+  `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(contactMessage.value)}`
 )
-const maxHref = computed(() => business.maxHref)
 const trackContact = (goal: string) => {
   $reachGoal?.(goal, {
     context: props.context,

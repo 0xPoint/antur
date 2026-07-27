@@ -18,7 +18,7 @@ export interface PrivacyContent {
   sections: PrivacySection[]
 }
 
-const phone = '+7 (914) 025-39-72'
+const phone = '+7 (914) 782-64-46'
 const email = 'marisha720@yandex.ru'
 
 export const privacyByLocale: Record<LocaleCode, PrivacyContent> = {

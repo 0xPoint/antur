@@ -4,6 +4,7 @@ import { seoLandingPages } from './data/seo-pages'
 import { guidePages } from './data/guide-pages'
 import { boatCharterPage } from './data/boat-charter'
 import { videoWatchPages } from './data/video-pages'
+import { getSitemapUrls } from './server/utils/sitemap-urls'
 
 const appBaseUrl = (process.env.NUXT_APP_BASE_URL || '/').replace(/\/$/, '')
 const withAppBase = (path: string) => `${appBaseUrl}${path}`
@@ -12,6 +13,24 @@ const routePrerenderPaths = routeOffers.flatMap((offer) => [
   getLocalizedRoutePath(offer.slug, 'en'),
   getLocalizedRoutePath(offer.slug, 'zh')
 ])
+const pagePrerenderPaths = [
+  '/',
+  '/en/',
+  '/zh/',
+  '/gallery/',
+  '/guides/',
+  '/en/gallery/',
+  boatCharterPage.path,
+  ...videoWatchPages.map((page) => page.path),
+  '/zh/gallery/',
+  '/privacy/',
+  '/en/privacy/',
+  '/zh/privacy/',
+  ...infoPages.map((page) => `/${page.slug}/`),
+  ...guidePages.map((page) => page.path),
+  ...seoLandingPages.map((page) => page.path),
+  ...routePrerenderPaths
+]
 
 // Яндекс.Метрика. ID берётся из env, дефолт — боевой счётчик Антур.
 const yandexMetrikaId = process.env.NUXT_PUBLIC_YANDEX_METRIKA_ID || '110113081'
@@ -56,8 +75,8 @@ export default defineNuxtConfig({
     leadRecipientEmail: 'uhaubuhau894@gmail.com',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://anturkamchatka.ru',
-      businessPhone: '+79140253972',
-      whatsappNumber: '79140253972',
+      businessPhone: '+79147826446',
+      whatsappNumber: '79147826446',
       yandexMetrikaId
     }
   },
@@ -76,32 +95,22 @@ export default defineNuxtConfig({
     '/api/**': { cors: true }
   },
   nitro: {
+    compressPublicAssets: {
+      gzip: true,
+      brotli: true
+    },
     prerender: {
       routes: [
-        '/',
-        '/en/',
-        '/zh/',
-        '/gallery/',
-        '/guides/',
-        '/en/gallery/',
-        boatCharterPage.path,
-        ...videoWatchPages.map((page) => page.path),
-        '/zh/gallery/',
-        '/privacy/',
-        '/en/privacy/',
-        '/zh/privacy/',
+        ...pagePrerenderPaths,
         '/robots.txt',
         '/image-sitemap.xml',
-        '/video-sitemap.xml',
-        ...infoPages.map((page) => `/${page.slug}/`),
-        ...guidePages.map((page) => page.path),
-        ...seoLandingPages.map((page) => page.path),
-        ...routePrerenderPaths
+        '/video-sitemap.xml'
       ]
     }
   },
   sitemap: {
-    sources: ['/api/__sitemap__/urls'],
-    excludeAppSources: true
+    // `_sitemap` remains part of the stable API response, but this project
+    // publishes a single sitemap, so the build-time source must be unscoped.
+    urls: getSitemapUrls().map(({ _sitemap: _group, ...url }) => url)
   }
 })

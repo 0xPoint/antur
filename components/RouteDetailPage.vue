@@ -202,6 +202,7 @@
 
 <script setup lang="ts">
 import { getLocalizedRoutePath, getLocalizedRoutePaths } from '~/data/routes'
+import { business } from '~/data/site'
 import { sortReviewsByDateDesc } from '~/utils/reviews'
 
 const route = useRoute()
@@ -379,7 +380,7 @@ useHead({
         provider: {
           '@type': 'TravelAgency',
           name: businessText.value.brand,
-          telephone: '+79140253972',
+          telephone: business.phone,
           url: homeUrl
         },
         itinerary: (initialOffer.timeline?.length ? initialOffer.timeline : initialOffer.highlights.map((highlight) => ({ title: highlight, text: highlight }))).map((item) => ({

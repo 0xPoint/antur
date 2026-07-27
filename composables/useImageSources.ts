@@ -25,19 +25,19 @@ const availableWebpWidthsByStem: Record<string, number[]> = {
   'antur-kamchatka-sea-urchins-platter-2026-06-24': [480, 720, 960],
   'antur-kamchatka-seafood-dinner-deck-2026-06-24': [480, 720, 960],
   'antur-kamchatka-snow-crab-urchin-2026-06-24': [480, 720, 960],
-  'antur-kamchatka-three-brothers-avacha-2026-06-26': [480, 720, 960, 1280, 1600, 1920],
+  'antur-kamchatka-three-brothers-avacha-2026-06-26': [480, 640, 720, 960, 1280, 1600, 1920],
   'antur-kamchatka-ukha-after-tour-2026-05-30': [480, 720, 960],
   'crab-tasting': [480, 720, 920, 960, 1280, 1600, 1920],
   'faq-preview': [480, 720, 920, 960, 1280, 1600, 1920],
-  'fishing-deck': [480, 720, 920, 960, 1280, 1600, 1920],
+  'fishing-deck': [480, 640, 720, 920, 960, 1280, 1600, 1920],
   'hero-kamchatka-boat': [480, 720, 920, 960, 1280, 1600, 1920],
   'hero-orca-breach': [480, 720, 920, 960, 1280, 1600, 1920],
   'hero-orca-breach-mobile': [480, 720, 920, 960, 1280, 1600, 1920],
   'kamchatka-ocean-rocks': [480, 720, 920, 960, 1280, 1600, 1920],
   'location-avacha-boat': [480, 720, 920, 960, 1280, 1600, 1920],
-  'location-buhta-russkaya': [480, 720, 920, 960, 1280, 1600, 1920],
+  'location-buhta-russkaya': [480, 640, 720, 920, 960, 1280, 1600, 1920],
   'location-starichkov': [480, 720, 920, 960, 1280, 1600, 1920],
-  'location-three-brothers': [480, 720, 920, 960, 1280, 1600, 1920],
+  'location-three-brothers': [480, 640, 720, 920, 960, 1280, 1600, 1920],
   'og-image': [480, 720, 920, 960, 1280, 1600, 1920]
 }
 

@@ -21,6 +21,7 @@ const shouldSkipTrailingSlash = (pathname: string) => {
 
   return (
     pathname.startsWith('/api/') ||
+    pathname.startsWith('/__nuxt_error') ||
     pathname.startsWith('/_nuxt/') ||
     pathname.startsWith('/images/') ||
     pathname.startsWith('/videos/') ||
