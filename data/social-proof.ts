@@ -444,7 +444,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-sea-lions-colony-2026-07-29.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-sea-lions-colony-2026-07-29.jpg',
     alt: 'Лежбище сивучей на прибрежных скалах, снятое с борта катера на Камчатке',
-    route: 'Морская прогулка',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     caption: 'Сивучи на скалах во время выхода 29 июля 2026 года.',
     date: '2026-07-29'
   },
@@ -463,7 +464,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-bird-cliff-grotto-2026-07-29.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-bird-cliff-grotto-2026-07-29.jpg',
     alt: 'Катер проходит между отвесными скалами с гротом и птичьими базарами',
-    route: 'Морская прогулка',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     caption: 'Проход между скалами с птичьими базарами 29 июля 2026 года.',
     date: '2026-07-29'
   },
@@ -490,7 +492,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-ocean-passage-2026-07-29.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-ocean-passage-2026-07-29.jpg',
     alt: 'Переход катера открытым морем вдоль камчатского побережья',
-    route: 'Морская прогулка',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     caption: 'Переход открытым морем вдоль побережья 29 июля 2026 года.',
     date: '2026-07-29'
   },
@@ -526,7 +529,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-sea-lions-2026-07-10.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-sea-lions-2026-07-10.jpg',
     alt: 'Сивучи на прибрежных скалах во время морской прогулки на Камчатке',
-    route: 'Морская прогулка',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     caption: 'Сивучи на прибрежных скалах во время выхода 10 июля 2026 года.',
     date: '2026-07-10'
   },
@@ -713,7 +717,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-sea-tour-2026-05-30.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-sea-tour-2026-05-30.jpg',
     alt: 'Видео морской прогулки по Камчатке',
-    route: 'Видео с маршрута',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2026-05-30'
   },
   {
@@ -723,7 +728,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-ocean-route-2026-05-23.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-ocean-route-2026-05-23.jpg',
     alt: 'Видео морского маршрута у побережья Камчатки',
-    route: 'Видео с маршрута',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2026-05-23'
   },
   {
@@ -733,7 +739,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-boat-moment-2026-05-27.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-boat-moment-2026-05-27.jpg',
     alt: 'Видео с катера Антур во время морского выхода',
-    route: 'Катер Антур',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2026-05-27'
   },
   {
@@ -753,7 +760,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-sea-landscape-2026-05-30.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-sea-landscape-2026-05-30.jpg',
     alt: 'Видео морского пейзажа на маршруте по Камчатке',
-    route: 'Морской пейзаж',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2026-05-30'
   },
   {
@@ -763,7 +771,8 @@ export const tourPhotos: TourPhoto[] = [
     videoSrc: '/videos/antur-kamchatka-ocean-wildlife-2026-05-30.mp4',
     posterSrc: '/images/video-posters/antur-kamchatka-ocean-wildlife-2026-05-30.jpg',
     alt: 'Видео встречи с морской природой Камчатки',
-    route: 'Видео с океана',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
     date: '2026-05-30'
   }
 ]
