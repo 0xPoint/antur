@@ -71,10 +71,10 @@
           </button>
         </div>
 
-        <p class="media-slide-caption">
+        <p class="visually-hidden">
           <strong>{{ currentItem.route }}</strong>
           <span>{{ currentItem.caption || currentItem.alt }}</span>
-          <time :datetime="currentItem.date">{{ currentItem.date }}</time>
+          <time :datetime="currentItem.date">{{ mediaDate(currentItem.date) }}</time>
         </p>
 
       </div>
@@ -127,9 +127,9 @@
             <source :src="assetPath(lightboxItem.videoSrc || lightboxItem.src)" type="video/mp4">
           </video>
           <img v-else :src="assetPath(lightboxItem.src)" :alt="lightboxItem.alt">
-          <figcaption>
+          <figcaption class="visually-hidden">
             <span>{{ lightboxItem.caption || lightboxItem.alt }}</span>
-            <time :datetime="lightboxItem.date">{{ lightboxItem.date }}</time>
+            <time :datetime="lightboxItem.date">{{ mediaDate(lightboxItem.date) }}</time>
           </figcaption>
         </figure>
 
@@ -141,6 +141,7 @@
 
 <script setup lang="ts">
 import type { TourPhoto } from '~/types/content'
+import { formatMediaDate } from '~/utils/media-date'
 
 const props = defineProps<{
   items: TourPhoto[]
@@ -153,6 +154,8 @@ const props = defineProps<{
 }>()
 
 const assetPath = useAssetPath()
+const { locale } = useLocaleContent()
+const mediaDate = (date: string) => formatMediaDate(date, locale.value)
 const currentIndex = ref(0)
 const lightboxIndex = ref<number | null>(null)
 const mainVideo = ref<HTMLVideoElement | null>(null)

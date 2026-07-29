@@ -589,6 +589,9 @@ export const bookingTermsByLocale = {
 // переупорядочивание ruReviews не ломало соответствие переводов.
 const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: string, route: string, text: string, source?: string }>> = {
   en: {
+    'review-yandex-010': { name: 'Romanovdv19960811', route: 'Sea tour', source: 'Yandex Maps', text: 'A wonderful sea trip aboard the Antur boat! Captain Alexander is a master of his craft and a genuinely warm person. He taught us how to catch crab and fish, then cooked the crab superbly — the whole group ate their fill. He showed us wonderful places other guides never reach, and even found orcas, which were not part of the programme. Huge thanks for the organization! We recommend it to everyone, you will not regret it.' },
+    'review-2gis-025': { name: 'Anzhela', route: 'Sea tour', source: '2GIS', text: 'Everything was wonderful, I recommend it! The captain is attentive, the trip is truly exciting, we caught fish and crab and enjoyed the beautiful views of our marvellous Kamchatka.' },
+    'review-yandex-011': { name: 'Svetlana B.', route: 'Sea tour', source: 'Yandex Maps', text: 'I highly recommend a sea trip with Alexander and Marina. The scenery we passed was unforgettable, we caught crab and fish ourselves — that thrill is impossible to describe. Alexander is an excellent guide, and special thanks to Marina for the service: the boat had everything for snacks. A wonderful trip, I really recommend Antur. Svetlana and Olga.' },
     'review-yandex-009': { name: 'Elena P.', route: 'Sea tour', source: 'Yandex Maps', text: 'We absolutely loved the trip! We have been out at sea many times, but this one was simply the best. The captain is a true professional and a wonderful storyteller, and the atmosphere was genuinely warm. Our friends from Krasnodar are still impressed and say it was the best thing they saw in Kamchatka.' },
     'review-yandex-001': { name: 'Victoria K.', route: 'Sea tour', source: 'Yandex Maps', text: 'Many thanks to ANTUR and our wonderful captain Alexander for a sea of positive impressions, beautiful views, emotions and treats. Everything went wonderfully!' },
     'review-yandex-002': { name: 'Zhanna M.', route: 'Sea tour', source: 'Yandex Maps', text: 'A huge thank you to Alexander for the sea journey — everything went superbly! Everything was organized at the highest level and thought through to the smallest detail, an engaging route and stunning local nature. Kamchatka won our hearts!' },
@@ -624,6 +627,9 @@ const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: strin
     'review-2gis-024': { name: 'Alexey Vishnyakov', route: 'Coastal fishing', source: '2GIS', text: 'Excellent fishing. Everything was first-class. Thank you, Alexander!' }
   },
   zh: {
+    'review-yandex-010': { name: 'Romanovdv19960811', route: '海上观光', source: 'Yandex 地图', text: '乘坐 Antur 的海上之行非常精彩！Alexander 船长技术娴熟，也是一位真诚热情的人。他教我们捕蟹和钓鱼，还把螃蟹烹制得非常美味，全团都吃得很满足。他带我们去了其他向导到不了的美丽地点，甚至还让我们看到了原本不在行程中的虎鲸。非常感谢你们的安排！推荐给大家，绝对不会失望。' },
+    'review-2gis-025': { name: '安热拉', route: '海上观光', source: '2GIS', text: '一切都很棒，推荐！船长很细心，行程非常精彩，我们钓了鱼、捕了蟹，还欣赏了堪察加的绝美风景。' },
+    'review-yandex-011': { name: '斯维特兰娜 B.', route: '海上观光', source: 'Yandex 地图', text: '非常推荐和 Alexander、Marina 一起的海上之行。沿途的景色令人难忘，我们还亲手捕蟹钓鱼，那份激动难以言表。Alexander 是很棒的讲解员，也要特别感谢 Marina 的贴心服务，船上点心一应俱全。非常美好的行程，真心推荐 Antur。斯维特兰娜和奥尔加。' },
     'review-yandex-009': { name: 'Elena P.', route: '海上观光', source: 'Yandex 地图', text: '我们对这次出海非常满意！虽然以前也多次出海，但这次体验尤其精彩。船长专业又善于讲解，整个行程十分温馨。我们来自克拉斯诺达尔的朋友至今仍印象深刻，并说这是他们在堪察加看到的最棒景色。' },
     'review-yandex-001': { name: '维多利亚 K.', route: '海上观光', source: 'Yandex 地图', text: '非常感谢 ANTUR 和我们出色的船长 Alexander，带来满满的正能量、美丽的景色、感动和美食。一切都非常完美！' },
     'review-yandex-002': { name: '然娜 M.', route: '海上观光', source: 'Yandex 地图', text: '非常感谢 Alexander 的海上之旅——一切都棒极了！组织得非常专业，每个细节都考虑周到，路线引人入胜，当地自然风光令人惊叹。堪察加征服了我们的心！' },
@@ -674,6 +680,15 @@ export const reviewsByLocale: Record<LocaleCode, Review[]> = {
 
 const tourMediaText = {
   en: {
+    'photo-crab-feast-deck-2026-07-29': { alt: 'Guests in rain ponchos raising their glasses at a crab table on the boat deck', route: 'Crab safari', caption: 'Crab table on deck on a rainy day, 29 July 2026.' },
+    'video-sea-lions-colony-2026-07-29': { alt: 'Sea lion rookery on the coastal rocks filmed from the boat in Kamchatka', route: 'Sea tour', caption: 'Sea lions on the rocks during the trip on 29 July 2026.' },
+    'photo-sea-lions-rookery-2026-07-29': { alt: 'Guests photographing a sea lion rookery on the coastal rocks during a sea tour', route: 'Sea tour', caption: 'Sea lion rookery on the rocks during the trip on 29 July 2026.' },
+    'video-bird-cliff-grotto-2026-07-29': { alt: 'The boat passing between sheer cliffs with a grotto and seabird colonies', route: 'Sea tour', caption: 'Passing between cliffs with seabird colonies on 29 July 2026.' },
+    'photo-crab-platter-rain-2026-07-29': { alt: 'Platter of crab legs on the boat table with guests in rain ponchos around it', route: 'Crab safari', caption: 'Freshly cooked crab on deck on 29 July 2026.' },
+    'video-ocean-passage-2026-07-29': { alt: 'The boat crossing open water along the Kamchatka coast', route: 'Sea tour', caption: 'Open-water crossing along the coast on 29 July 2026.' },
+    'photo-kekury-boat-2026-07-29': { alt: 'Boat approaching rock stacks with bird colonies near the Kamchatka coast', route: 'Sea tour', caption: 'Approaching the coastal rock stacks on 29 July 2026.' },
+    'photo-shore-lunch-camp-2026-07-29': { alt: 'Guests having lunch at a set table on the shore next to the camp after a sea trip', route: 'After the trip', caption: 'Lunch on the shore after the sea trip on 29 July 2026.' },
+    'photo-shore-ukha-table-2026-07-29': { alt: 'Fresh fish soup and appetizers on a shore table after a Kamchatka sea tour', route: 'After the trip', caption: 'Fresh fish soup and appetizers on the shore on 29 July 2026.' },
     'photo-crab-tray-2026-07-07': { alt: 'Guest holding a tray of cooked crab after a Kamchatka sea trip', route: 'Russkaya Bay', caption: 'Fresh crab after the sea trip on 7 July 2026.' },
     'video-sea-lions-2026-07-10': { alt: 'Sea lions on coastal rocks during a Kamchatka sea tour', route: 'Sea tour', caption: 'Sea lions on coastal rocks during the trip on 10 July 2026.' },
     'video-orcas-2026-07-07': { alt: 'Orcas near the Kamchatka coast during a sea tour', route: 'Russkaya Bay', caption: 'Orcas near the Kamchatka coast during the trip on 7 July 2026.' },
@@ -707,6 +722,15 @@ const tourMediaText = {
     'video-ocean-wildlife-2026-05-30': { alt: 'Video of Kamchatka ocean wildlife', route: 'Ocean video' }
   },
   zh: {
+    'photo-crab-feast-deck-2026-07-29': { alt: '客人穿着雨衣，在船舱甲板的螃蟹餐桌旁举杯', route: '帝王蟹体验', caption: '2026 年 7 月 29 日雨天甲板上的螃蟹大餐。' },
+    'video-sea-lions-colony-2026-07-29': { alt: '在堪察加船上拍摄的海岸岩石海狮群', route: '海上观光', caption: '2026 年 7 月 29 日出海时岩石上的海狮。' },
+    'photo-sea-lions-rookery-2026-07-29': { alt: '海上观光途中，客人拍摄海岸岩石上的海狮群', route: '海上观光', caption: '2026 年 7 月 29 日出海时看到的岩石海狮群。' },
+    'video-bird-cliff-grotto-2026-07-29': { alt: '船只穿过带有岩洞和海鸟栖息地的陡峭岩壁', route: '海上观光', caption: '2026 年 7 月 29 日穿越海鸟栖息的岩壁水道。' },
+    'photo-crab-platter-rain-2026-07-29': { alt: '船上餐桌上的蟹腿拼盘，周围是穿着雨衣的客人', route: '帝王蟹体验', caption: '2026 年 7 月 29 日甲板上刚煮好的螃蟹。' },
+    'video-ocean-passage-2026-07-29': { alt: '船只沿堪察加海岸在开阔水域航行', route: '海上观光', caption: '2026 年 7 月 29 日沿海岸的开阔海域航程。' },
+    'photo-kekury-boat-2026-07-29': { alt: '船只驶近堪察加海岸附近有海鸟栖息的岩柱', route: '海上观光', caption: '2026 年 7 月 29 日驶近沿岸岩柱。' },
+    'photo-shore-lunch-camp-2026-07-29': { alt: '出海归来后，客人在营地旁的岸边餐桌用餐', route: '出海之后', caption: '2026 年 7 月 29 日出海后在岸边享用午餐。' },
+    'photo-shore-ukha-table-2026-07-29': { alt: '堪察加出海后岸边餐桌上的新鲜鱼汤和前菜', route: '出海之后', caption: '2026 年 7 月 29 日岸边的新鲜鱼汤和前菜。' },
     'photo-crab-tray-2026-07-07': { alt: '堪察加出海后，客人端着一盘煮好的螃蟹', route: '鲁斯卡亚湾', caption: '2026 年 7 月 7 日出海后享用的新鲜螃蟹。' },
     'video-sea-lions-2026-07-10': { alt: '堪察加海上观光途中，海狮聚集在海岸岩石上', route: '海上观光', caption: '2026 年 7 月 10 日出海时看到的岩石海狮群。' },
     'video-orcas-2026-07-07': { alt: '海上观光时，虎鲸出现在堪察加海岸附近', route: '鲁斯卡亚湾', caption: '2026 年 7 月 7 日出海时在堪察加海岸附近遇到虎鲸。' },

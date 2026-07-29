@@ -94,10 +94,10 @@
               loading="lazy"
               :alt="media.alt"
             />
-            <div class="photo-card-caption">
+            <p class="visually-hidden">
               <strong>{{ media.route }}</strong>
-              <p>{{ media.caption || media.alt }}</p>
-            </div>
+              <span>{{ media.caption || media.alt }}</span>
+            </p>
           </article>
         </div>
       </div>

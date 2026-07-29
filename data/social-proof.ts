@@ -10,6 +10,39 @@ const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/firm/70000001114347561/t
 // короткими цитатами с лёгкой нормализацией орфографии. Семейные отзывы исключены.
 export const reviews: Review[] = sortReviewsByDateDesc([
   {
+    id: 'review-yandex-010',
+    name: 'Romanovdv19960811',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-29',
+    rating: 5,
+    text:
+      'Замечательная морская прогулка на катере «Антур»! Капитан Александр — мастер своего дела и просто замечательный душевный человек. Научил нас ловить краба и рыбу, превосходно и очень вкусно приготовил краба — объелись всей группой. Показал замечательные места, куда другие гиды не заплывали, показал косаток, хотя они в программу не входили. Огромное спасибо за организацию! Всем советуем, не пожалеете.'
+  },
+  {
+    id: 'review-2gis-025',
+    name: 'Анжела',
+    route: 'Морская прогулка',
+    source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
+    date: '2026-07-25',
+    rating: 5,
+    text:
+      'Всё было замечательно, рекомендую! Капитан внимательный, прогулка очень захватывающая, ловили рыбку и крабов, красивые виды нашей дивной Камчатки.'
+  },
+  {
+    id: 'review-yandex-011',
+    name: 'Светлана Б.',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-18',
+    rating: 5,
+    text:
+      'Очень рекомендую морскую прогулку с Александром и Мариной. Это незабываемые красоты, по которым мы проходили, ловили краба и самостоятельно рыбу — этот восторг невозможно передать. Александр отличный экскурсовод, отдельное спасибо Марине за сервис: на катере было всё для перекуса. Прекрасная прогулка, очень рекомендую «Антур». Светлана и Ольга.'
+  },
+  {
     id: 'review-yandex-009',
     name: 'Елена П.',
     route: 'Морская прогулка',
@@ -250,7 +283,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     routeSlug: 'buhta-russkaya',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-10',
+    date: '2026-06-11',
     rating: 5,
     text:
       'Это было настоящее приключение, которое превзошло все ожидания. С самого начала чувствовался профессионализм капитана. Сама рыбалка и крабалка прошли на высшем уровне — мы вернулись с потрясающим уловом. Но самое главное — атмосфера тепла и заботы: завтрак и обед были просто великолепны, настоящая домашняя кухня посреди моря. Кульминацией стал краб, приготовленный самим Александром. Огромное спасибо за этот незабываемый день!'
@@ -295,7 +328,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-15',
+    date: '2026-06-14',
     rating: 5,
     text:
       'Это самое крутое путешествие. Всё было просто потрясающе: Марина, Александр, замечательная компания, чайки, рыбы и крабы. Я хочу ещё!'
@@ -307,7 +340,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     routeSlug: 'avachinskaya-buhta',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-19',
+    date: '2026-06-18',
     rating: 5,
     text:
       'Отличный отдых. Капитан и гид в одном лице — профессионал своего дела! Быстрый катер, красивейшие виды и добрый приём на борту.'
@@ -319,7 +352,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     routeSlug: 'avachinskaya-buhta',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-10',
+    date: '2026-06-09',
     rating: 5,
     text:
       'Чистый и уютный катер, всё необходимое для рыбалки и отдыха. Виды вокруг просто завораживают. Эта прогулка подарила нам отличные фото и эмоции.'
@@ -342,7 +375,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-09',
+    date: '2026-06-08',
     rating: 5,
     text:
       'Александр, спасибо. Прекрасная морская прогулка, вкусный чай, интересно рассказанные факты и сама экскурсия. Всем буду рекомендовать!'
@@ -364,7 +397,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-05',
+    date: '2026-06-04',
     rating: 5,
     text:
       'Александр, спасибо вам большое!'
@@ -376,7 +409,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     routeSlug: 'rybalka',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-09',
+    date: '2026-06-03',
     rating: 5,
     text:
       'Классно сходили. Пойдём ещё раз в субботу. Рыбы много поймали, жена рада была!'
@@ -388,7 +421,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     routeSlug: 'rybalka',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
-    date: '2026-06-09',
+    date: '2026-06-01',
     rating: 5,
     text:
       'Отлично порыбачил. Всё на уровне. Александру спасибо!'
@@ -396,6 +429,87 @@ export const reviews: Review[] = sortReviewsByDateDesc([
 ])
 
 export const tourPhotos: TourPhoto[] = [
+  {
+    id: 'photo-crab-feast-deck-2026-07-29',
+    src: '/images/antur-kamchatka-crab-feast-deck-2026-07-29.jpg',
+    alt: 'Гости в дождевиках поднимают бокалы за столом с крабом на палубе катера',
+    route: 'Крабовое сафари',
+    caption: 'Крабовый стол на палубе в дождливый день 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'video-sea-lions-colony-2026-07-29',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-sea-lions-colony-2026-07-29.mp4',
+    videoSrc: '/videos/antur-kamchatka-sea-lions-colony-2026-07-29.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-sea-lions-colony-2026-07-29.jpg',
+    alt: 'Лежбище сивучей на прибрежных скалах, снятое с борта катера на Камчатке',
+    route: 'Морская прогулка',
+    caption: 'Сивучи на скалах во время выхода 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'photo-sea-lions-rookery-2026-07-29',
+    src: '/images/antur-kamchatka-sea-lions-rookery-2026-07-29.jpg',
+    alt: 'Гости фотографируют лежбище сивучей на прибрежных скалах во время морской прогулки',
+    route: 'Морская прогулка',
+    caption: 'Лежбище сивучей на скалах во время выхода 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'video-bird-cliff-grotto-2026-07-29',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-bird-cliff-grotto-2026-07-29.mp4',
+    videoSrc: '/videos/antur-kamchatka-bird-cliff-grotto-2026-07-29.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-bird-cliff-grotto-2026-07-29.jpg',
+    alt: 'Катер проходит между отвесными скалами с гротом и птичьими базарами',
+    route: 'Морская прогулка',
+    caption: 'Проход между скалами с птичьими базарами 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'photo-kekury-boat-2026-07-29',
+    src: '/images/antur-kamchatka-kekury-boat-2026-07-29.jpg',
+    alt: 'Катер подходит к скалам-кекурам с птичьими базарами у камчатского побережья',
+    route: 'Морская прогулка',
+    caption: 'Подход к прибрежным кекурам 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'photo-crab-platter-rain-2026-07-29',
+    src: '/images/antur-kamchatka-crab-platter-rain-2026-07-29.jpg',
+    alt: 'Блюдо с крабовыми фалангами на столе катера и гости в дождевиках вокруг',
+    route: 'Крабовое сафари',
+    caption: 'Свежесваренный краб на палубе 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'video-ocean-passage-2026-07-29',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-ocean-passage-2026-07-29.mp4',
+    videoSrc: '/videos/antur-kamchatka-ocean-passage-2026-07-29.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-ocean-passage-2026-07-29.jpg',
+    alt: 'Переход катера открытым морем вдоль камчатского побережья',
+    route: 'Морская прогулка',
+    caption: 'Переход открытым морем вдоль побережья 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'photo-shore-lunch-camp-2026-07-29',
+    src: '/images/antur-kamchatka-shore-lunch-camp-2026-07-29.jpg',
+    alt: 'Гости обедают за накрытым столом на берегу рядом с лагерем после морского выхода',
+    route: 'После выхода',
+    caption: 'Обед на берегу после морского выхода 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
+  {
+    id: 'photo-shore-ukha-table-2026-07-29',
+    src: '/images/antur-kamchatka-shore-ukha-table-2026-07-29.jpg',
+    alt: 'Свежая уха и закуски на столе на берегу после морской прогулки на Камчатке',
+    route: 'После выхода',
+    caption: 'Свежая уха и закуски на берегу 29 июля 2026 года.',
+    date: '2026-07-29'
+  },
   {
     id: 'photo-crab-tray-2026-07-07',
     src: '/images/antur-kamchatka-crab-tray-2026-07-07.jpg',

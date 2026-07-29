@@ -45,14 +45,15 @@
             :fetchpriority="getPhotoFetchPriority(photo)"
             :alt="photo.alt"
           />
-          <div class="photo-card-caption">
-            <NuxtLink v-if="getPhotoRoutePath(photo)" :to="getPhotoRoutePath(photo)">{{ photo.route }}</NuxtLink>
-            <strong v-else>{{ photo.route }}</strong>
-            <p>{{ photo.caption || photo.alt }}</p>
-            <NuxtLink v-if="getVideoWatchPath(photo.id)" class="gallery-watch-link" :to="getVideoWatchPath(photo.id)">
+          <p class="visually-hidden">
+            <strong>{{ photo.route }}</strong>
+            <span>{{ photo.caption || photo.alt }}</span>
+            <time :datetime="photo.date">{{ mediaDate(photo.date) }}</time>
+          </p>
+          <div v-if="getVideoWatchPath(photo.id)" class="photo-card-caption">
+            <NuxtLink class="gallery-watch-link" :to="getVideoWatchPath(photo.id)">
               Смотреть отдельную страницу видео
             </NuxtLink>
-            <time :datetime="photo.date">{{ formatMediaDate(photo.date) }}</time>
           </div>
         </article>
       </div>
@@ -62,6 +63,7 @@
 
 <script setup lang="ts">
 import { toVideoPublicationDateTime } from '~/utils/video-date'
+import { formatMediaDate } from '~/utils/media-date'
 import { videoWatchPageByMediaId } from '~/data/video-pages'
 
 const { assetPath, webpSrcset } = useImageSources()
@@ -160,10 +162,7 @@ const getVideoWatchPath = (mediaId: string) =>
 const isFirstImagePhoto = (photo: { id: string }) => photo.id === firstImagePhoto.value?.id
 const getPhotoLoading = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'eager' : 'lazy'
 const getPhotoFetchPriority = (photo: { id: string }) => isFirstImagePhoto(photo) ? 'high' : 'low'
-const formatMediaDate = (date: string) => new Intl.DateTimeFormat(
-  locale.value === 'zh' ? 'zh-CN' : locale.value === 'en' ? 'en-GB' : 'ru-RU',
-  { day: 'numeric', month: 'long', year: 'numeric' }
-).format(new Date(`${date}T12:00:00`))
+const mediaDate = (date: string) => formatMediaDate(date, locale.value)
 
 const videoElements = new Set<HTMLVideoElement>()
 let videoObserver: IntersectionObserver | undefined
