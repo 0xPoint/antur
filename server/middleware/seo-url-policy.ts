@@ -1,6 +1,5 @@
 const legacyRedirects: Record<string, string> = {
   '/morskie-progulki-kamchatka-2026/': '/morskie-progulki/',
-  '/routes/avachinskaya-buhta/': '/morskie-progulki/avachinskaya-buhta/',
   '/routes/ostrov-starichkov/': '/morskie-progulki/ostrov-starichkov/',
   '/routes/buhta-russkaya/': '/morskie-progulki/buhta-russkaya/',
   '/krabovoe-safari-kamchatka/': '/morskie-progulki/krabovoe-safari/',

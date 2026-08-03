@@ -10,11 +10,9 @@ const escapeXml = (value: string) =>
     .replace(/'/g, '&apos;')
 
 const routeSlugByName: Record<string, string> = {
-  'Авачинская бухта': 'avachinskaya-buhta',
   'Бухта Русская': 'buhta-russkaya',
   'Глубоководная рыбалка': 'glubokovodnaya-rybalka',
   'Крабовое сафари': 'ostrov-starichkov',
-  'Морская прогулка': 'avachinskaya-buhta',
   'Морская рыбалка': 'rybalka',
   'Остров Старичков': 'ostrov-starichkov',
   'Прибрежная рыбалка': 'rybalka'

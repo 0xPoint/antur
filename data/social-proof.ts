@@ -10,6 +10,51 @@ const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/firm/70000001114347561/t
 // короткими цитатами с лёгкой нормализацией орфографии. Семейные отзывы исключены.
 export const reviews: Review[] = sortReviewsByDateDesc([
   {
+    id: 'review-yandex-015',
+    name: 'Вера П.',
+    route: 'Остров Старичков',
+    routeSlug: 'ostrov-starichkov',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-08-01',
+    rating: 5,
+    text:
+      'Ходила с «Антуром» на морскую прогулку на остров Старичков 28.07.2026. Прекрасно было всё! Чистое новое судно с тёплой закрытой каютой и большими обзорными окнами. Мы сами готовили ловушки для крабов, рыбачили с удочками — у всех был улов. Потом получили сигнал, что в бухту зашли косатки, и получилась настоящая фотоохота. Капитан всё рассказывал и показывал. Завершилось путешествие готовкой крабов и вкуснейшим ужином. Всё очень душевно! Капитан — огонь, настоящий профи. Видно, что человек любит своё дело, отдача на 1000%. Я очень рекомендую «Антур».'
+  },
+  {
+    id: 'review-yandex-013',
+    name: 'Анна К.',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-31',
+    rating: 5,
+    text:
+      'Благодарим за отличную прогулку! Очень понравилось, что все красоты можно посмотреть близко. Видели животных и птиц, ловили крабов, очень вкусно покушали. Кто хочет, может половить рыбу — есть спиннинги. Также послушали аудиоэкскурсию с подробностями о достопримечательностях. Рекомендуем этот прекрасный отдых на море.'
+  },
+  {
+    id: 'review-yandex-012',
+    name: 'Ирина',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-30',
+    rating: 5,
+    text:
+      'Спасибо за чудесную прогулку! Отдохнули душой и телом. Красота неописуемая! Сервис отличный, вкуснючий обед, интересные и душевные рассказы от капитана. Рекомендую однозначно!'
+  },
+  {
+    id: 'review-yandex-014',
+    name: 'Татьяна',
+    route: 'Морская прогулка',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-07-29',
+    rating: 5,
+    text:
+      'Хочу выразить огромную благодарность Марине и капитану Александру за такую замечательную возможность побывать на морской прогулке. Компания отличных собеседников и лучших ловцов крабов и рыбы. За это время мы насладились потрясающей поездкой и вкусным обедом. Спасибо большое вам за чудесный отдых.'
+  },
+  {
     id: 'review-yandex-010',
     name: 'Romanovdv19960811',
     route: 'Морская прогулка',
@@ -102,8 +147,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-yandex-003',
     name: 'Юлия Николаева',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: 'Яндекс.Карты',
     sourceUrl: yandexReviewsUrl,
     date: '2026-06-22',
@@ -122,17 +166,6 @@ export const reviews: Review[] = sortReviewsByDateDesc([
     rating: 5,
     text:
       'Хочется выразить огромную благодарность Марине и Александру за такую возможность побывать на морской прогулке. Насладились красотами, послушали легенды, отдохнули душой и телом, а самое главное на борту катера Антур я стала невестой! Большое спасибо за помощь в организации, за гостеприимство, душевную обстановку и невероятные впечатления. Однозначно обратимся ещё не раз!'
-  },
-  {
-    id: 'review-yandex-006',
-    name: 'Марлена Оганнисян',
-    route: 'Морская прогулка',
-    source: 'Яндекс.Карты',
-    sourceUrl: yandexReviewsUrl,
-    date: '2026-06-25',
-    rating: 5,
-    text:
-      'Спасибо большое команде Антур в лице капитана Александра! Благодарим за душевный приём, гостеприимство, любовь к краю и теплоту. Мы в восторге от отношения к гостю, эмоций и радости, которые получили на морской прогулке. Всё было на высшем уровне, мы с вами теперь навеки! Спасибо вам большое!'
   },
   {
     id: 'review-yandex-007',
@@ -219,8 +252,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-006',
     name: 'Жанслу Ж.И.',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
@@ -231,8 +263,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-007',
     name: 'Дарья Григорчук',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
@@ -313,8 +344,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-015',
     name: 'Екатерина',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
@@ -336,8 +366,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-017',
     name: 'Василий Васильевич',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-18',
@@ -348,8 +377,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-018',
     name: 'Ирина',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-09',
@@ -360,8 +388,7 @@ export const reviews: Review[] = sortReviewsByDateDesc([
   {
     id: 'review-2gis-019',
     name: 'Зэн Ги Ким',
-    route: 'Авачинская бухта',
-    routeSlug: 'avachinskaya-buhta',
+    route: 'Морская прогулка',
     source: '2ГИС',
     sourceUrl: twoGisReviewsUrl,
     date: '2026-06-09',
@@ -429,6 +456,51 @@ export const reviews: Review[] = sortReviewsByDateDesc([
 ])
 
 export const tourPhotos: TourPhoto[] = [
+  {
+    id: 'photo-crab-shore-russkaya-2026-08-02',
+    src: '/images/antur-kamchatka-crab-shore-russkaya-2026-08-02.jpg',
+    alt: 'Гости с подносом свежесваренных крабов на берегу в Бухте Русской',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Свежесваренный краб на береговой остановке 2 августа 2026 года.',
+    date: '2026-08-02'
+  },
+  {
+    id: 'photo-fishing-catch-cliffs-2026-08-02',
+    src: '/images/antur-kamchatka-fishing-catch-cliffs-2026-08-02.jpg',
+    alt: 'Гостья показывает свежий улов на палубе катера на фоне прибрежных скал',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Рыбалка у прибрежных скал на маршруте 2 августа 2026 года.',
+    date: '2026-08-02'
+  },
+  {
+    id: 'photo-sea-lions-boat-view-2026-08-02',
+    src: '/images/antur-kamchatka-sea-lions-boat-view-2026-08-02.jpg',
+    alt: 'Гости смотрят с носа катера на большое лежбище сивучей на скалах',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Наблюдение за сивучами с борта катера 2 августа 2026 года.',
+    date: '2026-08-02'
+  },
+  {
+    id: 'photo-guests-shore-lunch-2026-08-02',
+    src: '/images/antur-kamchatka-guests-shore-lunch-2026-08-02.jpg',
+    alt: 'Группа гостей за накрытым столом в береговом лагере после морского выхода',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Обед гостей на берегу 2 августа 2026 года.',
+    date: '2026-08-02'
+  },
+  {
+    id: 'photo-ukha-shore-base-2026-08-02',
+    src: '/images/antur-kamchatka-ukha-shore-base-2026-08-02.jpg',
+    alt: 'Свежая уха в большой кастрюле на береговой базе в Бухте Русской',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Уха из свежего улова для обеда гостей 2 августа 2026 года.',
+    date: '2026-08-02'
+  },
   {
     id: 'photo-crab-feast-deck-2026-07-29',
     src: '/images/antur-kamchatka-crab-feast-deck-2026-07-29.jpg',
@@ -658,7 +730,7 @@ export const tourPhotos: TourPhoto[] = [
     id: 'photo-kekur-2026-05-30',
     src: '/images/antur-kamchatka-kekur-ocean-2026-05-30.jpg',
     alt: 'Кекур в океане на маршруте морской прогулки по Камчатке',
-    route: 'Авачинская бухта',
+    route: 'Морская прогулка',
     date: '2026-05-30'
   },
   {

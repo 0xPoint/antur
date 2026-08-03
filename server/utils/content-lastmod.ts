@@ -9,7 +9,6 @@ import { latestIsoDate } from '../../utils/iso-date'
 const fallbackDate = '2026-06-01'
 
 const routeSlugByMediaRoute: Record<string, string> = {
-  'Авачинская бухта': 'avachinskaya-buhta',
   'Бухта Русская': 'buhta-russkaya',
   'Глубоководная рыбалка': 'glubokovodnaya-rybalka',
   'Морская рыбалка': 'rybalka',

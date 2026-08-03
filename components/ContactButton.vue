@@ -1,6 +1,16 @@
 <template>
-  <div class="contact-widget">
-    <button class="btn" :class="buttonClass" type="button" @click="openModal">
+  <div class="contact-widget" :class="{ 'contact-widget-panel': presentation === 'panel' }">
+    <button
+      v-if="presentation === 'panel'"
+      class="detail-panel detail-panel-link contact-panel"
+      type="button"
+      @click="openModal"
+    >
+      <span v-if="eyebrow">{{ eyebrow }}</span>
+      <strong>{{ label }}</strong>
+      <p v-if="description">{{ description }}</p>
+    </button>
+    <button v-else class="btn" :class="buttonClass" type="button" @click="openModal">
       {{ label }}
     </button>
 
@@ -50,10 +60,16 @@ const { $reachGoal } = useNuxtApp()
 const props = withDefaults(defineProps<{
   label?: string
   variant?: 'primary' | 'ghost' | 'dark'
+  presentation?: 'button' | 'panel'
+  eyebrow?: string
+  description?: string
   context?: string
 }>(), {
   label: undefined,
   variant: 'primary',
+  presentation: 'button',
+  eyebrow: undefined,
+  description: undefined,
   context: 'Морская прогулка'
 })
 

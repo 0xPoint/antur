@@ -40,15 +40,9 @@ export interface GuidePage {
 const serviceLinks = {
   seaTours: {
     title: 'Все морские прогулки на Камчатке',
-    text: 'Сравните Авачинскую бухту, остров Старичков, Бухту Русскую и крабовое сафари.',
+    text: 'Сравните остров Старичков, Бухту Русскую и крабовое сафари.',
     path: '/morskie-progulki/',
     eyebrow: 'Маршруты'
-  },
-  avacha: {
-    title: 'Морская прогулка по Авачинской бухте',
-    text: 'Короткий выход на 2,5 часа для первого знакомства с морем и видами Петропавловска.',
-    path: '/morskie-progulki/avachinskaya-buhta/',
-    eyebrow: '2,5 часа'
   },
   starichkov: {
     title: 'Морская прогулка к острову Старичков',
@@ -115,12 +109,6 @@ const serviceLinks = {
     text: 'Когда удобнее планировать рыбалку, какой формат выбрать и как заложить запас по погоде.',
     path: '/rybalka/sezon-rybalki/',
     eyebrow: 'Сезон'
-  },
-  petropavlovsk: {
-    title: 'Морские прогулки из Петропавловска-Камчатского',
-    text: 'Маршруты, которые удобно встроить в поездку с прилетом в Петропавловск-Камчатский.',
-    path: '/morskie-progulki-petropavlovsk-kamchatskiy/',
-    eyebrow: 'Старт'
   }
 } satisfies Record<string, GuidePageLink>
 
@@ -210,7 +198,7 @@ export const guidePages: GuidePage[] = [
         text: 'Не перегружайте себя большими рюкзаками и ценными вещами без защиты от воды. На борту важнее свободные руки, теплая одежда и аккуратное перемещение.'
       }
     ],
-    serviceLinks: [serviceLinks.avacha, serviceLinks.starichkov, serviceLinks.seaTours],
+    serviceLinks: [serviceLinks.starichkov, serviceLinks.seaTours, serviceLinks.russkaya],
     relatedSlugs: ['chto-delat-esli-ukachivaet', 'morskaya-progulka-s-detmi', 'kak-podgotovitsya-turistu-iz-moskvy'],
     faq: [
       {
@@ -248,8 +236,8 @@ export const guidePages: GuidePage[] = [
         text: 'Если вас часто укачивает, скажите об этом при бронировании. Так проще выбрать более спокойный маршрут и обсудить посадку на борту.'
       },
       {
-        title: 'Выберите короткий формат',
-        text: 'Для первого раза обычно спокойнее начинать с Авачинской бухты. Дальние выходы в Бухту Русскую и глубоководная рыбалка требуют большей готовности к морю.'
+        title: 'Обсудите формат заранее',
+        text: 'Самочувствие зависит от длительности, ветра и фактической волны. Позвоните перед бронированием: подскажем условия и подходящий формат без автоматических обещаний.'
       },
       {
         title: 'Средство от укачивания',
@@ -260,12 +248,12 @@ export const guidePages: GuidePage[] = [
         text: 'Лучше смотреть на горизонт, не читать с телефона и заранее сказать экипажу, если стало некомфортно. Капитан оценивает состояние гостей и обстановку на воде.'
       }
     ],
-    serviceLinks: [serviceLinks.avacha, serviceLinks.seaTours, serviceLinks.starichkov],
+    serviceLinks: [serviceLinks.seaTours, serviceLinks.starichkov, serviceLinks.russkaya],
     relatedSlugs: ['chto-vzyat-na-morskuyu-progulku', 'morskaya-progulka-s-detmi', 'kogda-luchshe-ehat-na-kamchatku'],
     faq: [
       {
         question: 'Какой маршрут выбрать, если укачивает?',
-        answer: 'Для первого выхода чаще выбирают короткую прогулку по Авачинской бухте, а дальние маршруты оставляют на следующий раз.'
+        answer: 'Позвоните перед бронированием: подходящий формат зависит от длительности, прогноза и фактического состояния акватории.'
       },
       {
         question: 'Как подготовиться, если обычно укачивает?',
@@ -465,7 +453,7 @@ export const guidePages: GuidePage[] = [
     faq: [
       {
         question: 'Бухта Русская подходит для первого выхода?',
-        answer: 'Если вы хорошо переносите море и готовы к долгому дню, да. Для самого первого короткого знакомства чаще выбирают Авачинскую бухту.'
+        answer: 'Если вы хорошо переносите море и готовы к долгому дню, да. Для первого выхода условия лучше заранее обсудить по телефону.'
       },
       {
         question: 'Можно ли увидеть китов на маршруте?',
@@ -494,8 +482,8 @@ export const guidePages: GuidePage[] = [
     ctaContext: 'Морская прогулка с детьми на Камчатке',
     sections: [
       {
-        title: 'Начните с короткого маршрута',
-        text: 'Для первого выхода с детьми обычно выбирают Авачинскую бухту. Это короткий формат, где проще понять реакцию ребенка на катер, качку и 2,5 часа на воде.'
+        title: 'Обсудите первый выход заранее',
+        text: 'Реакция ребёнка зависит от длительности, качки и погоды. Перед бронированием позвоните: подскажем фактические условия и подходящий формат.'
       },
       {
         title: 'Одежда и вещи',
@@ -510,7 +498,7 @@ export const guidePages: GuidePage[] = [
         text: 'Остров Старичков можно рассматривать, если ребенок уже спокойно переносит катер, качку и 5 часов на воде. Бухта Русская - вариант для более подготовленных гостей.'
       }
     ],
-    serviceLinks: [serviceLinks.avacha, serviceLinks.starichkov, serviceLinks.seaTours],
+    serviceLinks: [serviceLinks.starichkov, serviceLinks.seaTours, serviceLinks.russkaya],
     relatedSlugs: ['chto-vzyat-na-morskuyu-progulku', 'chto-delat-esli-ukachivaet', 'top-5-morskih-marshrutov-kamchatki'],
     faq: [
       {
@@ -519,7 +507,7 @@ export const guidePages: GuidePage[] = [
       },
       {
         question: 'Какой маршрут выбрать с детьми?',
-        answer: 'Для первого раза чаще выбирают Авачинскую бухту, а затем остров Старичков.'
+        answer: 'Позвоните перед бронированием: выбор зависит от возраста ребёнка, опыта поездок, длительности и фактической погоды.'
       },
       {
         question: 'Что взять ребенку на борт?',
@@ -560,7 +548,7 @@ export const guidePages: GuidePage[] = [
         text: 'Летние даты быстро разбирают. Напишите маршрут, дату, состав компании и ожидания: прогулка, киты, рыбалка, дети или отдельный катер.'
       }
     ],
-    serviceLinks: [serviceLinks.petropavlovsk, serviceLinks.seaTours, serviceLinks.charter],
+    serviceLinks: [serviceLinks.seaTours, serviceLinks.charter],
     relatedSlugs: ['kogda-luchshe-ehat-na-kamchatku', 'chto-vzyat-na-morskuyu-progulku', 'morskaya-progulka-s-detmi'],
     faq: [
       {
@@ -583,10 +571,10 @@ export const guidePages: GuidePage[] = [
     eyebrow: 'Маршруты',
     title: 'Топ-5 морских маршрутов Камчатки',
     description:
-      'Какие морские маршруты выбрать на Камчатке: Авачинская бухта, остров Старичков, Бухта Русская, рыбалка и крабовое сафари.',
+      'Какие морские маршруты выбрать на Камчатке: остров Старичков, Бухта Русская, прибрежная и глубоководная рыбалка, крабовое сафари.',
     seoTitle: 'Топ-5 морских маршрутов Камчатки | Что выбрать туристу',
     seoDescription:
-      'Топ-5 морских маршрутов Камчатки: Авачинская бухта, остров Старичков, Бухта Русская, рыбалка, крабовое сафари и выбор по времени.',
+      'Топ-5 морских маршрутов Камчатки: остров Старичков, Бухта Русская, прибрежная и глубоководная рыбалка, крабовое сафари.',
     updatedAt: '2026-07-03',
     heroImage: '/images/antur-kamchatka-sea-stacks-2026-06-24.jpg',
     heroAlt: 'Морские скалы Камчатки на маршруте катера',
@@ -594,32 +582,32 @@ export const guidePages: GuidePage[] = [
     ctaContext: 'Топ морских маршрутов Камчатки',
     sections: [
       {
-        title: '1. Авачинская бухта',
-        text: 'Короткий и понятный маршрут для первого выхода: виды Петропавловска, кекуры, море и небольшая длительность.'
+        title: '1. Остров Старичков',
+        text: 'Пятичасовая прогулка: птицы, скалы, рыбалка, перекус и парной краб на борту. Хороший баланс природы и морского дня.'
       },
       {
-        title: '2. Остров Старичков',
-        text: 'Более насыщенная прогулка: птицы, скалы, рыбалка, обед и парной краб на борту. Хороший баланс природы и комфорта.'
-      },
-      {
-        title: '3. Бухта Русская',
+        title: '2. Бухта Русская',
         text: 'Большой морской день для тех, кто хочет увидеть больше побережья и провести в акватории почти весь день.'
       },
       {
-        title: '4. Морская рыбалка',
-        text: 'Рыбалку выбирают ради процесса, улова и выхода к рабочим точкам. Формат зависит от сезона, погоды и готовности гостей к времени на воде.'
+        title: '3. Морская рыбалка',
+        text: 'Прибрежную рыбалку выбирают ради процесса, улова и выхода к рабочим точкам без глубоководного формата.'
+      },
+      {
+        title: '4. Глубоководная рыбалка',
+        text: 'Дальний рыболовный выход для гостей, готовых к большей продолжительности, рабочим глубинам и открытой воде.'
       },
       {
         title: '5. Крабовое сафари',
         text: 'Крабовое сафари выбирают ради морепродуктов и впечатления на борту. Его удобнее смотреть как дополнение к прогулке, рыбалке или отдельному выходу по погоде.'
       }
     ],
-    serviceLinks: [serviceLinks.seaTours, serviceLinks.avacha, serviceLinks.starichkov, serviceLinks.russkaya, serviceLinks.seaFishing, serviceLinks.crab],
+    serviceLinks: [serviceLinks.seaTours, serviceLinks.starichkov, serviceLinks.russkaya, serviceLinks.seaFishing, serviceLinks.deepFishing, serviceLinks.crab],
     relatedSlugs: ['kogda-luchshe-ehat-na-kamchatku', 'kogda-poyavlyayutsya-kosatki', 'kak-prohodit-vyhod-v-buhtu-russkaya'],
     faq: [
       {
         question: 'Какой маршрут выбрать впервые?',
-        answer: 'Если времени мало, выбирайте Авачинскую бухту. Если хотите больше впечатлений, смотрите остров Старичков.'
+        answer: 'Остров Старичков сочетает умеренную длительность, скалы, птиц, рыбалку и питание на борту. Фактические условия уточняйте по телефону.'
       },
       {
         question: 'Какой маршрут самый насыщенный?',

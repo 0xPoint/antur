@@ -6,7 +6,6 @@ type RouteSlug =
   | 'glubokovodnaya-rybalka'
   | 'buhta-russkaya'
   | 'ostrov-starichkov'
-  | 'avachinskaya-buhta'
 
 type RouteLinkRecord = {
   slug: RouteSlug
@@ -83,21 +82,6 @@ const routeLinkRecords: RouteLinkRecord[] = [
       ru: '/morskie-progulki/ostrov-starichkov/',
       en: '/en/routes/ostrov-starichkov/',
       zh: '/zh/routes/ostrov-starichkov/'
-    }
-  },
-  {
-    slug: 'avachinskaya-buhta',
-    group: 'sea',
-    matchSlugs: ['avachinskaya-buhta'],
-    titles: {
-      ru: 'Авачинская бухта',
-      en: 'Avacha Bay sightseeing tour',
-      zh: '阿瓦恰湾观光游'
-    },
-    paths: {
-      ru: '/morskie-progulki/avachinskaya-buhta/',
-      en: '/en/routes/avachinskaya-buhta/',
-      zh: '/zh/routes/avachinskaya-buhta/'
     }
   }
 ]

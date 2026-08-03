@@ -782,11 +782,6 @@ h3 {
   grid-column: span 3;
 }
 
-.route-grid--featured .route-card:first-child {
-  grid-column: 1 / -1;
-  min-height: 440px;
-}
-
 .route-copy {
   display: flex;
   flex: 1;
@@ -805,21 +800,12 @@ h3 {
   background: linear-gradient(135deg, rgba(143, 216, 207, 0.12), rgba(229, 185, 111, 0.12)), var(--ocean-800);
 }
 
-.route-grid--featured .route-card:first-child .route-card-image {
-  height: clamp(340px, 34vw, 520px);
-  object-position: center 46%;
-}
-
 .route-kicker {
   margin-bottom: 12px;
   color: var(--gold) !important;
   font-size: 13px;
   font-weight: 850;
   text-transform: uppercase;
-}
-
-.route-card-warm {
-  background: linear-gradient(145deg, rgba(255, 107, 43, 0.2), rgba(255, 255, 255, 0.08));
 }
 
 .price {
@@ -1905,6 +1891,20 @@ h3 {
   transform: translateY(-2px);
 }
 
+.contact-widget-panel {
+  display: block;
+  height: 100%;
+}
+
+.contact-panel {
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
 .detail-panel span {
   color: var(--muted);
   font-size: 14px;
@@ -2578,8 +2578,7 @@ h3 {
   }
 
   .route-card,
-  .route-card-featured,
-  .route-grid--featured .route-card:first-child {
+  .route-card-featured {
     grid-column: span 1;
   }
 

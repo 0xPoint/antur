@@ -154,11 +154,10 @@ const { routeLinks } = useRouteLinks()
 const privacyLinkLabel = usePrivacyLink()
 const route = useRoute()
 const { $reachGoal } = useNuxtApp()
-const seaRouteSlugs = ['avachinskaya-buhta', 'ostrov-starichkov', 'buhta-russkaya']
+const seaRouteSlugs = ['ostrov-starichkov', 'buhta-russkaya']
 const fishingRouteSlugs = ['rybalka', 'glubokovodnaya-rybalka']
 const ruSeaSeoNavLinks = [
   { path: '/morskie-progulki/krabovoe-safari/', title: 'Крабовое сафари' },
-  { path: '/morskie-progulki-petropavlovsk-kamchatskiy/', title: 'Из Петропавловска-Камчатского' },
   { path: '/kity-na-kamchatke/', title: 'Киты и косатки' }
 ]
 const ruFishingSeoNavLinks = [
@@ -169,8 +168,7 @@ const routeNavTitles: Record<string, Record<string, string>> = {
     rybalka: 'Морская рыбалка',
     'glubokovodnaya-rybalka': 'Глубоководная рыбалка',
     'buhta-russkaya': 'Бухта Русская',
-    'ostrov-starichkov': 'Остров Старичков',
-    'avachinskaya-buhta': 'Авачинская бухта'
+    'ostrov-starichkov': 'Остров Старичков'
   },
   en: {
     rybalka: 'Coastal fishing',

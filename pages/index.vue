@@ -9,7 +9,7 @@
             <p class="eyebrow">{{ text.home.routesEyebrow }}</p>
             <h2 id="routes-title">{{ text.home.routesTitle }}</h2>
           </div>
-          <div class="route-grid route-grid--featured">
+          <div class="route-grid">
             <RouteCard v-for="offer in homeRouteOffers" :key="offer.slug" :offer="offer" />
           </div>
         </div>
@@ -45,10 +45,17 @@
           </div>
           <div class="route-extra-grid">
             <NuxtLink v-for="link in ruPlanningLinks" :key="link.path" class="detail-panel detail-panel-link" :to="link.path">
-              <span>{{ link.eyebrow }}</span>
-              <strong>{{ link.title }}</strong>
-              <p>{{ link.text }}</p>
+                <span>{{ link.eyebrow }}</span>
+                <strong>{{ link.title }}</strong>
+                <p>{{ link.text }}</p>
             </NuxtLink>
+            <ContactButton
+              presentation="panel"
+              eyebrow="Связь"
+              label="Как забронировать"
+              description="Позвоните по номеру +7 (914) 782-64-46. Уточним наличие мест, погодные условия, ограничения и подходящий формат выхода."
+              context="Бронирование с главной страницы"
+            />
           </div>
         </div>
       </section>
@@ -202,7 +209,6 @@ useFaqSchema()
 
 const showFreshPhotos = true
 const routeOrder = [
-  'avachinskaya-buhta',
   'ostrov-starichkov',
   'buhta-russkaya',
   'rybalka',
@@ -239,12 +245,6 @@ const proofItems = computed(() => [
   }
 ])
 const ruPlanningLinks = [
-  {
-    path: '/morskie-progulki-petropavlovsk-kamchatskiy/',
-    eyebrow: 'Старт',
-    title: 'Морские прогулки из Петропавловска-Камчатского',
-    text: 'Коротко сравните Авачинскую бухту, остров Старичков и Бухту Русскую, если стартуете из города и хотите быстро выбрать формат.'
-  },
   {
     path: '/bezopasnost-na-more/',
     eyebrow: 'Важно',

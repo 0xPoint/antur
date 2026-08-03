@@ -6,8 +6,7 @@ export const ruOnlySeoLandingLinks = [
   { path: '/rybalka/', title: 'Рыбалка на Камчатке' },
   { path: '/rybalka/sezon-rybalki/', title: 'Сезон рыбалки на Камчатке' },
   { path: '/arenda-katera/', title: 'Аренда катера на Камчатке для морского выхода' },
-  { path: '/kity-na-kamchatke/', title: 'Киты на Камчатке' },
-  { path: '/morskie-progulki-petropavlovsk-kamchatskiy/', title: 'Морские прогулки из Петропавловска-Камчатского' }
+  { path: '/kity-na-kamchatke/', title: 'Киты на Камчатке' }
 ]
 
 export const ruOnlyInfoPageLinks = [

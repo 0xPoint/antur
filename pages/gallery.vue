@@ -133,7 +133,6 @@ useHead(() => firstImagePhoto.value
 const routeKeywordSlugs = [
   { slug: 'buhta-russkaya', keywords: ['бухта русская', 'russkaya', '鲁斯卡亚'] },
   { slug: 'ostrov-starichkov', keywords: ['старичков', 'starichkov', '斯塔里奇科夫'] },
-  { slug: 'avachinskaya-buhta', keywords: ['авачин', 'avacha', '阿瓦恰', 'три брата', 'three brothers', '三兄弟'] },
   { slug: 'glubokovodnaya-rybalka', keywords: ['глубок', 'deep-sea', '深海'] },
   { slug: 'rybalka', keywords: ['рыбал', 'fishing', '海钓'] }
 ]
