@@ -1,5 +1,13 @@
 # SEO Notes
 
+## Current verification
+
+- Последний технический аудит: 4 августа 2026 года — [`seo-lighthouse-audit-2026-08-04.md`](./seo-lighthouse-audit-2026-08-04.md).
+- Production `https://anturkamchatka.ru` проверен по всем 45 URL из sitemap: страницы отвечают HTTP 200, имеют один H1, self-canonical, индексируемые robots directives, hreflang и валидный JSON-LD.
+- Production Lighthouse (mobile): главная — Performance 99, Accessibility 100, Best Practices 100, SEO 100; аренда катера — 96 / 100 / 100 / 100.
+- Текущая локальная сборка содержит более свежие сведения о катере, погоде, переносах, возвратах и связи. Эти изменения нельзя считать опубликованными до отдельного production-деплоя.
+- GitHub Pages нормализует домен и trailing slash через HTTP 301, но legacy-страницы из `public/_redirects` пока отдаются как статические HTML-заглушки с HTTP 200.
+
 - Nuxt SSR/hybrid rendering is the default. Keep commercial and local SEO content server-rendered.
 - Route pages live under `/morskie-progulki/:slug/` and `/rybalka/:slug/` and use `TouristTrip` schema.
 - Informational guide pages live under `/guides/:slug/`, render from `data/guide-pages.ts`, and funnel users to commercial service URLs through SSR internal links.

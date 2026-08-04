@@ -407,12 +407,16 @@ export const faqByLocale = {
   ru: ruFaq,
   en: [
     {
-      question: 'What happens if the weather is bad?',
-      answer: 'We check the forecast and sea state before departure. If going out is unsafe or uncomfortable, we will suggest another date or a different format.'
+      question: 'When is the departure decision made, and what happens in bad weather?',
+      answer: 'The captain makes the final decision one day before departure. Wind, high waves or precipitation may change the route or date, and guests are notified the day before.'
     },
     {
       question: 'If the trip is cancelled because of weather, do I lose the prepayment?',
-      answer: 'No. If we reschedule because the weather or sea state is unsafe, we discuss another date or format. The non-refundable rule applies when the guest cancels a reserved seat.'
+      answer: 'No. We first agree on another date or route. If neither option works, we return the prepayment within one day or on the next business day.'
+    },
+    {
+      question: 'What documents are required for the trip?',
+      answer: 'Each passenger needs a passport. There are no customs procedures or separate restrictions for foreign guests. Contact Antur at least one day in advance so the team can handle the necessary clearances.'
     },
     {
       question: 'Can I join without fishing experience?',
@@ -436,7 +440,7 @@ export const faqByLocale = {
     },
     {
       question: 'Is prepayment required?',
-      answer: 'Yes. A 1,000 ₽ prepayment reserves a seat. If the guest cancels the trip, the prepayment is not refunded.'
+      answer: 'Yes. A 1,000 ₽ prepayment reserves a seat. Guests may cancel at any time, but the prepayment is not refunded when the guest cancels. We state this condition in the booking message.'
     },
     {
       question: 'Are whales and orcas guaranteed?',
@@ -444,17 +448,21 @@ export const faqByLocale = {
     },
     {
       question: 'What is the fastest way to book?',
-      answer: 'Call or message us on WhatsApp / MAX: we will confirm available dates, the trip format and the current price.'
+      answer: 'A manager takes calls 24 hours a day. If we miss your call, message us on WhatsApp or MAX so we can confirm the date, route and current price.'
     }
   ],
   zh: [
     {
-      question: '天气不好怎么办？',
-      answer: '出发前我们会检查天气预报和海况。如果出海不安全或体验不好，会建议改期或更换行程形式。'
+      question: '何时决定是否出海，天气不好怎么办？',
+      answer: '船长会在出发前一天作出最终决定。风、大浪或降水可能导致改线或改期，我们会在前一天通知客人。'
     },
     {
       question: '如果因天气取消出海，预付款会损失吗？',
-      answer: '不会。如果因天气或海况不安全由我们建议改期，会协商新的日期或行程形式。预付款不退仅适用于客人主动取消已预留名额。'
+      answer: '不会。我们会先协商新的日期或其他路线；如都不合适，会在一天内或下一个工作日退还预付款。'
+    },
+    {
+      question: '出海需要哪些证件？',
+      answer: '每位乘客都需要护照。客人无需办理海关手续，外国客人也没有单独限制。请至少提前一天联系 Antur，由团队办理所需协调。'
     },
     {
       question: '没有钓鱼经验可以参加吗？',
@@ -478,7 +486,7 @@ export const faqByLocale = {
     },
     {
       question: '需要预付款吗？',
-      answer: '需要。预留名额需支付 1,000 ₽ 预付款。如客人主动取消行程，预付款不退。'
+      answer: '需要。预留名额需支付 1,000 ₽ 预付款。客人可以随时取消，但因客人主动取消时预付款不退；该条件会写在预订消息中。'
     },
     {
       question: '一定能看到鲸鱼或虎鲸吗？',
@@ -486,7 +494,7 @@ export const faqByLocale = {
     },
     {
       question: '最快怎样预订？',
-      answer: '请通过 WhatsApp / MAX 发消息或电话联系我们：我们会确认可选日期、出海形式和当前价格。'
+      answer: '经理全天 24 小时接听电话。如未接通，请通过 WhatsApp 或 MAX 留言，以便确认日期、路线和当前价格。'
     }
   ]
 }
@@ -496,13 +504,15 @@ export const bookingTermsByLocale = {
   en: [
     'Children under 5 join free of charge when accompanied by parents or responsible adults.',
     'Birthday guests, children under 12, and repeat or next-trip bookings receive a 10% discount.',
-    'A 1,000 ₽ prepayment is required to reserve a seat. If the guest cancels the trip, the prepayment is not refunded.',
+    'A 1,000 ₽ prepayment is required to reserve a seat. Guests may cancel at any time, but the prepayment is not refunded when the guest cancels. We state this condition in the booking message.',
+    'If weather cancels the trip, we first agree on another date or route. If neither option works, we return the prepayment within one day or on the next business day.',
     'All passengers and crew members are insured.'
   ],
   zh: [
     '5 岁以下儿童在父母或负责人陪同下免费。',
     '生日客人、12 岁以下儿童，以及再次预订或下一次行程可享 10% 优惠。',
-    '预留名额需支付 1,000 ₽ 预付款。如客人主动取消行程，预付款不退。',
+    '预留名额需支付 1,000 ₽ 预付款。客人可以随时取消，但因客人主动取消时预付款不退；该条件会写在预订消息中。',
+    '如因天气取消，会先协商改期或其他路线；如都不合适，会在一天内或下一个工作日退还预付款。',
     '所有乘客和船员均已投保。'
   ]
 } satisfies Record<LocaleCode, string[]>

@@ -5,8 +5,8 @@ export const boatCharterPage = {
   seoDescription:
     'Private Kamchatka boat charter from Petropavlovsk-Kamchatsky for fishing, Russkaya Bay and coastal sea trips. Motor boat for groups up to 11 guests.',
   description:
-    'Charter the Antur motor boat for your group: coastal or deep-sea fishing, a full day to Russkaya Bay, Starichkov Island or a private sea trip planned around real weather conditions.',
-  updatedAt: '2026-07-20',
+    'Charter the 2025 Antur motor boat for your group: coastal or deep-sea fishing, a full day to Russkaya Bay, Starichkov Island or a private sea trip planned around real weather conditions.',
+  updatedAt: '2026-08-04',
   heroImage: '/images/antur-kamchatka-boat-pier-2026-06-01.jpg',
   heroAlt: 'Antur motor boat at pier 2 in Petropavlovsk-Kamchatsky',
   routeSlugs: ['rybalka', 'glubokovodnaya-rybalka', 'buhta-russkaya', 'ostrov-starichkov'],
@@ -16,8 +16,16 @@ export const boatCharterPage = {
       text: 'Travellers often use “yacht charter” as a general search term. Antur charters a comfortable motor boat rather than a sailing yacht, so the vessel and program are described accurately before booking.'
     },
     {
-      title: 'Private boat from Petropavlovsk-Kamchatsky',
-      text: 'Trips start from pier 2 at 39/2 Industrialnaya Street. The boat can take a private group of up to 11 guests for fishing; capacity and format for sightseeing routes are confirmed for the selected program.'
+      title: 'The Antur boat: Tunets 1000',
+      text: 'Antur is a 2025 Tunets 1000 motor boat, 10 metres long and 3.2 metres wide. We recommend 8–9 guests for comfort and can take a single private group of up to 11.'
+    },
+    {
+      title: 'Heated cabin and facilities',
+      text: 'The enclosed heated cabin has panoramic windows, soft bench seating and a dining table. The boat also has a full-height marine toilet. There are no dedicated sleeping berths.'
+    },
+    {
+      title: 'Fishing equipment on board',
+      text: 'The boat carries a fish finder, electric reels, a gear hauler and spinning rods.'
     },
     {
       title: 'Kamchatka fishing charter',
@@ -29,7 +37,7 @@ export const boatCharterPage = {
     },
     {
       title: 'How to book from abroad',
-      text: 'Send the preferred date, number of guests and main goal of the trip. We confirm availability, current price, boarding details and weather considerations before a 1,000 ₽ reservation prepayment.'
+      text: 'Foreign guests should contact Antur at least one day before the planned trip. A passport is required, there are no separate restrictions for foreign guests, and Antur handles the necessary clearances.'
     }
   ],
   faq: [
@@ -39,7 +47,15 @@ export const boatCharterPage = {
     },
     {
       question: 'How many guests can join a fishing charter?',
-      answer: 'The fishing boat charter is planned for a private group of up to 11 guests.'
+      answer: 'We recommend 8–9 guests for a comfortable trip. A single private group can include up to 11 guests.'
+    },
+    {
+      question: 'Does the boat have a heated cabin and toilet?',
+      answer: 'Yes. The enclosed heated cabin has panoramic windows, soft benches and a dining table. There is also a full-height marine toilet, but no dedicated sleeping berths.'
+    },
+    {
+      question: 'What fishing equipment is carried on board?',
+      answer: 'The boat carries a fish finder, electric reels, a gear hauler and spinning rods.'
     },
     {
       question: 'Where does the boat depart from?',
@@ -51,7 +67,11 @@ export const boatCharterPage = {
     },
     {
       question: 'What happens if the weather is unsafe?',
-      answer: 'The captain may change the route, suggest a calmer format or move the trip to another date. Safety takes priority over the original plan.'
+      answer: 'The captain makes the final decision one day before departure. Wind, high waves or precipitation may change the route or date. If an alternative is unsuitable, the prepayment is returned within one day or on the next business day.'
+    },
+    {
+      question: 'What documents do foreign guests need?',
+      answer: 'Each passenger needs a passport. There are no customs procedures or separate restrictions for foreign guests. Contact Antur at least one day in advance so the team can handle the necessary clearances.'
     }
   ]
 } as const

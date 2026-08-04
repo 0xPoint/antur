@@ -135,6 +135,7 @@
               <img :src="assetPath('/images/max-logo.svg')" width="24" height="24" alt="" aria-hidden="true">
             </a>
           </div>
+          <p class="footer-contact-note">{{ text.contact.availabilityNote }}</p>
         </address>
       </div>
     </footer>

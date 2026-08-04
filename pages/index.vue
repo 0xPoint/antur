@@ -237,7 +237,7 @@ const proofItems = computed(() => [
   },
   {
     title: locale.value === 'en' ? 'Weather-led route' : locale.value === 'zh' ? '路线按天气调整' : 'Маршрут по погоде',
-    text: locale.value === 'en' ? 'If conditions change, we discuss a transfer or calm adjustment of the program in advance.' : locale.value === 'zh' ? '如果条件变化，我们会提前沟通改期或平稳调整行程。' : 'Если условия меняются, заранее обсуждаем перенос или спокойную корректировку программы.'
+    text: locale.value === 'en' ? 'The captain makes the final decision one day before departure and we notify guests of any change.' : locale.value === 'zh' ? '船长会在出发前一天作出最终决定，并通知客人任何变更。' : 'Капитан принимает окончательное решение за сутки до выхода. Об изменениях сообщаем гостям накануне.'
   },
   {
     title: locale.value === 'en' ? 'Direct contact' : locale.value === 'zh' ? '直接联系' : 'Контакт напрямую',

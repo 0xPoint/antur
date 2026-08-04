@@ -2353,6 +2353,12 @@ h3 {
   line-height: 1.2;
 }
 
+.footer-grid .footer-contact-note {
+  max-width: 440px;
+  color: var(--muted);
+  text-align: right;
+}
+
 .messenger-icon {
   display: inline-grid;
   width: 34px;
@@ -2694,6 +2700,10 @@ h3 {
   .footer-contact {
     justify-items: start;
   }
+
+  .footer-grid .footer-contact-note {
+    text-align: left;
+  }
 }
 
 @media (max-width: 680px) {
@@ -2995,6 +3005,10 @@ h3 {
 
   .footer-contact {
     justify-items: center;
+  }
+
+  .footer-grid .footer-contact-note {
+    text-align: center;
   }
 
   .footer-contact-row {
