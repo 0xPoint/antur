@@ -464,7 +464,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Кекуры и океанские виды по маршруту'
       }
     ],
-    reviewIds: ['review-2gis-008', 'review-2gis-009', 'review-2gis-012'],
+    reviewIds: ['review-yandex-017', 'review-yandex-016', 'review-yandex-015'],
     image: '/images/crab-tasting.jpg',
     imageAlt: 'Крабовая дегустация на борту у берегов Камчатки',
     pageImage: '/images/location-starichkov.jpg',
