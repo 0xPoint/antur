@@ -133,11 +133,11 @@ export const ui = {
       max: 'Написать в MAX'
     },
     seasonBanner: {
-      eyebrow: 'До 19 августа',
-      title: '19 августа закрываем набор в группы',
-      text: '19 августа мы закроем набор в сборные группы на все туры сезона 2026. Уточните свободные места, если хотите выйти на морскую прогулку или рыбалку в этом году.',
+      eyebrow: 'До 23 августа',
+      title: '23 августа закрываем набор в группы',
+      text: '23 августа мы закроем набор в сборные группы на все туры сезона 2026. Уточните свободные места, если хотите выйти на морскую прогулку или рыбалку в этом году.',
       cta: 'Уточнить свободные места',
-      context: 'Свободные места до закрытия набора 19 августа',
+      context: 'Свободные места до закрытия набора 23 августа',
       close: 'Закрыть уведомление о завершении набора'
     },
     language: {
@@ -256,11 +256,11 @@ export const ui = {
       max: 'Message on MAX'
     },
     seasonBanner: {
-      eyebrow: 'Until 19 August',
-      title: 'Shared-group bookings close on 19 August',
-      text: 'On 19 August, we will close shared-group bookings for all 2026 tours. Check availability if you want to join a sea tour or fishing trip this year.',
+      eyebrow: 'Until 23 August',
+      title: 'Shared-group bookings close on 23 August',
+      text: 'On 23 August, we will close shared-group bookings for all 2026 tours. Check availability if you want to join a sea tour or fishing trip this year.',
       cta: 'Check availability',
-      context: 'Availability before shared-group bookings close on 19 August',
+      context: 'Availability before shared-group bookings close on 23 August',
       close: 'Close booking deadline notice'
     },
     language: {
@@ -379,11 +379,11 @@ export const ui = {
       max: '通过 MAX 联系'
     },
     seasonBanner: {
-      eyebrow: '截至 8 月 19 日',
-      title: '8 月 19 日停止接受拼团报名',
-      text: '8 月 19 日，我们将停止接受 2026 年所有行程的拼团报名。如计划今年参加海上观光或海钓，请确认余位。',
+      eyebrow: '截至 8 月 23 日',
+      title: '8 月 23 日停止接受拼团报名',
+      text: '8 月 23 日，我们将停止接受 2026 年所有行程的拼团报名。如计划今年参加海上观光或海钓，请确认余位。',
       cta: '查询剩余名额',
-      context: '查询 8 月 19 日停止组团报名之前的余位',
+      context: '查询 8 月 23 日停止组团报名之前的余位',
       close: '关闭报名截止提醒'
     },
     language: {

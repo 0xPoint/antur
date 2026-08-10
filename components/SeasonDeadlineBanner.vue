@@ -6,7 +6,7 @@
       :aria-label="text.seasonBanner.title"
     >
       <div class="season-deadline-accent" aria-hidden="true">
-        <span>19</span>
+        <span>23</span>
         <small>{{ monthLabel }}</small>
       </div>
 
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-const storageKey = 'antur-season-deadline-2026-08-19'
+const storageKey = 'antur-season-deadline-2026-08-23'
 const { locale, text } = useLocaleContent()
 const isVisible = ref(true)
 
