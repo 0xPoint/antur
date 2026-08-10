@@ -143,6 +143,8 @@
     <div class="mobile-cta" :aria-label="text.contact.options">
       <ContactButton :label="text.contact.cta" :context="text.contact.mobileContext" />
     </div>
+
+    <SeasonDeadlineBanner />
   </div>
 </template>
 

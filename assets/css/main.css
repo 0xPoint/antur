@@ -2411,6 +2411,135 @@ h3 {
   width: 100%;
 }
 
+.season-deadline-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) auto;
+  width: min(1040px, calc(100% - 32px));
+  align-items: center;
+  gap: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 185, 111, 0.48);
+  border-radius: 14px;
+  padding: 16px 58px 16px 18px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(229, 185, 111, 0.18), transparent 28%),
+    linear-gradient(115deg, rgba(7, 23, 37, 0.98), rgba(10, 38, 58, 0.98));
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.48);
+  color: var(--white);
+  backdrop-filter: blur(18px);
+  transform: translateX(-50%);
+}
+
+.season-deadline-banner::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gold), var(--crab));
+  content: "";
+}
+
+.season-deadline-accent {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-content: center;
+  border: 1px solid rgba(229, 185, 111, 0.45);
+  border-radius: 12px;
+  background: rgba(229, 185, 111, 0.1);
+  color: var(--gold);
+  text-align: center;
+}
+
+.season-deadline-accent span {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 0.9;
+}
+
+.season-deadline-accent small {
+  margin-top: 5px;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.season-deadline-copy {
+  min-width: 0;
+}
+
+.season-deadline-copy p {
+  margin-bottom: 0;
+}
+
+.season-deadline-copy .season-deadline-eyebrow {
+  margin-bottom: 3px;
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.season-deadline-copy strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.season-deadline-copy > p:last-child {
+  max-width: 650px;
+  color: var(--mist);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.season-deadline-contact .btn {
+  min-width: 210px;
+  min-height: 50px;
+  box-shadow: 0 12px 30px rgba(207, 72, 16, 0.3);
+}
+
+.season-deadline-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--mist);
+  cursor: pointer;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.season-deadline-close:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(255, 255, 255, 0.13);
+  color: var(--white);
+}
+
+.season-banner-enter-active,
+.season-banner-leave-active {
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.season-banner-enter-from,
+.season-banner-leave-to {
+  opacity: 0;
+  transform: translate(-50%, 18px);
+}
+
 .route-card .card-link {
   min-height: 64px;
   align-items: center;
@@ -2737,6 +2866,52 @@ h3 {
     min-height: 64px;
     padding: 10px 16px;
     background: rgba(5, 13, 20, 0.96);
+  }
+
+  .season-deadline-banner {
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    grid-template-columns: 54px minmax(0, 1fr);
+    width: calc(100% - 20px);
+    gap: 12px;
+    border-radius: 12px;
+    padding: 14px 44px 14px 14px;
+  }
+
+  .season-deadline-accent {
+    width: 52px;
+    height: 58px;
+    border-radius: 10px;
+  }
+
+  .season-deadline-accent span {
+    font-size: 25px;
+  }
+
+  .season-deadline-copy strong {
+    font-size: 17px;
+  }
+
+  .season-deadline-copy > p:last-child {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .season-deadline-contact {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .season-deadline-contact .btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .season-deadline-close {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 21px;
   }
 
   /* При открытом меню шапка пиннится к верху экрана, чтобы панель
