@@ -350,7 +350,7 @@ export const routeOffers: RouteOffer[] = [
         caption: 'Крабовое сафари добавляет маршруту гастрономический акцент'
       }
     ],
-    reviewIds: ['review-yandex-019', 'review-2gis-010', 'review-2gis-011'],
+    reviewIds: ['review-yandex-021', 'review-yandex-019', 'review-2gis-010'],
     image: '/images/hero-kamchatka-boat.jpg',
     imageAlt: 'Катер в океане у побережья Камчатки',
     pageImage: '/images/location-buhta-russkaya.jpg',

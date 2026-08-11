@@ -11,6 +11,18 @@ const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/firm/70000001114347561/t
 // владельца исключены.
 export const reviews: Review[] = sortReviewsByDateDesc([
   {
+    id: 'review-yandex-021',
+    name: 'Скрипникова И.',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    source: 'Яндекс.Карты',
+    sourceUrl: yandexReviewsUrl,
+    date: '2026-08-10',
+    rating: 5,
+    text:
+      'Фантастическая экскурсия с «Антуром» навсегда останется в памяти. Брала экскурсию в Бухту Русскую. Понравилось всё. Организация на самом высоком уровне.'
+  },
+  {
     id: 'review-yandex-018',
     name: 'Илона',
     route: 'Морская прогулка',
