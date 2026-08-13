@@ -521,6 +521,9 @@ export const bookingTermsByLocale = {
 // переупорядочивание ruReviews не ломало соответствие переводов.
 const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: string, route: string, text: string, source?: string }>> = {
   en: {
+    'review-yandex-022': { name: 'Daria', route: 'Sea tour', source: 'Yandex Maps', text: 'Thank you, it was an excellent trip! I have something to compare it with: last year I did not see as many beautiful places as I did on this trip. The food was delicious, and I did not get seasick at all on this boat.' },
+    'review-2gis-026': { name: 'Dxop Dxopovich', route: 'Sea tour', source: '2GIS', text: 'I have probably never been on such a wonderful trip. Simply the best captain! The boat is very cosy, comfortable and atmospheric. Highly recommended!' },
+    'review-2gis-027': { name: 'E E', route: 'Sea tour', source: '2GIS', text: 'A perfect route with spectacular views — a great way to combine a sea trip with local history. The trip flew by. Captain Alexander is a true professional. We learned a lot and had a wonderful time. Thank you!' },
     'review-yandex-021': { name: 'Skripnikova I.', route: 'Russkaya Bay', source: 'Yandex Maps', text: 'Our fantastic trip with Antur will stay with me forever. I chose the Russkaya Bay tour and loved everything. The organization was first-class.' },
     'review-yandex-018': { name: 'Ilona', route: 'Sea tour', source: 'Yandex Maps', text: 'It was such a warm, heartfelt trip. Thank you so much. Whales, nature and fishing — it had everything.' },
     'review-yandex-019': { name: 'Anna', route: 'Russkaya Bay', source: 'Yandex Maps', text: 'Yesterday, 9 August, we took a trip to Russkaya Bay — it was excellent. A huge thank you to captain Alexander and Marina for a wonderful day. We saw whales, sea lions and a family of sea otters. I especially want to mention the lunch landing: the place is incredible. Simply amazing, with so many emotions. Highly recommended.' },
@@ -568,6 +571,9 @@ const reviewText: Record<Exclude<LocaleCode, 'ru'>, Record<string, { name: strin
     'review-2gis-024': { name: 'Alexey Vishnyakov', route: 'Coastal fishing', source: '2GIS', text: 'Excellent fishing. Everything was first-class. Thank you, Alexander!' }
   },
   zh: {
+    'review-yandex-022': { name: 'Daria', route: '海上观光', source: 'Yandex 地图', text: '谢谢，这是一次非常棒的行程！我有过类似体验可以比较：去年看到的美景远没有这次多。餐食很美味，而且乘这艘船完全没有晕船。' },
+    'review-2gis-026': { name: 'Dxop Dxopovich', route: '海上观光', source: '2GIS', text: '这可能是我参加过最精彩的一次行程。船长真的非常出色！船上温馨、舒适，很有氛围。推荐给大家！' },
+    'review-2gis-027': { name: 'E E', route: '海上观光', source: '2GIS', text: '路线完美，景色震撼，是把海上观光与当地历史结合起来的好方式。整段行程转眼就结束了。Alexander 船长是真正的专业人士，我们学到了很多，也度过了美好的时光。谢谢！' },
     'review-yandex-021': { name: 'Skripnikova I.', route: '鲁斯卡亚湾', source: 'Yandex 地图', text: '这次精彩的 Antur 行程会永远留在我的记忆中。我选择了鲁斯卡亚湾路线，一切都很喜欢，组织安排非常专业。' },
     'review-yandex-018': { name: 'Ilona', route: '海上观光', source: 'Yandex 地图', text: '这是一次温暖又真诚的行程，非常感谢。鲸鱼、自然风光和钓鱼全都体验到了。' },
     'review-yandex-019': { name: 'Anna', route: '鲁斯卡亚湾', source: 'Yandex 地图', text: '昨天 8 月 9 日，我们参加了前往鲁斯卡亚湾的行程，体验非常棒。非常感谢 Alexander 船长和 Marina 带来美好的一天。我们看到了鲸鱼、海狮和一家海獭。尤其值得一提的是上岸午餐的地点，那里美得不可思议，带来了满满的感动。非常推荐。' },
