@@ -11,6 +11,17 @@ const twoGisReviewsUrl = 'https://2gis.ru/p_kamchatskiy/firm/70000001114347561/t
 // владельца исключены.
 export const reviews: Review[] = sortReviewsByDateDesc([
   {
+    id: 'review-2gis-028',
+    name: 'Ирина Шейда',
+    route: 'Морская прогулка',
+    source: '2ГИС',
+    sourceUrl: twoGisReviewsUrl,
+    date: '2026-08-17',
+    rating: 5,
+    text:
+      '16 августа 2026 года были на отличной прогулке. Огромное спасибо Александру и Марине за вкуснейшую уху и крабов. Мы в восторге от увиденного — всю красоту не описать словами. Советую всем. Незабываемые впечатления!'
+  },
+  {
     id: 'review-yandex-022',
     name: 'Daria',
     route: 'Морская прогулка',
