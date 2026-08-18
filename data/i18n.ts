@@ -638,6 +638,14 @@ export const reviewsByLocale: Record<LocaleCode, Review[]> = {
 
 const tourMediaText = {
   en: {
+    'photo-whale-breach-2026-08-18': { alt: 'Humpback whale breaching near the Kamchatka coast', route: 'Sea tour', caption: 'A rare moment: a humpback whale breaching during the sea tour on 18 August 2026.' },
+    'photo-russkaya-bay-cliffs-2026-08-18': { alt: 'Green mountains and sheer cliffs of Russkaya Bay above the ocean', route: 'Russkaya Bay', caption: 'Clouds lifting from the slopes of Russkaya Bay during the trip on 18 August 2026.' },
+    'photo-bird-rocks-2026-08-18': { alt: 'Sheer sea cliffs with a seabird colony near the Kamchatka coast', route: 'Sea tour', caption: 'Cliffs and seabird colonies along the sea route on 18 August 2026.' },
+    'photo-family-crab-russkaya-2026-08-18': { alt: 'Family with a large platter of freshly cooked Kamchatka crab during a shore stop', route: 'Russkaya Bay', caption: 'A family moment with Kamchatka crab during the shore stop on 18 August 2026.' },
+    'photo-guests-toast-russkaya-2026-08-18': { alt: 'Guests raising their glasses at the shore base in Russkaya Bay', route: 'Russkaya Bay', caption: 'A warm moment over lunch after the sea passage on 18 August 2026.' },
+    'photo-deck-lunch-russkaya-2026-08-18': { alt: 'Table set with appetizers at the shore base against the mountains of Russkaya Bay', route: 'Russkaya Bay', caption: 'Lunch overlooking the mountains of Russkaya Bay on 18 August 2026.' },
+    'photo-sea-stars-2026-08-18': { alt: 'Several sea stars in a guest’s hands during a sea tour', route: 'Sea tour', caption: 'Meeting the marine life during the trip on 18 August 2026.' },
+    'video-guests-ocean-passage-2026-08-17': { alt: 'Guests at the bow during an open-ocean passage off the Kamchatka coast', route: 'Sea tour', caption: 'Open-ocean passage in clear weather on 17 August 2026.' },
     'photo-crab-shore-russkaya-2026-08-02': { alt: 'Guests holding a tray of freshly cooked crab on the shore in Russkaya Bay', route: 'Russkaya Bay', caption: 'Freshly cooked crab during the shore stop on 2 August 2026.' },
     'photo-fishing-catch-cliffs-2026-08-02': { alt: 'Guest showing her fresh catch on the boat deck against coastal cliffs', route: 'Russkaya Bay', caption: 'Fishing near the coastal cliffs during the trip on 2 August 2026.' },
     'photo-sea-lions-boat-view-2026-08-02': { alt: 'Guests watching a large sea lion rookery on the rocks from the bow of the boat', route: 'Russkaya Bay', caption: 'Watching sea lions from the boat on 2 August 2026.' },
@@ -685,6 +693,14 @@ const tourMediaText = {
     'video-ocean-wildlife-2026-05-30': { alt: 'Video of Kamchatka ocean wildlife', route: 'Russkaya Bay' }
   },
   zh: {
+    'photo-whale-breach-2026-08-18': { alt: '座头鲸在堪察加海岸附近跃出水面', route: '海上观光', caption: '难得一见的瞬间：2026 年 8 月 18 日海上观光途中，一头座头鲸跃出水面。' },
+    'photo-russkaya-bay-cliffs-2026-08-18': { alt: '鲁斯卡亚湾碧绿的山峦和耸立在海上的峭壁', route: '鲁斯卡亚湾', caption: '2026 年 8 月 18 日出海时，云雾正从鲁斯卡亚湾的山坡间散去。' },
+    'photo-bird-rocks-2026-08-18': { alt: '堪察加海岸附近栖息着海鸟群的陡峭海崖', route: '海上观光', caption: '2026 年 8 月 18 日海上路线中的峭壁与海鸟栖息地。' },
+    'photo-family-crab-russkaya-2026-08-18': { alt: '一家人在岸上停留时与一大盘刚煮好的堪察加帝王蟹合影', route: '鲁斯卡亚湾', caption: '2026 年 8 月 18 日岸上停留时，一家人与堪察加帝王蟹的合影。' },
+    'photo-guests-toast-russkaya-2026-08-18': { alt: '客人在鲁斯卡亚湾岸边基地的餐桌旁举杯', route: '鲁斯卡亚湾', caption: '2026 年 8 月 18 日海上航程后，大家共进午餐的温馨时刻。' },
+    'photo-deck-lunch-russkaya-2026-08-18': { alt: '鲁斯卡亚湾群山前，岸边基地摆满前菜的餐桌', route: '鲁斯卡亚湾', caption: '2026 年 8 月 18 日，在鲁斯卡亚湾群山景色中享用午餐。' },
+    'photo-sea-stars-2026-08-18': { alt: '海上观光途中，客人手中捧着几只海星', route: '海上观光', caption: '2026 年 8 月 18 日出海途中近距离认识海洋生物。' },
+    'video-guests-ocean-passage-2026-08-17': { alt: '客人站在船头，沿堪察加海岸穿越开阔海域', route: '海上观光', caption: '2026 年 8 月 17 日晴朗天气下的开阔海域航程。' },
     'photo-crab-shore-russkaya-2026-08-02': { alt: '客人在鲁斯卡亚湾岸边端着刚煮好的帝王蟹', route: '鲁斯卡亚湾', caption: '2026 年 8 月 2 日岸上停留时品尝刚煮好的帝王蟹。' },
     'photo-fishing-catch-cliffs-2026-08-02': { alt: '客人在海岸岩壁前的甲板上展示刚钓到的鱼', route: '鲁斯卡亚湾', caption: '2026 年 8 月 2 日行程中在海岸岩壁附近钓鱼。' },
     'photo-sea-lions-boat-view-2026-08-02': { alt: '客人从船头观看岩石上大型海狮栖息地', route: '鲁斯卡亚湾', caption: '2026 年 8 月 2 日从船上观察海狮。' },

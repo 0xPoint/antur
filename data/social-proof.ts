@@ -572,6 +572,77 @@ export const reviews: Review[] = sortReviewsByDateDesc([
 
 export const tourPhotos: TourPhoto[] = [
   {
+    id: 'photo-whale-breach-2026-08-18',
+    src: '/images/antur-kamchatka-whale-breach-2026-08-18.jpg',
+    alt: 'Горбатый кит выпрыгивает из воды у камчатского побережья',
+    route: 'Морская прогулка',
+    caption: 'Редкий кадр: горбатый кит в прыжке во время морской прогулки 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-russkaya-bay-cliffs-2026-08-18',
+    src: '/images/antur-kamchatka-russkaya-bay-cliffs-2026-08-18.jpg',
+    alt: 'Зелёные горы и отвесные скалы Бухты Русской над океаном',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Облачность уходит со склонов Бухты Русской во время выхода 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-bird-rocks-2026-08-18',
+    src: '/images/antur-kamchatka-bird-rocks-2026-08-18.jpg',
+    alt: 'Отвесные морские скалы с колонией птиц у камчатского побережья',
+    route: 'Морская прогулка',
+    caption: 'Скалы и птичьи базары на морском маршруте 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-family-crab-russkaya-2026-08-18',
+    src: '/images/antur-kamchatka-family-crab-russkaya-2026-08-18.jpg',
+    alt: 'Семья с большим блюдом свежесваренного камчатского краба на береговой остановке',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Семейный кадр с камчатским крабом на береговой остановке 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-guests-toast-russkaya-2026-08-18',
+    src: '/images/antur-kamchatka-guests-toast-russkaya-2026-08-18.jpg',
+    alt: 'Гости поднимают бокалы за столом на береговой базе в Бухте Русской',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Тёплый момент общего обеда после морского перехода 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-deck-lunch-russkaya-2026-08-18',
+    src: '/images/antur-kamchatka-deck-lunch-russkaya-2026-08-18.jpg',
+    alt: 'Накрытый стол с закусками на береговой базе на фоне гор Бухты Русской',
+    route: 'Бухта Русская',
+    routeSlug: 'buhta-russkaya',
+    caption: 'Обед с видом на горы Бухты Русской 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'photo-sea-stars-2026-08-18',
+    src: '/images/antur-kamchatka-sea-stars-2026-08-18.jpg',
+    alt: 'Несколько морских звёзд на ладонях гостя во время морской прогулки',
+    route: 'Морская прогулка',
+    caption: 'Знакомство с морскими обитателями во время выхода 18 августа 2026 года.',
+    date: '2026-08-18'
+  },
+  {
+    id: 'video-guests-ocean-passage-2026-08-17',
+    kind: 'video',
+    src: '/videos/antur-kamchatka-guests-ocean-passage-2026-08-17.mp4',
+    videoSrc: '/videos/antur-kamchatka-guests-ocean-passage-2026-08-17.mp4',
+    posterSrc: '/images/video-posters/antur-kamchatka-guests-ocean-passage-2026-08-17.jpg',
+    alt: 'Гости на носу катера во время перехода по открытому океану у берегов Камчатки',
+    route: 'Морская прогулка',
+    caption: 'Переход по открытому океану в ясную погоду 17 августа 2026 года.',
+    date: '2026-08-17'
+  },
+  {
     id: 'photo-crab-shore-russkaya-2026-08-02',
     src: '/images/antur-kamchatka-crab-shore-russkaya-2026-08-02.jpg',
     alt: 'Гости с подносом свежесваренных крабов на берегу в Бухте Русской',
