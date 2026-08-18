@@ -1,0 +1,1 @@
+import{_ as o}from"./iRum48XE.js";import{n as r,f as e,E as t}from"./BszM6EQy.js";import"./BTzBk9J7.js";import"./PgRyh3TT.js";const i=r({__name:"privacy",setup(a){return(n,p)=>(t(),e(o))}});export{i as default};

@@ -1,0 +1,34 @@
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+Sitemap: https://anturkamchatka.ru/sitemap.xml
+Sitemap: https://anturkamchatka.ru/image-sitemap.xml
+Sitemap: https://anturkamchatka.ru/video-sitemap.xml
+Host: anturkamchatka.ru
+
+# AI agent context: https://anturkamchatka.ru/llms.txt
+# Full AI agent context: https://anturkamchatka.ru/llms-full.txt

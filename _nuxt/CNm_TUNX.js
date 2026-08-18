@@ -1,0 +1,1 @@
+import{i as e,_ as p}from"./T3S9BCpo.js";import{n as t,f as i,V as r,E as m}from"./BszM6EQy.js";import"./HD9nH9KB.js";import"./PgRyh3TT.js";import"./BjsCzvKz.js";import"./BSzhSFTI.js";import"./BTzBk9J7.js";const x=t({__name:"o-kompanii",setup(s){const n=e.find(o=>o.slug==="o-kompanii");return(o,_)=>{const a=p;return m(),i(a,{page:r(n)},null,8,["page"])}}});export{x as default};

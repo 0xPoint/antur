@@ -1,0 +1,1 @@
+import{_ as t}from"./DAkHKC-6.js";import{n as r,f as e,E as m}from"./BszM6EQy.js";import"./HD9nH9KB.js";import"./PgRyh3TT.js";import"./BjsCzvKz.js";import"./BSzhSFTI.js";import"./BaMo5JaV.js";import"./BTzBk9J7.js";import"./ynkqEyML.js";const k=r({__name:"[slug]",setup(p){return(n,a)=>{const o=t;return m(),e(o)}}});export{k as default};

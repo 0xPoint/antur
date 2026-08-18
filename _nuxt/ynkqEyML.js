@@ -1,0 +1,1 @@
+import{e as t,r as s}from"./BTzBk9J7.js";import{$ as r,d as o,l as u,p as l}from"./BszM6EQy.js";const p=()=>{const a=r(),e=o(()=>l(a.path)||u);return{reviews:o(()=>s[e.value]),tourPhotos:o(()=>t[e.value])}};export{p as u};
