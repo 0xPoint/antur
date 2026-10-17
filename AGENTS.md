@@ -32,6 +32,13 @@ Build an expandable SSR MVP for sea tours and deep-sea fishing in Kamchatka. The
 - Route/API contracts in `server/api` are placeholders but should remain stable as frontend integration begins.
 - Do not reinvent standard interaction patterns or infrastructure. If a mature, documented solution exists on the web or in the chosen framework, prefer it over custom mechanics unless there is a clear product reason.
 
+## Current Editorial Plan
+
+- The source of truth for the November 2026–May 2027 SEO article calendar is [`docs/seo-editorial-calendar-2026-2027.md`](docs/seo-editorial-calendar-2026-2027.md). Read it before planning or writing new guides. It contains 15 proposed new articles, 9 updates, publication dates, target questions, internal-linking rules, and source links.
+- As of 17 October 2026 this is a plan, not a list of published articles. Monthly search demand has not been verified with Yandex Wordstat or search-console exports. The first research checkpoint in the plan is 29 October 2026; confirm 2027 prices and programs before publishing them.
+- Preserve the distinct intent of existing commercial pages and guides. Do not create duplicate URLs for whales, crab safaris, clothing, or seasickness merely to cover keyword variants. Wildlife sightings, crab activities, catches, and weather-dependent departures must not be guaranteed.
+- A review copy was exported to the user's Desktop as `Антур — план статей 2026–2027.docx`; the Markdown file in this repository is the editable project source.
+
 ## Commands
 
 - `pnpm install`
