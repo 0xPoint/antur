@@ -1,7 +1,7 @@
 <template>
   <Transition name="season-banner">
     <aside
-      v-if="isVisible"
+      v-if="isVisible && !isPlanningVisible"
       class="season-deadline-banner"
       :aria-label="season.title"
     >
@@ -38,7 +38,18 @@
 const { season, seasonPreparation } = useSeasonContent()
 const storageKey = `antur-season-preparation-${seasonPreparation.year}`
 const { text } = useLocaleContent()
+const nuxtApp = useNuxtApp()
 const isVisible = ref(true)
+const isPlanningVisible = ref(false)
+let planningObserver: IntersectionObserver | undefined
+let unhookPageFinish: (() => void) | undefined
+
+const observePlanningSection = () => {
+  planningObserver?.disconnect()
+  isPlanningVisible.value = false
+  const section = document.querySelector('.season-planning')
+  if (section) planningObserver?.observe(section)
+}
 
 const dismiss = () => {
   isVisible.value = false
@@ -58,5 +69,19 @@ onMounted(() => {
   } catch {
     isVisible.value = true
   }
+
+  if ('IntersectionObserver' in window) {
+    planningObserver = new IntersectionObserver(([entry]) => {
+      isPlanningVisible.value = Boolean(entry?.isIntersecting)
+    })
+    observePlanningSection()
+    unhookPageFinish = nuxtApp.hook('page:finish', () => {
+      void nextTick(observePlanningSection)
+    })
+  }
+})
+onBeforeUnmount(() => {
+  planningObserver?.disconnect()
+  unhookPageFinish?.()
 })
 </script>
