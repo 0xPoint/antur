@@ -30,12 +30,12 @@
     <section class="section info-content-section">
       <div class="container info-content-grid">
         <div class="guide-main-content">
-          <aside class="guide-byline" aria-label="Авторство и экспертная проверка">
+          <aside class="guide-byline" :aria-label="page.expertReviewed === false ? 'Авторство' : 'Авторство и экспертная проверка'">
             <div>
               <span>Автор</span>
               <strong>{{ editorialProfile.authorName }}</strong>
             </div>
-            <div>
+            <div v-if="page.expertReviewed !== false">
               <span>Экспертная проверка</span>
               <strong>{{ editorialProfile.reviewerName }}</strong>
               <small>{{ editorialProfile.reviewerRole }}</small>
@@ -154,14 +154,14 @@ useHead({
           '@id': `${homeUrl}#organization`,
           name: editorialProfile.authorName
         },
-        reviewedBy: {
+        reviewedBy: props.page.expertReviewed !== false ? {
           '@type': 'Person',
           name: editorialProfile.reviewerName,
           jobTitle: editorialProfile.reviewerRole,
           worksFor: {
             '@id': `${homeUrl}#organization`
           }
-        },
+        } : undefined,
         publisher: {
           '@id': `${homeUrl}#organization`
         }

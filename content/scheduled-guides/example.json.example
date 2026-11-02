@@ -11,6 +11,7 @@
     "seoTitle": "Заголовок для поиска",
     "seoDescription": "Описание для поиска.",
     "updatedAt": "2027-01-10",
+    "expertReviewed": false,
     "heroImage": "/images/hero-kamchatka-boat.jpg",
     "heroAlt": "Катер у побережья Камчатки",
     "ctaContext": "Вопрос по статье",

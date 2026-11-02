@@ -21,6 +21,7 @@ for (const file of readdirSync(input).filter(name => name.endsWith('.json')).sor
   if (calendarDate.getUTCFullYear() !== year || calendarDate.getUTCMonth() !== month - 1 || calendarDate.getUTCDate() !== day) throw new Error(`${file}: invalid calendar date`)
   const page = entry.page
   if (!page || !mandatory.every(key => typeof page[key] === 'string' && page[key].trim())) throw new Error(`${file}: missing required page fields`)
+  if (page.expertReviewed !== undefined && typeof page.expertReviewed !== 'boolean') throw new Error(`${file}: expertReviewed must be a boolean`)
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(page.slug) || page.path !== `/guides/${page.slug}/`) throw new Error(`${file}: invalid slug or path`)
   if (knownSlugs.has(page.slug)) throw new Error(`${file}: duplicate slug ${page.slug}`)
   knownSlugs.add(page.slug)
@@ -29,7 +30,7 @@ for (const file of readdirSync(input).filter(name => name.endsWith('.json')).sor
   const hasStrings = (item, keys) => item && keys.every(key => typeof item[key] === 'string' && item[key].trim())
   const updated = /^\d{4}-\d{2}-\d{2}$/.test(page.updatedAt) ? new Date(`${page.updatedAt}T00:00:00Z`) : new Date(NaN)
   if (!Number.isFinite(updated.getTime()) || updated.toISOString().slice(0, 10) !== page.updatedAt || !page.sections.every(item => hasStrings(item, ['title', 'text'])) || !page.serviceLinks.every(item => hasStrings(item, ['title', 'text', 'path', 'eyebrow'])) || !page.faq.every(item => hasStrings(item, ['question', 'answer'])) || !page.relatedSlugs.every(item => typeof item === 'string')) throw new Error(`${file}: invalid article content`)
-  if (Date.parse(entry.publishAt) <= now) published.push({ hubSection: entry.hubSection, page: { ...page, publishedAt: entry.publishAt } })
+  if (Date.parse(entry.publishAt) <= now) published.push({ hubSection: entry.hubSection, page: { ...page, expertReviewed: page.expertReviewed === true, publishedAt: entry.publishAt } })
 }
 mkdirSync(dirname(output), { recursive: true })
 writeFileSync(output, `// Generated at build time. Do not edit.\nimport type { GuidePage } from './guide-pages'\n\nexport const scheduledGuides: { hubSection: string; page: GuidePage }[] = ${JSON.stringify(published, null, 2)}\n`)

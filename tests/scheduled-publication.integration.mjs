@@ -27,6 +27,7 @@ try {
     slug: 'buhta-russkaya', path: '/guides/buhta-russkaya/', eyebrow: 'Тест', title: 'UNIQUE_SCHEDULED_INTEGRATION_TITLE',
     description: 'Описание', seoTitle: 'Тестовый материал', seoDescription: 'Описание', updatedAt: '2026-11-02',
     heroImage: '/images/hero-kamchatka-boat.jpg', heroAlt: 'Море', ctaContext: 'Маршрут',
+    expertReviewed: false,
     sections: [{ title: 'Раздел', text: 'UNIQUE_SCHEDULED_INTEGRATION_BODY' }], serviceLinks: [], relatedSlugs: [], faq: []
   }
   writeFileSync(join(sandbox, 'content/scheduled-guides/integration.json'), JSON.stringify({ status: 'approved', publishAt: '2027-03-01T10:00:00+12:00', hubSection: 'Планирование', page }))
@@ -41,6 +42,7 @@ try {
   build('2027-02-28T22:00:00Z')
   const html = readFileSync(join(publicDir, page.path, 'index.html'), 'utf8')
   assert.match(html, /UNIQUE_SCHEDULED_INTEGRATION_BODY/)
+  assert.doesNotMatch(html, /Экспертная проверка|"reviewedBy"/)
   assert.doesNotMatch(html, /\/(en|zh)\/guides\/buhta-russkaya/)
   const languageNav = html.match(/<nav class="language-switcher"[\s\S]*?<\/nav>/)?.[0]
   assert.ok(languageNav, 'Language switcher not found')

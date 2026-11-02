@@ -27,6 +27,7 @@ export interface GuidePage {
   seoDescription: string
   updatedAt: string
   publishedAt?: string
+  expertReviewed?: boolean
   heroImage: string
   heroAlt: string
   ctaLabel?: string
@@ -152,7 +153,7 @@ export const guidePages: GuidePage[] = [
       }
     ],
     serviceLinks: [serviceLinks.seaTours, serviceLinks.starichkov, serviceLinks.russkaya, serviceLinks.fishingHub],
-    relatedSlugs: ['top-5-morskih-marshrutov-kamchatki', 'kak-podgotovitsya-turistu-iz-moskvy', 'kogda-poyavlyayutsya-kosatki'],
+    relatedSlugs: ['kamchatka-na-7-dney-s-morskoy-progulkoy', 'top-5-morskih-marshrutov-kamchatki', 'kak-podgotovitsya-turistu-iz-moskvy', 'kogda-poyavlyayutsya-kosatki'],
     faq: [
       {
         question: 'В каком месяце лучше ехать на морскую прогулку?',
