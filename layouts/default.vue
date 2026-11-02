@@ -247,7 +247,7 @@ const onMobileNavClick = (event: MouseEvent) => {
 }
 
 const trackFooterContact = (goal: string) => {
-  $reachGoal?.(goal, {
+  if (typeof $reachGoal === 'function') $reachGoal(goal, {
     locale: locale.value,
     path: route.fullPath,
     placement: 'footer'

@@ -30,6 +30,8 @@ export const ruOnlyGuideLinks = [
 ]
 
 export const ruOnlyPagePaths = new Set([
+  '/booking-preview/',
+  '/manager/',
   ...ruOnlySeoLandingLinks.map((item) => item.path),
   ...ruOnlyInfoPageLinks.map((item) => item.path),
   ...ruOnlyGuideLinks.map((item) => item.path)

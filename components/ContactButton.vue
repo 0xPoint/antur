@@ -95,7 +95,7 @@ const whatsappHref = computed(() =>
   `https://wa.me/${business.whatsappNumber}?text=${encodeURIComponent(contactMessage.value)}`
 )
 const trackContact = (goal: string) => {
-  $reachGoal?.(goal, {
+  if (typeof $reachGoal === 'function') $reachGoal(goal, {
     context: props.context,
     ...(props.seasonal ? { season: seasonPreparation.year } : {}),
     locale: locale.value,
