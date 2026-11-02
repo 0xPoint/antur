@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import pg from 'pg'
 import { createHold, markVerifiedPayment } from '../server/database/booking/reservations.ts'
 import { saveMonth } from '../server/database/booking/schedule.ts'
+import { getMonthAvailability } from '../server/database/booking/availability.ts'
 
 if (process.env.PGDATABASE !== 'antur_booking_dev_check') throw new Error('Refusing to modify a database other than antur_booking_dev_check')
 const pool = new pg.Pool()
@@ -21,6 +22,11 @@ try {
   const status = await pool.query('SELECT confirmation, route FROM trips WHERE id=$1', [tripId])
   assert.deepEqual(status.rows[0], { confirmation: 'confirmed', route: 'russkaya' })
   const late = await request(1)
+  const available = (await getMonthAvailability(pool, 2027, 7)).find(day => day.trip?.id === String(tripId))
+  assert.equal(available.trip.startsAt, '08:00')
+  assert.equal(available.trip.booked, 6)
+  assert.equal(available.trip.available, 4)
+  assert.equal(JSON.stringify(available).includes('test'), false, 'availability must not expose guest data')
   await pool.query("UPDATE bookings SET hold_expires_at=now()-interval '1 minute' WHERE id=$1", [late.id])
   assert.equal(await markVerifiedPayment(pool, late.id), 'payment_review')
   await saveMonth(pool, Number(boat.rows[0].id), 2027, 7, [1, 2, 15], 'test-manager')

@@ -69,6 +69,8 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
+    bookingDatabaseUrl: '',
+    bookingEnabled: '',
     paymentProviderSecret: '',
     resendApiKey: '',
     resendFromEmail: 'Antur <onboarding@resend.dev>',
