@@ -8,7 +8,7 @@ export async function getMonthAvailability(pool: Pool, year: number, month: numb
     SELECT to_char(d.day,'YYYY-MM-DD') AS date, d.is_open, b.capacity,
       t.id::text AS trip_id, t.route, t.kind, t.confirmation,
       to_char(t.starts_at AT TIME ZONE 'Asia/Kamchatka','HH24:MI') AS starts_at,
-      COALESCE(SUM(bk.guests) FILTER (WHERE bk.status IN ('paid','manual_confirmed')),0)::int AS booked,
+      COALESCE(SUM(bk.guests) FILTER (WHERE bk.status IN ('paid','manual_pending','manual_confirmed')),0)::int AS booked,
       COALESCE(SUM(bk.guests) FILTER (WHERE bk.status='held' AND bk.hold_expires_at > now()),0)::int AS held
     FROM booking_days d JOIN boats b ON b.id=d.boat_id
     LEFT JOIN trips t ON t.day_id=d.id AND t.confirmation <> 'cancelled'
@@ -23,7 +23,7 @@ export async function getMonthAvailability(pool: Pool, year: number, month: numb
       id: row.trip_id as string, route: row.route as string | null,
       kind: row.kind as string, confirmation: row.confirmation as string,
       startsAt: row.starts_at as string, booked: row.booked as number,
-      available: Math.max(0, row.capacity - row.booked - row.held)
+      available: row.kind === 'private' ? 0 : Math.max(0, row.capacity - row.booked - row.held)
     } : null
   }))
 }
