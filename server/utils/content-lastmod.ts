@@ -1,4 +1,5 @@
 import { editorialProfile } from '../../data/editorial'
+import { seasonPreparation } from '../../data/season'
 import { guidePages, type GuidePage } from '../../data/guide-pages'
 import type { SeoLandingPage } from '../../data/seo-pages'
 import { routeOffers } from '../../data/routes'
@@ -20,11 +21,13 @@ const mediaRouteSlug = (item: TourPhoto) => item.routeSlug || routeSlugByMediaRo
 
 export const getGalleryLastmod = () => latestIsoDate(
   fallbackDate,
+  seasonPreparation.updatedAt,
   ...tourPhotos.map((item) => item.date)
 )
 
 export const getRouteLastmod = (offer: RouteOffer) => latestIsoDate(
   fallbackDate,
+  seasonPreparation.updatedAt,
   offer.updatedAt,
   ...reviews.filter((review) => review.routeSlug === offer.slug).map((review) => review.date),
   ...tourPhotos.filter((item) => mediaRouteSlug(item) === offer.slug).map((item) => item.date)
@@ -32,6 +35,7 @@ export const getRouteLastmod = (offer: RouteOffer) => latestIsoDate(
 
 export const getSeoLandingLastmod = (page: SeoLandingPage) => latestIsoDate(
   page.updatedAt,
+  seasonPreparation.updatedAt,
   ...routeOffers.filter((offer) => page.routeSlugs.includes(offer.slug)).map(getRouteLastmod),
   ...(page.photoIds || []).flatMap((id) => {
     const media = tourPhotos.find((item) => item.id === id)
@@ -41,6 +45,7 @@ export const getSeoLandingLastmod = (page: SeoLandingPage) => latestIsoDate(
 
 export const getGuideLastmod = (page: GuidePage) => latestIsoDate(
   page.updatedAt,
+  page.publishedAt?.slice(0, 10),
   editorialProfile.updatedAt
 )
 
@@ -51,6 +56,7 @@ export const getGuideHubLastmod = () => latestIsoDate(
 
 export const getHomeLastmod = () => latestIsoDate(
   fallbackDate,
+  seasonPreparation.updatedAt,
   ...routeOffers.map(getRouteLastmod),
   ...reviews.map((review) => review.date),
   ...tourPhotos.map((item) => item.date)

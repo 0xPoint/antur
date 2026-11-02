@@ -118,7 +118,7 @@ export const ui = {
     nav: { home: 'Главная', routes: 'Морские прогулки', fishing: 'Рыбалка', charter: 'Катер', gallery: 'Фото', reviews: 'Отзывы', booking: 'Бронь', seaRoutesLabel: 'Маршруты морских прогулок', fishingRoutesLabel: 'Разделы рыбалки', menuOpen: 'Открыть меню', menuClose: 'Закрыть меню' },
     contact: {
       cta: 'Связаться',
-      book: 'Забронировать',
+      book: 'Планировать поездку',
       bookTrip: 'Забронировать выход',
       bookContext: 'Вопрос с сайта',
       mobileContext: 'Вопрос с мобильной версии',
@@ -132,14 +132,7 @@ export const ui = {
       whatsapp: 'Написать в WhatsApp',
       max: 'Написать в MAX'
     },
-    seasonBanner: {
-      eyebrow: 'До 23 августа',
-      title: '23 августа закрываем набор в группы',
-      text: '23 августа мы закроем набор в сборные группы на все туры сезона 2026. Уточните свободные места, если хотите выйти на морскую прогулку или рыбалку в этом году.',
-      cta: 'Уточнить свободные места',
-      context: 'Свободные места до закрытия набора 23 августа',
-      close: 'Закрыть уведомление о завершении набора'
-    },
+    seasonBanner: { close: 'Закрыть уведомление о сезоне 2027' },
     language: {
       label: 'Язык сайта',
       current: 'Текущий язык',
@@ -150,13 +143,13 @@ export const ui = {
       title: 'Морские прогулки и глубоководная рыбалка на Камчатке',
       lead: 'Выходы в Тихий океан из Петропавловска-Камчатского: сборные группы от 5 000 ₽ / чел., аренда катера для рыбалки, крабовое сафари, Бухта Русская и остров Старичков. Работаем официально, пассажиры застрахованы.',
       routes: 'Смотреть маршруты',
-      note: 'Ответим по датам, погоде и маршруту',
+      note: 'Поможем спланировать морской день на лето 2027',
       imageAlt: 'Косатки выпрыгивают из воды',
-      context: 'Бронирование из первого экрана'
+      context: 'Планирование лета 2027 с первого экрана'
     },
     home: {
-      seoTitle: 'Морские прогулки и рыбалка на Камчатке | Антур',
-      seoDescription: 'Морские прогулки и рыбалка на Камчатке: Бухта Русская, остров Старичков и крабовое сафари. Старт из Петропавловска, гости застрахованы.',
+      seoTitle: 'Морские прогулки и рыбалка на Камчатке — сезон 2027 | Антур',
+      seoDescription: 'Готовимся к сезону 2027: морские прогулки в Бухту Русскую, к острову Старичков и рыбалка на Камчатке. Поможем выбрать маршрут; условия уточнит менеджер.',
       routesEyebrow: 'Маршруты и цены',
       routesTitle: 'Выберите маршрут',
       details: 'Подробнее',
@@ -164,7 +157,7 @@ export const ui = {
       introTitle: 'Море, вулканы и маршруты с характером',
       introText: 'Подберем маршрут под вашу компанию: короткая прогулка по бухте, рыбалка в океане, выход к острову Старичков или длинный день с Бухтой Русской, крабом и остановками на берегу.',
       introAlt: 'Скалы Камчатки со стороны океана',
-      galleryEyebrow: 'Свежие фото',
+      galleryEyebrow: 'Сезон 2026',
       galleryTitle: 'Океан, краб, рыбалка и Камчатка в одном дне',
       galleryText: 'Живые кадры с маршрутов: косатки, сивучи, скалы, рыбалка, краб и спокойные моменты после выхода.',
       galleryLink: 'Смотреть галерею',
@@ -178,15 +171,15 @@ export const ui = {
       safetyEyebrow: 'Почему спокойно',
       safetyTitle: 'Маршрут ведет капитан, а не расписание',
       safetyText: 'Камчатское море быстро меняется, поэтому программа всегда сверяется с прогнозом, состоянием акватории и составом группы. Если условия требуют корректировки, обсуждаем это заранее.',
-      bookingEyebrow: 'Бронирование',
-      bookingTitle: 'Подберем дату и маршрут',
+      bookingEyebrow: 'Лето 2027',
+      bookingTitle: 'Начните с выбора морского дня',
       bookingText: 'Напишите или позвоните: уточним маршрут, сезонную цену, состав группы и прогноз. Для бронирования места нужна предоплата 1 000 ₽.',
-      bookingButton: 'Записаться',
-      bookingContext: 'Бронирование морской прогулки',
+      bookingButton: 'Обсудить поездку',
+      bookingContext: 'Планирование поездки на лето 2027',
       bookingAlt: 'Крабовая дегустация на борту',
       maxChannelEyebrow: 'Антур в MAX',
       maxChannelTitle: 'Следите за обновлениями в нашем канале',
-      maxChannelText: 'Откройте канал Антур в MAX, чтобы сохранить его и следить за новостями проекта.',
+      maxChannelText: 'Следите за подготовкой к сезону 2027 в канале Антур: будем делиться новостями и подтверждёнными условиями морских выходов.',
       maxChannelButton: 'Перейти в канал в MAX',
       faqEyebrow: 'Часто задаваемые вопросы',
       faqTitle: 'Перед выходом в море',
@@ -227,10 +220,10 @@ export const ui = {
     },
     gallery: {
       seoTitle: 'Фото морских прогулок и рыбалки на Камчатке | Антур',
-      seoDescription: 'Свежие фото из морских прогулок, рыбалки и крабового сафари на Камчатке.',
-      eyebrow: 'Свежие фото',
+      seoDescription: 'Реальные фото и видео сезона 2026: морские прогулки, рыбалка и природа Камчатки. Посмотрите маршруты перед поездкой летом 2027.',
+      eyebrow: 'Архив сезона 2026',
       title: 'Фото из морских выходов',
-      lead: 'Свежие фото и видео с морских прогулок, рыбалки и крабового сафари. Показываем реальные детали маршрутов, природы и отдыха после выхода.',
+      lead: 'Фото и видео реальных выходов сезона 2026. Посмотрите катер, маршруты и жизнь на борту перед поездкой летом 2027. Даты съёмки сохранены; встречи с животными и уловы не гарантированы.',
       dateLocale: 'ru-RU'
     }
   },
@@ -241,7 +234,7 @@ export const ui = {
     nav: { home: 'Home', routes: 'Sea tours', fishing: 'Fishing', charter: 'Charter', gallery: 'Photos', reviews: 'Reviews', booking: 'Booking', seaRoutesLabel: 'Sea tour routes', fishingRoutesLabel: 'Fishing routes', menuOpen: 'Open menu', menuClose: 'Close menu' },
     contact: {
       cta: 'Contact',
-      book: 'Book',
+      book: 'Plan a trip',
       bookTrip: 'Book a trip',
       bookContext: 'Question from the website',
       mobileContext: 'Question from the mobile version',
@@ -255,14 +248,7 @@ export const ui = {
       whatsapp: 'Message on WhatsApp',
       max: 'Message on MAX'
     },
-    seasonBanner: {
-      eyebrow: 'Until 23 August',
-      title: 'Shared-group bookings close on 23 August',
-      text: 'On 23 August, we will close shared-group bookings for all 2026 tours. Check availability if you want to join a sea tour or fishing trip this year.',
-      cta: 'Check availability',
-      context: 'Availability before shared-group bookings close on 23 August',
-      close: 'Close booking deadline notice'
-    },
+    seasonBanner: { close: 'Close the 2027 season notice' },
     language: {
       label: 'Site language',
       current: 'Current language',
@@ -273,13 +259,13 @@ export const ui = {
       title: 'Kamchatka sea tours and deep-sea fishing',
       lead: 'Pacific Ocean boat trips from Petropavlovsk-Kamchatsky: shared groups from 5,000 ₽ per guest, boat charter for fishing, crab safari, Russkaya Bay and Starichkov Island. Official operator, passengers are insured.',
       routes: 'View routes',
-      note: 'We will advise on dates, weather and the right trip format',
+      note: 'We will help you plan a sea day for summer 2027',
       imageAlt: 'Orcas jumping out of the water',
-      context: 'Booking from the hero section'
+      context: 'Summer 2027 planning from the home page'
     },
     home: {
-      seoTitle: 'Sea tours and fishing in Kamchatka | Antur',
-      seoDescription: 'Sea tours, deep-sea fishing, Russkaya Bay, Starichkov Island and crab safari from Petropavlovsk-Kamchatsky. Official operator, insured guests.',
+      seoTitle: 'Kamchatka sea tours and fishing — summer 2027 | Antur',
+      seoDescription: 'Preparing for summer 2027: Kamchatka sea tours to Russkaya Bay and Starichkov Island, and fishing trips. Contact Antur to discuss your route and terms.',
       routesEyebrow: 'Routes and prices',
       routesTitle: 'Choose your sea trip format',
       details: 'Details',
@@ -287,7 +273,7 @@ export const ui = {
       introTitle: 'Ocean, volcanoes and routes with character',
       introText: 'We will choose a format for your group: a short bay tour, ocean fishing, Starichkov Island or a full day to Russkaya Bay with crab, fishing and shore stops.',
       introAlt: 'Kamchatka cliffs seen from the ocean',
-      galleryEyebrow: 'Fresh photos',
+      galleryEyebrow: '2026 season',
       galleryTitle: 'Ocean, crab, fishing and Kamchatka in one day',
       galleryText: 'Real moments from the routes: orcas, sea lions, cliffs, fishing, crab and calm time after the trip.',
       galleryLink: 'View gallery',
@@ -301,15 +287,15 @@ export const ui = {
       safetyEyebrow: 'Why it feels calm',
       safetyTitle: 'The captain leads the route, not the timetable',
       safetyText: 'Kamchatka waters change quickly, so every program is checked against forecast, sea state and group composition. If conditions require a change, we discuss it in advance.',
-      bookingEyebrow: 'Booking',
-      bookingTitle: 'We will choose the date and format',
+      bookingEyebrow: 'Summer 2027',
+      bookingTitle: 'Start by choosing your sea day',
       bookingText: 'Message or call us: we will confirm the route, seasonal price, group size and forecast. A 1,000 ₽ prepayment is required to reserve a seat.',
-      bookingButton: 'Sign up',
-      bookingContext: 'Sea tour booking',
+      bookingButton: 'Discuss your trip',
+      bookingContext: 'Planning a summer 2027 trip',
       bookingAlt: 'Crab tasting on board',
       maxChannelEyebrow: 'Antur on MAX',
       maxChannelTitle: 'Follow Antur updates',
-      maxChannelText: 'Open the Antur channel on MAX to save it and follow project news.',
+      maxChannelText: 'Follow Antur on MAX for preparation updates and confirmed terms for the 2027 sea season.',
       maxChannelButton: 'Open the MAX channel',
       faqEyebrow: 'FAQ',
       faqTitle: 'Before going to sea',
@@ -350,10 +336,10 @@ export const ui = {
     },
     gallery: {
       seoTitle: 'Photos from Kamchatka sea tours and fishing | Antur',
-      seoDescription: 'Fresh photos from sea tours, fishing trips and crab safari in Kamchatka.',
-      eyebrow: 'Fresh photos',
+      seoDescription: 'Real photos and videos from the 2026 Kamchatka sea season. Explore the routes, boat and fishing before planning your summer 2027 trip.',
+      eyebrow: '2026 season archive',
       title: 'Photos from sea trips',
-      lead: 'Fresh photos and videos from sea tours, fishing trips and crab safari. See the routes, wildlife and post-trip moments as they are.',
+      lead: 'Photos and videos from real trips in 2026. Explore the boat, routes and life on board before your summer 2027 visit. Original dates are preserved; sightings and catches are never guaranteed.',
       dateLocale: 'en-US'
     }
   },
@@ -364,7 +350,7 @@ export const ui = {
     nav: { home: '首页', routes: '海上观光', fishing: '海钓', charter: '包船', gallery: '照片', reviews: '评价', booking: '预订', seaRoutesLabel: '海上观光路线', fishingRoutesLabel: '海钓路线', menuOpen: '打开菜单', menuClose: '关闭菜单' },
     contact: {
       cta: '联系',
-      book: '预订',
+      book: '计划旅行',
       bookTrip: '预订出海',
       bookContext: '网站咨询',
       mobileContext: '移动端咨询',
@@ -378,14 +364,7 @@ export const ui = {
       whatsapp: '通过 WhatsApp 联系',
       max: '通过 MAX 联系'
     },
-    seasonBanner: {
-      eyebrow: '截至 8 月 23 日',
-      title: '8 月 23 日停止接受拼团报名',
-      text: '8 月 23 日，我们将停止接受 2026 年所有行程的拼团报名。如计划今年参加海上观光或海钓，请确认余位。',
-      cta: '查询剩余名额',
-      context: '查询 8 月 23 日停止组团报名之前的余位',
-      close: '关闭报名截止提醒'
-    },
+    seasonBanner: { close: '关闭 2027 年旅游季提醒' },
     language: {
       label: '网站语言',
       current: '当前语言',
@@ -396,13 +375,13 @@ export const ui = {
       title: '堪察加海上观光与深海钓鱼',
       lead: '从彼得罗巴甫洛夫斯克-堪察加出发进入太平洋：拼团 5,000 ₽ / 人起，也可包船海钓、帝王蟹体验、鲁斯卡亚湾和斯塔里奇科夫岛。正规运营，乘客已投保。',
       routes: '查看路线',
-      note: '我们会根据日期、天气和出行形式给出建议',
+      note: '帮助您安排 2027 年夏季海上行程',
       imageAlt: '虎鲸跃出水面',
-      context: '首屏预订咨询'
+      context: '首页 2027 年夏季旅行咨询'
     },
     home: {
-      seoTitle: '堪察加海上观光与钓鱼 | Antur',
-      seoDescription: '从彼得罗巴甫洛夫斯克-堪察加出发的海上观光、深海钓鱼、鲁斯卡亚湾、斯塔里奇科夫岛和帝王蟹体验。正规运营，客人已投保。',
+      seoTitle: '堪察加海上观光与海钓 — 2027 年夏季 | Antur',
+      seoDescription: '我们正在筹备 2027 年旅游季：鲁斯卡亚湾、斯塔里奇科夫岛观光和堪察加海钓。请联系 Antur 咨询路线和行程条件。',
       routesEyebrow: '路线与价格',
       routesTitle: '选择出海形式',
       details: '了解详情',
@@ -410,7 +389,7 @@ export const ui = {
       introTitle: '海洋、火山与有性格的路线',
       introText: '我们会按您的团队选择形式：短途海湾观光、海钓、斯塔里奇科夫岛，或前往鲁斯卡亚湾的一整天行程，包含帝王蟹、钓鱼和岸上停留。',
       introAlt: '从海上看到的堪察加海岸岩石',
-      galleryEyebrow: '最新照片',
+      galleryEyebrow: '2026 年旅游季',
       galleryTitle: '一天里看见海洋、帝王蟹、钓鱼和堪察加',
       galleryText: '路线中的真实画面：虎鲸、海狮、岩石、海钓、帝王蟹和出海后的轻松时刻。',
       galleryLink: '查看图库',
@@ -424,15 +403,15 @@ export const ui = {
       safetyEyebrow: '为什么安心',
       safetyTitle: '路线由船长决定，而不是死板时间表',
       safetyText: '堪察加海况变化很快，因此每次行程都会结合天气预报、海况和团队组成确认。如需调整，我们会提前沟通。',
-      bookingEyebrow: '预订',
-      bookingTitle: '我们帮您选择日期和出海形式',
+      bookingEyebrow: '2027 年夏季',
+      bookingTitle: '从选择海上行程开始',
       bookingText: '请发消息或电话联系我们：我们会确认路线、季节价格、团队人数和天气预报。预留名额需支付 1,000 ₽ 预付款。',
-      bookingButton: '报名',
-      bookingContext: '海上行程预订',
+      bookingButton: '咨询旅行计划',
+      bookingContext: '计划 2027 年夏季旅行',
       bookingAlt: '船上的帝王蟹品尝',
       maxChannelEyebrow: 'MAX 上的 Antur',
       maxChannelTitle: '关注 Antur 的最新动态',
-      maxChannelText: '打开并保存 Antur 的 MAX 频道，随时查看项目动态。',
+      maxChannelText: '关注 Antur 的 MAX 频道，了解 2027 年旅游季的筹备进展和已确认的出海条件。',
       maxChannelButton: '打开 MAX 频道',
       faqEyebrow: '常见问题',
       faqTitle: '出海前须知',
@@ -473,10 +452,10 @@ export const ui = {
     },
     gallery: {
       seoTitle: '堪察加海上观光与钓鱼照片 | Antur',
-      seoDescription: '堪察加海上观光、钓鱼和帝王蟹体验的最新照片。',
-      eyebrow: '最新照片',
+      seoDescription: '堪察加 2026 年海上旅游季的真实照片和视频。计划 2027 年夏季旅行前，了解路线、船只和海钓。',
+      eyebrow: '2026 年旅游季影像',
       title: '出海照片',
-      lead: '来自海上观光、海钓和帝王蟹体验的最新照片与视频，展示路线、自然和出海后的真实细节。',
+      lead: '来自 2026 年真实出海行程的照片和视频。在计划 2027 年夏季旅行前，了解船只、路线和船上时光。保留原始拍摄日期；不保证动物观赏和渔获。',
       dateLocale: 'zh-CN'
     }
   }

@@ -27,6 +27,8 @@
       </div>
     </section>
 
+    <SeasonPlanning compact :context="offer.title" />
+
     <section class="section">
       <div class="container route-detail-grid">
         <div>

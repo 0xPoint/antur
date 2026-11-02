@@ -4,6 +4,7 @@ import {
   type GuidePageFaq,
   type GuidePageLink
 } from './guide-pages'
+import { scheduledGuides } from './.generated-scheduled-guides'
 
 export interface GuideHubPanel {
   title: string
@@ -36,7 +37,7 @@ export interface GuideHubPage {
   faq: GuidePageFaq[]
 }
 
-const updatedAt = guidePages.reduce((latest, page) => page.updatedAt > latest ? page.updatedAt : latest, '2026-07-03')
+const updatedAt = guidePages.reduce((latest, page) => [latest, page.updatedAt, page.publishedAt?.slice(0, 10) || ''].sort().at(-1)!, '2026-07-03')
 
 export const guideHubPage: GuideHubPage = {
   path: '/guides/',
@@ -122,4 +123,8 @@ export const guideHubPage: GuideHubPage = {
       answer: 'Нет. Часть материалов помогает впервые выйти в море, а часть нужна тем, кто выбирает между Бухтой Русской, рыбалкой, китами и разными форматами катера.'
     }
   ]
+}
+
+for (const entry of scheduledGuides) {
+  guideHubPage.sections.find((section) => section.eyebrow === entry.hubSection)?.slugs.push(entry.page.slug)
 }

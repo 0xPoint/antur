@@ -1,3 +1,5 @@
+import { scheduledGuides } from './.generated-scheduled-guides'
+
 export interface GuidePageSection {
   title: string
   text: string
@@ -24,6 +26,7 @@ export interface GuidePage {
   seoTitle: string
   seoDescription: string
   updatedAt: string
+  publishedAt?: string
   heroImage: string
   heroAlt: string
   ctaLabel?: string
@@ -670,3 +673,5 @@ export const guidePages: GuidePage[] = [
     ]
   }
 ]
+
+guidePages.push(...scheduledGuides.map((entry) => entry.page))

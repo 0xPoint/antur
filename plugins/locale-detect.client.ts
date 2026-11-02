@@ -7,6 +7,7 @@ import {
 } from '~/data/i18n-base'
 import type { LocaleCode } from '~/data/i18n-base'
 import { ruOnlyPagePaths } from '~/data/ru-only-pages'
+import { isRussianOnlyGuidePath } from '~/utils/guide-locale'
 
 const storageKey = 'antur:locale'
 const explicitChoiceKey = 'antur:locale-explicit'
@@ -57,7 +58,8 @@ export default defineNuxtPlugin(() => {
     return
   }
 
-  if (ruOnlyPagePaths.has(stripLocaleFromPath(route.path))) {
+  const cleanPath = stripLocaleFromPath(route.path)
+  if (ruOnlyPagePaths.has(cleanPath) || isRussianOnlyGuidePath(cleanPath)) {
     window.localStorage.setItem(storageKey, defaultLocale)
     return
   }

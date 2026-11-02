@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "postinstall": "node scripts/prepare-scheduled-guides.mjs",
+    "predev": "node scripts/prepare-scheduled-guides.mjs",
+    "prebuild": "node scripts/prepare-scheduled-guides.mjs",
+    "pregenerate": "node scripts/prepare-scheduled-guides.mjs",
     "dev": "nuxt dev",
     "build": "nuxt build",
     "generate": "nuxt generate",
@@ -10,7 +14,8 @@
     "start": "node .output/server/index.mjs",
     "preview": "nuxt preview",
     "typecheck": "nuxt typecheck",
-    "test": "tsc -p tsconfig.test.json && node --test .tmp/test-dist/tests/*.test.js"
+    "test": "tsc -p tsconfig.test.json && node --test .tmp/test-dist/tests/*.test.js tests/*.test.mjs",
+    "test:publication": "node tests/scheduled-publication.integration.mjs"
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^7.4.7",

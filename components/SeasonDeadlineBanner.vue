@@ -3,23 +3,23 @@
     <aside
       v-if="isVisible"
       class="season-deadline-banner"
-      :aria-label="text.seasonBanner.title"
+      :aria-label="season.title"
     >
       <div class="season-deadline-accent" aria-hidden="true">
-        <span>23</span>
-        <small>{{ monthLabel }}</small>
+        <span>{{ seasonPreparation.year }}</span>
       </div>
 
       <div class="season-deadline-copy">
-        <p class="season-deadline-eyebrow">{{ text.seasonBanner.eyebrow }}</p>
-        <strong>{{ text.seasonBanner.title }}</strong>
-        <p>{{ text.seasonBanner.text }}</p>
+        <p class="season-deadline-eyebrow">{{ season.label }}</p>
+        <strong>{{ season.title }}</strong>
+        <p>{{ season.conditions }}</p>
       </div>
 
       <ContactButton
+        seasonal
         class="season-deadline-contact"
-        :label="text.seasonBanner.cta"
-        :context="text.seasonBanner.context"
+        :label="season.cta"
+        :context="season.context"
       />
 
       <button
@@ -35,25 +35,28 @@
 </template>
 
 <script setup lang="ts">
-const storageKey = 'antur-season-deadline-2026-08-23'
-const { locale, text } = useLocaleContent()
+const { season, seasonPreparation } = useSeasonContent()
+const storageKey = `antur-season-preparation-${seasonPreparation.year}`
+const { text } = useLocaleContent()
 const isVisible = ref(true)
-
-const monthLabel = computed(() => ({
-  ru: 'авг',
-  en: 'Aug',
-  zh: '8 月'
-})[locale.value])
 
 const dismiss = () => {
   isVisible.value = false
 
   if (import.meta.client) {
-    sessionStorage.setItem(storageKey, 'dismissed')
+    try {
+      sessionStorage.setItem(storageKey, 'dismissed')
+    } catch {
+      // Dismissal still works when browser storage is unavailable.
+    }
   }
 }
 
 onMounted(() => {
-  isVisible.value = sessionStorage.getItem(storageKey) !== 'dismissed'
+  try {
+    isVisible.value = sessionStorage.getItem(storageKey) !== 'dismissed'
+  } catch {
+    isVisible.value = true
+  }
 })
 </script>

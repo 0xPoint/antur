@@ -1,4 +1,5 @@
 import { business, faq } from '~/data/site'
+import { seasonContent } from '~/data/season'
 import {
   faqByLocale,
 } from '~/data/i18n'
@@ -189,7 +190,7 @@ export function useFaqSchema() {
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: JSON.stringify(buildFaqSchema(localizedFaq))
+        innerHTML: JSON.stringify(buildFaqSchema([...seasonContent[locale].faq, ...localizedFaq]))
       }
     ]
   })

@@ -1,0 +1,22 @@
+{
+  "status": "draft",
+  "publishAt": "2027-01-14T10:00:00+12:00",
+  "hubSection": "Планирование",
+  "page": {
+    "slug": "example-guide",
+    "path": "/guides/example-guide/",
+    "eyebrow": "Планирование",
+    "title": "Рабочий заголовок",
+    "description": "Краткое описание статьи.",
+    "seoTitle": "Заголовок для поиска",
+    "seoDescription": "Описание для поиска.",
+    "updatedAt": "2027-01-10",
+    "heroImage": "/images/hero-kamchatka-boat.jpg",
+    "heroAlt": "Катер у побережья Камчатки",
+    "ctaContext": "Вопрос по статье",
+    "sections": [{ "title": "Первый раздел", "text": "Текст статьи." }],
+    "serviceLinks": [{ "title": "Морские прогулки", "text": "Выбрать маршрут", "path": "/morskie-progulki/", "eyebrow": "Маршруты" }],
+    "relatedSlugs": [],
+    "faq": [{ "question": "Вопрос?", "answer": "Ответ." }]
+  }
+}

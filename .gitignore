@@ -8,3 +8,4 @@ dist
 !.env.example
 .DS_Store
 .idea
+data/.generated-scheduled-guides.ts

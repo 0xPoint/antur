@@ -21,7 +21,7 @@
           <div>
             <p class="eyebrow">{{ text.contact.eyebrow }}</p>
             <h2 :id="modalTitleId">{{ text.contact.title }}</h2>
-            <p class="contact-lead">{{ text.contact.lead }}</p>
+            <p class="contact-lead">{{ seasonal ? season.contactLead : text.contact.lead }}</p>
           </div>
 
           <div class="contact-options" :aria-label="text.contact.options">
@@ -55,6 +55,7 @@ import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
 const { locale, text } = useLocaleContent()
+const { season, seasonPreparation } = useSeasonContent()
 const route = useRoute()
 const { $reachGoal } = useNuxtApp()
 const props = withDefaults(defineProps<{
@@ -64,12 +65,14 @@ const props = withDefaults(defineProps<{
   eyebrow?: string
   description?: string
   context?: string
+  seasonal?: boolean
 }>(), {
   label: undefined,
   variant: 'primary',
   presentation: 'button',
   eyebrow: undefined,
   description: undefined,
+  seasonal: false,
   context: 'Морская прогулка'
 })
 
@@ -83,14 +86,9 @@ const buttonClass = computed(() => ({
 }))
 const label = computed(() => props.label || text.value.contact.cta)
 const contactMessage = computed(() => {
-  if (locale.value === 'en') {
-    return `Hello! I would like to check dates and availability: ${props.context}.`
-  }
-
-  if (locale.value === 'zh') {
-    return `您好！我想确认日期和名额：${props.context}。`
-  }
-
+  if (props.seasonal) return season.value.message.replace('{context}', props.context)
+  if (locale.value === 'en') return `Hello! I would like to check dates and availability: ${props.context}.`
+  if (locale.value === 'zh') return `您好！我想确认日期和名额：${props.context}。`
   return business.messengerText
 })
 const whatsappHref = computed(() =>
@@ -99,6 +97,7 @@ const whatsappHref = computed(() =>
 const trackContact = (goal: string) => {
   $reachGoal?.(goal, {
     context: props.context,
+    ...(props.seasonal ? { season: seasonPreparation.year } : {}),
     locale: locale.value,
     path: route.fullPath
   })

@@ -28,6 +28,8 @@
       </div>
     </section>
 
+    <SeasonPlanning compact :context="page.ctaContext" />
+
     <section class="section route-extra-section">
       <div class="container route-extra-grid">
         <div v-for="section in page.sections" :key="section.title" class="detail-panel">
@@ -122,6 +124,8 @@
 
 <script setup lang="ts">
 import type { SeoLandingPage } from '~/data/seo-pages'
+import { seasonPreparation } from '~/data/season'
+import { latestIsoDate } from '~/utils/iso-date'
 
 const props = defineProps<{
   page: SeoLandingPage
@@ -205,7 +209,7 @@ useHead({
         name: props.page.title,
         description: props.page.description,
         url: pageUrl,
-        dateModified: props.page.updatedAt,
+        dateModified: latestIsoDate(props.page.updatedAt, seasonPreparation.updatedAt),
         mainEntity: pageRoutes.value.map((offer) => ({
           '@type': 'TouristTrip',
           name: offer.title,

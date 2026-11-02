@@ -26,6 +26,8 @@
       </div>
     </section>
 
+    <SeasonPlanning compact context="Kamchatka private boat charter" />
+
     <section class="section route-extra-section">
       <div class="container route-extra-grid">
         <article v-for="section in page.sections" :key="section.title" class="detail-panel">

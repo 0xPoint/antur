@@ -30,7 +30,7 @@
       <h1 id="hero-title">{{ text.hero.title }}</h1>
       <p class="hero-lead">{{ text.hero.lead }}</p>
       <div class="hero-cta">
-        <ContactButton class="hero-contact" :label="text.contact.bookTrip" :context="text.hero.context" />
+        <ContactButton seasonal class="hero-contact" :label="season.cta" :context="text.hero.context" />
         <NuxtLink class="btn btn-hero-secondary" :to="localePath('/#routes')">{{ text.hero.routes }}</NuxtLink>
         <span class="hero-cta-note">{{ text.hero.note }}</span>
       </div>
@@ -41,6 +41,7 @@
 <script setup lang="ts">
 const { assetPath, webpSrcset } = useImageSources()
 const { localePath, text } = useLocaleContent()
+const { season } = useSeasonContent()
 
 useHead({
   link: [

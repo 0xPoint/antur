@@ -122,9 +122,7 @@ const pageUrl = new URL(assetPath(props.page.path), seo.siteUrl).toString()
 const homeUrl = new URL(assetPath('/'), seo.siteUrl).toString()
 const guideHubUrl = new URL(assetPath(guideHubPage.path), seo.siteUrl).toString()
 const imageUrl = new URL(assetPath(props.page.heroImage), seo.siteUrl).toString()
-const dateModified = props.page.updatedAt > editorialProfile.updatedAt
-  ? props.page.updatedAt
-  : editorialProfile.updatedAt
+const dateModified = [props.page.updatedAt, editorialProfile.updatedAt, props.page.publishedAt?.slice(0, 10) || ''].sort().at(-1)!
 const formattedModifiedDate = new Intl.DateTimeFormat('ru-RU', {
   day: 'numeric',
   month: 'long',
@@ -149,7 +147,7 @@ useHead({
         description: props.page.description,
         image: imageUrl,
         dateModified,
-        datePublished: props.page.updatedAt,
+        datePublished: props.page.publishedAt || props.page.updatedAt,
         mainEntityOfPage: pageUrl,
         author: {
           '@type': 'Organization',

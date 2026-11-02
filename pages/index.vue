@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeroSection />
+    <SeasonPlanning />
 
     <div class="landing-flow landing-flow-primary">
       <section id="routes" class="section routes" aria-labelledby="routes-title">
@@ -50,10 +51,11 @@
                 <p>{{ link.text }}</p>
             </NuxtLink>
             <ContactButton
+              seasonal
               presentation="panel"
               eyebrow="Связь"
               label="Как забронировать"
-              description="Позвоните по номеру +7 (914) 782-64-46. Уточним наличие мест, погодные условия, ограничения и подходящий формат выхода."
+              description="Планируете лето 2027? Позвоните по номеру +7 (914) 782-64-46: обсудим месяц поездки, состав компании и маршрут. Программу и стоимость уточнит менеджер."
               context="Бронирование с главной страницы"
             />
           </div>
@@ -64,8 +66,8 @@
         <div class="container gallery-grid">
           <div class="gallery-copy">
             <p class="eyebrow">{{ text.home.galleryEyebrow }}</p>
-            <h2 id="gallery-title">{{ text.home.galleryTitle }}</h2>
-            <p>{{ text.home.galleryText }}</p>
+            <h2 id="gallery-title">{{ season.archiveTitle }}</h2>
+            <p>{{ season.archiveText }}</p>
             <NuxtLink class="card-link dark-link" :to="localePath('/gallery')">{{ text.home.galleryLink }}</NuxtLink>
           </div>
           <LazyTourMediaSlider
@@ -99,7 +101,7 @@
             <h2 id="booking-title">{{ text.home.bookingTitle }}</h2>
             <p>{{ text.home.bookingText }}</p>
             <div class="booking-actions">
-              <ContactButton :label="text.home.bookingButton" :context="text.home.bookingContext" />
+              <ContactButton seasonal :label="text.home.bookingButton" :context="text.home.bookingContext" />
             </div>
           </div>
           <OptimizedImage
@@ -197,6 +199,7 @@ import { business } from '~/data/site'
 
 const assetPath = useAssetPath()
 const { locale, text, localePath } = useLocaleContent()
+const { season } = useSeasonContent()
 const { routeOffers, faqItems } = useRouteContent()
 const { reviews, tourPhotos } = useSocialProof()
 

@@ -21,10 +21,16 @@ import { findRouteLinkByPath, getLocalizedRoutePathBySlug } from '~/data/route-l
 import { localeOnlyPageLocaleByPath } from '~/data/ru-only-pages'
 import { stripLocaleFromPath } from '~/data/i18n-base'
 import type { LocaleCode } from '~/data/i18n-base'
+import { isRussianOnlyGuidePath } from '~/utils/guide-locale'
 
 const route = useRoute()
 const { locale, locales, localePath, text } = useLocaleContent()
-const pageOnlyLocale = computed(() => localeOnlyPageLocaleByPath.get(stripLocaleFromPath(route.path)))
+const pageOnlyLocale = computed(() => {
+  const path = stripLocaleFromPath(route.path)
+  return isRussianOnlyGuidePath(path)
+    ? 'ru'
+    : localeOnlyPageLocaleByPath.get(path)
+})
 const currentRouteOffer = computed(() => {
   const routeSlug = String(route.params.slug || '')
   const cleanPath = stripLocaleFromPath(route.path)
@@ -33,12 +39,14 @@ const currentRouteOffer = computed(() => {
 })
 
 const targetHref = (targetLocale: LocaleCode) => {
-  if (currentRouteOffer.value) {
-    return getLocalizedRoutePathBySlug(currentRouteOffer.value.slug, targetLocale)
+  if (pageOnlyLocale.value) {
+    return targetLocale === pageOnlyLocale.value
+      ? localePath(route.fullPath, targetLocale)
+      : localePath('/', targetLocale)
   }
 
-  if (pageOnlyLocale.value && targetLocale !== pageOnlyLocale.value) {
-    return localePath('/', targetLocale)
+  if (currentRouteOffer.value) {
+    return getLocalizedRoutePathBySlug(currentRouteOffer.value.slug, targetLocale)
   }
 
   return localePath(route.fullPath, targetLocale)
