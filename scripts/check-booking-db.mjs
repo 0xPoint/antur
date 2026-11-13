@@ -16,6 +16,11 @@ try {
   const contenders = await Promise.allSettled([request(6), request(6)])
   assert.equal(contenders.filter(item => item.status === 'fulfilled').length, 1, 'concurrent holds must not oversell')
   const hold = contenders.find(item => item.status === 'fulfilled').value
+  const selecting = (await getMonthAvailability(pool, 2027, 7)).find(day => day.trip?.id === String(tripId))
+  assert.equal(selecting.trip.route, null)
+  assert.equal(selecting.trip.routeSelecting, true)
+  assert.equal(selecting.trip.held, 6)
+  assert.equal(selecting.trip.available, 5)
   await assert.rejects(request(1, 'fishing'), /ROUTE_CONFLICT/)
   assert.equal(await markVerifiedPayment(pool, hold.id), 'paid')
   assert.equal(await markVerifiedPayment(pool, hold.id), 'paid')
