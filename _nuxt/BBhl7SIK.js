@@ -1,0 +1,1 @@
+import{e as t,r as s}from"./BKsTuGUk.js";import{a1 as r,d as o,l as u,p as l}from"./2ptcut04.js";const p=()=>{const a=r(),e=o(()=>l(a.path)||u);return{reviews:o(()=>s[e.value]),tourPhotos:o(()=>t[e.value])}};export{p as u};
