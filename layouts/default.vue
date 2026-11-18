@@ -140,11 +140,11 @@
       </div>
     </footer>
 
-    <div class="mobile-cta" :aria-label="text.contact.options">
+    <div v-if="!isBookingPreview" class="mobile-cta" :aria-label="text.contact.options">
       <ContactButton :label="text.contact.cta" :context="text.contact.mobileContext" />
     </div>
 
-    <SeasonDeadlineBanner />
+    <SeasonDeadlineBanner v-if="!isBookingPreview" />
   </div>
 </template>
 
@@ -156,6 +156,7 @@ const { locale, localePath, text, businessText } = useLocaleContent()
 const { routeLinks } = useRouteLinks()
 const privacyLinkLabel = usePrivacyLink()
 const route = useRoute()
+const isBookingPreview = computed(() => route.path.replace(/\/$/, '') === '/booking-preview')
 const { $reachGoal } = useNuxtApp()
 const seaRouteSlugs = ['ostrov-starichkov', 'buhta-russkaya']
 const fishingRouteSlugs = ['rybalka', 'glubokovodnaya-rybalka']
@@ -246,7 +247,7 @@ const onMobileNavClick = (event: MouseEvent) => {
 }
 
 const trackFooterContact = (goal: string) => {
-  $reachGoal?.(goal, {
+  if (typeof $reachGoal === 'function') $reachGoal(goal, {
     locale: locale.value,
     path: route.fullPath,
     placement: 'footer'
