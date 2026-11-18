@@ -15,7 +15,7 @@
       <div class="container route-hero-content">
         <nav class="route-breadcrumbs" :aria-label="text.navAria">
           <NuxtLink :to="localePath('/')">{{ businessText.brand }}</NuxtLink>
-          <span>{{ page.title }}</span>
+          <span>{{ page.breadcrumbTitle }}</span>
         </nav>
         <p class="eyebrow">{{ page.eyebrow }}</p>
         <h1>{{ page.title }}</h1>
@@ -27,16 +27,17 @@
     </section>
 
     <section class="section route-extra-section">
-      <div class="container route-extra-grid">
-        <div v-for="panel in page.panels" :key="panel.title" class="detail-panel">
-          <span>{{ page.eyebrow }}</span>
-          <strong>{{ panel.title }}</strong>
-          <p>{{ panel.text }}</p>
-        </div>
+      <div class="container guide-shortcuts">
+        <p>С чего начать</p>
+        <nav aria-label="Разделы полезных советов">
+          <a href="#guide-section-0">Когда ехать</a>
+          <a href="#guide-section-1">Что взять в море</a>
+          <a href="#guide-section-2">Как выбрать маршрут</a>
+        </nav>
       </div>
     </section>
 
-    <section v-for="section in guideSections" :key="section.title" class="section route-extra-section seo-link-section">
+    <section v-for="(section, index) in guideSections" :id="`guide-section-${index}`" :key="section.title" class="section route-extra-section seo-link-section">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">{{ section.eyebrow }}</p>
@@ -56,9 +57,9 @@
     <section class="section route-extra-section seo-link-section">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Хабы</p>
-          <h2>Куда перейти дальше</h2>
-          <p class="hub-section-copy">Если уже выбираете конкретный морской день, переходите в хабы маршрутов, рыбалки и живого сезона.</p>
+          <p class="eyebrow">Морские прогулки</p>
+          <h2>Выберите свой морской день</h2>
+          <p class="hub-section-copy">Посмотрите маршруты, рыбалку и фотографии с наших выходов.</p>
         </div>
         <div class="route-extra-grid">
           <NuxtLink v-for="link in page.serviceLinks" :key="link.path" class="detail-panel detail-panel-link" :to="link.path">
@@ -74,7 +75,7 @@
       <div class="container faq-grid">
         <div>
           <p class="eyebrow">{{ text.home.faqEyebrow }}</p>
-          <h2>Вопросы по гайдам</h2>
+          <h2>Перед поездкой</h2>
         </div>
         <div class="faq-list">
           <article v-for="item in page.faq" :key="item.question" class="faq-item route-faq-item">
@@ -176,3 +177,30 @@ useHead({
   ]
 })
 </script>
+
+<style scoped>
+.guide-shortcuts {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+}
+.guide-shortcuts p {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.guide-shortcuts nav { display: flex; flex-wrap: wrap; gap: 12px; }
+.guide-shortcuts a {
+  padding: 10px 16px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 700;
+}
+.guide-shortcuts a:hover { border-color: var(--gold); }
+.seo-link-section { scroll-margin-top: 90px; }
+</style>

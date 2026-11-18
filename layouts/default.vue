@@ -213,7 +213,7 @@ const footerHubLinks = computed(() => {
     return [
       { path: '/morskie-progulki/', title: 'Морские прогулки' },
       { path: '/rybalka/', title: 'Рыбалка' },
-      { path: '/guides/', title: 'Гайды и советы' },
+      { path: '/guides/', title: 'Полезные советы' },
       { path: '/gallery/', title: 'Галерея сезона' },
       { path: '/o-kompanii/', title: 'О компании' },
       { path: '/bezopasnost-na-more/', title: 'Безопасность на море' }

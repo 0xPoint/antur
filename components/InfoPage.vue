@@ -15,7 +15,7 @@
       <div class="container route-hero-content">
         <nav class="route-breadcrumbs" :aria-label="text.navAria">
           <NuxtLink :to="localePath('/')">{{ businessText.brand }}</NuxtLink>
-          <span>{{ page.title }}</span>
+          <span>{{ page.eyebrow }}</span>
         </nav>
         <p class="eyebrow">{{ page.eyebrow }}</p>
         <h1>{{ page.title }}</h1>
@@ -27,9 +27,9 @@
     </section>
 
     <section class="section route-extra-section">
-      <div class="container route-extra-grid">
+      <div class="container route-extra-grid" :class="{ 'about-panels': page.slug === 'o-kompanii' }">
         <div v-for="panel in page.panels" :key="panel.title" class="detail-panel">
-          <span>{{ page.eyebrow }}</span>
+          <span v-if="page.slug !== 'o-kompanii'">{{ page.eyebrow }}</span>
           <strong>{{ panel.title }}</strong>
           <p>{{ panel.text }}</p>
         </div>
@@ -57,7 +57,7 @@
       <div class="container faq-grid">
         <div>
           <p class="eyebrow">{{ text.home.faqEyebrow }}</p>
-          <h2>{{ text.route.routeFaq }}</h2>
+          <h2>{{ page.slug === 'o-kompanii' ? 'Вопросы об «Антуре»' : text.route.routeFaq }}</h2>
         </div>
         <div class="faq-list">
           <article v-for="item in page.faq" :key="item.question" class="faq-item route-faq-item">
@@ -140,3 +140,9 @@ useHead({
   ]
 })
 </script>
+
+<style scoped>
+@media (min-width: 900px) {
+  .about-panels { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+</style>

@@ -341,7 +341,7 @@ export const seoLandingPages: SeoLandingPage[] = [
         title: 'Вся рыбалка на Камчатке',
         text: 'Сравните прибрежный и глубоководный форматы, цены и длительность выхода.',
         path: '/rybalka/',
-        eyebrow: 'Хаб'
+        eyebrow: 'Рыбалка'
       },
       {
         title: 'Аренда катера',
@@ -435,7 +435,7 @@ export const seoLandingPages: SeoLandingPage[] = [
         title: 'Все морские прогулки на Камчатке',
         text: 'Сравните короткие и большие морские маршруты, цены и длительность выхода.',
         path: '/morskie-progulki/',
-        eyebrow: 'Хаб'
+        eyebrow: 'Маршруты'
       }
     ],
     sections: [

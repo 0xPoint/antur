@@ -1201,16 +1201,16 @@ h3 {
 .reviews-slider-shell {
   position: relative;
   min-width: 0;
+  padding-top: 58px;
 }
 
 .slider-arrow {
   position: absolute;
-  top: 50%;
+  top: 0;
   z-index: 2;
   display: grid;
   width: 44px;
   height: 44px;
-  transform: translateY(-50%);
   place-items: center;
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 8px;
@@ -1223,11 +1223,11 @@ h3 {
 }
 
 .slider-arrow-left {
-  left: -22px;
+  right: 52px;
 }
 
 .slider-arrow-right {
-  right: -22px;
+  right: 0;
 }
 
 .slider-arrow:hover {
@@ -1237,17 +1237,21 @@ h3 {
 
 .reviews-slider {
   display: grid;
-  grid-auto-columns: minmax(320px, 420px);
+  grid-auto-columns: calc((100% - 32px) / 3);
   grid-auto-flow: column;
   gap: 16px;
   overflow-x: auto;
-  padding: 4px 0 18px;
-  scroll-padding-left: max(20px, calc((100vw - 1180px) / 2));
+  padding: 4px 0;
+  scroll-padding-left: 0;
   scroll-snap-type: x mandatory;
-  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  scrollbar-width: none;
   cursor: grab;
   user-select: none;
   -webkit-overflow-scrolling: touch;
+}
+
+.reviews-slider::-webkit-scrollbar {
+  display: none;
 }
 
 .reviews-slider.dragging {
@@ -2658,6 +2662,9 @@ h3 {
 }
 
 @media (max-width: 960px) {
+  .reviews-slider {
+    grid-auto-columns: calc((100% - 16px) / 2);
+  }
   .header-tools {
     gap: 8px;
   }
@@ -3130,7 +3137,7 @@ h3 {
   }
 
   .reviews-slider {
-    grid-auto-columns: minmax(280px, 86vw);
+    grid-auto-columns: 100%;
   }
 
   .reviews-head {
@@ -3138,15 +3145,16 @@ h3 {
   }
 
   .slider-arrow-left {
-    left: 8px;
+    left: auto;
+    right: 52px;
   }
 
   .slider-arrow-right {
-    right: 8px;
+    right: 0;
   }
 
   .slider-arrow {
-    display: none;
+    display: grid;
   }
 
   .site-footer {
