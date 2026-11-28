@@ -1,0 +1,1 @@
+const i=/^(\d{4})-(\d{2})-(\d{2})$/,s=e=>{const o=i.exec(e);if(!o)throw new TypeError(`Invalid media date: ${e}`);const[,T,c,d]=o,n=Number(T),r=Number(c),a=Number(d),t=new Date(Date.UTC(n,r-1,a));if(t.getUTCFullYear()!==n||t.getUTCMonth()!==r-1||t.getUTCDate()!==a)throw new TypeError(`Invalid media date: ${e}`);return`${e}T00:00:00+12:00`};export{s as t};
